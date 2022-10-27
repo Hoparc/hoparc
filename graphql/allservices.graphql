@@ -1,0 +1,23 @@
+fragment service on Service {
+  image {
+      asset {
+        url
+      }
+    }
+  name
+  slug {
+    current
+  }
+  category {
+    slug {
+      current
+    }
+  }
+  description
+}
+
+query allServices {
+    allService {
+        ...service
+    }
+}
