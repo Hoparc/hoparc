@@ -1,0 +1,24 @@
+fragment product on Product {
+  image {
+      asset {
+        url
+      }
+  }
+  name
+  slug {
+    current
+  }
+  category {
+    name
+    slug {
+      current
+    }
+  }
+  detailsRaw
+}
+
+query allProducts {
+    allProduct {
+        ...product
+    }
+}
