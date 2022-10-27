@@ -1,0 +1,19 @@
+fragment location on Location {
+  address
+  phone
+  fax
+  email
+  sunday
+  monday
+  tuesday
+  wednesday
+  thursday
+  friday
+  saturday
+}
+
+query allLocations {
+    allLocation {
+        ...location
+    }
+}
