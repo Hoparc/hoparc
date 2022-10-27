@@ -1,0 +1,24 @@
+fragment blog on Blog {
+  image {
+      asset {
+        url
+      }
+  }
+  title
+  slug {
+    current
+  }
+  category {
+    name
+    slug {
+      current
+    }
+  }
+  textRaw
+}
+
+query allBlogs {
+    allBlog {
+        ...blog
+    }
+}
