@@ -9,6 +9,7 @@ fragment service on Service {
     current
   }
   category {
+    name
     slug {
       current
     }
