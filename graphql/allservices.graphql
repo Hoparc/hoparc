@@ -15,6 +15,7 @@ fragment service on Service {
     }
   }
   description
+  detailsRaw
 }
 
 query allServices {
