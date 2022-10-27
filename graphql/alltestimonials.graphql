@@ -1,0 +1,15 @@
+fragment testimonial on Testimonial {
+  image {
+      asset {
+        url
+      }
+    }
+  name
+  testimonial
+}
+
+query allTestimonials {
+    allTestimonial {
+        ...testimonial
+    }
+}
