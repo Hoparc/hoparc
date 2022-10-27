@@ -9,11 +9,13 @@ fragment service on Service {
     current
   }
   category {
+    name
     slug {
       current
     }
   }
   description
+  detailsRaw
 }
 
 query allServices {
