@@ -33,15 +33,6 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "category",
-      title: "Category",
-      type: "reference",
-      description:
-        "Please provide the category for this product or provide a new category below.",
-      to: [{ type: "productCategory" }],
-      validation: (Rule) => Rule.required(),
-    },
-    {
       name: "details",
       title: "Details",
       type: "array",

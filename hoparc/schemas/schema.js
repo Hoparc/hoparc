@@ -7,9 +7,7 @@ import blog from "./blog";
 import blogCategory from "./blog.category";
 import location from "./location";
 import product from "./product";
-import productCategory from "./product.category";
 import service from "./service";
-import serviceCategory from "./service.category";
 import testimonial from "./testimonial";
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -24,9 +22,7 @@ export default createSchema({
     blogCategory,
     location,
     product,
-    productCategory,
     service,
-    serviceCategory,
     testimonial,
   ]),
 });
