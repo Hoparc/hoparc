@@ -1,59 +1,59 @@
+import Image from "next/image";
+
 function Footer() {
   return (
-    <footer className="bg-slate-600">
-      <div className="grid grid-cols-1 gap-8 py-8 px-6 md:grid-cols-3">
-        <div>
-          <h2 className="mb-6 text-sm font-semibold text-white uppercase">
-            Address
-          </h2>
-          <address className="text-white">
-            3006 Hwy. 49, Ste. C
-            <span className="block mt-4">Cool, CA 95614</span>
+    <footer className="bg-blue-550 fixed bottom-0 w-full">
+      <div className="grid md:grid-cols-3 gap-2 py-8 px-8 grid-cols-1">
+        <div className="flex flex-col md:items-center">
+          <div className="flex flex-row items-center justify-start mb-7">
+            <Image src="/images/footer/logo.png" alt="hoparc logo" width={100} height={100} />
+
+            <div className="md:flex flex-col justify-center pl-2">
+              <h2 className="font-merriweather font-bold text-2xl	flex-1 w-64 text-white capitalize">
+                hands on physiotherapy
+              </h2>
+
+              <h3 className="font-merriweather text-xs font-regular flex-1 w-64 text-green-350 uppercase ">
+                rehab centre - pelvic health
+              </h3>
+            </div>
+          </div>
+          <address className="text-white flex flex-col justify-center">
+            <p>338 Copper Creek Dr,</p>
+            <p>Markham On L6B 1N8, Canada</p>
+            <p className="underline"><a href="tel: +1(289) 554-9090">Phone: +1 (289) 554-9090</a></p>
+            <p className="underline"><a href="fax: +1(905) 201-9909">Fax: +1 (905) 201-9909</a></p>
+            <a className="underline" href="mailto:info@hoparc.com?subject=Book%20appointment">info@hoparc.com</a>
           </address>
         </div>
-        <div>
-          <h2 className="mb-6 text-sm font-semibold text-white uppercase">
-            Hours
+        <div className="md:flex flex-col items-center">
+          <h2 className="mb-6 test-lg font-semibold text-white uppercase">
+            Hours of operations
           </h2>
           <ul className="text-white">
-            <li className="mb-4">24 Hours</li>
-            <li className="mb-4">7 Days A Week</li>
+            <li>Sunday:</li>
+            <li>Monday:</li>
+            <li>Tuesday:</li>
+            <li>Wednesday:</li>
+            <li>Thursday:</li>
+            <li>Friday:</li>
+            <li>Saturday:</li>
           </ul>
         </div>
-        <div>
-          <h2 className="mb-6 text-sm font-semibold text-white uppercase">
-            Contact
-          </h2>
-          <ul>
-            <li className="mb-4 text-white">Kalin - (925) 360-5251</li>
-            <li className="mb-4 text-white">Mike - (925) 639-8946</li>
-            <li className="text-white my-2">
-              Email:{" "}
-              <a
-                href="mailto:info@coolgymhwy49.com?subject=New%20Inquiry"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="text-white underline hover:text-slate-700"
-              >
-                info@coolgymhwy49.com
-              </a>
-            </li>
+        <div className="md:flex flex-col items-center">
+          <h1 className="mb-6 test-lg font-semibold text-white uppercase">
+            Quick Links
+          </h1>
+          <ul className="md:flex flex-col items-between text-white">
+            <li>Privacy Policy</li>
+            <li>Terms Of Use</li>
+
           </ul>
         </div>
       </div>
-      <div className="py-6 px-4 md:flex md:items-center md:justify-between bg-blue-750">
+      <div className="py-6 px-4 md:flex md:items-center md:justify-between bg-blue-850">
         <p className="text-white">
           Designed and Developed by{" "}
-          <a
-            className="text-white hover:text-slate-800"
-            href="https://andrewfinsand.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="open link to andrew finsand portfolio"
-          >
-            Andrew Finsand
-          </a>
-          {" & "}
           <a
             className="text-white hover:text-slate-800"
             href="https://alvinquach.me"
@@ -62,15 +62,25 @@ function Footer() {
             aria-label="open link to alvin quach portfolio"
           >
             Alvin Quach
+            {" & "}
+          </a>
+          <a
+            className="text-white hover:text-slate-800"
+            href="https://seansipus.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="open link to sean sipus portfolio"
+          >
+            Sean Sipus
           </a>
           <span className="ml-2">&copy;</span>
         </p>
         <div className="mt-4 md:mt-2">
           <a
-            href="https://www.facebook.com/Cool-Gym-100173632525448"
+            href="https://www.facebook.com/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="open link to cool gym hwy 49 facebook"
+            aria-label="open link to hands on physiotherapy facebook"
             className="text-white hover:text-slate-800"
           >
             <svg

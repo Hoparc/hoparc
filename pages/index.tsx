@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width" />
       </Head>
       <Navbar />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
