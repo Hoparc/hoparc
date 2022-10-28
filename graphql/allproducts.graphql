@@ -8,12 +8,6 @@ fragment product on Product {
   slug {
     current
   }
-  category {
-    name
-    slug {
-      current
-    }
-  }
   detailsRaw
 }
 

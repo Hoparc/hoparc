@@ -14,7 +14,7 @@ fragment blog on Blog {
       current
     }
   }
-  textRaw
+  blogRaw
 }
 
 query allBlogs {
