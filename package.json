@@ -3,13 +3,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
     "@formspree/react": "^2.4.0",
     "@googlemaps/react-wrapper": "^1.1.35",
-    "@graphql-codegen/cli": "^2.13.7",
+    "@graphql-codegen/cli": "^2.13.8",
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.12",
     "@react-google-maps/api": "^2.13.1",
@@ -23,6 +24,10 @@
     "react-icons": "^4.6.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.13.8",
+    "@graphql-codegen/client-preset": "1.1.1",
+    "@graphql-codegen/introspection": "2.2.1",
+    "@graphql-codegen/typescript": "^2.8.0",
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
