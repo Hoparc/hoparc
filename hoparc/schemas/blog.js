@@ -54,8 +54,8 @@ export default {
       ],
     },
     {
-      name: "text",
-      title: "Text",
+      name: "blog",
+      title: "Blog",
       type: "array",
       description: "Please provide your blog here.",
       of: [{ type: "block" }],
