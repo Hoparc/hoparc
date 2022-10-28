@@ -8,12 +8,6 @@ fragment service on Service {
   slug {
     current
   }
-  category {
-    name
-    slug {
-      current
-    }
-  }
   description
   detailsRaw
 }
