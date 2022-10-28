@@ -17,13 +17,21 @@ export default [
     href: "/services",
     current: "false",
     dropdownOptions: [
-      { id: 2, name: "Physiotherapy", href: "/" },
-      { id: 3, name: "Pelvic Health Physiotherapy", href: "/" },
-      { id: 4, name: "Massage Therapy", href: "/" },
-      { id: 5, name: "Thai Massage", href: "/" },
-      { id: 6, name: "Chiropractor", href: "/" },
-      { id: 7, name: "Acupuncture", href: "/" },
-      { id: 8, name: "Hot Stone Physiotherapy", href: "/" },
+      { id: 2, name: "Physiotherapy", href: "/physiotherapy" },
+      {
+        id: 3,
+        name: "Pelvic Health Physiotherapy",
+        href: "/pelvic-health-physiotherapy",
+      },
+      { id: 4, name: "Massage Therapy", href: "/massage-therapy" },
+      { id: 5, name: "Thai Massage", href: "/thai-massage" },
+      { id: 6, name: "Chiropractor", href: "/chiropractor" },
+      { id: 7, name: "Acupuncture", href: "/acupuncture" },
+      {
+        id: 8,
+        name: "Hot Stone Physiotherapy",
+        href: "/hot-stone-physiotherapy",
+      },
     ],
   },
   {

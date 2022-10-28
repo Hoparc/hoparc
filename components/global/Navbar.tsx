@@ -54,7 +54,7 @@ function Navbar() {
                           </MenuLink>
                         ) : (
                           <Menu as="div" className=" relative">
-                            <Menu.Button className="relative flex px-3 py-2 rounded-md text-sm text-blue-350 font-medium hover:text-blue-750">
+                            <Menu.Button className="relative flex px-3 py-2 rounded-md text-sm text-blue-350 font-medium">
                               {item.name}
                               <HiChevronDown
                                 className="block h-6 w-6 ml-2 text-accent"
@@ -105,7 +105,7 @@ function Navbar() {
             leaveTo="transform opacity-0 scale-95"
           >
             <Disclosure.Panel className="lg:hidden relative">
-              <div className="px-2 pt-2 pb-3 absolute bg-blue-500 w-full">
+              <div className="px-2 pt-2 pb-3 absolute bg-blue-350 text-blue-900 w-full">
                 {navigation.map((item) => (
                   <div key={item.id}>
                     {!item.dropdownOptions ? (
@@ -113,7 +113,7 @@ function Navbar() {
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="text-white hover:bg-slate-700 hover:text-white block px-3 rounded-md text-base font-medium"
+                        className="bg-blue-350 text-white hover:bg-green-350 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                       >
                         {item.name}
                       </Disclosure.Button>
@@ -121,7 +121,7 @@ function Navbar() {
                       <>
                         <Disclosure.Button
                           key={item.name}
-                          className="text-white hover:bg-slate-700 hover:text-white block px-3 rounded-md text-base font-medium"
+                          className="text-white hover:bg-green-350 block px-3 py-2 rounded-md text-base font-medium"
                         >
                           {item.name}
                         </Disclosure.Button>
@@ -131,7 +131,7 @@ function Navbar() {
                             key={index}
                             as="a"
                             href={`/${item.href}`}
-                            className="block ml-4 px-2 rounded-md text-base font-medium text-white hover:bg-slate-700 hover:text-white"
+                            className="block ml-4 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-green-350"
                           >
                             {option.name}
                           </Disclosure.Button>
