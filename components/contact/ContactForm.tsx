@@ -7,7 +7,6 @@ import { Transition } from "@headlessui/react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import 'react-phone-number-input/style.css'
 
-
 type FormValues = {
   firstName: string;
   lastName: string;
@@ -18,14 +17,14 @@ type FormValues = {
 };
 
 function ContactForm() {
-  const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
+  const [formSpreeState, sendToFormSpree] = useFormSpree("mdobokkz");
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-    control
+    control,
   } = useForm({
     defaultValues: {
       firstName: "",
@@ -93,16 +92,17 @@ function ContactForm() {
               />
               {errors.email && <span>This field is required</span>}
 
-              
               <label htmlFor="phone"></label>
-              <Controller {...register("phone", { required: true })}
+              <Controller
+                {...register("phone", { required: true })}
                 name="phone"
                 control={control}
                 rules={{
-                  validate: (value) => isValidPhoneNumber(value)
+                  validate: (value) => isValidPhoneNumber(value),
                 }}
                 render={({ field: { onChange, value } }) => (
-                  <PhoneInput className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-slate-400 focus:border-slate-400"
+                  <PhoneInput
+                    className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-slate-400 focus:border-slate-400"
                     placeholder="Phone Number"
                     value={value}
                     onChange={onChange}
@@ -111,9 +111,10 @@ function ContactForm() {
                   />
                 )}
               />
-      
-        {errors.phone && <span>This field is required</span>}
-        
+
+              {errors.phone && (
+                <span>Please provide a valid phone number.</span>
+              )}
             </div>
             <label htmlFor="subject" className="sr-only">
               Subject
@@ -134,7 +135,7 @@ function ContactForm() {
             </label>
             <textarea
               rows={5}
-              placeholder="Hi, I'd love to get to know more about the gym!"
+              placeholder="Hi, I'd like to book an appointment!"
               className="rounded-md border border-gray-200 px-4 py-2 outline-none hover:border-gray-400 focus:border-gray-400 md:col-span-2"
               {...register("message", {
                 required: true,
@@ -144,16 +145,16 @@ function ContactForm() {
             />
             {errors.message && <span>This field is required</span>}
             <div className="flex justify-end gap-2 mt-6">
+              <input
+                type="submit"
+                className="rounded-lg bg-blue-500 px-6 py-2 font-bold uppercase text-white hover:bg-blue-700 w-1/2"
+              />
               <button
                 onClick={handleClick}
-                className="rounded-lg bg-red-700 px-6 py-2 font-bold uppercase text-white hover:bg-red-600"
+                className="rounded-lg bg-red-700 px-6 py-2 font-bold uppercase text-white hover:bg-red-600 w-1/2"
               >
                 Reset
               </button>
-              <input
-                type="submit"
-                className="rounded-lg bg-blue-750 px-6 py-2 font-bold uppercase text-white hover:bg-blue-700"
-              />
             </div>
           </div>
         </form>
@@ -186,9 +187,7 @@ function ContactForm() {
             leaveTo="transform opacity-0 scale-95"
           >
             <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white">
-              <div className="flex flex-col md:flex-row">
-               
-              </div>
+              <div className="flex flex-col md:flex-row"></div>
 
               <p className="mt-10 text-xl text-accent font-bold">
                 MESSAGE SENT!
@@ -214,7 +213,6 @@ function ContactForm() {
             leaveTo="transform opacity-0 scale-95"
           >
             <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white bg-opacity-90">
-              
               <p className="mt-10 text-xl text-accent font-bold">
                 We apologize for the inconvenience, something went wrong.
               </p>

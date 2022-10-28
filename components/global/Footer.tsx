@@ -2,11 +2,16 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <footer className="bg-blue-550 fixed bottom-0 w-full">
+    <footer className="bg-blue-550 w-full">
       <div className="grid md:grid-cols-3 gap-2 py-8 px-8 grid-cols-1">
         <div className="flex flex-col md:items-center">
           <div className="flex flex-row items-center justify-start mb-7">
-            <Image src="/images/footer/logo.png" alt="hoparc logo" width={100} height={100} />
+            <Image
+              src="/images/footer/logo.png"
+              alt="hoparc logo"
+              width={100}
+              height={100}
+            />
 
             <div className="md:flex flex-col justify-center pl-2">
               <h2 className="font-merriweather font-bold text-2xl	flex-1 w-64 text-white capitalize">
@@ -21,9 +26,18 @@ function Footer() {
           <address className="text-white flex flex-col justify-center">
             <p>338 Copper Creek Dr,</p>
             <p>Markham On L6B 1N8, Canada</p>
-            <p className="underline"><a href="tel: +1(289) 554-9090">Phone: +1 (289) 554-9090</a></p>
-            <p className="underline"><a href="fax: +1(905) 201-9909">Fax: +1 (905) 201-9909</a></p>
-            <a className="underline" href="mailto:info@hoparc.com?subject=Book%20appointment">info@hoparc.com</a>
+            <p className="underline">
+              <a href="tel: +1(289) 554-9090">Phone: +1 (289) 554-9090</a>
+            </p>
+            <p className="underline">
+              <a href="fax: +1(905) 201-9909">Fax: +1 (905) 201-9909</a>
+            </p>
+            <a
+              className="underline"
+              href="mailto:info@hoparc.com?subject=Book%20appointment"
+            >
+              info@hoparc.com
+            </a>
           </address>
         </div>
         <div className="md:flex flex-col items-center">
@@ -47,7 +61,6 @@ function Footer() {
           <ul className="md:flex flex-col items-between text-white">
             <li>Privacy Policy</li>
             <li>Terms Of Use</li>
-
           </ul>
         </div>
       </div>
