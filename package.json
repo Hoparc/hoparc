@@ -10,7 +10,6 @@
     "@apollo/client": "^3.7.1",
     "@formspree/react": "^2.4.0",
     "@googlemaps/react-wrapper": "^1.1.35",
-    "@graphql-codegen/cli": "^2.13.8",
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.12",
     "@react-google-maps/api": "^2.13.1",
@@ -25,8 +24,7 @@
     "react-phone-number-input": "^3.2.12"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.13.8",
-    "@graphql-codegen/client-preset": "^1.1.1",
+    "@graphql-codegen/client-preset": "1.1.1",
     "@graphql-codegen/introspection": "2.2.1",
     "@graphql-codegen/typescript": "^2.8.0",
     "@types/node": "18.11.3",
