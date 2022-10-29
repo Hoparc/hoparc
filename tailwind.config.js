@@ -47,6 +47,7 @@ module.exports = {
         poppins: ["poppins"],
         merriweather: ["Merriweather Sans", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
+        button: ["DM Sans", "sans-serif"]
       },
     },
   },

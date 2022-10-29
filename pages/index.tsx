@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Footer from "../components/global/Footer";
 import Navbar from "../components/global/Navbar";
+import Hero from '../components/landing/Hero';
+
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +21,7 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width" />
       </Head>
       <Navbar />
+      <Hero />
       <Footer />
     </div>
   );
