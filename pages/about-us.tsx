@@ -62,12 +62,10 @@ const AboutUs: NextPage = () => {
         <p className="mb-2">Ongoing education and professional development</p>
         <p className="mb-2">Respect</p>
         <p className="mb-2">Your care free pain is our goal!</p>
-        <p className="my-10">
-          Hands on Physiotherapy and Rehab Centre submit claims on your behalf
-          to your insurance provider as well as participating insurer on a third
-          party portal that are able to access and if the insurance plan allows
-          for assignment of benefits.
-        </p>
+
+        <h4 className="uppercase my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+          We Accept
+        </h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-2">
           {insurance.map((options, index) => (
             <div className="my-2.5" key={index}>
@@ -80,6 +78,11 @@ const AboutUs: NextPage = () => {
             </div>
           ))}
         </div>
+        <p className="my-10 italic">
+          We submit claims on your behalf to your insurance provider as well as
+          participating insurers on a third party portal that are able to access
+          and if the insurance plan allows for assignment of benefits.
+        </p>
       </div>
       <Footer />
     </div>
