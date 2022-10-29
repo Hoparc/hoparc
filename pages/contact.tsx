@@ -22,7 +22,7 @@ const Contact: NextPage = () => {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="mx-5 lg:mx-64 my-12 lg:my-24 bg-slate-150" id="contact">
         <div className="my-10 flex flex-col md:flex-row items-center justify-center">
           <div className="p-6 mx-10 max-w-sm">
@@ -64,7 +64,7 @@ const Contact: NextPage = () => {
 
         <ContactForm />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
