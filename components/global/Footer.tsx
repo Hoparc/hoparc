@@ -60,8 +60,8 @@ function Footer() {
             Information
           </h2>
           <ul className="md:flex flex-col items-between text-white font-roboto">
-            <li>Privacy Policy</li>
-            <Link href="/terms-f-use">Terms Of Use</Link>
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms-of-use">Terms Of Use</Link>
           </ul>
         </div>
       </div>
