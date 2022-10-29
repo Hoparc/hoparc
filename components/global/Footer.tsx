@@ -1,9 +1,8 @@
 import Image from "next/image";
 
-
 function Footer() {
   return (
-    <footer className="bg-blue-550 fixed bottom-0 w-full">
+    <footer className="bg-blue-550 w-full">
       <div className="grid md:grid-cols-3 gap-2 py-8 px-32 grid-cols-1">
         <div className="flex flex-col md:items-center">
           <div className="flex flex-row items-center justify-start mb-7">
