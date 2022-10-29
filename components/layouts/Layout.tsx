@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="bg-slate-150">
       <Head>
-        <title>Cool Gym Hwy 49</title>
+        <title>Hands on Physiotherapy and Rehab Centre</title>
       </Head>
       <Navbar />
       <main>{children}</main>

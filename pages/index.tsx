@@ -18,8 +18,8 @@ const Home: NextPage = () => {
         <meta name="keywords" content="physiotherapy" />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <Navbar />
-      <Footer />
+      {/* <Navbar />
+      <Footer /> */}
     </div>
   );
 };
