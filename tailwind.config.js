@@ -5,19 +5,6 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontWeight: {
-      hairline: 100,
-      'extra-light': 100,
-      thin: 200,
-      light: 300,
-      normal: 400,
-      medium: 500,
-      semibold: 600,
-      bold: 700,
-      extrabold: 800,
-      'extra-bold': 800,
-      black: 900,
-    },
     extend: {
       colors: {
         slate: {
@@ -26,7 +13,7 @@ module.exports = {
         blue: {
           350: "#327CDF",
           550: "#003D8F",
-          850: "#00193C"
+          850: "#00193C",
         },
         green: {
           350: "#96CA5B",
@@ -57,9 +44,10 @@ module.exports = {
         "90vh": "90vh",
       },
       fontFamily: {
-        "poppins": ["poppins"],
-        "merriweather": ["Merriweather Sans", "sans-serif"],
-      }
+        poppins: ["poppins"],
+        merriweather: ["Merriweather Sans", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
+      },
     },
   },
   plugins: [],
