@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 function Footer() {
   return (
@@ -60,7 +61,7 @@ function Footer() {
           </h2>
           <ul className="md:flex flex-col items-between text-white font-roboto">
             <li>Privacy Policy</li>
-            <li>Terms Of Use</li>
+            <Link href="/terms-f-use">Terms Of Use</Link>
           </ul>
         </div>
       </div>
