@@ -18,9 +18,12 @@ const TermsOfUse: NextPage = () => {
         <meta name="theme-color" content="#0072C6" />
         <meta
           name="description"
-          content="Beyond Cool CBD products are offered at Cool Gym"
+          content="Terms of Use at Hands on Physiotherapy and Rehab Centre"
         />
-        <meta name="keywords" content="beyond cool cbd, cbd" />
+        <meta
+          name="keywords"
+          content="terms of use, hands on physio therapy and rehab centre"
+        />
         <meta name="viewport" content="width=device-width" />
       </Head>
       <Navbar />
