@@ -553,7 +553,7 @@
     "@graphql-codegen/plugin-helpers" "^2.6.2"
     "tslib" "~2.4.0"
 
-"@graphql-codegen/cli@2.13.8":
+"@graphql-codegen/cli@^2.13.8":
   "integrity" "sha512-xX+lT51nMBD3b6lDyA+BDyJoEKnsPMctM/Fx8st0gEy7ZgdWLrsgOBOn4k71yyejOy3CHnRV5LMKWdhiQDaYsA=="
   "resolved" "https://registry.npmjs.org/@graphql-codegen/cli/-/cli-2.13.8.tgz"
   "version" "2.13.8"
@@ -1226,6 +1226,14 @@
   "version" "8.5.3"
   dependencies:
     "@types/node" "*"
+
+"@urql/core@^3.0.5":
+  "integrity" "sha512-6/1HG+WEAcPs+hXSFnxWBTWkNUwa8dj2cHysWokMaFIbAioGtUaSdxp2q9FDMtWAIGdc640NFSt2B8itGLdoAA=="
+  "resolved" "https://registry.npmjs.org/@urql/core/-/core-3.0.5.tgz"
+  "version" "3.0.5"
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.1.1"
+    "wonka" "^6.0.0"
 
 "@whatwg-node/fetch@^0.3.0":
   "integrity" "sha512-Bs5zAWQs0tXsLa4mRmLw7Psps1EN78vPtgcLpw3qPY8s6UYPUM67zFZ9cy+7tZ64PXhfwzxJn+m7RH2Lq48RNQ=="
@@ -3666,6 +3674,11 @@
   "integrity" "sha512-B+enWhmw6cjfVC7kS8Pj9pCrKSc5txArRyaYGe088shv/FGWH+0Rjx/xPgtsWfsUtS27FkP697E4DDhgrgoc0Q=="
   "resolved" "https://registry.npmjs.org/which-module/-/which-module-2.0.0.tgz"
   "version" "2.0.0"
+
+"wonka@^6.0.0":
+  "integrity" "sha512-shBtyZ0KFvUadtnDGlTRA4mF4pgcRoyZKikdputKhmShoXWcZDvlg6CUw6Jx9nTL7Ub8QUJoIarPpxdlosg9cw=="
+  "resolved" "https://registry.npmjs.org/wonka/-/wonka-6.1.1.tgz"
+  "version" "6.1.1"
 
 "wrap-ansi@^6.2.0":
   "integrity" "sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA=="
