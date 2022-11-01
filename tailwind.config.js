@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        "footer": "948px",
+      },
       colors: {
         slate: {
           150: "#eee",

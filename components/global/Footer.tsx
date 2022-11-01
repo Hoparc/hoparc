@@ -1,84 +1,125 @@
 import Image from "next/image";
+import { SiFacebook, SiInstagram } from "react-icons/si"
 
 
 function Footer() {
   return (
-    <footer className="bg-blue-550 fixed bottom-0 w-full">
-      <div className="grid md:grid-cols-3 gap-2 py-8 px-32 grid-cols-1">
-        <div className="flex flex-col md:items-center">
-          <div className="flex flex-row items-center justify-start mb-7">
-            <Image src="/images/footer/logo.png" alt="hoparc logo" width={100} height={100} />
+    <>
+      <div className="block w-full"></div>
+      <footer className="bg-blue-550 w-full fixed bottom-0">
+        <div className="grid grid-cols-1 footer:grid-cols-2 sm:grid-cols-2 gap-2 px-8 py-8 grid-cols-2">
+          <div className="flex flex-col footer:items-center">
+            <div className="flex flex-col items-left justify-start mb-7 footer:flex-row">
+              <Image src="/images/footer/logo.png" alt="hoparc logo" width={100} height={100} />
 
-            <div className="md:flex flex-col justify-center pl-2">
-              <h2 className="font-merriweather font-bold text-2xl	flex-1 w-64 text-white capitalize">
-                hands on physiotherapy
+              <div className="flex flex-col justify-center pl-0 footer:items-center footer:pl-2">
+                <h2 className="font-merriweather font-bold text-2xl	flex-1 w-64 text-white capitalize">
+                  hands on physiotherapy
+                </h2>
+
+                <h3 className="font-merriweather text-xs font-regular flex-1 w-64 text-green-350 uppercase ">
+                  rehab centre - pelvic health
+                </h3>
+              </div>
+            </div>
+            <address className="font-roboto not-italic text-base text-white flex flex-col justify-center mb-4 ">
+              <p className="text-slate-500">338 Copper Creek Dr,</p>
+              <p className="text-slate-500">Markham On L6B 1N8, Canada</p>
+              <p>
+                <a className="underline text-slate-500 hover:text-green-350" href="tel: +1(289) 554-9090">Phone: +1 (289) 554-9090</a>
+              </p>
+              <p>
+                <a className="underline text-slate-500 hover:text-green-350" href="fax: +1(905) 201-9909">Fax: +1 (905) 201-9909</a>
+              </p>
+              <p>
+                <a className="underline hover:text-green-350" href="mailto:info@hoparc.com?subject=Book%20appointment">info@hoparc.com</a>
+              </p>
+            </address>
+          </div>
+          <div className="flex flex-col justify-evenly gap-y-2 gap-x-2 footer:flex-row">
+            <div className="footer:flex flex-col items-center text-left">
+              <h2 className="mb-6 text-2xl font-roboto text-white text-left footer:text-center">
+                Store Hours
               </h2>
+              <ul className="text-white font-roboto text-slate-500 text-left footer:text-center">
+                <li>Sunday: 9:00 a.m. - 5:00 p.m. </li>
+                <li>Monday: 9:00 a.m. - 5:00 p.m.</li>
+                <li>Tuesday: 9:00 a.m. - 5:00 p.m.</li>
+                <li>Wednesday: 9:00 a.m. - 5:00 p.m.</li>
+                <li>Thursday: 9:00 a.m. - 5:00 p.m.</li>
+                <li>Friday: 9:00 a.m. - 5:00 p.m.</li>
+                <li>Saturday: 9:00 a.m. - 5:00 p.m.</li>
+              </ul>
+            </div>
+            <div className="footer:flex flex-col items-center text-left">
+              <h2 className="mb-6 text-2xl font-roboto text-white text-left footer:text-center">
+                Information
+              </h2>
+              <ul className="footer:flex flex-col items-between text-white font-roboto text-slate-500">
+                <li>Privacy Policy</li>
+                <li>Terms Of Use</li>
 
-              <h3 className="font-merriweather text-xs font-regular flex-1 w-64 text-green-350 uppercase ">
-                rehab centre - pelvic health
-              </h3>
+              </ul>
             </div>
           </div>
-          <address className="font-roboto not-italic text-base text-white flex flex-col justify-center">
-            <p>338 Copper Creek Dr,</p>
-            <p>Markham On L6B 1N8, Canada</p>
-            <p className="underline"><a href="tel: +1(289) 554-9090">Phone: +1 (289) 554-9090</a></p>
-            <p className="underline"><a href="fax: +1(905) 201-9909">Fax: +1 (905) 201-9909</a></p>
-            <a className="underline" href="mailto:info@hoparc.com?subject=Book%20appointment">info@hoparc.com</a>
-          </address>
         </div>
-        <div className="md:flex flex-col items-center text-left">
-          <h2 className="mb-6 text-2xl font-roboto text-white capitalize">
-            Hours of operations
-          </h2>
-          <ul className="text-white font-roboto">
-            <li>Sunday: </li>
-            <li>Monday:</li>
-            <li>Tuesday:</li>
-            <li>Wednesday:</li>
-            <li>Thursday:</li>
-            <li>Friday:</li>
-            <li>Saturday:</li>
-          </ul>
-        </div>
-        <div className="md:flex flex-col items-center text-left">
-          <h2 className="mb-6 text-2xl font-roboto text-white capitalize">
-            Information
-          </h2>
-          <ul className="md:flex flex-col items-between text-white font-roboto">
-            <li>Privacy Policy</li>
-            <li>Terms Of Use</li>
+        <div className="py-2 px-8 footer:px-32 footer:items-center footer:justify-between bg-blue-850">
+          <div className="flex flex-col w-full justify-between gap-3 md:flex-row">
+            <div className="flex flex-col gap-1">
+              <p className="text-slate-500 text-xs sm:text-xs">
+                <span>&copy;</span>
+                Designed and Developed by{" "}
+                <a
+                  className="text-slate-400 hover:text-green-350"
+                  href="https://alvinquach.me"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="open link to alvin quach portfolio"
+                >
+                  Alvin Quach
+                  {" & "}
+                </a>
+                <a
+                  className="text-slate-400 hover:text-green-350"
+                  href="https://seansipus.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="open link to sean sipus portfolio"
+                >
+                  Sean Sipus
+                </a>
 
-          </ul>
+              </p>
+              <div className="text-slate-400 text-xs">
+                <p>
+                  <span>&copy;</span>Copyright 2022 Hands On Physiotherapy & Rehab Centre, All Rights Reserved
+                </p>
+
+              </div>
+            </div>
+            <div className="flex text-slate-400 text-2xl items-center gap-3">
+              <div className="hover:text-green-350">
+                <a href=""
+                  target="_blank"
+                  aria-label="open link to hands on physiotherapy facebook page">
+                  <SiFacebook />
+                </a>
+              </div>
+              <div className="hover:text-green-350">
+                <a href=""
+                  target="_blank"
+                  aria-label="open link to hands on physiotherapy instagram page"
+                >
+                  <SiInstagram />
+                </a>
+              </div>
+            </div>
+          </div>
+
+
         </div>
-      </div>
-      <div className="py-6 px-32 md:flex md:items-center md:justify-between bg-blue-850">
-        <p className="text-white">
-          Designed and Developed by{" "}
-          <a
-            className="text-white hover:text-slate-800"
-            href="https://alvinquach.me"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="open link to alvin quach portfolio"
-          >
-            Alvin Quach
-            {" & "}
-          </a>
-          <a
-            className="text-white hover:text-slate-800"
-            href="https://seansipus.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="open link to sean sipus portfolio"
-          >
-            Sean Sipus
-          </a>
-          <span className="ml-2">&copy;</span>
-        </p>
-        <div className=""></div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }
 
