@@ -23,7 +23,7 @@ const PrivacyPolicy: NextPage = () => {
         <meta name="viewport" content="width=device-width" />
       </Head>
       <Navbar />
-      <div className="mx-5 lg:mx-64 my-12 md:my-96 lg:my-24">
+      <div className="mx-5 lg:mx-64 my-12 lg:my-24">
         <h1 className="text-center my-5 font-bold uppercase tracking-wide text-4xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           Privacy Policy
         </h1>
