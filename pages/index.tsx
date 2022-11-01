@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Footer from "../components/global/Footer";
 import Navbar from "../components/global/Navbar";
 import Hero from '../components/landing/Hero';
+import LetUsHelp from '../components/landing/LetUsHelp';
 
 
 const Home: NextPage = () => {
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
       </Head>
       <Navbar />
       <Hero />
+      <LetUsHelp />
       <Footer />
     </div>
   );

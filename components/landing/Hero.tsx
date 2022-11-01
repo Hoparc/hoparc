@@ -5,7 +5,7 @@ function Hero() {
   return (
     <>
       <div className="max-w-screen-xl m-auto w-11/12 ">
-        <div className="grid w-full m-auto place-items-center bg-cover bg-center flex min-h-screen bg-base-200">
+        <div className="grid w-full my-32 mx-auto place-items-center bg-cover bg-center flex bg-base-200">
           <div className="z-0 flex items-center justify-center max-w-7xl gap-6 flex-col-reverse lg:flex-row lg:items-start">
 
             <div className="flex flex-col gap-11 items-center lg:items-start">
@@ -26,21 +26,21 @@ function Hero() {
             </div>
             <div className="m-auto">
               <Image
-                src="/images/landing/heroImg.webp" className="max-w-xl rounded-lg shadow-2xl" alt="image"
-                height={100}
-                width={400}
+                src="/images/landing/heroImg.webp" className="rounded-lg shadow-2xl" alt="image"
+                height={0}
+                width={445}
               />
             </div>
           </div>
         </div>
       </div>
-      <div className="w-full bg-blue-550 flex px-28 py-40">
+      <div className="w-full bg-blue-550 flex py-40 ">
         <div className="max-w-screen-xl m-auto w-11/12 flex flex-col items-center gap-11">
           <h2 className="capitalize text-white text-5xl font-roboto font-light text-center">why choose us?</h2>
           <div className="flex flex-col gap-6 lg:flex-row">
             <div className="flex flex-col items-center gap-4">
               <Image
-                src="/images/landing/customerSatisfactionIcon.png" className="max-w-xl" 
+                src="/images/landing/customerSatisfactionIcon.png" className="max-w-xl"
                 alt="Icon for customer satisfaction representing a medal with the number one inside it"
                 height={120}
                 width={120}
@@ -68,7 +68,7 @@ function Hero() {
             </div>
             <div className="flex flex-col items-center gap-4">
               <Image
-                src="/images/landing/skillIcon.png" className="max-w-xl" 
+                src="/images/landing/skillIcon.png" className="max-w-xl"
                 alt="Icon for skill based training representing a person standing next to a bar chart that shows exponential upwards growth and a gear icon symbolizing the persons skills being worked on"
                 height={120}
                 width={120}
