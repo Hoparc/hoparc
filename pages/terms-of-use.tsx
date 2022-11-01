@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 import Footer from "../components/global/Footer";
 import Navbar from "../components/global/Navbar";
@@ -19,6 +20,20 @@ function Terms({ title, children }: TermsProps) {
 const TermsOfUse = () => {
   return (
     <>
+      <Head>
+        <title>Terms Of Use | Hands on Physiotherapy and Rehab Centre</title>
+        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
+        <meta name="theme-color" content="#327CDF" />
+        <meta
+          name="description"
+          content="Terms of Use at Hands on Physiotherapy and Rehab Centre"
+        />
+        <meta
+          name="keywords"
+          content="terms of use, hands on physio therapy and rehab centre"
+        />
+        <meta name="viewport" content="width=device-width" />
+      </Head>
       <Navbar />
       <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
