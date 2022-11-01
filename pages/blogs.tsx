@@ -49,6 +49,7 @@ export default function Blogs({ blogs, categories }: BlogsProps) {
         )
       : blogs;
   }, [activeCategory, blogs]);
+
   return (
     <section className="bg-slate-150">
       <div className="flex pb-12 flex-col items-center justify-center">
