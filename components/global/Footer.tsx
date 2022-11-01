@@ -8,17 +8,22 @@ function Footer() {
     <>
       <div className="block w-full"></div>
       <footer className="bg-blue-550 w-full">
-        <div className="grid grid-cols-1 footer:grid-cols-2 sm:grid-cols-2 gap-2 px-8 py-8 grid-cols-2">
+        <div className="grid grid-cols-1 footer:grid-cols-2 px-3 sm:grid-cols-2 gap-2 mobile:px-8 py-8 grid-cols-2">
           <div className="flex flex-col footer:items-center">
             <div className="flex flex-col items-left justify-start mb-7 footer:flex-row">
               <Image src="/images/footer/logo.png" alt="hoparc logo" width={100} height={100} />
 
-              <div className="flex flex-col justify-center pl-0 footer:items-center footer:pl-2">
-                <h2 className="font-merriweather font-bold text-2xl	flex-1 w-64 text-white capitalize">
-                  hands on physiotherapy
+              <div className="flex flex-col justify-center pl-0 footer:items-left footer:pl-2">
+                <h2 className="font-merriweather font-bold text-2xl	flex-1 text-white capitalize">
+                  hands on
                 </h2>
+                <div className="">
+                  <h2 className="font-merriweather font-bold text-2xl	flex-1 text-white capitalize">
+                    physiotherapy
+                  </h2>
+                </div>
 
-                <h3 className="font-merriweather text-xs font-regular flex-1 w-64 text-green-350 uppercase ">
+                <h3 className="font-merriweather text-xs font-regular flex-1 text-green-350 uppercase ">
                   rehab centre - pelvic health
                 </h3>
               </div>
@@ -27,13 +32,13 @@ function Footer() {
               <p className="text-slate-500">338 Copper Creek Dr,</p>
               <p className="text-slate-500">Markham On L6B 1N8, Canada</p>
               <p>
-                <a className="underline text-slate-500 hover:text-green-350" href="tel: +1(289) 554-9090">Phone: +1 (289) 554-9090</a>
+                <a className="underline text-slate-500 hover:text-green-350 hover:no-underline" href="tel: +1(289) 554-9090">Phone: +1 (289) 554-9090</a>
               </p>
               <p>
-                <a className="underline text-slate-500 hover:text-green-350" href="fax: +1(905) 201-9909">Fax: +1 (905) 201-9909</a>
+                <a className="underline text-slate-500 hover:text-green-350 hover:no-underline" href="fax: +1(905) 201-9909">Fax: +1 (905) 201-9909</a>
               </p>
               <p>
-                <a className="underline hover:text-green-350" href="mailto:info@hoparc.com?subject=Book%20appointment">info@hoparc.com</a>
+                <a className="underline hover:text-green-350 hover:no-underline" href="mailto:info@hoparc.com?subject=Book%20appointment">info@hoparc.com</a>
               </p>
             </address>
           </div>

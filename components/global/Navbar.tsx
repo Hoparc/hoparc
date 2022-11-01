@@ -10,11 +10,11 @@ import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 
 function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-white shadow-lg fixed w-full top-0 z-50">
+    <Disclosure as="nav" className="bg-white shadow-lg w-full fixed top-0 z-50">
       {({ open }) => (
         <>
           <div className="mx-auto ">
-            <div className="relative flex items-center justify-center h-16 w-full ">
+            <div className="relative flex items-center justify-center w-full ">
               {/* Mobile menu button */}
               <div className="absolute inset-y-0 right-0 flex items-center lg:hidden  justify-self-start">
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-blue-750 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -28,33 +28,43 @@ function Navbar() {
               </div>
 
               {/* Main */}
-              <div className=" flex items-center justify-evenly flex-grow w-full">
+              <div className=" flex items-center flex-grow w-full mx-4 sm:justify-evenly">
                 {/* Logo */}
                 <Link href="/">
-                  <div className="flex items-center cursor-pointer">
-                    <Image
-                      src="/images/navBar/hoparcLogo.jpeg"
-                      alt="A picture of the Hoparc logo"
-                      width={50}
-                      height={50}
-                    />
+                  <div className="flex flex-row items-left justify-start my-1">
+                    <Image src="/images/footer/logo.png" alt="hoparc logo" width={85} height={100} />
+
+                    <div className="flex flex-col justify-center pl-2 items-left">
+                      <h2 className="font-merriweather hidden font-bold text-xl flex-1 text-blue-350 capitalize mobile:block">
+                        hands on
+                      </h2>
+                      <div className="">
+                        <h2 className="font-merriweather hidden font-bold text-xl	flex-1 text-blue-350 capitalize mobile:block">
+                          physiotherapy
+                        </h2>
+                      </div>
+
+                      <h3 className="font-merriweather hidden text-xs font-regular flex-1 text-green-350 uppercase mobile:block">
+                        rehab centre - pelvic health
+                      </h3>
+                    </div>
                   </div>
                 </Link>
                 {/* Menu Items */}
-                <div className="hidden lg:flex flex-grow justify-center">
+                <div className="hidden lg:flex flex-grow justify-end">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <div key={item.id} className="flex">
                         {!item.dropdownOptions ? (
                           <MenuLink
                             href={item.href}
-                            className="px-3 py-2 rounded-md text-sm text-blue-350 font-medium hover:underline"
+                            className="px-3 py-2 rounded-md font-inter text-sm text-blue-350 font-medium hover:underline hover:text-green-350"
                           >
                             {item.name}
                           </MenuLink>
                         ) : (
                           <Menu as="div" className=" relative">
-                            <Menu.Button className="relative flex px-3 py-2 rounded-md text-sm text-blue-350 font-medium">
+                            <Menu.Button className="relative flex px-3 py-2 rounded-md font-inter text-sm text-blue-350 font-medium hover:text-green-350">
                               {item.name}
                               <HiChevronDown
                                 className="block h-6 w-6 ml-2 text-accent"
@@ -76,9 +86,8 @@ function Navbar() {
                                     {({ active }) => (
                                       <MenuLink
                                         href={`/${item.href}`}
-                                        className={`${
-                                          active && "bg-slate-100"
-                                        } block px-4 py-2 text-base text-gray-700'`}
+                                        className={`${active && "bg-slate-100"
+                                          } block px-4 py-2 text-base text-gray-700'`}
                                       >
                                         {option.name}
                                       </MenuLink>

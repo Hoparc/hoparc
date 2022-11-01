@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       screens: {
         "footer": "948px",
+        "mobile": "420px",
       },
       colors: {
         slate: {
@@ -52,6 +53,7 @@ module.exports = {
         roboto: ["Roboto", "sans-serif"],
         button: ["DM Sans", "sans-serif"],
         opensans: ["Open Sans", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
     },
   },
