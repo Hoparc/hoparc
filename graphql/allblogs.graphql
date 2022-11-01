@@ -8,6 +8,7 @@ fragment blog on Blog {
   slug {
     current
   }
+  date
   category {
     name
     slug {
@@ -21,4 +22,19 @@ query allBlogs {
     allBlog {
         ...blog
     }
+}
+
+query blog($slug: String) {
+  allBlog(where: { slug: { current: { eq: $slug } } }) {
+    ...blog
+  }
+}
+
+query allBlogCategories {
+  allBlogCategory {
+    name
+    slug {
+      current
+    }
+  }
 }

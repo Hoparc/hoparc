@@ -43,7 +43,7 @@ export default [
   {
     id: 5,
     name: "Blog",
-    href: "/blog",
+    href: "/blogs",
     current: "false",
   },
   {
