@@ -1,9 +1,8 @@
 import { GetStaticProps } from "next";
-
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React from "react";
+
 import client from "../apollo-client";
 import {
   AllBlogCategoriesDocument,
@@ -11,6 +10,8 @@ import {
   AllBlogsDocument,
   AllBlogsQuery,
 } from "../graphql-operations";
+
+import { useMemo } from "react";
 
 type BlogsProps = {
   blogs: AllBlogsQuery["allBlog"];
@@ -39,7 +40,7 @@ export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
 export default function Blogs({ blogs, categories }: BlogsProps) {
   const router = useRouter();
   const { category: activeCategory } = router.query;
-  const filteredBlogs = React.useMemo(() => {
+  const filteredBlogs = useMemo(() => {
     return activeCategory
       ? blogs.filter((blog) =>
           blog.category?.some(
