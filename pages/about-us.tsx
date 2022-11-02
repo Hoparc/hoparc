@@ -8,7 +8,7 @@ import insurance from "../utils/data/insurance";
 
 const AboutUs: NextPage = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-150">
+    <div className="min-h-screen flex flex-col">
       <Head>
         <title>About Us | Hands on Physiotherapy and Rehab Centre</title>
         <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
@@ -24,7 +24,10 @@ const AboutUs: NextPage = () => {
         <meta name="viewport" content="width=device-width" />
       </Head>
       <Navbar />
-      <div className="mx-5 lg:mx-64 my-12 lg:my-24 bg-slate-150" id="about-us">
+      <section
+        className="mx-auto my-12 max-w-screen-xl w-11/12 pt-2"
+        id="about-us"
+      >
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid w-full my-12 mx-auto place-items-center bg-cover bg-center flex bg-base-200">
             <div className="z-0 flex items-center justify-center max-w-7xl gap-6 flex-col ">
@@ -45,6 +48,9 @@ const AboutUs: NextPage = () => {
             </div>
           </div>
         </div>
+        <h2 className="my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+          Who We Are
+        </h2>
         <p className="mt-4 text-xl font-light">
           We are a multidisciplinary clinic with experience in the assessment,
           diagnosis and treatment of orthopedic, neurological, musculoskeletal,
@@ -66,12 +72,12 @@ const AboutUs: NextPage = () => {
           on every visit and to create a great improvement and experience to all
           of our patients.
         </p>
-        <div className="w-full bg-blue-550 flex py-40 ">
+        <div className="w-full bg-blue-550 flex py-10">
           <div className="max-w-screen-xl m-auto w-11/12 flex flex-col items-center gap-11">
             <h2 className="capitalize text-white text-5xl font-roboto font-light text-center">
               Our Values
             </h2>
-            <div className="flex flex-col gap-6 lg:flex-row">
+            <div className="flex flex-col gap-6 lg:flex-row ">
               <div className="flex flex-col items-center gap-4">
                 <Image
                   src="/images/about/customerServiceIcon.webp"
@@ -129,7 +135,7 @@ const AboutUs: NextPage = () => {
         </h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-2">
           {insurance.map((options, index) => (
-            <div className="my-2.5" key={index}>
+            <div className="my-2.5 border-blue-550" key={index}>
               <Image
                 src={options.image}
                 alt={options.alt}
@@ -144,7 +150,7 @@ const AboutUs: NextPage = () => {
           participating insurers on a third party portal that are able to access
           and if the insurance plan allows for assignment of benefits.
         </p>
-      </div>
+      </section>
       <Footer />
     </div>
   );
