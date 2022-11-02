@@ -58,11 +58,11 @@ function Blogs({ blogs, categories }: BlogsProps) {
   return (
     <>
       <Navbar />
-      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 bg-slate-150">
+      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen">
         <div className="flex pb-12 flex-col items-center justify-center">
-          <h2 className="px-4 my-24 tracking-tight sm:text-4xl font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+          <h1 className="mt-10 flex flex-col gap-3 text-5xl text-left font-bold uppercase text-blue-350 ">
             Our Blog
-          </h2>
+          </h1>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-3 mb-20">
           <div className="col-span-8 lg:col-span-2">
