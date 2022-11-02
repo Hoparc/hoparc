@@ -1,5 +1,6 @@
 fragment location on Location {
   address
+  addresslinen
   phone
   fax
   email

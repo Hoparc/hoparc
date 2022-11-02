@@ -8,7 +8,16 @@ export default {
       name: "address",
       title: "Address",
       type: "string",
-      description: "Please provide the address of your location.",
+      description:
+        "Please provide the address of your location. (i.e. 338 Copper Creek Dr)",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "addresslinen",
+      title: "Address Line N",
+      type: "string",
+      description:
+        "Please provide the city, state, zip code, and country of your location. (i.e. Markham, ON L6B 1N8, Canada)",
       validation: (Rule) => Rule.required(),
     },
     {
