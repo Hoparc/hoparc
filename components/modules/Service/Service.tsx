@@ -19,12 +19,12 @@ function ServiceCard({ imageUrl, name, description }: ServiceCardProps) {
             alt={`Image of ${name}`}
             className="flex-none rounded-full object-cover drop-shadow-md"
             loading="lazy"
-            width={250}
-            height={250}
+            width={100}
+            height={100}
           />
           <div className="flex-auto">
             <div className="text-base text-black font-semibold">{name}</div>
-            <div className="mt-0.5 text-black text-sm">{description}</div>
+            <div className="mt-0.5 text-black text-xs">{description}</div>
           </div>
         </figcaption>
       </figure>
@@ -47,7 +47,7 @@ function Services({ hasShowMore = false }: ServicesProps) {
       </div>
       <div
         className={cn({
-          ["max-h-[47rem]"]: !showMore,
+          ["max-h-[28rem]"]: !showMore,
           ["overflow-hidden"]: !showMore,
         })}
       >
@@ -101,7 +101,7 @@ function Services({ hasShowMore = false }: ServicesProps) {
                 onClick={() => {
                   setShowMore(!showMore);
                 }}
-                className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 rounded-lg flex items-center bg-blue-350 hover:bg-green-350 pointer-events-auto w-1/2"
+                className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 rounded-lg flex items-center bg-blue-350 hover:bg-green-350 pointer-events-auto w-full"
               >
                 See More Services
               </button>
