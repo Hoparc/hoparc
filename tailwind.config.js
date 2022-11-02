@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        "2lg": "1385px",
         "footer": "948px",
         "mobile": "420px",
       },
@@ -50,7 +51,7 @@ module.exports = {
       fontFamily: {
         poppins: ["poppins"],
         merriweather: ["Merriweather Sans", "sans-serif"],
-        roboto: ["Roboto", "sans-serif"],
+        roboto: "Roboto",
         button: ["DM Sans", "sans-serif"],
         opensans: ["Open Sans", "sans-serif"],
         inter: ["Inter", "sans-serif"],
