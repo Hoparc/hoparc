@@ -4,8 +4,6 @@ import Image from "next/image";
 import client from ".././apollo-client";
 import { AllServicesDocument, AllServicesQuery } from ".././graphql-operations";
 
-import Navbar from "../components/global/Navbar";
-import Footer from "../components/global/Footer";
 import { PortableText } from "@portabletext/react";
 import Head from "next/head";
 
@@ -94,7 +92,6 @@ export default function Services({ services }: ServicesProps) {
           })}
         </div>
       </section>
-      <Footer />
     </>
   );
 }
