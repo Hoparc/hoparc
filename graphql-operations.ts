@@ -333,8 +333,10 @@ export type Location = Document & {
   _type?: Maybe<Scalars['String']>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars['DateTime']>;
-  /** Please provide the address of your location. */
+  /** Please provide the address of your location. (i.e. 338 Copper Creek Dr) */
   address?: Maybe<Scalars['String']>;
+  /** Please provide the city, state, zip code, and country of your location. (i.e. Markham, ON L6B 1N8, Canada) */
+  addresslinen?: Maybe<Scalars['String']>;
   /** Please provide the email address for this location. */
   email?: Maybe<Scalars['String']>;
   /** Please provide the fax for this location. */
@@ -367,6 +369,7 @@ export type LocationFilter = {
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
   address?: InputMaybe<StringFilter>;
+  addresslinen?: InputMaybe<StringFilter>;
   email?: InputMaybe<StringFilter>;
   fax?: InputMaybe<StringFilter>;
   friday?: InputMaybe<StringFilter>;
@@ -387,6 +390,7 @@ export type LocationSorting = {
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
   address?: InputMaybe<SortOrder>;
+  addresslinen?: InputMaybe<SortOrder>;
   email?: InputMaybe<SortOrder>;
   fax?: InputMaybe<SortOrder>;
   friday?: InputMaybe<SortOrder>;
@@ -1116,12 +1120,12 @@ export type AllBlogCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllBlogCategoriesQuery = { __typename?: 'RootQuery', allBlogCategory: Array<{ __typename?: 'BlogCategory', name?: string | null, slug?: { __typename?: 'Slug', current?: string | null } | null }> };
 
-export type LocationFragment = { __typename?: 'Location', address?: string | null, phone?: string | null, fax?: string | null, email?: string | null, sunday?: string | null, monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null };
+export type LocationFragment = { __typename?: 'Location', address?: string | null, addresslinen?: string | null, phone?: string | null, fax?: string | null, email?: string | null, sunday?: string | null, monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null };
 
 export type AllLocationsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllLocationsQuery = { __typename?: 'RootQuery', allLocation: Array<{ __typename?: 'Location', address?: string | null, phone?: string | null, fax?: string | null, email?: string | null, sunday?: string | null, monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null }> };
+export type AllLocationsQuery = { __typename?: 'RootQuery', allLocation: Array<{ __typename?: 'Location', address?: string | null, addresslinen?: string | null, phone?: string | null, fax?: string | null, email?: string | null, sunday?: string | null, monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null }> };
 
 export type ProductFragment = { __typename?: 'Product', name?: string | null, detailsRaw?: any | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, slug?: { __typename?: 'Slug', current?: string | null } | null };
 
@@ -1145,7 +1149,7 @@ export type AllTestimonialsQueryVariables = Exact<{ [key: string]: never; }>;
 export type AllTestimonialsQuery = { __typename?: 'RootQuery', allTestimonial: Array<{ __typename?: 'Testimonial', name?: string | null, testimonial?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
 
 export const BlogFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"blog"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Blog"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"blogRaw"}}]}}]} as unknown as DocumentNode<BlogFragment, unknown>;
-export const LocationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"location"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Location"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}},{"kind":"Field","name":{"kind":"Name","value":"fax"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"sunday"}},{"kind":"Field","name":{"kind":"Name","value":"monday"}},{"kind":"Field","name":{"kind":"Name","value":"tuesday"}},{"kind":"Field","name":{"kind":"Name","value":"wednesday"}},{"kind":"Field","name":{"kind":"Name","value":"thursday"}},{"kind":"Field","name":{"kind":"Name","value":"friday"}},{"kind":"Field","name":{"kind":"Name","value":"saturday"}}]}}]} as unknown as DocumentNode<LocationFragment, unknown>;
+export const LocationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"location"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Location"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"addresslinen"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}},{"kind":"Field","name":{"kind":"Name","value":"fax"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"sunday"}},{"kind":"Field","name":{"kind":"Name","value":"monday"}},{"kind":"Field","name":{"kind":"Name","value":"tuesday"}},{"kind":"Field","name":{"kind":"Name","value":"wednesday"}},{"kind":"Field","name":{"kind":"Name","value":"thursday"}},{"kind":"Field","name":{"kind":"Name","value":"friday"}},{"kind":"Field","name":{"kind":"Name","value":"saturday"}}]}}]} as unknown as DocumentNode<LocationFragment, unknown>;
 export const ProductFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"product"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Product"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"detailsRaw"}}]}}]} as unknown as DocumentNode<ProductFragment, unknown>;
 export const ServiceFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"service"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Service"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"detailsRaw"}}]}}]} as unknown as DocumentNode<ServiceFragment, unknown>;
 export const TestimonialFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"testimonial"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Testimonial"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"testimonial"}}]}}]} as unknown as DocumentNode<TestimonialFragment, unknown>;
