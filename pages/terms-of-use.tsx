@@ -125,7 +125,7 @@ const TermsOfUse: NextPage = () => {
           </p>
         </Terms>
 
-        <Terms title="4. Product Information; Limitation on Quantities">
+        <Terms title="4. Product Information, Limitation on Quantities">
           <p>
             Excluding any content which may be submitted by members from time to
             time, we strive to ensure that the information on the site is
