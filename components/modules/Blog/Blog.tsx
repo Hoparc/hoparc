@@ -1,10 +1,12 @@
-import React from "react";
+import Link from "next/link";
+
 import { AllBlogsQuery } from "../../../graphql-operations";
 import { PortableText } from "@portabletext/react";
 
 import { format, parse } from "date-fns";
-import Link from "next/link";
+
 import { HiChevronLeft } from "react-icons/hi";
+
 import Navbar from "../../global/Navbar";
 import Footer from "../../global/Footer";
 
@@ -12,12 +14,12 @@ export type BlogProps = {
   blog: AllBlogsQuery["allBlog"][0] | undefined;
 };
 
-const Blog: React.FC<BlogProps> = ({ blog }) => {
+function Blog({ blog }: BlogProps) {
   const date = parse(blog?.date, "yyyy-MM-dd", new Date());
   return (
     <>
       <Navbar />
-      <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 bg-slate-150">
+      <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen flex flex-col">
         <Link href="/blogs">
           <span className="flex items-center cursor-pointer text-black">
             <HiChevronLeft
@@ -60,5 +62,5 @@ const Blog: React.FC<BlogProps> = ({ blog }) => {
       <Footer />
     </>
   );
-};
+}
 export default Blog;
