@@ -4,90 +4,47 @@ import Image from "next/image";
 import Link from "next/link";
 
 import client from ".././apollo-client";
-import {
-  AllServiceCategoriesDocument,
-  AllServiceCategoriesQuery,
-  AllServicesDocument,
-  AllServicesQuery,
-} from ".././graphql-operations";
+import { AllServicesDocument, AllServicesQuery } from ".././graphql-operations";
 
-import { useMemo } from "react";
 import Navbar from "../components/global/Navbar";
 import Footer from "../components/global/Footer";
+import { PortableText } from "@portabletext/react";
 
 type ServicesProps = {
   services: AllServicesQuery["allService"];
-  categories: AllServiceCategoriesQuery["allServiceCategory"];
 };
 
 export const getStaticProps: GetStaticProps<ServicesProps> = async () => {
-  const [{ data: serviceData }, { data: serviceCategoryData }] =
-    await Promise.all([
-      client.query<AllServicesQuery>({
-        query: AllServicesDocument,
-      }),
-      client.query<AllServiceCategoriesQuery>({
-        query: AllServiceCategoriesDocument,
-      }),
-    ]);
+  const { data: serviceData } = await client.query<AllServicesQuery>({
+    query: AllServicesDocument,
+  });
   return {
     props: {
       services: serviceData?.allService ?? [],
-      categories: serviceCategoryData?.allServiceCategory ?? [],
     },
-    revalidate: 86400,
+    revalidate: 200,
   };
 };
 
-export default function Services({ services, categories }: ServicesProps) {
-  const router = useRouter();
-  const { category: activeCategory } = router.query;
-  const filteredServices = useMemo(() => {
-    return activeCategory
-      ? services.filter((service) =>
-          service.category?.some(
-            (category) => category?.slug?.current === activeCategory
-          )
-        )
-      : services;
-  }, [activeCategory, services]);
-
+export default function Services({ services }: ServicesProps) {
   return (
     <>
       <Navbar />
-      <section className="bg-slate-150">
+      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 ">
         <div className="flex pb-12 flex-col items-center justify-center">
-          <h2 className="my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+          <h1 className="mt-10 flex flex-col gap-3 text-5xl text-left font-bold uppercase text-blue-350 ">
             Our Services
-          </h2>
+          </h1>
         </div>
-        <div className="col-span-8 lg:col-span-2">
-          <Link href="/services">
-            <button className="block leading-5 text-blue-350 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
-              All Categories
-            </button>
-          </Link>
-          {categories?.map((category) => (
-            <Link
-              key={category.slug?.current}
-              href={`/services?category=${category?.slug?.current}`}
-            >
-              <button className="block text-sm leading-5 text-blue-550 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-2">
-                {category.name}
-              </button>
-            </Link>
-          ))}
-        </div>
-
         <div className="mt-6">
-          {filteredServices.map((service) => {
+          {services.map((service) => {
             return (
               <div
                 key={service.name}
-                className="flex flex-col md:flex-row py-12"
+                className="flex flex-col md:flex-row py-12 [&:not(:last-child)]:border-b border-b-zinc-500"
               >
-                <div className="bg-primary-light relative rounded-md flex items-center justify-center py-8 px-4">
-                  <div className="w-[300px] min-h-[300px] max-h-[300px] relative">
+                <div className="relative rounded-md flex items-center justify-center py-8 px-4">
+                  <div className="w-[400px] min-h-[400px] max-h-[400px] relative">
                     {service.image?.asset?.url && (
                       <Image
                         src={service.image.asset.url}
@@ -102,9 +59,23 @@ export default function Services({ services, categories }: ServicesProps) {
                   <h2 className="text-xl font-bold sm:text-2xl mb-4">
                     {service.name}
                   </h2>
-                  <p className="mb-4 font-light text-black">
-                    {service.description}
-                  </p>
+                  <PortableText
+                    value={service?.detailsRaw}
+                    components={{
+                      block: {
+                        normal: ({ children }) => {
+                          return (
+                            <p className="mb-4 font-light text-black">
+                              {children}
+                            </p>
+                          );
+                        },
+                      },
+                    }}
+                  />
+                  <button className="inline-block py-2 px-3 bg-blue-350 hover:bg-green-350 text-white">
+                    Book Appointment
+                  </button>
                 </div>
               </div>
             );
