@@ -7,9 +7,6 @@ import { format, parse } from "date-fns";
 
 import { HiChevronLeft } from "react-icons/hi";
 
-import Navbar from "../../global/Navbar";
-import Footer from "../../global/Footer";
-
 export type BlogProps = {
   blog: AllBlogsQuery["allBlog"][0] | undefined;
 };
@@ -18,7 +15,6 @@ function Blog({ blog }: BlogProps) {
   const date = parse(blog?.date, "yyyy-MM-dd", new Date());
   return (
     <>
-      <Navbar />
       <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen flex flex-col">
         <Link href="/blogs">
           <span className="flex items-center cursor-pointer text-black">
@@ -59,7 +55,6 @@ function Blog({ blog }: BlogProps) {
           </div>
         )}
       </section>
-      <Footer />
     </>
   );
 }

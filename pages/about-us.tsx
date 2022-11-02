@@ -1,8 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import Head from "next/head";
-import Footer from "../components/global/Footer";
-import Navbar from "../components/global/Navbar";
 
 import insurance from "../utils/data/insurance";
 
@@ -23,7 +21,6 @@ const AboutUs: NextPage = () => {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <Navbar />
       <section
         className="mx-auto my-12 max-w-screen-xl w-11/12 pt-2"
         id="about-us"
@@ -151,7 +148,6 @@ const AboutUs: NextPage = () => {
           and if the insurance plan allows for assignment of benefits.
         </p>
       </section>
-      <Footer />
     </div>
   );
 };

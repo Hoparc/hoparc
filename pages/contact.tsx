@@ -2,8 +2,6 @@ import { NextPage } from "next";
 import Head from "next/head";
 
 import ContactForm from "../components/contact/ContactForm";
-import Footer from "../components/global/Footer";
-import Navbar from "../components/global/Navbar";
 
 const Contact: NextPage = () => {
   return (
@@ -11,7 +9,7 @@ const Contact: NextPage = () => {
       <Head>
         <title>Contact | Hands on Physiotherapy and Rehab Centre</title>
         <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-        <meta name="theme-color" content="#0072C6" key="theme" />
+        <meta name="theme-color" content="#327CDF" key="theme" />
         <meta
           name="description"
           content="Contact page for Hands on Physiotherapy and Rehab Centre"
@@ -22,7 +20,7 @@ const Contact: NextPage = () => {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <Navbar />
+
       <div className="mx-5 lg:mx-64 my-12 lg:my-24 bg-slate-150" id="contact">
         <div className="my-10 flex flex-col md:flex-row items-center justify-center">
           <div className="p-6 mx-10 max-w-sm">
@@ -64,7 +62,6 @@ const Contact: NextPage = () => {
 
         <ContactForm />
       </div>
-      <Footer />
     </div>
   );
 };

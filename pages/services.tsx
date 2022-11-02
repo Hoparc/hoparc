@@ -7,6 +7,7 @@ import { AllServicesDocument, AllServicesQuery } from ".././graphql-operations";
 import Navbar from "../components/global/Navbar";
 import Footer from "../components/global/Footer";
 import { PortableText } from "@portabletext/react";
+import Head from "next/head";
 
 type ServicesProps = {
   services: AllServicesQuery["allService"];
@@ -27,7 +28,20 @@ export const getStaticProps: GetStaticProps<ServicesProps> = async () => {
 export default function Services({ services }: ServicesProps) {
   return (
     <>
-      <Navbar />
+      <Head>
+        <title>Services | Hands on Physiotherapy and Rehab Centre</title>
+        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
+        <meta name="theme-color" content="#327CDF" />
+        <meta
+          name="description"
+          content="Services at Hands on Physiotherapy and Rehab Centre"
+        />
+        <meta
+          name="keywords"
+          content="Services, hands on physio therapy and rehab centre"
+        />
+        <meta name="viewport" content="width=device-width" />
+      </Head>
       <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 ">
         <div className="flex pb-12 flex-col items-center justify-center">
           <h1 className="mt-10 flex flex-col gap-3 text-5xl text-left font-bold uppercase text-blue-350 ">

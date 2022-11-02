@@ -1,6 +1,7 @@
-import React from "react";
-import { useState } from "react";
 import Image from "next/image";
+
+import { useState } from "react";
+
 import cn from "clsx";
 
 interface ServiceCardProps {
