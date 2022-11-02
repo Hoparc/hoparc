@@ -1,7 +1,5 @@
 import { GetStaticProps } from "next";
-import { useRouter } from "next/router";
 import Image from "next/image";
-import Link from "next/link";
 
 import client from ".././apollo-client";
 import { AllServicesDocument, AllServicesQuery } from ".././graphql-operations";
