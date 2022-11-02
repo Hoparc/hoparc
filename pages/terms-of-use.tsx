@@ -1,3 +1,4 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 import Footer from "../components/global/Footer";
@@ -17,7 +18,7 @@ function Terms({ title, children }: TermsProps) {
   );
 }
 
-const TermsOfUse = () => {
+const TermsOfUse: NextPage = () => {
   return (
     <>
       <Head>
