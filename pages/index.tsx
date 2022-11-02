@@ -1,11 +1,10 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from "next/head";
 import Footer from "../components/global/Footer";
 import Navbar from "../components/global/Navbar";
 import Hero from '../components/landing/Hero';
 import LetUsHelp from '../components/landing/LetUsHelp';
-
+import Services from "../components/modules/Service";
 
 const Home: NextPage = () => {
   return (
@@ -23,6 +22,7 @@ const Home: NextPage = () => {
       </Head>
       <Navbar />
       <Hero />
+      <Services hasShowMore={true} />
       <LetUsHelp />
       <Footer />
     </div>
