@@ -1,5 +1,6 @@
+import { NextPage } from "next";
 import Head from "next/head";
-import React from "react";
+
 import Footer from "../components/global/Footer";
 import Navbar from "../components/global/Navbar";
 
@@ -17,7 +18,7 @@ function Policies({ title, children }: PoliciesProps) {
   );
 }
 
-const PrivacyPolicy = () => {
+const PrivacyPolicy: NextPage = () => {
   return (
     <>
       <Head>
@@ -48,20 +49,19 @@ const PrivacyPolicy = () => {
 
         <Policies title="1. What is personal and personal health information?">
           <p>
-            Personal information (PI) includes any identifying information about
-            you. HOPARC collects personal information from you such as your
-            name, date of birth, address, email and phone contact information
-            and when you offer it as a means of payment, your credit card
-            information (please note credit card information is not retained
-            after a transaction is completed).
+            Personal information includes any identifying information about you.
+            HOPARC collects personal information from you such as your name,
+            date of birth, address, email and phone contact information and when
+            you offer it as a means of payment (Please note credit card
+            information is not retained after a transaction is completed).
           </p>
           <br />
           <p>
-            Personal Health Information (PHI) is any identifying information in
-            writing or spoken about your physical or mental health; the
-            provision of your health care; the eligibility or payment for your
-            health care; the identity of the provider of your health care; and
-            includes your health card number (a health care provider who does
+            Personal Health Information is any identifying information in
+            writing or spoken about your physical or mental health. The
+            provision of your health care, eligibility or payment for your
+            health care, identity of the provider of your health care, and
+            includes your health card number. (A health care provider who does
             not use your health card for an authorized purpose cannot ask for
             the number).
           </p>
@@ -77,18 +77,19 @@ const PrivacyPolicy = () => {
           <p>
             To provide assessment, treatment or other services related to your
             injury or illness, functional restriction, disability or impairment
-            and / or your claim for compensation or benefits. To obtain payment
+            and/or your claim for compensation or benefits. To obtain payment
             for the assessment and/or treatment or other services we provide,
             and determine any entitlement to insurance coverage or other
-            benefits. To identify treatment outcomes and / or the extent of
+            benefits. To identify treatment outcomes and/or the extent of
             services provided, and share this information with HOPARC, payers
-            (for example your insurance company) and referral sources. HOPARC
-            also compiles information for its annonymous database which is used
-            to compile statistics for quality improvement initiatives, for
-            example improving overall performance in different programs, and
-            clinical outcomes research. This information does not use your PI or
-            PHI. HOPARC may also collect, use or disclose your personal or
-            personal health information if required by law to do so.
+            (i.e. your insurance company) and referral sources. HOPARC also
+            compiles information for its annonymous database which is used to
+            compile statistics for quality improvement initiatives, (i.e.
+            improving overall performance in different programs, and clinical
+            outcomes research.) This information does not use your personal
+            information or personal health information. HOPARC may also collect,
+            use or disclose your personal or personal health information if
+            required by law to do so.
           </p>
         </Policies>
 
@@ -107,14 +108,14 @@ const PrivacyPolicy = () => {
           <p>
             HOPARC will make all reasonable efforts to ensure that the purposes
             for which the information will be used are identified to you so that
-            you can provide knowledgeable consent. In the clinics you will be
+            you can provide knowledgeable consent. In the clinics, you will be
             asked to read and sign a consent form. If you are unable to read the
             consent, a verbal explanation will be provided so that you can
             reasonably understand how your personal or personal health
             information will be collected, used or disclosed. In other care
             settings, for example when receiving services in your home, you will
-            be given a Privacy Notice to read with your family member or
-            substitute decision maker, after an opportunity to ask questions,
+            be given a privacy notice to read with your family member or
+            substitute decision maker. After an opportunity to ask questions,
             you can provide verbal consent and we will note your consent in your
             chart.
           </p>
@@ -128,13 +129,13 @@ const PrivacyPolicy = () => {
             manager of the facility you are attending or to the care provider
             who visits you at home. The health care provider is responsible for
             informing you of any potential consequences that may result from the
-            withdrawal of your consent, prior to you making such a decision (for
-            example it may limit the ability of HOPARC to provide you with
+            withdrawal of your consent, prior to you making such a decision
+            (i.e. it may limit the ability of HOPARC to provide you with
             assessment, treatment or other services).
           </p>
           <br />
           <p>
-            If you withdraw your consent it is not retroactive, and does not
+            If you withdraw your consent, it is not retroactive, and does not
             apply to personal or personal health information already collected,
             used or disclosed by HOPARC.
           </p>
@@ -152,14 +153,14 @@ const PrivacyPolicy = () => {
           <p>
             HOPARC has established a variety of safeguards to protect personal
             and personal health information in its care, including
-            organizational (for example: training HOPARC personnel about privacy
+            organizational (i.e. training HOPARC personnel about privacy
             obligations and having all personnel annually sign a
-            "Confidentiality Obligation Agreement", performing an annual audit
-            of privacy practices), physical (for example: locking filing
-            cabinets, central filing of active charts, safe storage requirements
-            for archived files, security systems) and technological safeguards
-            (for example: encryption of mobile data devices, virus protection,
-            computer backup, password entry to computer system).
+            "Confidentiality Obligation Agreement" performing an annual audit of
+            privacy practices), physical (i.e. locking filing cabinets, central
+            filing of active charts, safe storage requirements for archived
+            files, security systems) and technological safeguards (for example:
+            encryption of mobile data devices, virus protection, computer
+            backup, password entry to computer system).
           </p>
           <br />
           <p>
@@ -191,12 +192,12 @@ const PrivacyPolicy = () => {
           <p>
             If your request for access is delayed or denied, you will be
             provided with information about the recourse available through the
-            personnel of HOPARC (for contact information see the end of this
-            notice).
+            personnel of HOPARC. Contact information is available at the end of
+            this notice.
           </p>
           <br />
           <p>
-            There is no charge to look at a copy of your record however it is
+            There is no charge to look at a copy of your record. However, it is
             suggested that you do so when your therapist or care provider can be
             present to go over the material with you (and your family if
             required) to explain any medical or technical terms to avoid any
@@ -209,9 +210,9 @@ const PrivacyPolicy = () => {
             depend on the number of pages you have requested, the location (if
             the record has to be retrieved from a records storage facility), the
             complexity and time it takes to recreate the record from an
-            electronic records system etc. All fees associated with a request
-            for copies of personal health information are calculated on a
-            reasonable cost recovery basis only.
+            electronic records system. All fees associated with a request for
+            copies of personal health information are calculated on a reasonable
+            cost recovery basis only.
           </p>
         </Policies>
 
