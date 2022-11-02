@@ -1,6 +1,5 @@
-import cn from "clsx";
-
 import { GetStaticProps } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -15,8 +14,7 @@ import {
 
 import { useMemo } from "react";
 
-import Navbar from "../components/global/Navbar";
-import Footer from "../components/global/Footer";
+import cn from "clsx";
 
 type BlogsProps = {
   blogs: AllBlogsQuery["allBlog"];
@@ -57,7 +55,20 @@ function Blogs({ blogs, categories }: BlogsProps) {
 
   return (
     <>
-      <Navbar />
+      <Head>
+        <title>Blogs | Hands on Physiotherapy and Rehab Centre</title>
+        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
+        <meta name="theme-color" content="#327CDF" />
+        <meta
+          name="description"
+          content="Blogs at Hands on Physiotherapy and Rehab Centre"
+        />
+        <meta
+          name="keywords"
+          content="blogs, hands on physio therapy and rehab centre"
+        />
+        <meta name="viewport" content="width=device-width" />
+      </Head>
       <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen">
         <div className="flex pb-12 flex-col items-center justify-center">
           <h1 className="mt-10 flex flex-col gap-3 text-5xl text-left font-bold uppercase text-blue-350 ">
@@ -124,7 +135,6 @@ function Blogs({ blogs, categories }: BlogsProps) {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

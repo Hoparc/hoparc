@@ -1,15 +1,9 @@
 import { GetStaticProps } from "next";
-import React from "react";
-
-import Navbar from "../components/global/Navbar";
-import Footer from "../components/global/Footer";
-
 import Image from "next/image";
+import Head from "next/head";
+
 import client from ".././apollo-client";
-import {
-  AllProductsDocument,
-  AllProductsQuery,
-} from ".././graphql-operations";
+import { AllProductsDocument, AllProductsQuery } from ".././graphql-operations";
 
 import { PortableText } from "@portabletext/react";
 
@@ -17,14 +11,10 @@ type ProductsProps = {
   products: AllProductsQuery["allProduct"];
 };
 
-export const getStaticProps: GetStaticProps<
-  ProductsProps
-> = async () => {
-  const { data: productData } =
-    await client.query<AllProductsQuery>({
-      query: AllProductsDocument,
-    });
-
+export const getStaticProps: GetStaticProps<ProductsProps> = async () => {
+  const { data: productData } = await client.query<AllProductsQuery>({
+    query: AllProductsDocument,
+  });
 
   return {
     props: {
@@ -37,10 +27,25 @@ export const getStaticProps: GetStaticProps<
 function Products({ products }: ProductsProps) {
   return (
     <>
-      <Navbar />
+      <Head>
+        <title>Products | Hands on Physiotherapy and Rehab Centre</title>
+        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
+        <meta name="theme-color" content="#327CDF" />
+        <meta
+          name="description"
+          content="Products at Hands on Physiotherapy and Rehab Centre"
+        />
+        <meta
+          name="keywords"
+          content="Products, hands on physio therapy and rehab centre"
+        />
+        <meta name="viewport" content="width=device-width" />
+      </Head>
       <div className="block pt-16"></div>
       <section className="mx-auto my-12 max-w-screen-xl w-11/12">
-        <h2 className="text-5xl text-center text-blue-350 uppercase font-roboto">products</h2>
+        <h2 className="text-5xl text-center text-blue-350 uppercase font-roboto">
+          products
+        </h2>
         <div className="mt-8">
           {products.map((product) => {
             return (
@@ -61,8 +66,6 @@ function Products({ products }: ProductsProps) {
                         fill
                       />
                     )}
-
-
                   </div>
                   <button className="bg-blue-350 text-base text-white font-button w-full px-4 py-2 rounded-b-md shadow-md shadow-slate-500 hover:bg-green-350 hover:text-blue-550">
                     Make Inquiry
@@ -93,9 +96,8 @@ function Products({ products }: ProductsProps) {
           })}
         </div>
       </section>
-      <Footer />
     </>
-  )
+  );
 }
 
 export default Products;

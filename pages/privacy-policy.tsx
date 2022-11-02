@@ -1,9 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
 
-import Footer from "../components/global/Footer";
-import Navbar from "../components/global/Navbar";
-
 type PoliciesProps = {
   title: string;
   children?: React.ReactNode;
@@ -35,7 +32,6 @@ const PrivacyPolicy: NextPage = () => {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <Navbar />
       <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
           Privacy Policy
@@ -301,7 +297,6 @@ const PrivacyPolicy: NextPage = () => {
           </span>
         </p>
       </section>
-      <Footer />
     </>
   );
 };

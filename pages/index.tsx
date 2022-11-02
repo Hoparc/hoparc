@@ -1,9 +1,8 @@
 import type { NextPage } from 'next'
 import Head from "next/head";
-import Footer from "../components/global/Footer";
-import Navbar from "../components/global/Navbar";
-import Hero from '../components/landing/Hero';
-import LetUsHelp from '../components/landing/LetUsHelp';
+
+import Hero from "../components/landing/Hero";
+import LetUsHelp from "../components/landing/LetUsHelp";
 import Services from "../components/modules/Service";
 
 const Home: NextPage = () => {
@@ -20,11 +19,9 @@ const Home: NextPage = () => {
         <meta name="keywords" content="physiotherapy" />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <Navbar />
       <Hero />
       <Services hasShowMore={true} />
       <LetUsHelp />
-      <Footer />
     </div>
   );
 };
