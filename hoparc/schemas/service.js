@@ -32,20 +32,6 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "category",
-      title: "Category",
-      type: "array",
-      description:
-        "Please provide the category for this service or provide a new category below.",
-      validation: (Rule) => Rule.required(),
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "serviceCategory" }],
-        },
-      ],
-    },
-    {
       title: "Description",
       name: "description",
       type: "text",
