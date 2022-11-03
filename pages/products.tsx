@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import Head from "next/head";
 
@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<ProductsProps> = async () => {
   };
 };
 
-function Products({ products }: ProductsProps) {
+const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
   return (
     <>
       <Head>
@@ -98,6 +98,6 @@ function Products({ products }: ProductsProps) {
       </section>
     </>
   );
-}
+};
 
 export default Products;
