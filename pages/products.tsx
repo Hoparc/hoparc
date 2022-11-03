@@ -1,30 +1,58 @@
 import { GetStaticProps, NextPage } from "next";
-import Image from "next/image";
+import { useRouter } from "next/router";
 import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+
+import { useMemo } from "react";
 
 import client from ".././apollo-client";
-import { AllProductsDocument, AllProductsQuery } from ".././graphql-operations";
+import {
+  AllProductCategoriesDocument,
+  AllProductCategoriesQuery,
+  AllProductsDocument,
+  AllProductsQuery,
+} from ".././graphql-operations";
 
-import { PortableText } from "@portabletext/react";
+import cn from "clsx";
 
 type ProductsProps = {
   products: AllProductsQuery["allProduct"];
+  categories: AllProductCategoriesQuery["allProductCategory"];
 };
 
 export const getStaticProps: GetStaticProps<ProductsProps> = async () => {
-  const { data: productData } = await client.query<AllProductsQuery>({
-    query: AllProductsDocument,
-  });
+  const [{ data: productData }, { data: productCategoryData }] = await Promise.all([
+    client.query<AllProductsQuery>({
+      query: AllProductsDocument,
+    }),
+    client.query<AllProductCategoriesQuery>({
+      query: AllProductCategoriesDocument,
+    }),
+  ]);
 
   return {
     props: {
       products: productData?.allProduct ?? [],
+      categories: productCategoryData?.allProductCategory ?? [],
     },
     revalidate: 200,
   };
 };
 
-const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
+const Products: NextPage<ProductsProps> = ({ products, categories }: ProductsProps) => {
+  const router = useRouter();
+  const { category: activeCategory } = router.query;
+  const filteredProducts = useMemo(() => {
+    return activeCategory
+      ? products.filter((product) =>
+        product.category?.some(
+          (category) => category?.slug?.current === activeCategory
+        )
+      )
+      : products;
+  }, [activeCategory, products]);
+
   return (
     <>
       <Head>
@@ -37,63 +65,76 @@ const Products: NextPage<ProductsProps> = ({ products }: ProductsProps) => {
         />
         <meta
           name="keywords"
-          content="Products, hands on physio therapy and rehab centre"
+          content="products, hands on physio therapy and rehab centre"
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <div className="block pt-16"></div>
-      <section className="mx-auto my-12 max-w-screen-xl w-11/12">
-        <h2 className="text-5xl text-center text-blue-350 uppercase font-roboto">
-          products
-        </h2>
-        <div className="mt-8">
-          {products.map((product) => {
-            return (
-              <div
-                key={product.name}
-                className="lg:w-9/12 flex flex-col md:flex-col my-16 mx-auto rounded-lg bg-slate-100 min-h-full w-full shadow-lg shadow-slate-300 "
+      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen">
+        <div className="flex pb-12 flex-col items-center justify-center">
+          <h1 className="mt-10 flex flex-col gap-3 text-5xl text-left font-bold uppercase text-blue-350 ">
+            our products
+          </h1>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-3 mb-20">
+          <div className="col-span-8 lg:col-span-2">
+            <Link href="/products">
+              <button className="block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
+                All Categories
+              </button>
+            </Link>
+            {categories?.map((category) => (
+              <Link
+                key={category.slug?.current}
+                href={`/products?category=${category?.slug?.current}`}
               >
-                <div className="bg-primary-light relative flex items-center flex-col justify-start bg-blue-550 h-full rounded-lg">
-                  <h3 className="text-xl font-bold font-roboto text-white sm:text-2xl m-10">
-                    {product.name}
-                  </h3>
-                  <div className="w-full sm:min-h-[500px] min-h-[250px] max-h-[600px] relative">
-                    {product.image?.asset?.url && (
-                      <Image
-                        src={product.image.asset.url}
-                        alt={product.name ?? "Product image"}
-                        className="object-cover"
-                        fill
-                      />
-                    )}
-                  </div>
-                  <button className="bg-blue-350 text-base text-white font-button w-full px-4 py-2 rounded-b-md shadow-md shadow-slate-500 hover:bg-green-350 hover:text-blue-550">
-                    Make Inquiry
-                  </button>
-                </div>
-                <div className="flex-1 flex flex-col mx-2 my-10 sm:m-10">
-                  {product?.detailsRaw && product?.detailsRaw?.length > 0 && (
-                    <div className="animate-fade-in-up">
-                      <PortableText
-                        value={product?.detailsRaw}
-                        components={{
-                          block: {
-                            normal: ({ children }) => {
-                              return (
-                                <p className="text-base font-roboto font-thin mb-4">
-                                  {children}
-                                </p>
-                              );
-                            },
-                          },
-                        }}
-                      />
-                    </div>
+                <button
+                  className={cn(
+                    "block text-sm leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2",
+                    { underline: activeCategory === category.slug?.current }
                   )}
-                </div>
+                >
+                  {category.name}
+                </button>
+              </Link>
+            ))}
+          </div>
+
+          <div className="col-span-12 lg:col-span-10">
+            {filteredProducts.length > 0 ? (
+              <div className="columns-1 gap-x-4 md:columns-2 lg:columns-3">
+                {filteredProducts.map((product) => {
+                  return (
+                    <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
+                      <Link
+                        key={product.slug?.current}
+                        href={`/products/${product.slug?.current}`}
+                      >
+                        <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
+                          <div className="bg-transparent py-3 px-3">
+                            <div className="text-white font-bold">
+                              {product.name}
+                            </div>
+                          </div>
+                          <div className="h-[250px] relative">
+                            {product.image?.asset?.url && (
+                              <Image
+                                src={product?.image?.asset?.url}
+                                alt={`Image for ${product.name}`}
+                                fill
+                                className="object-cover"
+                              />
+                            )}
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                  );
+                })}
               </div>
-            );
-          })}
+            ) : (
+              <div className="text-sm">No products found.</div>
+            )}
+          </div>
         </div>
       </section>
     </>
