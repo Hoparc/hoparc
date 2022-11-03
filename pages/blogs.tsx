@@ -1,8 +1,10 @@
-import { GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+
+import { useMemo } from "react";
 
 import client from ".././apollo-client";
 import {
@@ -11,8 +13,6 @@ import {
   AllBlogsDocument,
   AllBlogsQuery,
 } from ".././graphql-operations";
-
-import { useMemo } from "react";
 
 import cn from "clsx";
 
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
   };
 };
 
-function Blogs({ blogs, categories }: BlogsProps) {
+const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
   const router = useRouter();
   const { category: activeCategory } = router.query;
   const filteredBlogs = useMemo(() => {
@@ -137,6 +137,6 @@ function Blogs({ blogs, categories }: BlogsProps) {
       </section>
     </>
   );
-}
+};
 
 export default Blogs;
