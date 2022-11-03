@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 
 import client from ".././apollo-client";
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps<ServicesProps> = async () => {
   };
 };
 
-export default function Services({ services }: ServicesProps) {
+const Services: NextPage<ServicesProps> = ({ services }: ServicesProps) => {
   return (
     <>
       <Head>
@@ -94,4 +94,6 @@ export default function Services({ services }: ServicesProps) {
       </section>
     </>
   );
-}
+};
+
+export default Services;
