@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { AllBlogsQuery } from "../../../graphql-operations";
 import { PortableText } from "@portabletext/react";
@@ -26,15 +27,22 @@ function Blog({ blog }: BlogProps) {
           </span>
         </Link>
 
-        <h1 className="my-12 ml-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+        <h1 className="my-6 ml-3 text-3xl text-blue-350 font-extrabold tracking-tight sm:text-4xl">
           {blog?.title}
         </h1>
-
+        <div className="mx-auto">
+          <Image
+            src={blog?.image?.asset?.url ?? ""}
+            alt={`An image of ${blog?.title}`}
+            width={300}
+            height={300}
+            className="object-cover rounded-lg shadow-2xl w-full"
+            priority
+          />
+        </div>
         <div className="flex my-12">
           <div className="ml-3">
-            <span className="font-light text-xl">
-              {format(date, "MMMM dd, yyyy")}
-            </span>
+            <span className="text-xl">{format(date, "MMMM dd, yyyy")}</span>
           </div>
         </div>
 
@@ -45,9 +53,7 @@ function Blog({ blog }: BlogProps) {
               components={{
                 block: {
                   normal: ({ children }) => {
-                    return (
-                      <p className="font-light text-black mb-4">{children}</p>
-                    );
+                    return <p className="text-black mb-4">{children}</p>;
                   },
                 },
               }}

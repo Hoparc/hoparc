@@ -78,7 +78,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-3 mb-20">
           <div className="col-span-8 lg:col-span-2">
             <Link href="/blogs">
-              <button className="block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
+              <button className="hover:text-green-350 block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
                 All Categories
               </button>
             </Link>
@@ -89,7 +89,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
               >
                 <button
                   className={cn(
-                    "block text-sm leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2",
+                    "block text-sm leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2 hover:text-green-350",
                     { underline: activeCategory === category.slug?.current }
                   )}
                 >
@@ -109,6 +109,11 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                       href={`/blog/${blog.slug?.current}`}
                     >
                       <div className="mb-4 relative cursor-pointer rounded-sm overflow-hidden">
+                        <div className="bg-blue-350 py-3 px-3 rounded-t-lg">
+                          <div className="text-white font-bold">
+                            {blog.title}
+                          </div>
+                        </div>
                         <div className="h-[250px] relative">
                           {blog.image?.asset?.url && (
                             <Image
@@ -116,13 +121,9 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                               alt={`Image for ${blog.title}`}
                               fill
                               className="object-cover"
+                              priority
                             />
                           )}
-                        </div>
-                        <div className="bg-blue-350 py-3 px-3">
-                          <div className="text-white font-bold">
-                            {blog.title}
-                          </div>
                         </div>
                       </div>
                     </Link>
