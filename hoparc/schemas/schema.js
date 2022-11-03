@@ -11,6 +11,7 @@ import service from "./service";
 import testimonial from "./testimonial";
 import productCategory from "./product.category";
 import serviceCategory from "./service.category";
+import introduction from "./introduction";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -22,6 +23,7 @@ export default createSchema({
     /* Your types here! */
     blog,
     blogCategory,
+    introduction,
     location,
     product,
     productCategory,
