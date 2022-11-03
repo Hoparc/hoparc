@@ -8,6 +8,12 @@ fragment product on Product {
   slug {
     current
   }
+  category {
+    name
+    slug {
+      current
+    }
+  }
   detailsRaw
 }
 
@@ -15,4 +21,19 @@ query allProducts {
     allProduct {
         ...product
     }
+}
+
+query product($slug: String) {
+  allProduct(where: { slug: { current: { eq: $slug } } }) {
+    ...product
+  }
+}
+
+query allProductCategories {
+  allProductCategory {
+    name
+    slug {
+      current
+    }
+  }
 }

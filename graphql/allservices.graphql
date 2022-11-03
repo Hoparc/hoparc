@@ -8,6 +8,12 @@ fragment service on Service {
   slug {
     current
   }
+  category {
+    name
+    slug {
+      current
+    }
+  }
   description
   detailsRaw
 }
@@ -16,4 +22,19 @@ query allServices {
     allService {
         ...service
     }
+}
+
+query service($slug: String) {
+  allService(where: { slug: { current: { eq: $slug } } }) {
+    ...service
+  }
+}
+
+query allServiceCategories {
+  allServiceCategory {
+    name
+    slug {
+      current
+    }
+  }
 }
