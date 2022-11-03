@@ -320,6 +320,48 @@ export type IntFilter = {
   neq?: InputMaybe<Scalars['Int']>;
 };
 
+export type Introduction = Document & {
+  __typename?: 'Introduction';
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars['DateTime']>;
+  /** Document ID */
+  _id?: Maybe<Scalars['ID']>;
+  _key?: Maybe<Scalars['String']>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars['String']>;
+  /** Document type */
+  _type?: Maybe<Scalars['String']>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars['DateTime']>;
+  /** Please provide a new call to action. */
+  callToAction?: Maybe<Scalars['String']>;
+  image?: Maybe<Image>;
+};
+
+export type IntroductionFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  callToAction?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
+};
+
+export type IntroductionSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  callToAction?: InputMaybe<SortOrder>;
+  image?: InputMaybe<ImageSorting>;
+};
+
 export type Location = Document & {
   __typename?: 'Location';
   /** Date the document was created */
@@ -497,6 +539,7 @@ export type RootQuery = {
   Blog?: Maybe<Blog>;
   BlogCategory?: Maybe<BlogCategory>;
   Document?: Maybe<Document>;
+  Introduction?: Maybe<Introduction>;
   Location?: Maybe<Location>;
   Product?: Maybe<Product>;
   ProductCategory?: Maybe<ProductCategory>;
@@ -508,6 +551,7 @@ export type RootQuery = {
   allBlog: Array<Blog>;
   allBlogCategory: Array<BlogCategory>;
   allDocument: Array<Document>;
+  allIntroduction: Array<Introduction>;
   allLocation: Array<Location>;
   allProduct: Array<Product>;
   allProductCategory: Array<ProductCategory>;
@@ -530,6 +574,11 @@ export type RootQueryBlogCategoryArgs = {
 
 
 export type RootQueryDocumentArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type RootQueryIntroductionArgs = {
   id: Scalars['ID'];
 };
 
@@ -595,6 +644,14 @@ export type RootQueryAllDocumentArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Array<DocumentSorting>>;
   where?: InputMaybe<DocumentFilter>;
+};
+
+
+export type RootQueryAllIntroductionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  sort?: InputMaybe<Array<IntroductionSorting>>;
+  where?: InputMaybe<IntroductionFilter>;
 };
 
 
@@ -1236,6 +1293,13 @@ export type AllBlogCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllBlogCategoriesQuery = { __typename?: 'RootQuery', allBlogCategory: Array<{ __typename?: 'BlogCategory', name?: string | null, slug?: { __typename?: 'Slug', current?: string | null } | null }> };
 
+export type IntroductionFragment = { __typename?: 'Introduction', callToAction?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null };
+
+export type AllIntroductionsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllIntroductionsQuery = { __typename?: 'RootQuery', allIntroduction: Array<{ __typename?: 'Introduction', callToAction?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
+
 export type LocationFragment = { __typename?: 'Location', address?: string | null, addresslinen?: string | null, phone?: string | null, fax?: string | null, email?: string | null, sunday?: string | null, monday?: string | null, tuesday?: string | null, wednesday?: string | null, thursday?: string | null, friday?: string | null, saturday?: string | null };
 
 export type AllLocationsQueryVariables = Exact<{ [key: string]: never; }>;
@@ -1289,6 +1353,7 @@ export type AllTestimonialsQueryVariables = Exact<{ [key: string]: never; }>;
 export type AllTestimonialsQuery = { __typename?: 'RootQuery', allTestimonial: Array<{ __typename?: 'Testimonial', name?: string | null, testimonial?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
 
 export const BlogFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"blog"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Blog"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"blogRaw"}}]}}]} as unknown as DocumentNode<BlogFragment, unknown>;
+export const IntroductionFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"introduction"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Introduction"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"callToAction"}}]}}]} as unknown as DocumentNode<IntroductionFragment, unknown>;
 export const LocationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"location"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Location"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"addresslinen"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}},{"kind":"Field","name":{"kind":"Name","value":"fax"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"sunday"}},{"kind":"Field","name":{"kind":"Name","value":"monday"}},{"kind":"Field","name":{"kind":"Name","value":"tuesday"}},{"kind":"Field","name":{"kind":"Name","value":"wednesday"}},{"kind":"Field","name":{"kind":"Name","value":"thursday"}},{"kind":"Field","name":{"kind":"Name","value":"friday"}},{"kind":"Field","name":{"kind":"Name","value":"saturday"}}]}}]} as unknown as DocumentNode<LocationFragment, unknown>;
 export const ProductFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"product"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Product"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"detailsRaw"}}]}}]} as unknown as DocumentNode<ProductFragment, unknown>;
 export const ServiceFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"service"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Service"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"detailsRaw"}}]}}]} as unknown as DocumentNode<ServiceFragment, unknown>;
@@ -1296,6 +1361,7 @@ export const TestimonialFragmentDoc = {"kind":"Document","definitions":[{"kind":
 export const AllBlogsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allBlogs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allBlog"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"blog"}}]}}]}},...BlogFragmentDoc.definitions]} as unknown as DocumentNode<AllBlogsQuery, AllBlogsQueryVariables>;
 export const BlogDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"blog"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allBlog"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"current"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"blog"}}]}}]}},...BlogFragmentDoc.definitions]} as unknown as DocumentNode<BlogQuery, BlogQueryVariables>;
 export const AllBlogCategoriesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allBlogCategories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allBlogCategory"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}}]}}]}}]} as unknown as DocumentNode<AllBlogCategoriesQuery, AllBlogCategoriesQueryVariables>;
+export const AllIntroductionsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allIntroductions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allIntroduction"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"introduction"}}]}}]}},...IntroductionFragmentDoc.definitions]} as unknown as DocumentNode<AllIntroductionsQuery, AllIntroductionsQueryVariables>;
 export const AllLocationsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allLocations"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allLocation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"location"}}]}}]}},...LocationFragmentDoc.definitions]} as unknown as DocumentNode<AllLocationsQuery, AllLocationsQueryVariables>;
 export const AllProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allProducts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProduct"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"product"}}]}}]}},...ProductFragmentDoc.definitions]} as unknown as DocumentNode<AllProductsQuery, AllProductsQueryVariables>;
 export const ProductDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"product"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProduct"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"current"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"product"}}]}}]}},...ProductFragmentDoc.definitions]} as unknown as DocumentNode<ProductQuery, ProductQueryVariables>;

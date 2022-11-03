@@ -1,0 +1,14 @@
+fragment introduction on Introduction {
+  image {
+      asset {
+        url
+      }
+  }
+  callToAction
+}
+
+query allIntroductions {
+    allIntroduction {
+        ...introduction
+    }
+}
