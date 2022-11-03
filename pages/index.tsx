@@ -3,7 +3,6 @@ import Head from "next/head";
 
 import Hero from "../components/landing/Hero";
 import LetUsHelp from "../components/landing/LetUsHelp";
-import Services from "../components/modules/Service";
 
 const Home: NextPage = () => {
   return (
@@ -20,7 +19,6 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width" />
       </Head>
       <Hero />
-      <Services hasShowMore={true} />
       <LetUsHelp />
     </div>
   );
