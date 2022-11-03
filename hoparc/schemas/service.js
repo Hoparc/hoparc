@@ -39,6 +39,20 @@ export default {
         "Please provide a short description of your service. (This will be shown on the landing page).",
     },
     {
+      name: "category",
+      title: "Category",
+      type: "array",
+      description:
+        "Please provide the category for this service or provide a new category below.",
+      validation: (Rule) => Rule.required(),
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "serviceCategory" }],
+        },
+      ],
+    },
+    {
       name: "details",
       title: "Details",
       type: "array",
