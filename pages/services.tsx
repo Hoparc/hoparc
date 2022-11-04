@@ -17,7 +17,7 @@ import {
 import cn from "clsx";
 
 type ServicesProps = {
-  blogs: AllServicesQuery["allService"];
+  services: AllServicesQuery["allService"];
   categories: AllServiceCategoriesQuery["allServiceCategory"];
 };
 
@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps<ServicesProps> = async () => {
 
   return {
     props: {
-      blogs: serviceData?.allService ?? [],
+      services: serviceData?.allService ?? [],
       categories: serviceCategoryData?.allServiceCategory ?? [],
     },
     revalidate: 200,
@@ -42,20 +42,20 @@ export const getStaticProps: GetStaticProps<ServicesProps> = async () => {
 };
 
 const Services: NextPage<ServicesProps> = ({
-  blogs,
+  services,
   categories,
 }: ServicesProps) => {
   const router = useRouter();
   const { category: activeCategory } = router.query;
   const filteredServices = useMemo(() => {
     return activeCategory
-      ? blogs.filter((blog) =>
-          blog.category?.some(
+      ? services.filter((service) =>
+          service.category?.some(
             (category) => category?.slug?.current === activeCategory
           )
         )
-      : blogs;
-  }, [activeCategory, blogs]);
+      : services;
+  }, [activeCategory, services]);
 
   return (
     <>
