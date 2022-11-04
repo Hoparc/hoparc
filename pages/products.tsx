@@ -69,71 +69,91 @@ const Products: NextPage<ProductsProps> = ({ products, categories }: ProductsPro
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen">
-        <div className="flex pb-12 flex-col items-center justify-center">
-          <h1 className="mt-10 flex flex-col gap-3 text-5xl text-left font-bold uppercase text-blue-350 ">
-            our products
-          </h1>
+
+      <section className="min-h-screen ">
+        <div className="">
+          <Image
+            src="/images/products/banner2.webp"
+            alt=""
+            height={10}
+            width={100000}
+            className="object-cover object-center max-h-52 w-full"
+          >
+          </Image>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-3 mb-20">
-          <div className="col-span-8 lg:col-span-2">
-            <Link href="/products">
-              <button className="block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
-                All Categories
-              </button>
-            </Link>
-            {categories?.map((category) => (
-              <Link
-                key={category.slug?.current}
-                href={`/products?category=${category?.slug?.current}`}
-              >
-                <button
-                  className={cn(
-                    "block text-sm leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2",
-                    { underline: activeCategory === category.slug?.current }
-                  )}
-                >
-                  {category.name}
-                </button>
-              </Link>
-            ))}
+        <div className="bg-blue-350 w-full">
+          <div className="max-w-screen-xl m-auto w-11/12">
+            <h2 className="text-3xl text-left  font-bold uppercase text-white">
+              our products
+            </h2>
           </div>
 
-          <div className="col-span-12 lg:col-span-10">
-            {filteredProducts.length > 0 ? (
-              <div className="columns-1 gap-x-4 md:columns-2 lg:columns-3">
-                {filteredProducts.map((product) => {
-                  return (
-                    <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
-                      <Link
-                        key={product.slug?.current}
-                        href={`/products/${product.slug?.current}`}
-                      >
-                        <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
-                          <div className="bg-transparent py-3 px-3">
-                            <div className="text-white font-bold">
-                              {product.name}
+        </div>
+        <div className="max-w-screen-xl m-auto w-11/12 ">
+
+
+
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
+            <div className="col-span-8 lg:col-span-2">
+              <Link href="/products">
+                <button className="block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
+                  All Categories
+                </button>
+              </Link>
+              {categories?.map((category) => (
+                <Link
+                  key={category.slug?.current}
+                  href={`/products?category=${category?.slug?.current}`}
+                >
+                  <button
+                    className={cn(
+                      "block text-sm leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2",
+                      { underline: activeCategory === category.slug?.current }
+                    )}
+                  >
+                    {category.name}
+                  </button>
+                </Link>
+              ))}
+            </div>
+
+            <div className="col-span-12 lg:col-span-10">
+              {filteredProducts.length > 0 ? (
+                <div className="columns-1 gap-x-4 md:columns-2 xl:columns-3">
+                  {filteredProducts.map((product) => {
+                    return (
+                      <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
+                        <Link
+                          key={product.slug?.current}
+                          href={`/products/${product.slug?.current}`}
+                        >
+                          <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
+                            <div className="bg-transparent py-3 px-3">
+                              <div className="text-white font-bold">
+                                {product.name}
+                              </div>
+                            </div>
+                            <div className="h-[250px] relative">
+                              {product.image?.asset?.url && (
+                                <Image
+                                  src={product?.image?.asset?.url}
+                                  alt={`Image for ${product.name}`}
+                                  fill
+                                  className="object-cover"
+                                />
+                              )}
                             </div>
                           </div>
-                          <div className="h-[250px] relative">
-                            {product.image?.asset?.url && (
-                              <Image
-                                src={product?.image?.asset?.url}
-                                alt={`Image for ${product.name}`}
-                                fill
-                                className="object-cover"
-                              />
-                            )}
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className="text-sm">No products found.</div>
-            )}
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="text-sm">No products found.</div>
+              )}
+            </div>
           </div>
         </div>
       </section>
