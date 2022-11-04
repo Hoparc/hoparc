@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ContactDialog from "../contact/ContactDialog"
 
 type HeroProps = {
   callToAction: string | null | undefined;
@@ -33,9 +34,7 @@ function Hero({ callToAction, url }: HeroProps) {
                 </div>
                 <h3 className="self-center text-blue-550 text-base px-2 sm:text-xl xl:text-2xl">"{callToAction}"</h3>
               </div>
-              <button className="bg-blue-350 text-base text-white font-button w-full px-4 py-2">
-                Make Appointment
-              </button>
+              <ContactDialog></ContactDialog>
             </div>
           </div>
         </div>

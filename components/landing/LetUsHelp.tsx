@@ -1,3 +1,4 @@
+import ContactDialog from "../contact/ContactDialog";
 import Image from "next/image";
 
 function LetUsHelp() {
@@ -12,9 +13,7 @@ function LetUsHelp() {
           width={50}
         >
         </Image>
-        <button className="bg-blue-350 text-base text-white font-button w-full px-4 py-2">
-          Make Appointment
-        </button>
+        <ContactDialog></ContactDialog>
       </div>
       <div className=" flex px-3 w-full lg:w-1/2 ">
         <p>

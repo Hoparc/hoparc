@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { useForm as useFormSpree} from "@formspree/react";
-import  Link from "next/link"
+import { useForm as useFormSpree } from "@formspree/react";
+import Link from "next/link"
 
 import { Transition } from "@headlessui/react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
@@ -50,7 +50,7 @@ function ContactForm() {
 
   return (
     <section id="contact-form">
-      <div className="relative z-20 rounded-md bg-white p-12 shadow-md">
+      <div className="relative z-20 rounded-b-md bg-white px-7 py-6 shadow-md">
         <form onSubmit={handleSubmit(onSubmit)} className="">
           <div className="flex flex-col space-y-5 mt-5">
             <div className="grid grid-cols-1 space-y-3">
@@ -59,7 +59,7 @@ function ContactForm() {
               </label>
               <input
                 placeholder="First Name"
-                className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-slate-400 focus:border-slate-400"
+                className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350"
                 {...register("firstName", { required: true, maxLength: 30 })}
               />
 
@@ -69,7 +69,7 @@ function ContactForm() {
               </label>
               <input
                 placeholder="Last Name"
-                className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-slate-400 focus:border-slate-400"
+                className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350"
                 {...register("lastName", { required: true, maxLength: 30 })}
               />
 
@@ -81,7 +81,7 @@ function ContactForm() {
               <input
                 type="text"
                 placeholder="Email"
-                className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-slate-400 focus:border-slate-400"
+                className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350"
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
@@ -102,7 +102,7 @@ function ContactForm() {
                 }}
                 render={({ field: { onChange, value } }) => (
                   <PhoneInput
-                    className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-slate-400 focus:border-slate-400"
+                    className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350"
                     placeholder="Phone Number"
                     value={value}
                     onChange={onChange}
@@ -122,7 +122,7 @@ function ContactForm() {
             <input
               type="text"
               placeholder="Subject"
-              className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-slate-400 focus:border-slate-400"
+              className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350"
               {...register("subject", {
                 required: true,
                 minLength: 5,
@@ -136,7 +136,7 @@ function ContactForm() {
             <textarea
               rows={5}
               placeholder="Hi, I'd like to book an appointment!"
-              className="rounded-md border border-gray-200 px-4 py-2 outline-none hover:border-gray-400 focus:border-gray-400 md:col-span-2"
+              className="rounded-md border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
               {...register("message", {
                 required: true,
                 minLength: 5,
@@ -147,11 +147,11 @@ function ContactForm() {
             <div className="flex justify-end gap-2 mt-6">
               <input
                 type="submit"
-                className="rounded-lg bg-blue-500 px-6 py-2 font-bold uppercase text-white hover:bg-blue-700 w-1/2"
+                className="rounded-lg bg-blue-500 px-6 py-2 font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 w-1/2"
               />
               <button
                 onClick={handleClick}
-                className="rounded-lg bg-red-700 px-6 py-2 font-bold uppercase text-white hover:bg-red-600 w-1/2"
+                className="rounded-lg bg-red-700 px-6 py-2 font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 w-1/2"
               >
                 Reset
               </button>
