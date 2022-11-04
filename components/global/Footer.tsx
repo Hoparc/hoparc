@@ -11,8 +11,12 @@ function Footer() {
         <div className="grid grid-cols-1 footer:grid-cols-2 px-3 sm:grid-cols-2 gap-2 mobile:px-8 py-8 grid-cols-2">
           <div className="flex flex-col footer:items-center">
             <div className="flex flex-col items-left justify-start mb-7 footer:flex-row">
-              <Image src="/images/footer/logo.png" alt="hoparc logo" width={100} height={100} />
-
+              <Image
+                src="/images/footer/logo.png"
+                alt="hoparc logo"
+                width={100}
+                height={100}
+              />
               <div className="flex flex-col justify-center pl-0 footer:items-left footer:pl-2">
                 <h2 className="font-merriweather font-bold text-2xl	flex-1 text-white capitalize">
                   hands on
