@@ -18,7 +18,10 @@ export default {
       title: "Call to Action",
       type: "string",
       description: "Please provide a new call to action.",
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => [
+        Rule.required(),
+        Rule.max(30).warning("Shorter call to actions are usually better!"),
+      ],
     },
   ],
 };
