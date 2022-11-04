@@ -1,10 +1,46 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+
+import {
+  AllIntroductionsDocument,
+  IntroductionFragment,
+  AllIntroductionsQuery,
+} from "../graphql-operations";
 
 import Hero from "../components/landing/Hero";
 import LetUsHelp from "../components/landing/LetUsHelp";
+import client from "../apollo-client";
 
-const Home: NextPage = () => {
+type HomeProps = {
+  callToAction: string | null | undefined;
+  url: string | null | undefined;
+};
+
+const transformQueryResponseToProps = (
+  data: AllIntroductionsQuery
+): HomeProps => {
+  const allIntroduction: IntroductionFragment[] = data?.allIntroduction;
+  const introduction = allIntroduction[0];
+  const { callToAction, image } = introduction;
+  const url = image?.asset?.url;
+
+  return {
+    callToAction,
+    url,
+  };
+};
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const { data: introductionData } = await client.query<AllIntroductionsQuery>({
+    query: AllIntroductionsDocument,
+  });
+
+  return {
+    props: transformQueryResponseToProps(introductionData),
+  };
+};
+
+const Home: NextPage<HomeProps> = ({ callToAction, url }: HomeProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-slate-150">
       <Head>
@@ -18,10 +54,10 @@ const Home: NextPage = () => {
         <meta name="keywords" content="physiotherapy" />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <Hero />
+      <Hero callToAction={callToAction} url={url} />
       <LetUsHelp />
     </div>
   );
 };
 
-export default Home
+export default Home;
