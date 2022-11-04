@@ -10,7 +10,7 @@ import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 
 function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-white shadow-lg w-full fixed top-0 z-50">
+    <Disclosure as="nav" className="bg-white shadow-lg w-full fixed top-0 z-10">
       {({ open }) => (
         <>
           <div className="mx-auto ">
