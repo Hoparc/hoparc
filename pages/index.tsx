@@ -10,8 +10,8 @@ import {
 
 import Hero from "../components/landing/Hero";
 import LetUsHelp from "../components/landing/LetUsHelp";
-
-import OurServices from "../components/modules/OurServices/OurServices";
+import OurServices from "../components/landing/OurServices/OurServices";
+import Testimonials from "../components/landing/Testimonials/Testimonials";
 
 type HomeProps = {
   callToAction: string | null | undefined;
@@ -58,6 +58,7 @@ const Home: NextPage<HomeProps> = ({ callToAction, url }: HomeProps) => {
       </Head>
       <Hero callToAction={callToAction} url={url} />
       <OurServices hasShowMore={true} />
+      <Testimonials hasShowMore={true} />
       <LetUsHelp />
     </div>
   );
