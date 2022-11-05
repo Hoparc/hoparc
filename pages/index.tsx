@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
+import client from "../apollo-client";
 import {
   AllIntroductionsDocument,
   IntroductionFragment,
@@ -9,7 +10,8 @@ import {
 
 import Hero from "../components/landing/Hero";
 import LetUsHelp from "../components/landing/LetUsHelp";
-import client from "../apollo-client";
+
+import OurServices from "../components/modules/OurServices/OurServices";
 
 type HomeProps = {
   callToAction: string | null | undefined;
@@ -55,6 +57,7 @@ const Home: NextPage<HomeProps> = ({ callToAction, url }: HomeProps) => {
         <meta name="viewport" content="width=device-width" />
       </Head>
       <Hero callToAction={callToAction} url={url} />
+      <OurServices hasShowMore={true} />
       <LetUsHelp />
     </div>
   );
