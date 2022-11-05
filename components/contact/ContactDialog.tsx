@@ -40,42 +40,45 @@ export default function ContactDialog() {
           >
             <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" />
           </Transition.Child>
-          <div className="flex inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Dialog.Panel className="h-min m-auto w-11/12 transform rounded-2xl transition-all fixed inset-0 overflow-auto" >
+
+          <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <Dialog.Panel className="m-auto w-11/12 transform rounded-2xl transition-all fixed top-2/4 left-2/4 translate-y-minus50 translate-x-minus50 overflow-y-scroll sm:w-10/12 xl:w-6/12">
+                <div className="flex justify-end py-3 pr-10 bg-blue-550">
                   <button
                     aria-hidden="true"
                     aria-label="Close"
                     type="button"
-                    className="flex justify-end w-full py-2 pr-10 bg-blue-550 font-roboto text-2xl uppercase text-white text-right hover:bg-green-350 hover:text-green-350"
+                    className="font-roboto text-3xl uppercase text-white"
                     onClick={closeDialog}
                   >
-                    <div className="flex justify-center w-8 bg-blue-350 rounded-2xl hover:bg-blue-550">X</div>
+                    <div className="bg-blue-350 rounded-3xl w-10 hover:text-blue-550 hover:bg-green-350 uppercase">x</div>
                   </button>
-                  <Dialog.Title
-                    as="h3"
-                    className="bg-white pt-2 px-5 text-md font-medium leading-6 text-blue-550"
-                  >
-                    Please leave your information and we will contact you as soon as possible!
-                  </Dialog.Title>
-                  <ContactForm />
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
+                </div>
+                <Dialog.Title
+                  as="h3"
+                  className="bg-white pt-2 px-2 text-md font-medium leading-6 text-blue-550 break-words"
+                >
+                  Please leave your information and we will contact you as soon as possible!
+                </Dialog.Title>
+                <ContactForm />
+              </Dialog.Panel>
+            </Transition.Child>
           </div>
+
         </Dialog>
       </Transition>
     </>
   );
 }
+
 
 
