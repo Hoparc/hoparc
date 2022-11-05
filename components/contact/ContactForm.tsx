@@ -1,11 +1,14 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
 import Link from "next/link"
 
+import ContactDialog from "./ContactDialog";
+
 import { Transition } from "@headlessui/react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
-import 'react-phone-number-input/style.css'
+import "react-phone-number-input/style.css";
+import { fallbackExchange } from "@urql/core/dist/types/exchanges/fallback";
 
 type FormValues = {
   firstName: string;
@@ -16,8 +19,10 @@ type FormValues = {
   message: string;
 };
 
+
+
 function ContactForm() {
-  const [formSpreeState, sendToFormSpree] = useFormSpree("mdobokkz");
+  const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
 
   const {
     register,
@@ -50,108 +55,132 @@ function ContactForm() {
 
   return (
     <section id="contact-form">
-      <div className="relative z-20 rounded-b-md bg-white px-7 py-6 shadow-md">
+      <div className="relative z-20 rounded-b-md bg-white px-7 pb-4 pt-2 shadow-md ">
         <form onSubmit={handleSubmit(onSubmit)} className="">
-          <div className="flex flex-col space-y-5 mt-5">
-            <div className="grid grid-cols-1 space-y-3">
+          <div className="flex flex-col space-y-6">
+            <div className="grid grid-cols-1 space-y-6">
+
               <label htmlFor="firstName" className="sr-only">
                 First Name
               </label>
-              <input
-                placeholder="First Name"
-                className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350"
-                {...register("firstName", { required: true, maxLength: 30 })}
-              />
 
-              {errors.lastName && <span>This field is required</span>}
-              <label htmlFor="lastName" className="sr-only">
-                Last Name
-              </label>
-              <input
-                placeholder="Last Name"
-                className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350"
-                {...register("lastName", { required: true, maxLength: 30 })}
-              />
+              <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
 
-              {errors.lastName && <span>This field is required</span>}
+                <div className="flex flex-col w-full">
+                  {errors.firstName && <span className="absolute mt-10 ml-2 text-red-500">required</span>}
+                  <input
+                    placeholder="First Name"
+                    className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                    {...register("firstName", { required: true, maxLength: 30 })}
+                  />
+                </div>
 
-              <label htmlFor="email" className="sr-only">
-                Email
+
+
+                <label htmlFor="lastName" className="sr-only">
+                  Last Name
+                </label>
+                <div className="flex flex-col w-full">
+                  {errors.lastName && <span className="absolute mt-10 ml-2 text-red-500">required</span>}
+                  <input
+                    placeholder="Last Name"
+                    className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                    {...register("lastName", { required: true, maxLength: 30 })}
+                  />
+                </div>
+
+
+              </div>
+              <div className="flex flex-col justify-evenly gap-2 sm:flex-row">
+                <label htmlFor="email" className="sr-only">
+                  Email
+                </label>
+                <div className="flex flex-col w-full">
+                  {errors.email && <span className="absolute mt-10 ml-2 text-red-500">required</span>}
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                        message: "Please enter a valid email",
+                      },
+                    })}
+                  />
+                </div>
+
+
+                <label htmlFor="phone"></label>
+                <div className="flex flex-col w-full text-left">
+                  {errors.phone && (
+                    <span className="absolute mt-10 ml-2 text-red-500">Provide valid number</span>
+                  )}
+                  <Controller
+                    {...register("phone", { required: true })}
+                    name="phone"
+                    control={control}
+                    rules={{
+                      validate: (value) => isValidPhoneNumber(value),
+                    }}
+                    render={({ field: { onChange, value } }) => (
+                      <PhoneInput
+                        className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                        placeholder="Phone Number"
+                        value={value}
+                        onChange={onChange}
+                        defaultCountry="CA"
+                        id="phone-input"
+                      />
+                    )}
+                  />
+                </div>
+
+
+              </div>
+            </div>
+            <div className="flex">
+              <label htmlFor="subject" className="sr-only">
+                Subject
               </label>
               <input
                 type="text"
-                placeholder="Email"
-                className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                    message: "Please enter a valid email",
-                  },
+                placeholder="Subject"
+                className="rounded-md border border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
+                {...register("subject", {
+                  required: true,
+                  minLength: 5,
+                  maxLength: 30,
                 })}
               />
-              {errors.email && <span>This field is required</span>}
-
-              <label htmlFor="phone"></label>
-              <Controller
-                {...register("phone", { required: true })}
-                name="phone"
-                control={control}
-                rules={{
-                  validate: (value) => isValidPhoneNumber(value),
-                }}
-                render={({ field: { onChange, value } }) => (
-                  <PhoneInput
-                    className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350"
-                    placeholder="Phone Number"
-                    value={value}
-                    onChange={onChange}
-                    defaultCountry="CA"
-                    id="phone-input"
-                  />
-                )}
-              />
-
-              {errors.phone && (
-                <span>Please provide a valid phone number.</span>
-              )}
+              {errors.subject && <span className="absolute mt-10 ml-2 text-red-500">required</span>}
             </div>
-            <label htmlFor="subject" className="sr-only">
-              Subject
-            </label>
-            <input
-              type="text"
-              placeholder="Subject"
-              className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350"
-              {...register("subject", {
-                required: true,
-                minLength: 5,
-                maxLength: 30,
-              })}
-            />
-            {errors.subject && <span>This field is required</span>}
-            <label htmlFor="message" className="sr-only">
-              Leave us a message!
-            </label>
-            <textarea
-              rows={5}
-              placeholder="Hi, I'd like to book an appointment!"
-              className="rounded-md border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
-              {...register("message", {
-                required: true,
-                minLength: 5,
-                maxLength: 500,
-              })}
-            />
-            {errors.message && <span>This field is required</span>}
+            <div className="flex flex-col">
+              <label htmlFor="message" className="sr-only">
+                Leave us a message!
+              </label>
+              <textarea
+                rows={4}
+                placeholder="Hi, I'd like to book an appointment!"
+                className="rounded-md border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
+                {...register("message", {
+                  required: true,
+                  minLength: 5,
+                  maxLength: 500,
+                })}
+              />
+              {errors.message && <span className="absolute mt-28 ml-2 text-red-500">required</span>}
+            </div>
             <div className="flex justify-end gap-2 mt-6">
+
               <input
-                type="submit"
-                className="rounded-lg bg-blue-500 px-6 py-2 font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 w-1/2"
+                type="submit" value="submit"
+                className="rounded-lg bg-blue-500 text-sm px-6 py-2 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 w-1/2 cursor-pointer"
               />
               <button
                 onClick={handleClick}
-                className="rounded-lg bg-red-700 px-6 py-2 font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 w-1/2"
+                className="rounded-lg bg-red-500 text-sm px-6 py-2 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 w-1/2"
               >
                 Reset
               </button>
@@ -171,7 +200,7 @@ function ContactForm() {
           >
             <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white bg-opacity-90">
               <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-              <p className="mt-10 text-xl text-accent font-bold">SENDING...</p>
+              <p className="mt-10 text-xl font-roboto uppercase text-accent font-bold">sending...</p>
             </div>
           </Transition>
         )}
@@ -189,15 +218,13 @@ function ContactForm() {
             <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white">
               <div className="flex flex-col md:flex-row"></div>
 
-              <p className="mt-10 text-xl text-accent font-bold">
-                MESSAGE SENT!
+              <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold uppercase">
+                message sent!
               </p>
-              <p className="text-lg my-5">We'll be in touch soon!</p>
-              <Link href="/">
-                <button className="rounded-lg bg-blue-750 px-6 py-2 font-bold uppercase text-white hover:bg-blue-700">
-                  RETURN HOME
-                </button>
-              </Link>
+              <p className="text-sm font-roboto text-blue-550 my-5 sm:text-lg">We'll get back to you as soon as possible!</p>
+
+
+
             </div>
           </Transition>
         )}

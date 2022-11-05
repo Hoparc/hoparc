@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      translate: {
+        "minus50": '-50%',
+      },
       screens: {
         "2lg": "1385px",
         "footer": "948px",
