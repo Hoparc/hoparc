@@ -13,6 +13,7 @@ module.exports = {
         "2lg": "1385px",
         "footer": "948px",
         "mobile": "420px",
+        "mobileXl": "600px",
       },
       colors: {
         slate: {
