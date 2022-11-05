@@ -36,13 +36,28 @@ function Footer() {
               <p className="text-slate-500">338 Copper Creek Dr,</p>
               <p className="text-slate-500">Markham On L6B 1N8, Canada</p>
               <p>
-                <a className="underline text-slate-500 hover:text-green-350 hover:no-underline" href="tel: +1(289) 554-9090">Phone: +1 (289) 554-9090</a>
+                <a
+                  className="underline text-slate-500 hover:text-green-350 hover:no-underline"
+                  href="tel: +1(289) 554-9090"
+                >
+                  Phone: +1 (289) 554-9090
+                </a>
               </p>
               <p>
-                <a className="underline text-slate-500 hover:text-green-350 hover:no-underline" href="fax: +1(905) 201-9909">Fax: +1 (905) 201-9909</a>
+                <a
+                  className="underline text-slate-500 hover:text-green-350 hover:no-underline"
+                  href="fax: +1(905) 201-9909"
+                >
+                  Fax: +1 (905) 201-9909
+                </a>
               </p>
               <p>
-                <a className="underline hover:text-green-350 hover:no-underline" href="mailto:info@hoparc.com?subject=Book%20appointment">info@hoparc.com</a>
+                <a
+                  className="underline hover:text-green-350 hover:no-underline"
+                  href="mailto:info@hoparc.com?subject=Book%20appointment"
+                >
+                  info@hoparc.com
+                </a>
               </p>
             </address>
           </div>
@@ -53,11 +68,11 @@ function Footer() {
               </h2>
               <ul className="text-white font-roboto text-slate-500 text-left footer:text-center">
                 <li>Sunday: 9:00 a.m. - 5:00 p.m. </li>
-                <li>Monday: 9:00 a.m. - 5:00 p.m.</li>
-                <li>Tuesday: 9:00 a.m. - 5:00 p.m.</li>
-                <li>Wednesday: 9:00 a.m. - 5:00 p.m.</li>
-                <li>Thursday: 9:00 a.m. - 5:00 p.m.</li>
-                <li>Friday: 9:00 a.m. - 5:00 p.m.</li>
+                <li className="mr-20">Monday: Closed</li>
+                <li>Tuesday: 8:00 a.m. - 8:00 p.m.</li>
+                <li>Wednesday: 2:00 a.m. - 8:00 p.m.</li>
+                <li>Thursday: 8:00 a.m. - 8:00 p.m.</li>
+                <li>Friday: 9:00 a.m. - 6:00 p.m.</li>
                 <li>Saturday: 9:00 a.m. - 5:00 p.m.</li>
               </ul>
             </div>
@@ -105,25 +120,27 @@ function Footer() {
                 >
                   Sean Sipus
                 </a>
-
               </p>
               <div className="text-slate-400 text-xs">
                 <p>
-                  <span>&copy;</span>Copyright 2022 Hands On Physiotherapy & Rehab Centre, All Rights Reserved
+                  <span>&copy;</span>Copyright 2022 Hands On Physiotherapy &
+                  Rehab Centre, All Rights Reserved
                 </p>
-
               </div>
             </div>
             <div className="flex text-slate-400 text-2xl items-center gap-3">
               <div className="hover:text-green-350">
-                <a href=""
+                <a
+                  href=""
                   target="_blank"
-                  aria-label="open link to hands on physiotherapy facebook page">
+                  aria-label="open link to hands on physiotherapy facebook page"
+                >
                   <SiFacebook />
                 </a>
               </div>
               <div className="hover:text-green-350">
-                <a href=""
+                <a
+                  href=""
                   target="_blank"
                   aria-label="open link to hands on physiotherapy instagram page"
                 >
@@ -132,8 +149,6 @@ function Footer() {
               </div>
             </div>
           </div>
-
-
         </div>
       </footer>
     </>
