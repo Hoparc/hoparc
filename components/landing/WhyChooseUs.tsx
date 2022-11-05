@@ -5,11 +5,11 @@ function WhyChooseUs() {
   return (
     <div className="w-full bg-blue-550 py-28 ">
       <div className="max-w-screen-2xl m-auto w-11/12">
-        <h2 className="capitalize text-white text-5xl font-roboto font-light text-center mb-12">
+        <h2 className="capitalize text-white text-3xl sm:text-5xl font-roboto font-light text-center mb-12">
           why choose us?
         </h2>
         <div className="flex flex-col gap-6 flex-wrap  mx-auto xl:flex-row 
-        w-10/12 mobileXl:w-6/12 md:w-4/12 lg:w-4/12 xl:w-full  ">
+        w-10/12 mobileXl:w-6/12 md:w-4/12 lg:w-4/12 xl:w-full">
           <div className="flex flex-col flex-1 items-center gap-4">
             <Image
               src="/images/landing/customerSatisfactionIcon.png"
@@ -18,7 +18,7 @@ function WhyChooseUs() {
               height={120}
               width={120}
             />
-            <h3 className="capitalize text-white font-roboto text-2xl text-center">
+            <h3 className="capitalize text-white font-roboto text-xl sm:text-2xl text-center">
               customer satisfaction
             </h3>
             <p className="text-white text-center font-base font-opensans">
