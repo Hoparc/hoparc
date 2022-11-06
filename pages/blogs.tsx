@@ -31,9 +31,11 @@ export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
     }),
   ]);
 
+  const copy = [...(blogData?.allBlog ?? [])];
+
   return {
     props: {
-      blogs: blogData?.allBlog ?? [],
+      blogs: copy.sort((a, b) => (a.date > b.date ? -1 : 1)),
       categories: blogCategoryData?.allBlogCategory ?? [],
     },
     revalidate: 200,
