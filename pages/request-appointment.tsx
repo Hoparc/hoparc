@@ -124,7 +124,7 @@ function RequestAppointment() {
               </div>
             </div>
           </div>
-          <h3 className="text-3xl">Let us know when you'd like to come in</h3>
+          <h3 className="text-3xl">When would you like to come in?</h3>
           <label htmlFor="date" className="flex-shrink-0 text-xl">
             Preferred Date
           </label>
@@ -140,7 +140,7 @@ function RequestAppointment() {
               />
             )}
           />
-          <h4 className="text-3xl">Let us know how which service you'd like</h4>
+          <h4 className="text-3xl">Which service would you like?</h4>
           <div className="flex-1">
             <div className="flex mb-2 items-center">
               <label
