@@ -162,11 +162,13 @@ function RequestAppointment() {
                 <option value="pelvic health physiotherapy">
                   Pelvic Health Physiotherapy
                 </option>
-                <option value="other">Massage Therapy</option>
-                <option value="other">Thai Massage</option>
-                <option value="other">Chiropractor</option>
-                <option value="other">Acupuncture</option>
-                <option value="other">Hot Stone Physiotherapy</option>
+                <option value="massage therapy">Massage Therapy</option>
+                <option value="thai massage">Thai Massage</option>
+                <option value="chiropractor">Chiropractor</option>
+                <option value="acupuncture">Acupuncture</option>
+                <option value="hot stone physiotherapy">
+                  Hot Stone Physiotherapy
+                </option>
               </select>
               {errors.subject && (
                 <span className="absolute mt-10 ml-2 text-red-500">
