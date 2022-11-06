@@ -1,9 +1,13 @@
 import Image from "next/image";
 import { SiFacebook, SiInstagram } from "react-icons/si"
 import Link from "next/link";
+import { LocationFragment } from "../../graphql-operations";
 
+type FooterProps = {
+  footer: LocationFragment;
+};
 
-function Footer() {
+function Footer({ footer }: FooterProps) {
   return (
     <>
       <div className="block w-full"></div>
