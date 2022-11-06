@@ -102,9 +102,9 @@ function ProductInquiry() {
               </div>
             </div>
           </div>
-          <h4 className="text-3xl">
-            Let us know how which product you'd like to purchase
-          </h4>
+          <h2 className="text-3xl">
+            Which product would you like to purchase?
+          </h2>
           <div className="flex-1">
             <div className="flex mb-2 items-center">
               <label
