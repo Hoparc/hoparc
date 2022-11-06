@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ContactDialog from "../contact/ContactDialog"
+import Link from "next/link";
 
 type HeroProps = {
   callToAction: string | null | undefined;
@@ -32,14 +32,22 @@ function Hero({ callToAction, url }: HeroProps) {
                     rehab centre - pelvic health
                   </h2>
                 </div>
-                <h3 className="self-center text-blue-550 text-base px-2 sm:text-xl xl:text-2xl">"{callToAction}"</h3>
+                <h3 className="self-center text-blue-550 text-base px-2 sm:text-xl xl:text-2xl">
+                  "{callToAction}"
+                </h3>
               </div>
-              <ContactDialog></ContactDialog>
+              <Link href="/request-appointment">
+                <button
+                  className="bg-blue-350 text-base text-white font-button w-full px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-md"
+                  type="button"
+                >
+                  Request Appointment
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-      
     </>
   );
 };
