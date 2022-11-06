@@ -47,9 +47,15 @@ export default [
     current: "false",
   },
   {
-    id: 5,
+    id: 6,
     name: "Contact",
     href: "/contact",
+    current: "false",
+  },
+  {
+    id: 7,
+    name: "Request Appointment",
+    href: "/request-appointment",
     current: "false",
   },
 ];

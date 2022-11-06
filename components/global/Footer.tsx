@@ -10,7 +10,7 @@ function Footer() {
       <footer className="bg-blue-550 w-full">
         <div className="grid grid-cols-1 footer:grid-cols-2 px-3 sm:grid-cols-2 gap-2 mobile:px-8 py-8 grid-cols-2">
           <div className="flex flex-col footer:items-center">
-            <div className="flex flex-col items-left justify-start mb-7 footer:flex-row">
+            <div className="w-auto h-autoflex flex-col items-left justify-start mb-7 footer:flex-row">
               <Image
                 src="/images/footer/logo.png"
                 alt="hoparc logo"
