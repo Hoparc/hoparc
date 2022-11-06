@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
 const Home: NextPage<HomeProps> = ({ callToAction, url }: HomeProps) => {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-150">
+    <>
       <Head>
         <title>Hands on Physiotherapy and Rehab Centre</title>
         <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
@@ -57,12 +57,14 @@ const Home: NextPage<HomeProps> = ({ callToAction, url }: HomeProps) => {
         <meta name="keywords" content="physiotherapy" />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <Hero callToAction={callToAction} url={url} />
-      <WhyChooseUs />
-      <OurServices hasShowMore={true} />
-      <Testimonials hasShowMore={true} />
-      <LetUsHelp />
-    </div>
+      <section className="min-h-screen flex flex-col bg-slate-150">
+        <Hero callToAction={callToAction} url={url} />
+        <WhyChooseUs />
+        <OurServices hasShowMore={true} />
+        <Testimonials hasShowMore={true} />
+        <LetUsHelp />
+      </section>
+    </>
   );
 };
 
