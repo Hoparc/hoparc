@@ -54,6 +54,12 @@ export default [
   },
   {
     id: 7,
+    name: "Product Inquiry",
+    href: "/product-inquiry",
+    current: "false",
+  },
+  {
+    id: 8,
     name: "Request Appointment",
     href: "/request-appointment",
     current: "false",
