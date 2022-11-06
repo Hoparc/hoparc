@@ -11,7 +11,9 @@
 /* react-phone-number-input styles */
 .PhoneInputInput {
   width: 100%;
+  background-color: #f4f9ff;
 }
 .PhoneInputInput:focus {
   outline: none;
 }
+

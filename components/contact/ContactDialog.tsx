@@ -51,7 +51,7 @@ export default function ContactDialog() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="m-auto w-11/12 transform rounded-2xl transition-all fixed top-2/4 left-2/4 translate-y-minus50 translate-x-minus50 overflow-y-scroll sm:w-10/12 xl:w-6/12">
+              <Dialog.Panel className="max-h-max m-auto my-auto w-11/12 transform rounded-2xl transition-all fixed inset-0 overflow-auto sm:w-10/12 xl:w-6/12">
                 <div className="flex justify-end py-3 pr-10 bg-blue-550">
                   <button
                     aria-hidden="true"
@@ -69,7 +69,10 @@ export default function ContactDialog() {
                 >
                   Please leave your information and we will contact you as soon as possible!
                 </Dialog.Title>
+                <div className="h-full bg-red-300">
                 <ContactForm />
+                  
+                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -79,6 +82,3 @@ export default function ContactDialog() {
     </>
   );
 }
-
-
-

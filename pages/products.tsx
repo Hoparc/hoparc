@@ -70,8 +70,7 @@ const Products: NextPage<ProductsProps> = ({ products, categories }: ProductsPro
         <meta name="viewport" content="width=device-width" />
       </Head>
 
-      <section className="min-h-screen ">
-        <div className="">
+      <section className="min-h-screen">
           <Image
             src="/images/products/banner2.webp"
             alt=""
@@ -80,20 +79,14 @@ const Products: NextPage<ProductsProps> = ({ products, categories }: ProductsPro
             className="object-cover object-center max-h-52 w-full"
           >
           </Image>
-        </div>
         <div className="bg-blue-350 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h2 className="text-3xl text-left  font-bold uppercase text-white">
+            <h2 className="text-3xl text-left p-3 font-bold uppercase text-white">
               our products
             </h2>
           </div>
-
         </div>
         <div className="max-w-screen-xl m-auto w-11/12 ">
-
-
-
-
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
             <div className="col-span-8 lg:col-span-2">
               <Link href="/products">

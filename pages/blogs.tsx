@@ -46,10 +46,10 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
   const filteredBlogs = useMemo(() => {
     return activeCategory
       ? blogs.filter((blog) =>
-          blog.category?.some(
-            (category) => category?.slug?.current === activeCategory
-          )
+        blog.category?.some(
+          (category) => category?.slug?.current === activeCategory
         )
+      )
       : blogs;
   }, [activeCategory, blogs]);
 
@@ -69,70 +69,85 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen">
-        <div className="flex pb-12 flex-col items-center justify-center">
-          <h1 className="mt-10 flex flex-col gap-3 text-5xl text-left font-bold uppercase text-blue-350 ">
-            Our Blog
-          </h1>
+      <section className="min-h-screen">
+        <Image
+          src="/images/blog/blogBanner2.png"
+          alt="Banner image with colored striped shapes and an image of a book in the middle"
+          height={0}
+          width={100000}
+          className="object-cover object-center max-h-52 w-full"
+        >
+        </Image>
+        <div className="bg-blue-350 w-full">
+          <div className="max-w-screen-xl m-auto w-11/12">
+            <h2 className="text-3xl text-left py-3 font-bold uppercase text-white">
+              our blog
+            </h2>
+          </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-3 mb-20">
-          <div className="col-span-8 lg:col-span-2">
-            <Link href="/blogs">
-              <button className="hover:text-green-350 block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
-                All Categories
-              </button>
-            </Link>
-            {categories?.map((category) => (
-              <Link
-                key={category.slug?.current}
-                href={`/blogs?category=${category?.slug?.current}`}
-              >
-                <button
-                  className={cn(
-                    "block text-sm leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2 hover:text-green-350",
-                    { underline: activeCategory === category.slug?.current }
-                  )}
-                >
-                  {category.name}
+        <div className="max-w-screen-xl m-auto w-11/12 ">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
+            <div className="col-span-8 lg:col-span-2">
+             
+              <Link href="/blogs">
+                <button className="hover:text-green-350 block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
+                  All Categories
                 </button>
               </Link>
-            ))}
-          </div>
+              {categories?.map((category) => (
+                <Link
+                  key={category.slug?.current}
+                  href={`/blogs?category=${category?.slug?.current}`}
+                >
+                  <button
+                    className={cn(
+                      "block text-sm leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2 hover:text-green-350",
+                      { underline: activeCategory === category.slug?.current }
+                    )}
+                  >
+                    {category.name}
+                  </button>
+                </Link>
+              ))}
+            </div>
 
-          <div className="col-span-12 lg:col-span-10">
-            {filteredBlogs.length > 0 ? (
-              <div className="columns-1 gap-x-4 md:columns-2 lg:columns-3">
-                {filteredBlogs.map((blog) => {
-                  return (
-                    <Link
-                      key={blog.slug?.current}
-                      href={`/blog/${blog.slug?.current}`}
-                    >
-                      <div className="mb-4 relative cursor-pointer rounded-sm overflow-hidden">
-                        <div className="bg-blue-350 py-3 px-3 rounded-t-lg">
-                          <div className="text-white font-bold">
-                            {blog.title}
+            <div className="col-span-12 lg:col-span-10">
+              {filteredBlogs.length > 0 ? (
+                <div className="columns-1 gap-x-4 md:columns-2 xl:columns-2">
+                  {filteredBlogs.map((blog) => {
+                    return (
+                      <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
+                        <Link
+                          key={blog.slug?.current}
+                          href={`/blog/${blog.slug?.current}`}
+                        >
+                          <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
+                            <div className="bg-transparent py-3 px-3">
+                              <div className="text-white font-bold">
+                                {blog.title}
+                              </div>
+                            </div>
+                            <div className="h-[250px] relative">
+                              {blog.image?.asset?.url && (
+                                <Image
+                                  src={blog.image.asset.url}
+                                  alt={`Image for ${blog.title}`}
+                                  fill
+                                  className="object-cover"
+                                  priority
+                                />
+                              )}
+                            </div>
                           </div>
-                        </div>
-                        <div className="h-[250px] relative">
-                          {blog.image?.asset?.url && (
-                            <Image
-                              src={blog.image.asset.url}
-                              alt={`Image for ${blog.title}`}
-                              fill
-                              className="object-cover"
-                              priority
-                            />
-                          )}
-                        </div>
+                        </Link>
                       </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className="text-sm">No blogs found.</div>
-            )}
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="text-sm">No blogs found.</div>
+              )}
+            </div>
           </div>
         </div>
       </section>
