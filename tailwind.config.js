@@ -30,12 +30,14 @@ module.exports = {
         },
       },
       height: {
+        "5.8rem": "5.8rem",
         "25vh": "25vh",
         "33vh": "33vh",
         "50vh": "50vh",
         "66vh": "66vh",
         "75vh": "75vh",
         "90vh": "90vh",
+        "34rem": "44rem",
       },
       minHeight: {
         "25vh": "25vh",

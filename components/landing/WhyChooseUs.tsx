@@ -8,7 +8,7 @@ function WhyChooseUs() {
         <h2 className="capitalize text-white text-3xl sm:text-5xl font-roboto font-light text-center mb-12">
           why choose us?
         </h2>
-        <div className="flex flex-col gap-6 flex-wrap  mx-auto xl:flex-row 
+        <div className="flex flex-col gap-6 flex-wrap mx-auto lg:flex-row 
         w-10/12 mobileXl:w-6/12 md:w-4/12 lg:w-4/12 xl:w-full">
           <div className="flex flex-col flex-1 items-center gap-4">
             <Image
@@ -75,7 +75,6 @@ function WhyChooseUs() {
               We are personally accountable for delivering on our commitments.
             </p>
           </div>
-
         </div>
       </div>
     </div>
