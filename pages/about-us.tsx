@@ -45,19 +45,6 @@ const AboutUs: NextPage = () => {
             </div>
           </div>
         </div>
-        <h2 className="my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
-          Who We Are
-        </h2>
-        <p className="mt-4 text-xl font-light">
-          We are a multidisciplinary clinic with experience in the assessment,
-          diagnosis and treatment of orthopedic, neurological, musculoskeletal,
-          pelvic health, geriatric, headache, kid's/adult's sports injuries,
-          motor vehicle injuries, slip and fall, postural and work-related
-          injuries and your everyday aches and pains. We offer high quality,
-          effective care to the people of Box Grove, in the heart of Markham
-          city. Our HOPARC's team includes Physiotherapist, Pelvic Health
-          Physiotherapist, Massage Therapists, Chiropodist, Podiatrist etc.
-        </p>
         <h3 className="my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           Our Purpose
         </h3>
