@@ -59,7 +59,7 @@ function RequestAppointment() {
     >
       <div className="flex pb-12 flex-col items-center justify-center">
         <h1 className="my-5 font-bold text-7xl tracking-tight sm:text-4xl text-center font-title uppercase px-4 bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
-          Your <strong>care</strong> is our goal."
+          Your <strong>care</strong> is our goal.
         </h1>
         <p className="mt-3  text-xl text-black font-light sm:mt-4 text-left px-3">
           We are a multidisciplinary clinic with experience in the assessment,
