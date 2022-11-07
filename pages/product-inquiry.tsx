@@ -1,15 +1,17 @@
-import { Fragment, useState } from "react";
+import Link from "next/link";
+import { GetStaticProps, NextPage } from "next";
+import { Fragment } from "react";
+
+import client from "../apollo-client";
+import { AllProductsDocument, AllProductsQuery } from "../graphql-operations";
+
 import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
-import Link from "next/link";
 
-import "react-datepicker/dist/react-datepicker.css";
 import { Transition } from "@headlessui/react";
+
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { AllProductsDocument, AllProductsQuery } from "../graphql-operations";
-import client from "../apollo-client";
-import { GetStaticProps } from "next";
 
 type FormValues = {
   firstName: string;
@@ -37,7 +39,9 @@ export const getStaticProps: GetStaticProps<ProductInquiryProps> = async () => {
   };
 };
 
-function ProductInquiry({ products }: ProductInquiryProps) {
+const ProductInquiry: NextPage<ProductInquiryProps> = ({
+  products,
+}: ProductInquiryProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
 
   const {
@@ -50,7 +54,6 @@ function ProductInquiry({ products }: ProductInquiryProps) {
     defaultValues: {
       firstName: "",
       lastName: "",
-      ReactDatepicker: new Date(),
       subject: "",
       email: "",
       phone: "",
@@ -308,6 +311,6 @@ function ProductInquiry({ products }: ProductInquiryProps) {
       )}
     </section>
   );
-}
+};
 
 export default ProductInquiry;
