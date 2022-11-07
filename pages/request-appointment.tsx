@@ -11,6 +11,9 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { AllServicesDocument, AllServicesQuery } from "../graphql-operations";
+import { GetStaticProps } from "next";
+import client from "../apollo-client";
 
 type FormValues = {
   firstName: string;
@@ -23,7 +26,28 @@ type FormValues = {
   message: string;
 };
 
-function RequestAppointment() {
+type RequestAppointmentProps = {
+  services: AllServicesQuery["allService"];
+};
+
+export const getStaticProps: GetStaticProps<
+  RequestAppointmentProps
+> = async () => {
+  const { data: serviceData } = await client.query<AllServicesQuery>({
+    query: AllServicesDocument,
+  });
+
+  // const copy = [...(blogData?.allBlog ?? [])];
+
+  return {
+    props: {
+      services: serviceData?.allService ?? [],
+    },
+    revalidate: 200,
+  };
+};
+
+function RequestAppointment({ services }: RequestAppointmentProps) {
   const [formSpreeState, sendToFormSpree] = useFormSpree("mdobokkz");
 
   const {
@@ -177,17 +201,11 @@ function RequestAppointment() {
                   maxLength: 30,
                 })}
               >
-                <option value="physiotherapy">Physiotherapy</option>
-                <option value="pelvic health physiotherapy">
-                  Pelvic Health Physiotherapy
-                </option>
-                <option value="massage therapy">Massage Therapy</option>
-                <option value="thai massage">Thai Massage</option>
-                <option value="chiropractor">Chiropractor</option>
-                <option value="acupuncture">Acupuncture</option>
-                <option value="hot stone physiotherapy">
-                  Hot Stone Physiotherapy
-                </option>
+                {services.map((service) => (
+                  <option key={service.name} value={service.__typename}>
+                    {service.name}
+                  </option>
+                ))}
               </select>
               {errors.subject && (
                 <span className="absolute mt-10 ml-2 text-red-500">
