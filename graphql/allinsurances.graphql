@@ -1,0 +1,12 @@
+fragment insurance on Insurance {
+  image {
+      asset {
+        url
+      }
+  }
+}
+query allInsurances {
+    allInsurance {
+        ...insurance
+    }
+}

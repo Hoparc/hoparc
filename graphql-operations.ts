@@ -305,6 +305,44 @@ export type ImageSorting = {
   hotspot?: InputMaybe<SanityImageHotspotSorting>;
 };
 
+export type Insurance = Document & {
+  __typename?: 'Insurance';
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars['DateTime']>;
+  /** Document ID */
+  _id?: Maybe<Scalars['ID']>;
+  _key?: Maybe<Scalars['String']>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars['String']>;
+  /** Document type */
+  _type?: Maybe<Scalars['String']>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars['DateTime']>;
+  image?: Maybe<Image>;
+};
+
+export type InsuranceFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  image?: InputMaybe<ImageFilter>;
+};
+
+export type InsuranceSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  image?: InputMaybe<ImageSorting>;
+};
+
 export type IntFilter = {
   /** Checks if the value is equal to the given input. */
   eq?: InputMaybe<Scalars['Int']>;
@@ -539,6 +577,7 @@ export type RootQuery = {
   Blog?: Maybe<Blog>;
   BlogCategory?: Maybe<BlogCategory>;
   Document?: Maybe<Document>;
+  Insurance?: Maybe<Insurance>;
   Introduction?: Maybe<Introduction>;
   Location?: Maybe<Location>;
   Product?: Maybe<Product>;
@@ -551,6 +590,7 @@ export type RootQuery = {
   allBlog: Array<Blog>;
   allBlogCategory: Array<BlogCategory>;
   allDocument: Array<Document>;
+  allInsurance: Array<Insurance>;
   allIntroduction: Array<Introduction>;
   allLocation: Array<Location>;
   allProduct: Array<Product>;
@@ -574,6 +614,11 @@ export type RootQueryBlogCategoryArgs = {
 
 
 export type RootQueryDocumentArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type RootQueryInsuranceArgs = {
   id: Scalars['ID'];
 };
 
@@ -644,6 +689,14 @@ export type RootQueryAllDocumentArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   sort?: InputMaybe<Array<DocumentSorting>>;
   where?: InputMaybe<DocumentFilter>;
+};
+
+
+export type RootQueryAllInsuranceArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  sort?: InputMaybe<Array<InsuranceSorting>>;
+  where?: InputMaybe<InsuranceFilter>;
 };
 
 
@@ -1293,6 +1346,13 @@ export type AllBlogCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllBlogCategoriesQuery = { __typename?: 'RootQuery', allBlogCategory: Array<{ __typename?: 'BlogCategory', name?: string | null, slug?: { __typename?: 'Slug', current?: string | null } | null }> };
 
+export type InsuranceFragment = { __typename?: 'Insurance', image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null };
+
+export type AllInsurancesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllInsurancesQuery = { __typename?: 'RootQuery', allInsurance: Array<{ __typename?: 'Insurance', image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
+
 export type IntroductionFragment = { __typename?: 'Introduction', callToAction?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null };
 
 export type AllIntroductionsQueryVariables = Exact<{ [key: string]: never; }>;
@@ -1353,6 +1413,7 @@ export type AllTestimonialsQueryVariables = Exact<{ [key: string]: never; }>;
 export type AllTestimonialsQuery = { __typename?: 'RootQuery', allTestimonial: Array<{ __typename?: 'Testimonial', name?: string | null, testimonial?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
 
 export const BlogFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"blog"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Blog"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"blogRaw"}}]}}]} as unknown as DocumentNode<BlogFragment, unknown>;
+export const InsuranceFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"insurance"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Insurance"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<InsuranceFragment, unknown>;
 export const IntroductionFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"introduction"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Introduction"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"callToAction"}}]}}]} as unknown as DocumentNode<IntroductionFragment, unknown>;
 export const LocationFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"location"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Location"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"addresslinen"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}},{"kind":"Field","name":{"kind":"Name","value":"fax"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"sunday"}},{"kind":"Field","name":{"kind":"Name","value":"monday"}},{"kind":"Field","name":{"kind":"Name","value":"tuesday"}},{"kind":"Field","name":{"kind":"Name","value":"wednesday"}},{"kind":"Field","name":{"kind":"Name","value":"thursday"}},{"kind":"Field","name":{"kind":"Name","value":"friday"}},{"kind":"Field","name":{"kind":"Name","value":"saturday"}}]}}]} as unknown as DocumentNode<LocationFragment, unknown>;
 export const ProductFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"product"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Product"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"detailsRaw"}}]}}]} as unknown as DocumentNode<ProductFragment, unknown>;
@@ -1361,6 +1422,7 @@ export const TestimonialFragmentDoc = {"kind":"Document","definitions":[{"kind":
 export const AllBlogsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allBlogs"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allBlog"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"blog"}}]}}]}},...BlogFragmentDoc.definitions]} as unknown as DocumentNode<AllBlogsQuery, AllBlogsQueryVariables>;
 export const BlogDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"blog"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allBlog"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"current"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"blog"}}]}}]}},...BlogFragmentDoc.definitions]} as unknown as DocumentNode<BlogQuery, BlogQueryVariables>;
 export const AllBlogCategoriesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allBlogCategories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allBlogCategory"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}}]}}]}}]} as unknown as DocumentNode<AllBlogCategoriesQuery, AllBlogCategoriesQueryVariables>;
+export const AllInsurancesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allInsurances"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allInsurance"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"insurance"}}]}}]}},...InsuranceFragmentDoc.definitions]} as unknown as DocumentNode<AllInsurancesQuery, AllInsurancesQueryVariables>;
 export const AllIntroductionsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allIntroductions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allIntroduction"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"introduction"}}]}}]}},...IntroductionFragmentDoc.definitions]} as unknown as DocumentNode<AllIntroductionsQuery, AllIntroductionsQueryVariables>;
 export const AllLocationsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allLocations"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allLocation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"location"}}]}}]}},...LocationFragmentDoc.definitions]} as unknown as DocumentNode<AllLocationsQuery, AllLocationsQueryVariables>;
 export const AllProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allProducts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProduct"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"product"}}]}}]}},...ProductFragmentDoc.definitions]} as unknown as DocumentNode<AllProductsQuery, AllProductsQueryVariables>;

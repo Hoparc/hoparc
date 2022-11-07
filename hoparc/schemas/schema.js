@@ -5,6 +5,7 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 import blog from "./blog";
 import blogCategory from "./blog.category";
+import insurance from "./insurance";
 import location from "./location";
 import product from "./product";
 import service from "./service";
@@ -23,6 +24,7 @@ export default createSchema({
     /* Your types here! */
     blog,
     blogCategory,
+    insurance,
     introduction,
     location,
     product,
