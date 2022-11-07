@@ -1,5 +1,9 @@
 import Link from "next/link";
+import { GetStaticProps, NextPage } from "next";
 import { Fragment } from "react";
+
+import client from "../apollo-client";
+import { AllServicesDocument, AllServicesQuery } from "../graphql-operations";
 
 import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
@@ -11,9 +15,6 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { AllServicesDocument, AllServicesQuery } from "../graphql-operations";
-import { GetStaticProps } from "next";
-import client from "../apollo-client";
 
 type FormValues = {
   firstName: string;
@@ -45,7 +46,9 @@ export const getStaticProps: GetStaticProps<
   };
 };
 
-function RequestAppointment({ services }: RequestAppointmentProps) {
+const RequestAppointment: NextPage<RequestAppointmentProps> = ({
+  services,
+}: RequestAppointmentProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("mdobokkz");
 
   const {
@@ -366,6 +369,6 @@ function RequestAppointment({ services }: RequestAppointmentProps) {
       )}
     </section>
   );
-}
+};
 
 export default RequestAppointment;
