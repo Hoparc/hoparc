@@ -7,6 +7,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Transition } from "@headlessui/react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { AllProductsDocument, AllProductsQuery } from "../graphql-operations";
+import client from "../apollo-client";
+import { GetStaticProps } from "next";
 
 type FormValues = {
   firstName: string;
@@ -17,7 +20,24 @@ type FormValues = {
   message: string;
 };
 
-function ProductInquiry() {
+type ProductInquiryProps = {
+  products: AllProductsQuery["allProduct"];
+};
+
+export const getStaticProps: GetStaticProps<ProductInquiryProps> = async () => {
+  const { data: productData } = await client.query<AllProductsQuery>({
+    query: AllProductsDocument,
+  });
+
+  return {
+    props: {
+      products: productData?.allProduct ?? [],
+    },
+    revalidate: 200,
+  };
+};
+
+function ProductInquiry({ products }: ProductInquiryProps) {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
 
   const {
@@ -121,11 +141,11 @@ function ProductInquiry() {
                   maxLength: 30,
                 })}
               >
-                <option value="support/braces">Support/Braces</option>
-                <option value="compression stockings">
-                  Compression Stockings
-                </option>
-                <option value="orthotics">Orthotics</option>
+                {products.map((product) => (
+                  <option key={product.name} value={product.__typename}>
+                    {product.name}
+                  </option>
+                ))}
               </select>
               {errors.subject && (
                 <span className="absolute mt-10 ml-2 text-red-500">
