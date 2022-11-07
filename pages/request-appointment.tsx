@@ -1,18 +1,22 @@
-import { Fragment, useState } from "react";
+import Link from "next/link";
+import { Fragment } from "react";
+
 import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
-import Link from "next/link";
+
+import { Transition } from "@headlessui/react";
 
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Transition } from "@headlessui/react";
+
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 type FormValues = {
   firstName: string;
   lastName: string;
-
+  time: string;
+  ReactDatepicker: Date;
   subject: string;
   email: string;
   phone: string;
@@ -20,7 +24,7 @@ type FormValues = {
 };
 
 function RequestAppointment() {
-  const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
+  const [formSpreeState, sendToFormSpree] = useFormSpree("mdobokkz");
 
   const {
     register,
@@ -33,6 +37,7 @@ function RequestAppointment() {
       firstName: "",
       lastName: "",
       ReactDatepicker: new Date(),
+      time: "",
       subject: "",
       email: "",
       phone: "",
@@ -50,11 +55,11 @@ function RequestAppointment() {
     }, 2000);
   };
 
-  const handleClick = () => reset();
+  const handleReset = () => reset();
 
   return (
     <section
-      id="contact-form"
+      id="request-appointment"
       className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 animate-fade-in-up min-h-screen"
     >
       <div className="flex pb-12 flex-col items-center justify-center">
@@ -131,15 +136,29 @@ function RequestAppointment() {
           <Controller
             control={control}
             name="ReactDatepicker"
-            render={({ field }) => (
+            render={({ field: { onChange, onBlur, value, ref } }) => (
               <ReactDatePicker
                 className="input block w-full"
                 placeholderText="Select date"
-                onChange={(e) => field.onChange(e)}
-                selected={field.value}
+                onChange={(e) => onChange(e)}
+                onBlur={onBlur}
+                selected={value}
               />
             )}
           />
+          <label htmlFor="time" className="flex-shrink-0 text-xl">
+            Preferred Time
+          </label>
+          <div className="flex flex-col w-full">
+            {errors.time && (
+              <span className="absolute mt-10 ml-2 text-red-500">required</span>
+            )}
+            <input
+              type="time"
+              className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+              {...register("time", { required: true, maxLength: 30 })}
+            />
+          </div>
           <h4 className="text-3xl">Which service would you like?</h4>
           <div className="flex-1">
             <div className="flex mb-2 items-center">
@@ -248,13 +267,35 @@ function RequestAppointment() {
               />
             </div>
           </div>
-          <div className="flex gap-2 mt-6">
+          <div className="flex gap-6 mt-2">
+            <input
+              type="Submit"
+              value="Send"
+              className="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            />
+            <button
+              onClick={handleReset}
+              className="rounded-md bg-red-600 px-5 py-2.5 text-sm font-roboto bold uppercase text-white hover:bg-red-700 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            >
+              Clear Fields
+            </button>
+          </div>
+          {/* <div className="flex gap-2 mt-6">
+            <button
+              type="button"
+              className="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            >
+              Request Appointment{" "}
+              <HiMail className="ml-2 h-5 w-5 inline-block" />
+            </button>
+          </div> */}
+          {/* <div className="flex gap-2 mt-6">
             <input
               type="submit"
               value="Request Appointment"
               className="rounded-lg bg-blue-500 text-sm px-6 py-2 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer"
             />
-          </div>
+          </div> */}
         </div>
       </form>
       {formSpreeState.submitting && (
