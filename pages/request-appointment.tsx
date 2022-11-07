@@ -280,22 +280,6 @@ function RequestAppointment() {
               Clear Fields
             </button>
           </div>
-          {/* <div className="flex gap-2 mt-6">
-            <button
-              type="button"
-              className="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-            >
-              Request Appointment{" "}
-              <HiMail className="ml-2 h-5 w-5 inline-block" />
-            </button>
-          </div> */}
-          {/* <div className="flex gap-2 mt-6">
-            <input
-              type="submit"
-              value="Request Appointment"
-              className="rounded-lg bg-blue-500 text-sm px-6 py-2 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer"
-            />
-          </div> */}
         </div>
       </form>
       {formSpreeState.submitting && (

@@ -3,7 +3,6 @@ import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
 import Link from "next/link";
 
-import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Transition } from "@headlessui/react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
@@ -49,7 +48,7 @@ function ProductInquiry() {
     }, 2000);
   };
 
-  const handleClick = () => reset();
+  const handleReset = () => reset();
 
   return (
     <section
@@ -141,7 +140,7 @@ function ProductInquiry() {
             </label>
             <textarea
               rows={4}
-              placeholder="Hi, I'd like to inquire about a product!"
+              placeholder="Hi, I'd like to inquire about how I can purchase this product!"
               className="rounded-md border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
               {...register("message", {
                 required: true,
@@ -206,12 +205,18 @@ function ProductInquiry() {
               />
             </div>
           </div>
-          <div className="flex gap-2 mt-6">
+          <div className="flex gap-6 mt-2">
             <input
-              type="submit"
-              value="Submit Inquiry"
-              className="rounded-lg bg-blue-500 text-sm px-6 py-2 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer"
+              type="Submit"
+              value="Send"
+              className="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
             />
+            <button
+              onClick={handleReset}
+              className="rounded-md bg-red-600 px-5 py-2.5 text-sm font-roboto bold uppercase text-white hover:bg-red-700 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            >
+              Clear Fields
+            </button>
           </div>
         </div>
       </form>
