@@ -37,8 +37,6 @@ export const getStaticProps: GetStaticProps<
     query: AllServicesDocument,
   });
 
-  // const copy = [...(blogData?.allBlog ?? [])];
-
   return {
     props: {
       services: serviceData?.allService ?? [],
