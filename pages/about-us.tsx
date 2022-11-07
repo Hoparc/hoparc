@@ -1,10 +1,30 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import Head from "next/head";
 
-import insurance from "../utils/data/insurance";
+import client from "../apollo-client";
+import {
+  AllInsurancesDocument,
+  AllInsurancesQuery,
+} from "../graphql-operations";
 
-const AboutUs: NextPage = () => {
+type AboutUsProps = {
+  insurances: AllInsurancesQuery["allInsurance"];
+};
+
+export const getStaticProps: GetStaticProps<AboutUsProps> = async () => {
+  const { data: insuranceData } = await client.query<AllInsurancesQuery>({
+    query: AllInsurancesDocument,
+  });
+
+  return {
+    props: {
+      insurances: insuranceData?.allInsurance ?? [],
+    },
+  };
+};
+
+const AboutUs: NextPage<AboutUsProps> = ({ insurances }: AboutUsProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
@@ -118,11 +138,11 @@ const AboutUs: NextPage = () => {
           We Accept
         </h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-2">
-          {insurance.map((options, index) => (
-            <div className="my-2.5 border-blue-550" key={index}>
+          {insurances.map((insurance) => (
+            <div className="my-2.5 border-blue-550" key={insurance.__typename}>
               <Image
-                src={options.image}
-                alt={options.alt}
+                src={insurance.image?.asset?.url ?? ""}
+                alt="An image of the insurance logo"
                 height={250}
                 width={250}
               />
