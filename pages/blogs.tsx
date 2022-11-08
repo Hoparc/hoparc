@@ -1,10 +1,10 @@
+import { useMemo } from "react";
+
 import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-
-import { useMemo } from "react";
 
 import client from ".././apollo-client";
 import {
@@ -12,6 +12,9 @@ import {
   AllBlogCategoriesQuery,
   AllBlogsDocument,
   AllBlogsQuery,
+  AllLocationsDocument,
+  AllLocationsQuery,
+  LocationFragment,
 } from ".././graphql-operations";
 
 import cn from "clsx";
@@ -19,15 +22,23 @@ import cn from "clsx";
 type BlogsProps = {
   blogs: AllBlogsQuery["allBlog"];
   categories: AllBlogCategoriesQuery["allBlogCategory"];
+  locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
-  const [{ data: blogData }, { data: blogCategoryData }] = await Promise.all([
+  const [
+    { data: blogData },
+    { data: blogCategoryData },
+    { data: locationData },
+  ] = await Promise.all([
     client.query<AllBlogsQuery>({
       query: AllBlogsDocument,
     }),
     client.query<AllBlogCategoriesQuery>({
       query: AllBlogCategoriesDocument,
+    }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
     }),
   ]);
 
@@ -37,6 +48,7 @@ export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
     props: {
       blogs: copy.sort((a, b) => (a.date > b.date ? -1 : 1)),
       categories: blogCategoryData?.allBlogCategory ?? [],
+      locations: locationData?.allLocation ?? [],
     },
     revalidate: 200,
   };
@@ -48,10 +60,10 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
   const filteredBlogs = useMemo(() => {
     return activeCategory
       ? blogs.filter((blog) =>
-        blog.category?.some(
-          (category) => category?.slug?.current === activeCategory
+          blog.category?.some(
+            (category) => category?.slug?.current === activeCategory
+          )
         )
-      )
       : blogs;
   }, [activeCategory, blogs]);
 
@@ -78,8 +90,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
           height={0}
           width={100000}
           className="object-cover object-center max-h-52 w-full"
-        >
-        </Image>
+        ></Image>
         <div className="bg-blue-350 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
             <h2 className="text-3xl text-left py-3 font-bold uppercase text-white">
@@ -90,7 +101,6 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
             <div className="col-span-8 lg:col-span-2">
-             
               <Link href="/blogs">
                 <button className="hover:text-green-350 block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
                   All Categories

@@ -1,40 +1,40 @@
 import { GetStaticProps, NextPage } from "next";
-import Image from "next/image";
 import Head from "next/head";
+import Image from "next/image";
 
 import client from "../apollo-client";
 import {
   AllInsurancesDocument,
   AllInsurancesQuery,
-  AllStaffsDocument,
-  AllStaffsQuery,
+  AllLocationsDocument,
+  AllLocationsQuery,
+  LocationFragment,
 } from "../graphql-operations";
 
 type AboutUsProps = {
-  insurances: AllInsurancesQuery["allInsurance"]
-  staffs: AllStaffsQuery["allStaff"]
+  insurances: AllInsurancesQuery["allInsurance"];
+  locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<AboutUsProps> = async () => {
-  const [{ data: insuranceData }, { data: staffData }] = await Promise.all([
-
+  const [{ data: insuranceData }, { data: locationData }] = await Promise.all([
     client.query<AllInsurancesQuery>({
       query: AllInsurancesDocument,
     }),
-    client.query<AllStaffsQuery>({
-      query: AllStaffsDocument,
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
     }),
   ]);
 
   return {
     props: {
       insurances: insuranceData?.allInsurance ?? [],
-      staffs: staffData?.allStaff ?? []
+      locations: locationData?.allLocation ?? [],
     },
   };
 };
 
-const AboutUs: NextPage<AboutUsProps> = ({ insurances, staffs }: AboutUsProps) => {
+const AboutUs: NextPage<AboutUsProps> = ({ insurances }: AboutUsProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
@@ -86,7 +86,7 @@ const AboutUs: NextPage<AboutUsProps> = ({ insurances, staffs }: AboutUsProps) =
           on every visit and to create a great improvement and experience to all
           of our patients.
         </p>
-        <div className="w-full bg-blue-550 flex py-10 rounded-3xl">
+        <div className="w-full bg-blue-550 flex py-10">
           <div className="max-w-screen-xl m-auto w-11/12 flex flex-col items-center gap-11">
             <h2 className="capitalize text-white text-5xl font-roboto font-light text-center">
               Our Values
@@ -144,44 +144,16 @@ const AboutUs: NextPage<AboutUsProps> = ({ insurances, staffs }: AboutUsProps) =
           </div>
         </div>
 
-        <h3 className="my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
-          our staff
-        </h3>
-
-        {staffs.map((staff, index) => (
-          <div className="my-2.5 flex gap-5 justify-center w-full m-auto lg:w-3/4" key={index}>
-            <div className="flex flex-col shadow-md shadow-slate-400 bg-blue-150 rounded-lg w-full sm:flex-row">
-              <div className="py-0 pt-3 px-3 shrink-0 sm:py-3">
-                <Image
-                  className="rounded-lg m-auto"
-                  src={staff.image?.asset?.url ?? ""}
-                  alt={`An image of ${staff.name}`}
-                  height={250}
-                  width={250}
-                />
-              </div>
-              <div className="flex flex-col py-3 pr-0 items-center text-center w-full sm:pr-3">
-                <p className="text-white font-bold text-lg bg-blue-550 w-full py-1 px-2 sm:rounded-t-md">{staff.name}</p>
-                <h3 className="bg-blue-350 text-white px-2 py-1 w-full sm:rounded-b-md">{staff.position}</h3>
-                <p className="py-3 px-3">{staff.description}</p>
-              </div>
-            </div>
-          </div>
-
-        ))}
-
-
         <h4 className="uppercase my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           We Accept
         </h4>
-        <div className="grid grid-cols-1 mobileSm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-2">
           {insurances.map((insurance, index) => (
-            <div key={index}>
+            <div className="my-2.5 border-blue-550" key={index}>
               <Image
-                className="max-h-250px w-full rounded-xl"
                 src={insurance.image?.asset?.url ?? ""}
                 alt="An image of the insurance logo"
-                height={200}
+                height={250}
                 width={250}
               />
             </div>

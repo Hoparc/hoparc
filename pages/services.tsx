@@ -1,17 +1,20 @@
+import { useMemo } from "react";
+
 import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-import { useMemo } from "react";
-
 import client from ".././apollo-client";
 import {
+  AllLocationsDocument,
+  AllLocationsQuery,
   AllServiceCategoriesDocument,
   AllServiceCategoriesQuery,
   AllServicesDocument,
   AllServicesQuery,
+  LocationFragment,
 } from ".././graphql-operations";
 
 import cn from "clsx";
@@ -19,23 +22,31 @@ import cn from "clsx";
 type ServicesProps = {
   services: AllServicesQuery["allService"];
   categories: AllServiceCategoriesQuery["allServiceCategory"];
+  locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<ServicesProps> = async () => {
-  const [{ data: serviceData }, { data: serviceCategoryData }] =
-    await Promise.all([
-      client.query<AllServicesQuery>({
-        query: AllServicesDocument,
-      }),
-      client.query<AllServiceCategoriesQuery>({
-        query: AllServiceCategoriesDocument,
-      }),
-    ]);
+  const [
+    { data: serviceData },
+    { data: serviceCategoryData },
+    { data: locationData },
+  ] = await Promise.all([
+    client.query<AllServicesQuery>({
+      query: AllServicesDocument,
+    }),
+    client.query<AllServiceCategoriesQuery>({
+      query: AllServiceCategoriesDocument,
+    }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
+    }),
+  ]);
 
   return {
     props: {
       services: serviceData?.allService ?? [],
       categories: serviceCategoryData?.allServiceCategory ?? [],
+      locations: locationData?.allLocation ?? [],
     },
     revalidate: 200,
   };

@@ -12,6 +12,9 @@ import {
   ServiceFragment,
   AllServicesQuery,
   AllServicesDocument,
+  AllLocationsQuery,
+  LocationFragment,
+  AllLocationsDocument,
 } from "../graphql-operations";
 
 import Hero from "../components/landing/Hero";
@@ -25,12 +28,14 @@ type HomeProps = {
   url: string | null | undefined;
   testimonials: TestimonialFragment[];
   services: ServiceFragment[];
+  locations: LocationFragment[];
 };
 
 const transformQueryResponseToProps = (
   data: AllIntroductionsQuery,
   testimonialData: AllTestimonialsQuery,
-  serviceData: AllServicesQuery
+  serviceData: AllServicesQuery,
+  locationData: AllLocationsQuery
 ): HomeProps => {
   const allIntroduction: IntroductionFragment[] = data?.allIntroduction;
   const introduction = allIntroduction[0];
@@ -42,11 +47,16 @@ const transformQueryResponseToProps = (
 
   const allService: ServiceFragment[] = serviceData?.allService;
   const services = allService;
+
+  const allLocation: LocationFragment[] = locationData.allLocation;
+  const locations = allLocation;
+
   return {
     callToAction,
     url,
     testimonials,
     services,
+    locations,
   };
 };
 
@@ -55,6 +65,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     { data: introductionData },
     { data: testimonialData },
     { data: serviceData },
+    { data: locationData },
   ] = await Promise.all([
     client.query<AllIntroductionsQuery>({
       query: AllIntroductionsDocument,
@@ -65,12 +76,16 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     client.query<AllServicesQuery>({
       query: AllServicesDocument,
     }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
+    }),
   ]);
   return {
     props: transformQueryResponseToProps(
       introductionData,
       testimonialData,
-      serviceData
+      serviceData,
+      locationData
     ),
   };
 };

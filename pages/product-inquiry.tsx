@@ -3,7 +3,13 @@ import { GetStaticProps, NextPage } from "next";
 import { Fragment } from "react";
 
 import client from "../apollo-client";
-import { AllProductsDocument, AllProductsQuery } from "../graphql-operations";
+import {
+  AllLocationsDocument,
+  AllLocationsQuery,
+  AllProductsDocument,
+  AllProductsQuery,
+  LocationFragment,
+} from "../graphql-operations";
 
 import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
@@ -24,16 +30,23 @@ type FormValues = {
 
 type ProductInquiryProps = {
   products: AllProductsQuery["allProduct"];
+  locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<ProductInquiryProps> = async () => {
-  const { data: productData } = await client.query<AllProductsQuery>({
-    query: AllProductsDocument,
-  });
+  const [{ data: productData }, { data: locationData }] = await Promise.all([
+    client.query<AllProductsQuery>({
+      query: AllProductsDocument,
+    }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
+    }),
+  ]);
 
   return {
     props: {
       products: productData?.allProduct ?? [],
+      locations: locationData?.allLocation ?? [],
     },
     revalidate: 200,
   };

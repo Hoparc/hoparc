@@ -1,8 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+
 import client from "../../apollo-client";
 import {
+  AllLocationsDocument,
+  AllLocationsQuery,
   AllServicesDocument,
   AllServicesQuery,
+  LocationFragment,
   ServiceDocument,
   ServiceFragment,
   ServiceQuery,
@@ -34,24 +38,32 @@ export const getStaticPaths: GetStaticPaths<{
 
 type ServiceProps = {
   service: ServiceQuery["allService"][0] | undefined;
+  locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<
   ServiceProps,
   { slug: string }
 > = async ({ params }) => {
-  let data;
+  const [{ data: serviceData }, { data: locationData }] = await Promise.all([
+    client.query<ServiceQuery>({
+      query: ServiceDocument,
+      variables: {
+        slug: params?.slug,
+      },
+    }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
+    }),
+  ]);
 
-  ({ data } = await client.query<ServiceQuery>({
-    query: ServiceDocument,
-    variables: {
-      slug: params?.slug,
-    },
-  }));
+  const service = serviceData?.allService?.[0];
 
-  const service = data?.allService?.[0];
+  const allLocation: LocationFragment[] = locationData.allLocation;
+  const locations = allLocation;
+
   return {
-    props: { service },
+    props: { service, locations },
     revalidate: 200,
     notFound: !service,
   };
