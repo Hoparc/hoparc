@@ -1,25 +1,35 @@
 import { GetStaticProps, NextPage } from "next";
-import Image from "next/image";
 import Head from "next/head";
+import Image from "next/image";
 
 import client from "../apollo-client";
 import {
   AllInsurancesDocument,
   AllInsurancesQuery,
+  AllLocationsDocument,
+  AllLocationsQuery,
+  LocationFragment,
 } from "../graphql-operations";
 
 type AboutUsProps = {
   insurances: AllInsurancesQuery["allInsurance"];
+  locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<AboutUsProps> = async () => {
-  const { data: insuranceData } = await client.query<AllInsurancesQuery>({
-    query: AllInsurancesDocument,
-  });
+  const [{ data: insuranceData }, { data: locationData }] = await Promise.all([
+    client.query<AllInsurancesQuery>({
+      query: AllInsurancesDocument,
+    }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
+    }),
+  ]);
 
   return {
     props: {
       insurances: insuranceData?.allInsurance ?? [],
+      locations: locationData?.allLocation ?? [],
     },
   };
 };

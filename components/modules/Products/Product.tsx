@@ -1,10 +1,9 @@
+import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
 
 import { AllProductsQuery } from "../../../graphql-operations";
 
 import { PortableText } from "@portabletext/react";
-import Link from "next/link";
 
 export type ProductProps = {
   product: AllProductsQuery["allProduct"][0] | undefined;
@@ -65,6 +64,6 @@ function Product({ product }: ProductProps) {
       </section>
     </>
   );
-};
+}
 
 export default Product;

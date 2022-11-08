@@ -1,6 +1,9 @@
-import React from "react";
+import { useState } from "react";
+
 import Image from "next/image";
+
 import cn from "clsx";
+
 import { TestimonialFragment } from "../../../graphql-operations";
 
 interface TestimonialCardProps {
@@ -44,7 +47,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
   hasShowMore = false,
   testimonials,
 }) => {
-  const [showMore, setShowMore] = React.useState(!hasShowMore);
+  const [showMore, setShowMore] = useState(!hasShowMore);
   return (
     <div className="bg-slate-150 py-28">
       <div className="relative max-w-5xl mx-auto mt-10">

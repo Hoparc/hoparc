@@ -1,14 +1,15 @@
-import React from "react";
 import Image from "next/image";
-import { ServiceQuery } from "../../../graphql-operations";
-import { PortableText } from "@portabletext/react";
 import Link from "next/link";
+
+import { PortableText } from "@portabletext/react";
+
+import { ServiceQuery } from "../../../graphql-operations";
 
 export type ServiceProps = {
   service: ServiceQuery["allService"][0] | undefined;
 };
 
-const Service: React.FC<ServiceProps> = ({ service }) => {
+function Service({ service }: ServiceProps) {
   return (
     <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen flex flex-col">
       <h1 className="my-6 text-3xl text-center text-blue-350 font-extrabold tracking-tight sm:text-4xl">
@@ -48,5 +49,5 @@ const Service: React.FC<ServiceProps> = ({ service }) => {
       )}
     </section>
   );
-};
+}
 export default Service;

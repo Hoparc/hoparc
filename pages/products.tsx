@@ -1,17 +1,20 @@
+import { useMemo } from "react";
+
 import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-import { useMemo } from "react";
-
 import client from ".././apollo-client";
 import {
+  AllLocationsDocument,
+  AllLocationsQuery,
   AllProductCategoriesDocument,
   AllProductCategoriesQuery,
   AllProductsDocument,
   AllProductsQuery,
+  LocationFragment,
 } from ".././graphql-operations";
 
 import cn from "clsx";
@@ -19,15 +22,23 @@ import cn from "clsx";
 type ProductsProps = {
   products: AllProductsQuery["allProduct"];
   categories: AllProductCategoriesQuery["allProductCategory"];
+  locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<ProductsProps> = async () => {
-  const [{ data: productData }, { data: productCategoryData }] = await Promise.all([
+  const [
+    { data: productData },
+    { data: productCategoryData },
+    { data: locationData },
+  ] = await Promise.all([
     client.query<AllProductsQuery>({
       query: AllProductsDocument,
     }),
     client.query<AllProductCategoriesQuery>({
       query: AllProductCategoriesDocument,
+    }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
     }),
   ]);
 
@@ -35,21 +46,25 @@ export const getStaticProps: GetStaticProps<ProductsProps> = async () => {
     props: {
       products: productData?.allProduct ?? [],
       categories: productCategoryData?.allProductCategory ?? [],
+      locations: locationData?.allLocation ?? [],
     },
     revalidate: 200,
   };
 };
 
-const Products: NextPage<ProductsProps> = ({ products, categories }: ProductsProps) => {
+const Products: NextPage<ProductsProps> = ({
+  products,
+  categories,
+}: ProductsProps) => {
   const router = useRouter();
   const { category: activeCategory } = router.query;
   const filteredProducts = useMemo(() => {
     return activeCategory
       ? products.filter((product) =>
-        product.category?.some(
-          (category) => category?.slug?.current === activeCategory
+          product.category?.some(
+            (category) => category?.slug?.current === activeCategory
+          )
         )
-      )
       : products;
   }, [activeCategory, products]);
 
@@ -71,14 +86,13 @@ const Products: NextPage<ProductsProps> = ({ products, categories }: ProductsPro
       </Head>
 
       <section className="min-h-screen">
-          <Image
-            src="/images/products/banner2.webp"
-            alt=""
-            height={10}
-            width={100000}
-            className="object-cover object-center max-h-52 w-full"
-          >
-          </Image>
+        <Image
+          src="/images/products/banner2.webp"
+          alt=""
+          height={10}
+          width={100000}
+          className="object-cover object-center max-h-52 w-full"
+        ></Image>
         <div className="bg-blue-350 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
             <h2 className="text-3xl text-left p-3 font-bold uppercase text-white">

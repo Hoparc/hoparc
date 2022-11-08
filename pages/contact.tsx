@@ -1,7 +1,34 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
+import client from "../apollo-client";
+
+import {
+  LocationFragment,
+  AllLocationsQuery,
+  AllLocationsDocument,
+} from "../graphql-operations";
+
 import ContactForm from "../components/contact/ContactForm";
+
+type ContactProps = {
+  locations: LocationFragment[];
+};
+
+export const getStaticProps: GetStaticProps<ContactProps> = async () => {
+  const { data: locationData } = await client.query<AllLocationsQuery>({
+    query: AllLocationsDocument,
+  });
+
+  const allLocation: LocationFragment[] = locationData.allLocation;
+  const locations = allLocation;
+
+  return {
+    props: {
+      locations,
+    },
+  };
+};
 
 const Contact: NextPage = () => {
   return (
@@ -20,9 +47,12 @@ const Contact: NextPage = () => {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <section className="min-h-screen flex flex-col bg-blue-150" >
+      <section className="min-h-screen flex flex-col bg-blue-150">
         <div className="max-w-screen-xl m-auto w-11/12">
-          <div className="mx-auto lg:mx-20 bg-blue-550 rounded-lg m-20 " id="contact">
+          <div
+            className="mx-auto lg:mx-20 bg-blue-550 rounded-lg m-20 "
+            id="contact"
+          >
             <div className="flex flex-col justify-evenly md:flex-row md:align-center gap-5 py-6 px-2">
               <div className="flex flex-col self-center md:self-start md:pt-0">
                 <h2 className="mb-6 text-2xl text-green-350 font-roboto text-white uppercase text-center md:text-left">
@@ -61,15 +91,16 @@ const Contact: NextPage = () => {
               </div>
             </div>
             <div className="flex justify-center font-roboto text-white text-base p-4 text-center bg-blue-350">
-              <p>Please leave your information and we will contact you as soon as possible!</p>
+              <p>
+                Please leave your information and we will contact you as soon as
+                possible!
+              </p>
             </div>
 
             <ContactForm />
-
           </div>
         </div>
       </section>
-
     </>
   );
 };

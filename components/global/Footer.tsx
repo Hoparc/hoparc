@@ -1,10 +1,12 @@
 import Image from "next/image";
-import { SiFacebook, SiInstagram } from "react-icons/si"
 import Link from "next/link";
+
+import { SiFacebook, SiInstagram } from "react-icons/si";
+
 import { LocationFragment } from "../../graphql-operations";
 
 type FooterProps = {
-  footer: LocationFragment;
+  footer: LocationFragment[];
 };
 
 function Footer({ footer }: FooterProps) {
@@ -25,6 +27,7 @@ function Footer({ footer }: FooterProps) {
                 <h2 className="font-merriweather font-bold text-2xl	flex-1 text-white capitalize">
                   hands on
                 </h2>
+
                 <div className="">
                   <h2 className="font-merriweather font-bold text-2xl	flex-1 text-white capitalize">
                     physiotherapy
@@ -37,7 +40,7 @@ function Footer({ footer }: FooterProps) {
               </div>
             </div>
             <address className="font-roboto not-italic text-base text-white flex flex-col justify-center mb-4 ">
-              <p className="text-slate-500">338 Copper Creek Dr,</p>
+              <p className="text-slate-500"></p>
               <p className="text-slate-500">Markham On L6B 1N8, Canada</p>
               <p>
                 <a

@@ -1,11 +1,15 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+
 import client from "../../apollo-client";
 import {
   AllBlogsDocument,
   AllBlogsQuery,
+  AllLocationsDocument,
+  AllLocationsQuery,
   BlogDocument,
   BlogFragment,
   BlogQuery,
+  LocationFragment,
 } from "../../graphql-operations";
 
 import _Blog from "../../components/modules/Blog";
@@ -34,24 +38,32 @@ export const getStaticPaths: GetStaticPaths<{
 
 type BlogProps = {
   blog: BlogQuery["allBlog"][0] | undefined;
+  locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<
   BlogProps,
   { slug: string }
 > = async ({ params }) => {
-  let data;
+  const [{ data: blogData }, { data: locationData }] = await Promise.all([
+    client.query<BlogQuery>({
+      query: BlogDocument,
+      variables: {
+        slug: params?.slug,
+      },
+    }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
+    }),
+  ]);
 
-  ({ data } = await client.query<BlogQuery>({
-    query: BlogDocument,
-    variables: {
-      slug: params?.slug,
-    },
-  }));
+  const blog = blogData?.allBlog?.[0];
 
-  const blog = data?.allBlog?.[0];
+  const allLocation: LocationFragment[] = locationData.allLocation;
+  const locations = allLocation;
+
   return {
-    props: { blog },
+    props: { blog, locations },
     revalidate: 200,
     notFound: !blog,
   };

@@ -3,7 +3,13 @@ import { GetStaticProps, NextPage } from "next";
 import { Fragment } from "react";
 
 import client from "../apollo-client";
-import { AllServicesDocument, AllServicesQuery } from "../graphql-operations";
+import {
+  AllLocationsDocument,
+  AllLocationsQuery,
+  AllServicesDocument,
+  AllServicesQuery,
+  LocationFragment,
+} from "../graphql-operations";
 
 import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
@@ -29,18 +35,25 @@ type FormValues = {
 
 type RequestAppointmentProps = {
   services: AllServicesQuery["allService"];
+  locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<
   RequestAppointmentProps
 > = async () => {
-  const { data: serviceData } = await client.query<AllServicesQuery>({
-    query: AllServicesDocument,
-  });
+  const [{ data: serviceData }, { data: locationData }] = await Promise.all([
+    client.query<AllServicesQuery>({
+      query: AllServicesDocument,
+    }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
+    }),
+  ]);
 
   return {
     props: {
       services: serviceData?.allService ?? [],
+      locations: locationData?.allLocation ?? [],
     },
     revalidate: 200,
   };

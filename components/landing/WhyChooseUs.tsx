@@ -1,6 +1,5 @@
 import Image from "next/image"
 
-
 function WhyChooseUs() {
   return (
     <div className="w-full bg-blue-550 py-28 ">
