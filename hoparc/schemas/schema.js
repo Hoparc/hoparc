@@ -9,6 +9,7 @@ import insurance from "./insurance";
 import location from "./location";
 import product from "./product";
 import service from "./service";
+import staff from "./staff";
 import testimonial from "./testimonial";
 import productCategory from "./product.category";
 import serviceCategory from "./service.category";
@@ -31,6 +32,7 @@ export default createSchema({
     productCategory,
     service,
     serviceCategory,
+    staff,
     testimonial,
   ]),
 });

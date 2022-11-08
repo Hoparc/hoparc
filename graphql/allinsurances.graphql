@@ -5,6 +5,7 @@ fragment insurance on Insurance {
       }
   }
 }
+
 query allInsurances {
     allInsurance {
         ...insurance
