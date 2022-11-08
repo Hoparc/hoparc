@@ -12,8 +12,9 @@ module.exports = {
       screens: {
         "2lg": "1385px",
         "footer": "948px",
-        "mobile": "420px",
         "mobileXl": "600px",
+        "mobile": "420px",
+        "mobileSm": "350px"
       },
       colors: {
         slate: {
@@ -38,6 +39,7 @@ module.exports = {
         "75vh": "75vh",
         "90vh": "90vh",
         "34rem": "44rem",
+        "200px": "200px",
       },
       minHeight: {
         "25vh": "25vh",
