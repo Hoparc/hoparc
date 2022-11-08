@@ -1,7 +1,8 @@
 fragment staff on Staff {
-  image{
-    asset{
+  image {
+    asset {
       url
+    }
   }
   name
   description
