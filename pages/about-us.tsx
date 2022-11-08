@@ -138,8 +138,8 @@ const AboutUs: NextPage<AboutUsProps> = ({ insurances }: AboutUsProps) => {
           We Accept
         </h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-2">
-          {insurances.map((insurance) => (
-            <div className="my-2.5 border-blue-550" key={insurance.__typename}>
+          {insurances.map((insurance, index) => (
+            <div className="my-2.5 border-blue-550" key={index}>
               <Image
                 src={insurance.image?.asset?.url ?? ""}
                 alt="An image of the insurance logo"
