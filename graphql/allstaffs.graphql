@@ -5,6 +5,7 @@ fragment staff on Staff {
     }
   }
   name
+  position
   description
 }
 

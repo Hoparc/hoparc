@@ -11,8 +11,7 @@ export default {
       options: {
         hotspot: true,
       },
-      validation: (Rule) => Rule.
-      required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "name",
@@ -21,16 +20,22 @@ export default {
       description: "Please provide the name of the staff member.",
       validation: (Rule) => Rule.required(),
     },
-      {
-        name: "description",
-        title: "Description",
-        type: "text",
-        description:
-          "Please provide a short description of the staff member.",
-          validation: (Rule) => [
-            Rule.required(),
-            Rule.max(50).warning("Short descriptions are usually better!"),
-          ],
-      },
-  ]
-}
+    {
+      name: "position",
+      title: "Position",
+      type: "string",
+      description: "Please provide the position of the staff member.",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "text",
+      description: "Please provide a short description of the staff member.",
+      validation: (Rule) => [
+        Rule.required(),
+        Rule.max(50).warning("Short descriptions are usually better!"),
+      ],
+    },
+  ],
+};
