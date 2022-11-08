@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps<AboutUsProps> = async () => {
     client.query<AllInsurancesQuery>({
       query: AllInsurancesDocument,
     }),
-    client.query<AllInsurancesQuery>({
+    client.query<AllStaffsQuery>({
       query: AllStaffsDocument,
     }),
   ]);
