@@ -6,6 +6,9 @@ import {
   AllIntroductionsDocument,
   IntroductionFragment,
   AllIntroductionsQuery,
+  AllTestimonialsQuery,
+  AllTestimonialsDocument,
+  TestimonialFragment,
 } from "../graphql-operations";
 
 import Hero from "../components/landing/Hero";
@@ -17,33 +20,49 @@ import WhyChooseUs from "../components/landing/WhyChooseUs";
 type HomeProps = {
   callToAction: string | null | undefined;
   url: string | null | undefined;
+  testimonials: TestimonialFragment[];
 };
 
 const transformQueryResponseToProps = (
-  data: AllIntroductionsQuery
+  data: AllIntroductionsQuery,
+  testimonialData: AllTestimonialsQuery
 ): HomeProps => {
   const allIntroduction: IntroductionFragment[] = data?.allIntroduction;
   const introduction = allIntroduction[0];
   const { callToAction, image } = introduction;
   const url = image?.asset?.url;
 
+  const allTestimonial: TestimonialFragment[] = testimonialData?.allTestimonial;
+  const testimonials = allTestimonial;
+  console.log(testimonials);
+
   return {
     callToAction,
     url,
+    testimonials,
   };
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const { data: introductionData } = await client.query<AllIntroductionsQuery>({
-    query: AllIntroductionsDocument,
-  });
-
+  const [{ data: introductionData }, { data: testimonialData }] =
+    await Promise.all([
+      client.query<AllIntroductionsQuery>({
+        query: AllIntroductionsDocument,
+      }),
+      client.query<AllTestimonialsQuery>({
+        query: AllTestimonialsDocument,
+      }),
+    ]);
   return {
-    props: transformQueryResponseToProps(introductionData),
+    props: transformQueryResponseToProps(introductionData, testimonialData),
   };
 };
 
-const Home: NextPage<HomeProps> = ({ callToAction, url }: HomeProps) => {
+const Home: NextPage<HomeProps> = ({
+  callToAction,
+  url,
+  testimonials,
+}: HomeProps) => {
   return (
     <>
       <Head>
@@ -61,7 +80,7 @@ const Home: NextPage<HomeProps> = ({ callToAction, url }: HomeProps) => {
         <Hero callToAction={callToAction} url={url} />
         <WhyChooseUs />
         <OurServices hasShowMore={true} />
-        <Testimonials hasShowMore={true} />
+        <Testimonials hasShowMore={true} testimonials={testimonials} />
         <LetUsHelp />
       </section>
     </>
