@@ -1,0 +1,15 @@
+fragment staff on Staff {
+  image{
+    asset{
+      url
+  }
+  name
+  description
+}
+
+query allStaffs {
+    allStaff {
+        ...staff
+    }
+}
+
