@@ -9,6 +9,9 @@ import {
   AllTestimonialsQuery,
   AllTestimonialsDocument,
   TestimonialFragment,
+  ServiceFragment,
+  AllServicesQuery,
+  AllServicesDocument,
 } from "../graphql-operations";
 
 import Hero from "../components/landing/Hero";
@@ -21,11 +24,13 @@ type HomeProps = {
   callToAction: string | null | undefined;
   url: string | null | undefined;
   testimonials: TestimonialFragment[];
+  services: ServiceFragment[];
 };
 
 const transformQueryResponseToProps = (
   data: AllIntroductionsQuery,
-  testimonialData: AllTestimonialsQuery
+  testimonialData: AllTestimonialsQuery,
+  serviceData: AllServicesQuery
 ): HomeProps => {
   const allIntroduction: IntroductionFragment[] = data?.allIntroduction;
   const introduction = allIntroduction[0];
@@ -34,27 +39,39 @@ const transformQueryResponseToProps = (
 
   const allTestimonial: TestimonialFragment[] = testimonialData?.allTestimonial;
   const testimonials = allTestimonial;
-  console.log(testimonials);
 
+  const allService: ServiceFragment[] = serviceData?.allService;
+  const services = allService;
   return {
     callToAction,
     url,
     testimonials,
+    services,
   };
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const [{ data: introductionData }, { data: testimonialData }] =
-    await Promise.all([
-      client.query<AllIntroductionsQuery>({
-        query: AllIntroductionsDocument,
-      }),
-      client.query<AllTestimonialsQuery>({
-        query: AllTestimonialsDocument,
-      }),
-    ]);
+  const [
+    { data: introductionData },
+    { data: testimonialData },
+    { data: serviceData },
+  ] = await Promise.all([
+    client.query<AllIntroductionsQuery>({
+      query: AllIntroductionsDocument,
+    }),
+    client.query<AllTestimonialsQuery>({
+      query: AllTestimonialsDocument,
+    }),
+    client.query<AllServicesQuery>({
+      query: AllServicesDocument,
+    }),
+  ]);
   return {
-    props: transformQueryResponseToProps(introductionData, testimonialData),
+    props: transformQueryResponseToProps(
+      introductionData,
+      testimonialData,
+      serviceData
+    ),
   };
 };
 
@@ -62,6 +79,7 @@ const Home: NextPage<HomeProps> = ({
   callToAction,
   url,
   testimonials,
+  services,
 }: HomeProps) => {
   return (
     <>
@@ -79,7 +97,7 @@ const Home: NextPage<HomeProps> = ({
       <section className="min-h-screen flex flex-col bg-slate-150">
         <Hero callToAction={callToAction} url={url} />
         <WhyChooseUs />
-        <OurServices hasShowMore={true} />
+        <OurServices hasShowMore={true} services={services} />
         <Testimonials hasShowMore={true} testimonials={testimonials} />
         <LetUsHelp />
       </section>
