@@ -1,6 +1,5 @@
 import Image from "next/image"
 
-
 function WhyChooseUs() {
   return (
     <div className="w-full bg-blue-550 py-28 ">
@@ -8,8 +7,10 @@ function WhyChooseUs() {
         <h2 className="capitalize text-white text-3xl sm:text-5xl font-roboto font-light text-center mb-12">
           why choose us?
         </h2>
-        <div className="flex flex-col gap-6 flex-wrap mx-auto lg:flex-row 
-        w-10/12 mobileXl:w-6/12 md:w-4/12 lg:w-4/12 xl:w-full">
+        <div
+          className="flex flex-col gap-6 flex-wrap mx-auto lg:flex-row 
+        w-10/12 mobileXl:w-6/12 md:w-4/12 lg:w-4/12 xl:w-full"
+        >
           <div className="flex flex-col flex-1 items-center gap-4">
             <Image
               src="/images/landing/customerSatisfactionIcon.png"
@@ -42,7 +43,6 @@ function WhyChooseUs() {
               customers.
             </p>
           </div>
-
 
           <div className="flex flex-col flex-1 items-center gap-4">
             <Image
@@ -79,6 +79,6 @@ function WhyChooseUs() {
       </div>
     </div>
   );
-};
+}
 
 export default WhyChooseUs;

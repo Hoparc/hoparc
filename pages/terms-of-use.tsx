@@ -1,5 +1,12 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+
+import client from "../apollo-client";
+import {
+  LocationFragment,
+  AllLocationsQuery,
+  AllLocationsDocument,
+} from "../graphql-operations";
 
 type TermsProps = {
   title: string;
@@ -14,6 +21,25 @@ function Terms({ title, children }: TermsProps) {
     </>
   );
 }
+
+type TermsOfUseProps = {
+  locations: LocationFragment[];
+};
+
+export const getStaticProps: GetStaticProps<TermsOfUseProps> = async () => {
+  const { data: locationData } = await client.query<AllLocationsQuery>({
+    query: AllLocationsDocument,
+  });
+
+  const allLocation: LocationFragment[] = locationData.allLocation;
+  const locations = allLocation;
+
+  return {
+    props: {
+      locations,
+    },
+  };
+};
 
 const TermsOfUse: NextPage = () => {
   return (

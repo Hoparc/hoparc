@@ -3,9 +3,9 @@ import type { AppProps } from 'next/app'
 import Layout from "../components/layouts/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const sanityFooter = pageProps.footer;
+  const sanityLocations = pageProps.locations;
   return (
-    <Layout footer={sanityFooter}>
+    <Layout locations={sanityLocations}>
       <Component {...pageProps} />
     </Layout>
   );

@@ -1,5 +1,12 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+
+import client from "../apollo-client";
+import {
+  AllLocationsDocument,
+  AllLocationsQuery,
+  LocationFragment,
+} from "../graphql-operations";
 
 type PoliciesProps = {
   title: string;
@@ -14,6 +21,25 @@ function Policies({ title, children }: PoliciesProps) {
     </>
   );
 }
+
+type PrivacyPolicyProps = {
+  locations: LocationFragment[];
+};
+
+export const getStaticProps: GetStaticProps<PrivacyPolicyProps> = async () => {
+  const { data: locationData } = await client.query<AllLocationsQuery>({
+    query: AllLocationsDocument,
+  });
+
+  const allLocation: LocationFragment[] = locationData.allLocation;
+  const locations = allLocation;
+
+  return {
+    props: {
+      locations,
+    },
+  };
+};
 
 const PrivacyPolicy: NextPage = () => {
   return (
