@@ -14,10 +14,17 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "story",
+      title: "Story",
+      type: "text",
+      description: "Please provide your story.",
+      validation: (Rule) => [Rule.required()],
+    },
+    {
       name: "purpose",
       title: "Purpose",
       type: "text",
-      description: "Please provide text for your purpose.",
+      description: "Please provide your purpose on how you got started.",
       validation: (Rule) => [Rule.required()],
     },
   ],
