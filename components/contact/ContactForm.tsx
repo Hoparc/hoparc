@@ -3,12 +3,9 @@ import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
 import Link from "next/link"
 
-import ContactDialog from "./ContactDialog";
-
 import { Transition } from "@headlessui/react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { fallbackExchange } from "@urql/core/dist/types/exchanges/fallback";
 
 type FormValues = {
   firstName: string;
