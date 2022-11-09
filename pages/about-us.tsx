@@ -11,33 +11,53 @@ import {
   AllLocationsDocument,
   AllLocationsQuery,
   LocationFragment,
+  AllAboutsQuery,
+  AllAboutsDocument,
+  AboutFragment,
 } from "../graphql-operations";
 
 type AboutUsProps = {
   insurances: AllInsurancesQuery["allInsurance"];
   staffs: AllStaffsQuery["allStaff"];
   locations: LocationFragment[];
+  url: string | null | undefined;
+  purpose: string | null | undefined;
 };
 
 export const getStaticProps: GetStaticProps<AboutUsProps> = async () => {
-  const [{ data: insuranceData }, { data: staffData }, { data: locationData }] =
-    await Promise.all([
-      client.query<AllInsurancesQuery>({
-        query: AllInsurancesDocument,
-      }),
-      client.query<AllStaffsQuery>({
-        query: AllStaffsDocument,
-      }),
-      client.query<AllLocationsQuery>({
-        query: AllLocationsDocument,
-      }),
-    ]);
+  const [
+    { data: insuranceData },
+    { data: staffData },
+    { data: locationData },
+    { data: aboutData },
+  ] = await Promise.all([
+    client.query<AllInsurancesQuery>({
+      query: AllInsurancesDocument,
+    }),
+    client.query<AllStaffsQuery>({
+      query: AllStaffsDocument,
+    }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
+    }),
+    client.query<AllAboutsQuery>({
+      query: AllAboutsDocument,
+    }),
+  ]);
+
+  const allAbout: AboutFragment[] = aboutData?.allAbout;
+  const abouts = allAbout[0];
+  const { image, purpose } = abouts;
+  const url = image?.asset?.url;
 
   return {
     props: {
       insurances: insuranceData?.allInsurance ?? [],
       staffs: staffData?.allStaff ?? [],
       locations: locationData?.allLocation ?? [],
+      abouts: aboutData?.allAbout ?? [],
+      url,
+      purpose,
     },
   };
 };
@@ -45,6 +65,8 @@ export const getStaticProps: GetStaticProps<AboutUsProps> = async () => {
 const AboutUs: NextPage<AboutUsProps> = ({
   insurances,
   staffs,
+  url,
+  purpose,
 }: AboutUsProps) => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -76,7 +98,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
               </div>
               <div className="m-auto">
                 <Image
-                  src="/images/about/aboutUs.png"
+                  src={url ?? ""}
                   className="rounded-lg shadow-2xl w-full"
                   alt="image"
                   height={0}
@@ -89,14 +111,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
         <h3 className="my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           Our Purpose
         </h3>
-        <p className="my-4 text-xl font-light">
-          Hands on Physiotherapy and Rehab Centre specializes in treating ortho,
-          musculoskeletal, neurological, pelvic floor, geriatric and sports
-          injuries. Our purpose is to believe in, "Your Care, Pain Free Life is
-          our Goal". An exceptional patient experience with "Hands on Treatment"
-          on every visit and to create a great improvement and experience to all
-          of our patients.
-        </p>
+        <p className="my-4 text-xl font-light">{purpose}</p>
         <div className="w-full bg-blue-550 flex py-10 rounded-3xl">
           <div className="max-w-screen-xl m-auto w-11/12 flex flex-col items-center gap-11">
             <h2 className="capitalize text-white text-5xl font-roboto font-light text-center">
