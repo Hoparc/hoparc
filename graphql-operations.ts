@@ -30,8 +30,10 @@ export type About = Document & {
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars['DateTime']>;
   image?: Maybe<Image>;
-  /** Please provide text for your purpose. */
+  /** Please provide your purpose on how you got started. */
   purpose?: Maybe<Scalars['String']>;
+  /** Please provide your story. */
+  story?: Maybe<Scalars['String']>;
 };
 
 export type AboutFilter = {
@@ -45,6 +47,7 @@ export type AboutFilter = {
   _updatedAt?: InputMaybe<DatetimeFilter>;
   image?: InputMaybe<ImageFilter>;
   purpose?: InputMaybe<StringFilter>;
+  story?: InputMaybe<StringFilter>;
 };
 
 export type AboutSorting = {
@@ -56,6 +59,7 @@ export type AboutSorting = {
   _updatedAt?: InputMaybe<SortOrder>;
   image?: InputMaybe<ImageSorting>;
   purpose?: InputMaybe<SortOrder>;
+  story?: InputMaybe<SortOrder>;
 };
 
 export type Block = {
@@ -1449,12 +1453,12 @@ export type TestimonialSorting = {
   testimonial?: InputMaybe<SortOrder>;
 };
 
-export type AboutFragment = { __typename?: 'About', purpose?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null };
+export type AboutFragment = { __typename?: 'About', story?: string | null, purpose?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null };
 
 export type AllAboutsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllAboutsQuery = { __typename?: 'RootQuery', allAbout: Array<{ __typename?: 'About', purpose?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
+export type AllAboutsQuery = { __typename?: 'RootQuery', allAbout: Array<{ __typename?: 'About', story?: string | null, purpose?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
 
 export type BlogFragment = { __typename?: 'Blog', title?: string | null, date?: any | null, blogRaw?: any | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, slug?: { __typename?: 'Slug', current?: string | null } | null, category?: Array<{ __typename?: 'BlogCategory', name?: string | null, slug?: { __typename?: 'Slug', current?: string | null } | null } | null> | null };
 
@@ -1548,7 +1552,7 @@ export type AllTestimonialsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllTestimonialsQuery = { __typename?: 'RootQuery', allTestimonial: Array<{ __typename?: 'Testimonial', name?: string | null, testimonial?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
 
-export const AboutFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"about"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"About"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"purpose"}}]}}]} as unknown as DocumentNode<AboutFragment, unknown>;
+export const AboutFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"about"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"About"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"story"}},{"kind":"Field","name":{"kind":"Name","value":"purpose"}}]}}]} as unknown as DocumentNode<AboutFragment, unknown>;
 export const BlogFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"blog"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Blog"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"blogRaw"}}]}}]} as unknown as DocumentNode<BlogFragment, unknown>;
 export const InsuranceFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"insurance"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Insurance"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<InsuranceFragment, unknown>;
 export const IntroductionFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"introduction"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Introduction"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"callToAction"}}]}}]} as unknown as DocumentNode<IntroductionFragment, unknown>;

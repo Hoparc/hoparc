@@ -21,6 +21,7 @@ type AboutUsProps = {
   staffs: AllStaffsQuery["allStaff"];
   locations: LocationFragment[];
   url: string | null | undefined;
+  story: string | null | undefined;
   purpose: string | null | undefined;
 };
 
@@ -47,7 +48,7 @@ export const getStaticProps: GetStaticProps<AboutUsProps> = async () => {
 
   const allAbout: AboutFragment[] = aboutData?.allAbout;
   const abouts = allAbout[0];
-  const { image, purpose } = abouts;
+  const { image, story, purpose } = abouts;
   const url = image?.asset?.url;
 
   return {
@@ -57,6 +58,7 @@ export const getStaticProps: GetStaticProps<AboutUsProps> = async () => {
       locations: locationData?.allLocation ?? [],
       abouts: aboutData?.allAbout ?? [],
       url,
+      story,
       purpose,
     },
   };
@@ -66,6 +68,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
   insurances,
   staffs,
   url,
+  story,
   purpose,
 }: AboutUsProps) => {
   return (
@@ -108,9 +111,16 @@ const AboutUs: NextPage<AboutUsProps> = ({
             </div>
           </div>
         </div>
-        <h3 className="my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+
+        <h2 className="my-10 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+          Our Story
+        </h2>
+        <p className="my-10 text-xl font-light">{story}</p>
+
+        <h3 className="my-10 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           Our Purpose
         </h3>
+
         <p className="my-4 text-xl font-light">{purpose}</p>
         <div className="w-full bg-blue-550 flex py-10 rounded-3xl">
           <div className="max-w-screen-xl m-auto w-11/12 flex flex-col items-center gap-11">
@@ -170,8 +180,8 @@ const AboutUs: NextPage<AboutUsProps> = ({
           </div>
         </div>
 
-        <h3 className="my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
-          our staff
+        <h3 className="my-10 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+          meet the staff
         </h3>
 
         {staffs.map((staff, index) => (
@@ -202,7 +212,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
           </div>
         ))}
 
-        <h4 className="uppercase my-5 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+        <h4 className="uppercase my-10 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           We Accept
         </h4>
         <div className="grid grid-cols-1 mobileSm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">

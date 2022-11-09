@@ -4,6 +4,7 @@ fragment about on About {
         url
       }
   }
+  story
   purpose
 }
 
