@@ -1,15 +1,18 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+
 import client from "../../apollo-client";
 import {
+  AllLocationsDocument,
+  AllLocationsQuery,
   AllProductsDocument,
   AllProductsQuery,
+  LocationFragment,
   ProductDocument,
   ProductFragment,
   ProductQuery,
 } from "../../graphql-operations";
 
 import _Products from "../../components/modules/Products";
-
 
 export const getStaticPaths: GetStaticPaths<{
   slug: string;
@@ -35,24 +38,32 @@ export const getStaticPaths: GetStaticPaths<{
 
 type ProductProps = {
   product: ProductQuery["allProduct"][0] | undefined;
+  locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<
   ProductProps,
   { slug: string }
 > = async ({ params }) => {
-  let data;
+  const [{ data: productData }, { data: locationData }] = await Promise.all([
+    client.query<ProductQuery>({
+      query: ProductDocument,
+      variables: {
+        slug: params?.slug,
+      },
+    }),
+    client.query<AllLocationsQuery>({
+      query: AllLocationsDocument,
+    }),
+  ]);
 
-  ({ data } = await client.query<ProductQuery>({
-    query: ProductDocument,
-    variables: {
-      slug: params?.slug,
-    },
-  }));
+  const product = productData?.allProduct?.[0];
 
-  const product = data?.allProduct?.[0];
+  const allLocation: LocationFragment[] = locationData.allLocation;
+  const locations = allLocation;
+
   return {
-    props: { product },
+    props: { product, locations },
     revalidate: 200,
     notFound: !product,
   };
