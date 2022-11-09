@@ -1,0 +1,14 @@
+fragment about on About {
+  image {
+      asset {
+        url
+      }
+  }
+  purpose
+}
+
+query allAbouts {
+    allAbout {
+        ...about
+    }
+}

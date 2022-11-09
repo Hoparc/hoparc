@@ -3,6 +3,7 @@ import createSchema from "part:@sanity/base/schema-creator";
 
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
+import about from "./about";
 import blog from "./blog";
 import blogCategory from "./blog.category";
 import insurance from "./insurance";
@@ -23,6 +24,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
+    about,
     blog,
     blogCategory,
     insurance,
