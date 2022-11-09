@@ -42,9 +42,11 @@ export const getStaticProps: GetStaticProps<ServicesProps> = async () => {
     }),
   ]);
 
+  const copy = [...(serviceData?.allService ?? [])];
+
   return {
     props: {
-      services: serviceData?.allService ?? [],
+      services: copy.sort((a, b) => (a.name || "").localeCompare(b.name || "")),
       categories: serviceCategoryData?.allServiceCategory ?? [],
       locations: locationData?.allLocation ?? [],
     },
