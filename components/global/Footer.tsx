@@ -44,27 +44,30 @@ function Footer({ locations }: FooterProps) {
                   <p>{location.address}</p>
                   <p>{location.addresslinen}</p>
                   <p>
+                    Phone: {""}
                     <a
                       className="underline hover:text-green-350 hover:no-underline"
                       href="tel: +1(289) 554-9090"
                     >
-                      Phone: {location.phone}
+                      {location.phone}
                     </a>
                   </p>
                   <p>
+                    Fax: {""}
                     <a
                       className="underline hover:text-green-350 hover:no-underline"
                       href="fax: +1(905) 201-9909"
                     >
-                      Fax: {location.fax}
+                      {location.fax}
                     </a>
                   </p>
                   <p>
+                    Email: {""}
                     <a
-                      className="underline text-lg italic text-blue-150 hover:text-green-350 hover:no-underline"
+                      className="underline italic text-blue-150 hover:text-green-350 hover:no-underline"
                       href="mailto:info@hoparc.com?subject=Book%20appointment"
                     >
-                      E-Mail: {location.email}
+                      {location.email}
                     </a>
                   </p>
                 </address>

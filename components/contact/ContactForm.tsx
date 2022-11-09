@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
 import Link from "next/link"
 
+
 import { Transition } from "@headlessui/react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -158,7 +159,6 @@ function ContactForm() {
             {errors.message && <span className="absolute mt-32 ml-2 text-red-500 uppercase">required</span>}
           </div>
           <div className="flex justify-end gap-4 pt-5">
-
             <input
               type="submit" value="submit"
               className="rounded-lg bg-blue-500 text-sm px-6 py-4 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-850 w-full cursor-pointer"
