@@ -42,9 +42,11 @@ export const getStaticProps: GetStaticProps<ProductsProps> = async () => {
     }),
   ]);
 
+  const copy = [...(productData?.allProduct ?? [])];
+
   return {
     props: {
-      products: productData?.allProduct ?? [],
+      products: copy.sort((a, b) => (a.name || "").localeCompare(b.name || "")),
       categories: productCategoryData?.allProductCategory ?? [],
       locations: locationData?.allLocation ?? [],
     },
