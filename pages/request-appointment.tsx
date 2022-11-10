@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps<
 const RequestAppointment: NextPage<RequestAppointmentProps> = ({
   services,
 }: RequestAppointmentProps) => {
-  const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
+  const [formSpreeState, sendToFormSpree] = useFormSpree("mdobokkz");
 
   const {
     register,
@@ -132,7 +132,6 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             <label htmlFor="firstName" className="sr-only">
               First Name
             </label>
-
             <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
               <div className="flex flex-col w-full">
                 {errors.firstName && (
@@ -167,14 +166,20 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               </div>
             </div>
           </div>
+
           <h3 className="text-3xl">When would you like to come in?</h3>
           <label htmlFor="date" className="flex-shrink-0 text-xl">
             Preferred Date
           </label>
+          {errors.ReactDatepicker && (
+            <span className="absolute mt-10 ml-2 text-red-500">
+              Please enter a date.
+            </span>
+          )}
           <Controller
             control={control}
             name="ReactDatepicker"
-            render={({ field: { onChange, onBlur, value, ref } }) => (
+            render={({ field: { onChange, onBlur, value } }) => (
               <ReactDatePicker
                 className="input block w-full"
                 placeholderText="Select date"
@@ -216,7 +221,10 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 })}
               >
                 {services.map((service) => (
-                  <option key={service.name} value={service.__typename}>
+                  <option
+                    key={service.name ?? "Service"}
+                    value={service.name ?? "Service"}
+                  >
                     {service.name}
                   </option>
                 ))}
@@ -280,7 +288,6 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 </span>
               )}
               <Controller
-                {...register("phone", { required: true })}
                 name="phone"
                 control={control}
                 rules={{
@@ -351,7 +358,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               message sent!
             </p>
             <p className="text-sm font-roboto text-blue-350 my-5 sm:text-lg">
-              We'll get back to you as soon as possible!
+              A member of our staff will get back to you as soon as possible!
             </p>
             <Link href="/">
               <button className="rounded-lg bg-blue-350 px-6 py-2 font-bold uppercase text-white hover:bg-green-350">
