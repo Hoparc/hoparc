@@ -86,13 +86,14 @@ const Services: NextPage<ServicesProps> = ({
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <section className=" min-h-screen">
+      <section className="min-h-screen">
         <Image
           src="/images/products/banner2.webp"
           alt=""
           height={10}
           width={100000}
           className="object-cover object-center max-h-52 w-full"
+          priority
         />
 
         <div className="bg-blue-350 w-full">
@@ -150,6 +151,9 @@ const Services: NextPage<ServicesProps> = ({
                                   alt={`Image for ${service.name}`}
                                   fill
                                   className="object-cover"
+                                  sizes="(max-width: 768px) 100vw,
+                                  (max-width: 1200px) 50vw,
+                                  33vw"
                                 />
                               )}
                             </div>
