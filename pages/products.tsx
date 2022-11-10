@@ -94,7 +94,8 @@ const Products: NextPage<ProductsProps> = ({
           height={10}
           width={100000}
           className="object-cover object-center max-h-52 w-full"
-        ></Image>
+          priority
+        />
         <div className="bg-blue-350 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
             <h2 className="text-3xl text-left p-3 font-bold uppercase text-white">
@@ -150,6 +151,9 @@ const Products: NextPage<ProductsProps> = ({
                                   alt={`Image for ${product.name}`}
                                   fill
                                   className="object-cover"
+                                  sizes="(max-width: 768px) 100vw,
+                                  (max-width: 1200px) 50vw,
+                                  33vw"
                                 />
                               )}
                             </div>
