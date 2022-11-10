@@ -19,6 +19,7 @@ function Hero({ callToAction, url }: HeroProps) {
                 alt="Image for Hands on Physiotherapy and Rehab Centre"
                 height={0}
                 width={445}
+                priority
               />
             </div>
             <div className="flex flex-col gap-10 self-center ">
