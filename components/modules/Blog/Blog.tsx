@@ -7,6 +7,7 @@ import { PortableText } from "@portabletext/react";
 import { format, parse } from "date-fns";
 
 import { HiChevronLeft } from "react-icons/hi";
+import Head from "next/head";
 
 export type BlogProps = {
   blog: AllBlogsQuery["allBlog"][0] | undefined;
@@ -16,6 +17,20 @@ function Blog({ blog }: BlogProps) {
   const date = parse(blog?.date, "yyyy-MM-dd", new Date());
   return (
     <>
+      <Head>
+        <title>{blog?.title} | Hands on Physiotherapy and Rehab Centre</title>
+        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
+        <meta name="theme-color" content="#327CDF" />
+        <meta
+          name="description"
+          content={`${blog?.title} Hands on Physiotherapy and Rehab Centre`}
+        />
+        <meta
+          name="keywords"
+          content="blogs, hands on physio therapy and rehab centre"
+        />
+        <meta name="viewport" content="width=device-width" />
+      </Head>
       <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen flex flex-col">
         <Link href="/blogs">
           <span className="flex items-center cursor-pointer text-black">
