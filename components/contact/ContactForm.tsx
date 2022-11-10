@@ -52,17 +52,27 @@ function ContactForm() {
   const handleClick = () => reset();
 
   return (
-
-    <section id="contact-form" className="relative  rounded-b-lg bg-white shadow-md px-6 py-6 h-full">
+    <section
+      id="contact-form"
+      className="relative  rounded-b-lg bg-white shadow-md px-6 py-6 h-full"
+    >
       <div className="flex flex-col-reverse gap-3 xl:flex-row">
-        <form onSubmit={handleSubmit(onSubmit)} id="contact-form" className="flex-1 m-auto w-full">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          id="contact-form"
+          className="flex-1 m-auto w-full"
+        >
           <div className="flex flex-col space-y-8 w">
             <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
               <label htmlFor="firstName" className="sr-only">
                 First Name
               </label>
               <div className="flex flex-col w-full">
-                {errors.firstName && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
+                {errors.firstName && (
+                  <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                    required
+                  </span>
+                )}
                 <input
                   placeholder="First Name"
                   className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
@@ -73,7 +83,11 @@ function ContactForm() {
                 <label htmlFor="lastName" className="sr-only">
                   Last Name
                 </label>
-                {errors.lastName && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
+                {errors.lastName && (
+                  <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                    required
+                  </span>
+                )}
                 <input
                   placeholder="Last Name"
                   className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
@@ -86,7 +100,11 @@ function ContactForm() {
                 <label htmlFor="email" className="sr-only">
                   Email
                 </label>
-                {errors.email && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
+                {errors.email && (
+                  <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                    required
+                  </span>
+                )}
                 <input
                   type="text"
                   placeholder="Email"
@@ -101,14 +119,14 @@ function ContactForm() {
                 />
               </div>
 
-
               <div className="flex flex-col w-full text-left">
                 <label htmlFor="phone"></label>
                 {errors.phone && (
-                  <span className="absolute mt-10 ml-2 text-red-500 uppercase">Provide valid number</span>
+                  <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                    Provide valid number
+                  </span>
                 )}
                 <Controller
-                  {...register("phone", { required: true })}
                   name="phone"
                   control={control}
                   rules={{
@@ -142,7 +160,11 @@ function ContactForm() {
                   maxLength: 30,
                 })}
               />
-              {errors.subject && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
+              {errors.subject && (
+                <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                  required
+                </span>
+              )}
             </div>
             <div className="flex flex-col">
               <label htmlFor="message" className="sr-only">
@@ -158,15 +180,19 @@ function ContactForm() {
                   maxLength: 1200,
                 })}
               />
-              {errors.message && <span className="absolute mt-8.6rem ml-2 text-red-500 uppercase">required (max 1200 Chars)</span>}
+              {errors.message && (
+                <span className="absolute mt-8.6rem ml-2 text-red-500 uppercase">
+                  required (max 1200 Chars)
+                </span>
+              )}
             </div>
             <div className="flex justify-end w-44">
               <input
-                type="submit" value="send"
+                type="submit"
+                value="send"
                 className="rounded-lg bg-blue-500 text-sm px-6 py-4 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-850 w-full cursor-pointer "
               />
             </div>
-
           </div>
         </form>
         {/*  Placeholder image for styling purposes until we get Google Maps Api working  */}
@@ -194,7 +220,9 @@ function ContactForm() {
         >
           <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white bg-opacity-90">
             <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-            <p className="mt-10 text-xl font-roboto uppercase text-accent font-bold">sending...</p>
+            <p className="mt-10 text-xl font-roboto uppercase text-accent font-bold">
+              sending...
+            </p>
           </div>
         </Transition>
       )}
@@ -215,7 +243,9 @@ function ContactForm() {
             <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold uppercase">
               message sent!
             </p>
-            <p className="text-sm font-roboto text-blue-550 my-5 sm:text-lg">We'll get back to you as soon as possible!</p>
+            <p className="text-sm font-roboto text-blue-550 my-5 sm:text-lg">
+              We'll get back to you as soon as possible!
+            </p>
             <Link href="/">
               <button className="rounded-lg bg-blue-350 px-6 py-2 font-roboto uppercase text-white hover:bg-green-350 hover:text-blue-850">
                 return home
@@ -243,9 +273,7 @@ function ContactForm() {
           </div>
         </Transition>
       )}
-
     </section>
-
   );
 }
 
