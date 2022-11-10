@@ -17,28 +17,29 @@ interface ServiceCardProps {
 function ServiceCard({ imageUrl, name, description, href }: ServiceCardProps) {
   return (
     <>
-      <figure className="group inline-flex p-6 mb-4 w-full relative flex-col-reverse bg-white highlight-white/5 rounded-md shadow-md shadow-slate-300">
-        <figcaption className="flex items-center space-x-4">
-          <Link href={`/service/${href}` ?? ""}>
-            <div className="flex-auto">
-              <div className="items-center">
-                <Image
-                  src={imageUrl ?? ""}
-                  alt={`Image of ${name}`}
-                  className="flex-none rounded-2xl object-cover drop-shadow-md"
-                  loading="lazy"
-                  width={200}
-                  height={200}
-                />
-              </div>
-              <div className="text-basetext-black font-semibold mt-5">
-                {name}
-              </div>
-              <div className="mt-0.5 text-black text-xs">{description}</div>
-            </div>
-          </Link>
-        </figcaption>
-      </figure>
+      <Link
+        href={`/service/${href}` ?? ""}
+        className="p-6 mb-4 flex flex-col items-center bg-white rounded-lg border
+        shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700
+        dark:bg-gray-800 dark:hover:bg-gray-700"
+      >
+        <Image
+          className="object-cover w-full h-96 md:h-auto md:w-48 rounded-full"
+          src={imageUrl ?? ""}
+          alt={`Image of ${name}`}
+          loading="lazy"
+          width={200}
+          height={200}
+        />
+        <div className="flex flex-col justify-between p-4 leading-normal">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {name}
+          </h5>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            {description}
+          </p>
+        </div>
+      </Link>
     </>
   );
 }
@@ -68,7 +69,7 @@ function OurServices({ hasShowMore = false, services }: ServicesProps) {
               ["overflow-hidden"]: !showMore,
             })}
           >
-            <div className="columns-1 gap md:columns-2 lg:columns-3">
+            <div className="columns-1 md:columns-2">
               {services?.map((service) => (
                 <ServiceCard
                   imageUrl={service.image?.asset?.url ?? ""}
