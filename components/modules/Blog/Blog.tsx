@@ -1,5 +1,6 @@
-import Link from "next/link";
+import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 import { AllBlogsQuery } from "../../../graphql-operations";
 import { PortableText } from "@portabletext/react";
@@ -7,7 +8,6 @@ import { PortableText } from "@portabletext/react";
 import { format, parse } from "date-fns";
 
 import { HiChevronLeft } from "react-icons/hi";
-import Head from "next/head";
 
 export type BlogProps = {
   blog: AllBlogsQuery["allBlog"][0] | undefined;
