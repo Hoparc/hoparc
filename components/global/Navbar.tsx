@@ -2,11 +2,12 @@ import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import MenuLink from "./MenuLink";
+import { Disclosure, Transition } from "@headlessui/react";
+import { HiMenu, HiX } from "react-icons/hi";
+
 import navigation from "../../utils/data/navigation";
 
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
+import MenuLink from "./MenuLink";
 
 function Navbar() {
   return (
