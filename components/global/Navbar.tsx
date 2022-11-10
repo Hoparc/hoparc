@@ -64,50 +64,12 @@ function Navbar() {
                     <div className="flex space-x-4">
                       {navigation.map((item) => (
                         <div key={item.id} className="flex">
-                          {!item.dropdownOptions ? (
-                            <MenuLink
-                              href={item.href}
-                              className="px-3 py-2 rounded-md font-inter text-sm text-blue-350 font-medium hover:underline hover:text-green-350"
-                            >
-                              {item.name}
-                            </MenuLink>
-                          ) : (
-                            <Menu as="div" className=" relative">
-                              <Menu.Button className="relative flex px-3 py-2 rounded-md font-inter text-sm text-blue-350 font-medium hover:text-green-350">
-                                {item.name}
-                                <HiChevronDown
-                                  className="block h-6 w-6 ml-2 text-accent"
-                                  aria-hidden="true"
-                                />
-                              </Menu.Button>
-                              <Transition
-                                as={Fragment}
-                                enter="transition ease-out duration-100"
-                                enterFrom="transform opacity-0 scale-95"
-                                enterTo="transform opacity-100 scale-100"
-                                leave="transition ease-in duration-75"
-                                leaveFrom="transform opacity-100 scale-100"
-                                leaveTo="transform opacity-0 scale-95"
-                              >
-                                <Menu.Items className="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                  {item.dropdownOptions.map((option, index) => (
-                                    <Menu.Item key={index}>
-                                      {({ active }) => (
-                                        <MenuLink
-                                          href={`/${item.href}`}
-                                          className={`${
-                                            active && "bg-slate-100"
-                                          } block px-4 py-2 text-base text-gray-700'`}
-                                        >
-                                          {option.name}
-                                        </MenuLink>
-                                      )}
-                                    </Menu.Item>
-                                  ))}
-                                </Menu.Items>
-                              </Transition>
-                            </Menu>
-                          )}
+                          <MenuLink
+                            href={item.href}
+                            className="px-3 py-2 rounded-md font-inter text-sm text-blue-350 font-medium hover:underline hover:text-green-350"
+                          >
+                            {item.name}
+                          </MenuLink>
                         </div>
                       ))}
                     </div>
@@ -127,36 +89,14 @@ function Navbar() {
                 <div className="px-2 pt-2 pb-3 absolute bg-blue-350 text-blue-900 w-full">
                   {navigation.map((item) => (
                     <div key={item.id}>
-                      {!item.dropdownOptions ? (
-                        <Disclosure.Button
-                          key={item.name}
-                          as="a"
-                          href={item.href}
-                          className="bg-blue-350 text-white hover:bg-green-350 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                        >
-                          {item.name}
-                        </Disclosure.Button>
-                      ) : (
-                        <>
-                          <Disclosure.Button
-                            key={item.name}
-                            className="text-white hover:bg-green-350 block px-3 py-2 rounded-md text-base font-medium"
-                          >
-                            {item.name}
-                          </Disclosure.Button>
-
-                          {item.dropdownOptions.map((option, index) => (
-                            <Disclosure.Button
-                              key={index}
-                              as="a"
-                              href={`/${item.href}`}
-                              className="block ml-4 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-green-350"
-                            >
-                              {option.name}
-                            </Disclosure.Button>
-                          ))}
-                        </>
-                      )}
+                      <Disclosure.Button
+                        key={item.name}
+                        as="a"
+                        href={item.href}
+                        className="bg-blue-350 text-white hover:bg-green-350 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                      >
+                        {item.name}
+                      </Disclosure.Button>
                     </div>
                   ))}
                 </div>
