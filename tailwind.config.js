@@ -57,6 +57,9 @@ module.exports = {
         "75vh": "75vh",
         "90vh": "90vh",
       },
+      margin:{
+        "8.6rem": "8.6rem",
+      },
       fontFamily: {
         poppins: ["poppins"],
         merriweather: ["Merriweather Sans", "sans-serif"],
