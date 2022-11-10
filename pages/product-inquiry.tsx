@@ -158,7 +158,10 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 })}
               >
                 {products.map((product) => (
-                  <option key={product.name} value={product.__typename}>
+                  <option
+                    key={product.name ?? "Product name"}
+                    value={product.name ?? "Product name"}
+                  >
                     {product.name}
                   </option>
                 ))}
@@ -222,7 +225,6 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 </span>
               )}
               <Controller
-                {...register("phone", { required: true })}
                 name="phone"
                 control={control}
                 rules={{

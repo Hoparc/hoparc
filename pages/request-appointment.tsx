@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps<
 const RequestAppointment: NextPage<RequestAppointmentProps> = ({
   services,
 }: RequestAppointmentProps) => {
-  const [formSpreeState, sendToFormSpree] = useFormSpree("mdobokkz");
+  const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
 
   const {
     register,
@@ -222,8 +222,8 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               >
                 {services.map((service) => (
                   <option
-                    key={service.name ?? "Service"}
-                    value={service.name ?? "Service"}
+                    key={service.name ?? "Service name"}
+                    value={service.name ?? "Service name"}
                   >
                     {service.name}
                   </option>
