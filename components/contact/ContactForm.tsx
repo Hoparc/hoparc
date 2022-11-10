@@ -2,6 +2,7 @@ import { Fragment, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
 import Link from "next/link"
+import Image from "next/image";
 
 import { Transition } from "@headlessui/react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
@@ -51,127 +52,135 @@ function ContactForm() {
   const handleClick = () => reset();
 
   return (
-    <section id="contact-form" className="relative  rounded-b-lg bg-white shadow-md px-6 py-14 h-full">
-      <form onSubmit={handleSubmit(onSubmit)} id="contact-form" className="h-full">
-        <div className="flex flex-col space-y-8">
-          <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
-            <label htmlFor="firstName" className="sr-only">
-              First Name
-            </label>
-            <div className="flex flex-col w-full">
-              {errors.firstName && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
-              <input
-                placeholder="First Name"
-                className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
-                {...register("firstName", { required: true, maxLength: 30 })}
-              />
-            </div>
-            <div className="flex flex-col w-full">
-              <label htmlFor="lastName" className="sr-only">
-                Last Name
+
+    <section id="contact-form" className="relative  rounded-b-lg bg-white shadow-md px-6 py-6 h-full">
+      <div className="flex flex-col-reverse gap-3 xl:flex-row">
+        <form onSubmit={handleSubmit(onSubmit)} id="contact-form" className="flex-1 m-auto w-full">
+          <div className="flex flex-col space-y-8 w">
+            <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
+              <label htmlFor="firstName" className="sr-only">
+                First Name
               </label>
-              {errors.lastName && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
-              <input
-                placeholder="Last Name"
-                className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
-                {...register("lastName", { required: true, maxLength: 30 })}
-              />
+              <div className="flex flex-col w-full">
+                {errors.firstName && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
+                <input
+                  placeholder="First Name"
+                  className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                  {...register("firstName", { required: true, maxLength: 30 })}
+                />
+              </div>
+              <div className="flex flex-col w-full">
+                <label htmlFor="lastName" className="sr-only">
+                  Last Name
+                </label>
+                {errors.lastName && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
+                <input
+                  placeholder="Last Name"
+                  className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                  {...register("lastName", { required: true, maxLength: 30 })}
+                />
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
-            <div className="flex flex-col w-full">
-              <label htmlFor="email" className="sr-only">
-                Email
+            <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
+              <div className="flex flex-col w-full">
+                <label htmlFor="email" className="sr-only">
+                  Email
+                </label>
+                {errors.email && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
+                <input
+                  type="text"
+                  placeholder="Email"
+                  className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                      message: "Please enter a valid email",
+                    },
+                  })}
+                />
+              </div>
+
+
+              <div className="flex flex-col w-full text-left">
+                <label htmlFor="phone"></label>
+                {errors.phone && (
+                  <span className="absolute mt-10 ml-2 text-red-500 uppercase">Provide valid number</span>
+                )}
+                <Controller
+                  {...register("phone", { required: true })}
+                  name="phone"
+                  control={control}
+                  rules={{
+                    validate: (value) => isValidPhoneNumber(value),
+                  }}
+                  render={({ field: { onChange, value } }) => (
+                    <PhoneInput
+                      className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                      placeholder="Phone Number"
+                      value={value}
+                      onChange={onChange}
+                      defaultCountry="CA"
+                      id="phone-input"
+                    />
+                  )}
+                />
+              </div>
+            </div>
+
+            <div className="flex">
+              <label htmlFor="subject" className="sr-only">
+                Subject
               </label>
-              {errors.email && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
               <input
                 type="text"
-                placeholder="Email"
-                className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                    message: "Please enter a valid email",
-                  },
+                placeholder="Subject"
+                className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
+                {...register("subject", {
+                  required: true,
+                  minLength: 5,
+                  maxLength: 30,
                 })}
               />
+              {errors.subject && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
             </div>
-
-
-            <div className="flex flex-col w-full text-left">
-              <label htmlFor="phone"></label>
-              {errors.phone && (
-                <span className="absolute mt-10 ml-2 text-red-500 uppercase">Provide valid number</span>
-              )}
-              <Controller
-                {...register("phone", { required: true })}
-                name="phone"
-                control={control}
-                rules={{
-                  validate: (value) => isValidPhoneNumber(value),
-                }}
-                render={({ field: { onChange, value } }) => (
-                  <PhoneInput
-                    className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
-                    placeholder="Phone Number"
-                    value={value}
-                    onChange={onChange}
-                    defaultCountry="CA"
-                    id="phone-input"
-                  />
-                )}
+            <div className="flex flex-col">
+              <label htmlFor="message" className="sr-only">
+                Leave us a message!
+              </label>
+              <textarea
+                rows={5}
+                placeholder="Hi, I'd like to make an inquiry!"
+                className="rounded-md bg-blue-150 border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350  resize-none"
+                {...register("message", {
+                  required: true,
+                  minLength: 5,
+                  maxLength: 1200,
+                })}
+              />
+              {errors.message && <span className="absolute mt-8.6rem ml-2 text-red-500 uppercase">required (max 1200 Chars)</span>}
+            </div>
+            <div className="flex justify-end w-44">
+              <input
+                type="submit" value="send"
+                className="rounded-lg bg-blue-500 text-sm px-6 py-4 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-850 w-full cursor-pointer "
               />
             </div>
-          </div>
 
-          <div className="flex">
-            <label htmlFor="subject" className="sr-only">
-              Subject
-            </label>
-            <input
-              type="text"
-              placeholder="Subject"
-              className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
-              {...register("subject", {
-                required: true,
-                minLength: 5,
-                maxLength: 30,
-              })}
-            />
-            {errors.subject && <span className="absolute mt-10 ml-2 text-red-500 uppercase">required</span>}
           </div>
-          <div className="flex flex-col">
-            <label htmlFor="message" className="sr-only">
-              Leave us a message!
-            </label>
-            <textarea
-              rows={4}
-              placeholder="Hi, I'd like to book an appointment!"
-              className="rounded-md bg-blue-150 border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350  resize-none"
-              {...register("message", {
-                required: true,
-                minLength: 5,
-                maxLength: 500,
-              })}
-            />
-            {errors.message && <span className="absolute mt-32 ml-2 text-red-500 uppercase">required</span>}
-          </div>
-          <div className="flex justify-end gap-4 pt-5">
-
-            <input
-              type="submit" value="submit"
-              className="rounded-lg bg-blue-500 text-sm px-6 py-4 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-850 w-full cursor-pointer"
-            />
-            <button
-              onClick={handleClick}
-              className="rounded-lg bg-red-500 uppercase text-sm px-6 py-2 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-850 w-full"
-            >
-              Reset
-            </button>
-          </div>
+        </form>
+        {/*  Placeholder image for styling purposes until we get Google Maps Api working  */}
+        <div className="flex-1 shrink-0">
+          <Image
+            src="/images/contact/map.png"
+            className="rounded-lg shadow-2x m-auto "
+            alt=""
+            height={485}
+            width={485}
+          />
         </div>
-      </form>
+        {/*  Placeholder image for styling purposes */}
+      </div>
       {formSpreeState.submitting && (
         <Transition
           as={Fragment}
@@ -212,9 +221,6 @@ function ContactForm() {
                 return home
               </button>
             </Link>
-
-
-
           </div>
         </Transition>
       )}
@@ -237,6 +243,7 @@ function ContactForm() {
           </div>
         </Transition>
       )}
+
     </section>
 
   );
