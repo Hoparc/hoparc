@@ -10,7 +10,7 @@ function Hero({ callToAction, url }: HeroProps) {
   return (
     <>
       <div className="max-w-screen-xl m-auto w-11/12 ">
-        <div className="grid w-full my-32 mx-auto place-items-center bg-cover bg-center flex bg-base-200">
+        <div className="grid w-full my-32 mx-auto place-items-center bg-cover bg-center bg-base-200">
           <div className="z-0 flex items-center justify-center max-w-7xl gap-6 flex-col lg:flex-row lg:items-start">
             <div className="m-auto shrink-0">
               <Image
@@ -28,7 +28,7 @@ function Hero({ callToAction, url }: HeroProps) {
                     <span>hands on</span>
                     <span>physiotherapy</span>
                   </h1>
-                  <h2 className="font-merriweather uppercase text-xl text-center font-regular flex-1 text-green-350 capitalize py-4 sm:text-3xl lg:text-left ">
+                  <h2 className="font-merriweather  text-xl text-center font-regular flex-1 text-green-350 capitalize py-4 sm:text-3xl lg:text-left ">
                     rehab centre - pelvic health
                   </h2>
                 </div>
