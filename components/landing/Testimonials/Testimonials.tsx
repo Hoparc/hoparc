@@ -71,6 +71,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
                 imageUrl={testimonial.image?.asset?.url ?? ""}
                 name={testimonial.name}
                 review={testimonial.testimonial}
+                key={testimonial.name}
               />
             ))}
           </div>
