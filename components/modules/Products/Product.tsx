@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,6 +13,20 @@ export type ProductProps = {
 function Product({ product }: ProductProps) {
   return (
     <>
+      <Head>
+        <title>{product?.name} | Hands on Physiotherapy and Rehab Centre</title>
+        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
+        <meta name="theme-color" content="#327CDF" />
+        <meta
+          name="description"
+          content={`${product?.name} Hands on Physiotherapy and Rehab Centre`}
+        />
+        <meta
+          name="keywords"
+          content="products, hands on physio therapy and rehab centre"
+        />
+        <meta name="viewport" content="width=device-width" />
+      </Head>
       <div className="block pt-16"></div>
       <section className="mx-auto my-12 max-w-screen-xl w-11/12">
         <div className="mt-8">
