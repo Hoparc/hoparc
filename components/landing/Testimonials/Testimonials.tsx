@@ -88,7 +88,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
                   onClick={() => {
                     setShowMore(!showMore);
                   }}
-                  className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 rounded-lg flex items-center bg-blue-350 hover:bg-green-350 pointer-events-auto w-1/2 justify-center justify-between"
+                  className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 rounded-lg flex items-center bg-blue-350 hover:bg-green-350 pointer-events-auto w-1/2 justify-between"
                 >
                   More Reviews
                   <span> + </span>

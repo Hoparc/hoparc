@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function LetUsHelp() {
   return (
-    <div className="w-full flex flex-col gap-y-6 mx-auto my-12 max-w-screen-xl w-11/12 justify-around lg:flex-row items-center">
+    <div className="w-full flex flex-col gap-y-6 mx-auto my-12 max-w-screen-xl justify-around lg:flex-row items-center">
       <div className="flex flex-col items-center justify-center grow-0">
         <h2 className="font-roboto text-blue-550 text-5xl text-center w-full">
           Let us Help

@@ -92,7 +92,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
         id="about-us"
       >
         <div className="max-w-screen-xl m-auto w-11/12 ">
-          <div className="grid w-full my-12 mx-auto place-items-center bg-cover bg-center flex bg-base-200">
+          <div className="grid w-full my-12 mx-auto place-items-center bg-cover bg-center bg-base-200">
             <div className="z-0 flex items-center justify-center max-w-7xl gap-6 flex-col ">
               <div className="flex flex-col gap-11 items-center lg:items-start">
                 <h1 className="flex flex-col gap-3 text-5xl text-left font-bold uppercase text-blue-350 ">
@@ -212,7 +212,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
           </div>
         ))}
 
-        <h4 className="uppercase my-10 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+        <h4 className="uppercase my-10 font-bold tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           We Accept
         </h4>
         <div className="grid grid-cols-1 mobileSm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">
