@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { GetStaticProps, NextPage } from "next";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 import client from "../apollo-client";
 import {
@@ -63,6 +63,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
   services,
 }: RequestAppointmentProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
+  const [userChoice, setUserChoice] = useState("");
 
   const {
     register,
@@ -94,6 +95,10 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
   };
 
   const handleReset = () => reset();
+
+  const handleChange = (e: any) => {
+    setUserChoice(e.target.value);
+  };
 
   return (
     <section
@@ -216,9 +221,9 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 className="rounded-md border border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
                 {...register("subject", {
                   required: true,
-                  minLength: 5,
-                  maxLength: 30,
                 })}
+                value={userChoice}
+                onChange={handleChange}
               >
                 {services.map((service) => (
                   <option
