@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { Fragment, useMemo } from "react";
 
 import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
@@ -129,33 +129,35 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                 <div className="columns-1 gap-x-4 md:columns-2 xl:columns-2">
                   {filteredBlogs.map((blog) => {
                     return (
-                      <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
-                        <Link
-                          key={blog.slug?.current}
-                          href={`/blog/${blog.slug?.current}`}
-                        >
-                          <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
-                            <div className="bg-transparent py-3 px-3">
-                              <div className="text-white font-bold">
-                                {blog.title}
+                      <Fragment key={blog.title}>
+                        <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
+                          <Link
+                            key={blog.slug?.current}
+                            href={`/blog/${blog.slug?.current}`}
+                          >
+                            <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
+                              <div className="bg-transparent py-3 px-3">
+                                <div className="text-white font-bold">
+                                  {blog.title}
+                                </div>
                               </div>
-                            </div>
-                            <div className="h-[250px] relative">
-                              {blog.image?.asset?.url && (
-                                <Image
-                                  src={blog.image.asset.url}
-                                  alt={`Image for ${blog.title}`}
-                                  fill
-                                  className="object-cover"
-                                  sizes="(max-width: 768px) 100vw,
+                              <div className="h-[250px] relative">
+                                {blog.image?.asset?.url && (
+                                  <Image
+                                    src={blog.image.asset.url}
+                                    alt={`Image for ${blog.title}`}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw,
                                   (max-width: 1200px) 50vw,
                                   33vw"
-                                />
-                              )}
+                                  />
+                                )}
+                              </div>
                             </div>
-                          </div>
-                        </Link>
-                      </div>
+                          </Link>
+                        </div>
+                      </Fragment>
                     );
                   })}
                 </div>
