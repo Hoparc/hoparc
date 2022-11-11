@@ -109,7 +109,7 @@ const Home: NextPage<HomeProps> = ({
         <meta name="keywords" content="physiotherapy" />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <section className="min-h-screen flex flex-col bg-slate-150">
+      <section className="min-h-screen flex flex-col">
         <Hero callToAction={callToAction} url={url} />
         <WhyChooseUs />
         <OurServices hasShowMore={true} services={services} />

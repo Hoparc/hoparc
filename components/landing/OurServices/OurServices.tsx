@@ -24,12 +24,13 @@ function ServiceCard({ imageUrl, name, description, href }: ServiceCardProps) {
         dark:bg-gray-800 dark:hover:bg-gray-700"
       >
         <Image
-          className="object-cover w-full h-96 md:h-auto md:w-48 rounded-full"
+          className="object-cover w-44 h-44 md:h-32 md:w-32 rounded-full"
           src={imageUrl ?? ""}
           alt={`Image of ${name}`}
           loading="lazy"
-          width={200}
-          height={200}
+          width={500}
+          height={250}
+          quality={100}
         />
         <div className="flex flex-col justify-between p-4 leading-normal">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -93,7 +94,7 @@ function OurServices({ hasShowMore = false, services }: ServicesProps) {
                     onClick={() => {
                       setShowMore(!showMore);
                     }}
-                    className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 rounded-lg flex items-center bg-blue-350 hover:bg-green-350 pointer-events-auto w-1/2 justify-between"
+                    className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 mb-4 rounded-lg flex items-center bg-blue-550 hover:bg-green-350 hover:text-blue-550 pointer-events-auto w-1/2 justify-between"
                   >
                     More Services
                     <span> + </span>

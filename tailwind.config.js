@@ -57,6 +57,9 @@ module.exports = {
         "75vh": "75vh",
         "90vh": "90vh",
       },
+      width:{
+        "95%": "95%"
+      },
       margin:{
         "8.6rem": "8.6rem",
       },

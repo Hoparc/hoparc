@@ -18,7 +18,7 @@ function LetUsHelp() {
 
         <Link href="/request-appointment">
           <button
-            className="bg-blue-350 text-base text-white font-button w-full px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-md"
+            className="bg-blue-550 text-base text-white font-button w-full px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-md"
             type="button"
           >
             Request Appointment

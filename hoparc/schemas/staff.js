@@ -34,7 +34,7 @@ export default {
       description: "Please provide a short description of the staff member.",
       validation: (Rule) => [
         Rule.required(),
-        Rule.max(300).warning("Short descriptions are usually better! Keep to 300 characters maximum."),
+        Rule.max(1000).warning("Short descriptions are usually better! 1000 characters maximum."),
       ],
     },
   ],

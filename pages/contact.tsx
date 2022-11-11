@@ -1,6 +1,8 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
+import Image from "next/image";
+
 import { Fragment } from "react";
 
 import client from "../apollo-client";
@@ -51,17 +53,30 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
             <meta name="viewport" content="width=device-width" />
           </Head>
           <section className="min-h-screen flex flex-col bg-blue-150">
+            <Image
+              src="/images/contact/contactBanner.png"
+              alt="Banner image with colored striped shapes and an image of someone holding a phone the middle"
+              height={423}
+              width={2560}
+              className="object-cover object-center max-h-64 w-full"
+              priority
+            />
+            <div className="bg-blue-350 w-full">
+              <div className="max-w-screen-xl m-auto w-11/12">
+                <h2 className="text-3xl text-left py-3 font-bold uppercase text-white">
+                  contact
+                </h2>
+              </div>
+            </div>
             <div className="max-w-screen-xl m-auto w-11/12">
               <div
                 className="mx-auto lg:mx-20 bg-blue-550 rounded-lg m-20 "
                 id="contact"
               >
                 <div className="flex flex-col gap-5 py-6 px-2">
-                  <div className="flex flex-col ">
+                  <div className="flex flex-col">
                     <div className="flex flex-col items-center px-6 md:px-36 sm:px-10 md:pt-0 ">
-                      <h2 className="mb-6 text-2xl font-roboto text-green-350 uppercase">
-                        Contact Us
-                      </h2>
+
                       <p className="font-roboto italic text-blue-150 text-base mb-4">
                         Feel free to contact us directly with any questions you
                         may have or with any scheduling inquiries. We keep your
@@ -119,12 +134,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                     </div>
                   </div>
                 </div>
-
-                <div className="flex justify-center font-roboto text-white text-base p-4 text-center bg-blue-350">
-                  <p>
-                    Please leave your information below and we will contact you
-                    as soon as possible!
-                  </p>
+                <div className="flex justify-center font-roboto text-white text-base py-4 text-center bg-blue-350">
                 </div>
                 <ContactForm />
               </div>

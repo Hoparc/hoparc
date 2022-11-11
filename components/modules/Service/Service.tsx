@@ -6,6 +6,8 @@ import { PortableText } from "@portabletext/react";
 
 import { ServiceQuery } from "../../../graphql-operations";
 
+import { HiChevronLeft } from "react-icons/hi";
+
 export type ServiceProps = {
   service: ServiceQuery["allService"][0] | undefined;
 };
@@ -29,26 +31,44 @@ function Service({ service }: ServiceProps) {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen flex flex-col">
-        <h1 className="my-6 text-3xl text-center text-blue-350 font-extrabold tracking-tight sm:text-4xl">
-          {service?.name}
-        </h1>
-        <div className="w-full sm:min-h-[500px] min-h-[250px] max-h-[600px] relative">
-          <Image
-            src={service?.image?.asset?.url ?? ""}
-            alt={`An image of ${service?.name}`}
-            fill
-            className="object-cover"
-          />
-        </div>
-        <Link href="/request-appointment">
-          <button
-            className="bg-blue-350 text-base text-white font-button w-full px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-md"
-            type="button"
-          >
-            Request Appointment
-          </button>
+      <section className="max-w-4xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen flex flex-col">
+        <Link href="/services" >
+          <span className="flex items-center mb-2 cursor-pointer text-black hover:text-green-350 ">
+            <HiChevronLeft
+              className="block h-4 mr-2 mt-0.5"
+              aria-hidden="true"
+            />
+            Back
+          </span>
         </Link>
+        <div className="flex flex-col gap-6 sm:flex-row bg-slate-200 rounded-xl ">
+          <div className="w-full min-h-[250px] relative self-center">
+            <Image
+              src={service?.image?.asset?.url ?? ""}
+              alt={`An image of ${service?.name}`}
+              fill
+              className="object-cover rounded-xl"
+            />
+          </div>
+          <div className="flex w-full flex-col mx-auto my-auto gap-4 p-6">
+            <h1 className="text-3xl text-center text-blue-550 font-extrabold tracking-tight">
+              {service?.name}
+            </h1>
+
+            <Link
+              href="/request-appointment"
+              className="m-auto"
+            >
+              <button
+                className="bg-blue-550 text-base text-white font-button px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-md"
+                type="button"
+              >
+                Request Appointment
+              </button>
+            </Link>
+          </div>
+
+        </div>
         {service?.detailsRaw && service?.detailsRaw?.length > 0 && (
           <div className="mt-12 animate-fade-in-up">
             <PortableText
@@ -65,7 +85,9 @@ function Service({ service }: ServiceProps) {
             />
           </div>
         )}
+
       </section>
+
     </>
   );
 }

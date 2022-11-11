@@ -60,10 +60,10 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
   const filteredBlogs = useMemo(() => {
     return activeCategory
       ? blogs.filter((blog) =>
-          blog.category?.some(
-            (category) => category?.slug?.current === activeCategory
-          )
+        blog.category?.some(
+          (category) => category?.slug?.current === activeCategory
         )
+      )
       : blogs;
   }, [activeCategory, blogs]);
 
@@ -85,11 +85,11 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
       </Head>
       <section className="min-h-screen">
         <Image
-          src="/images/blog/blogBanner2.png"
+          src="/images/blog/blogBanner.png"
           alt="Banner image with colored striped shapes and an image of a book in the middle"
-          height={0}
-          width={100000}
-          className="object-cover object-center max-h-52 w-full"
+          height={423}
+          width={2560}
+          className="object-cover object-center max-h-64 w-full"
           priority
         />
         <div className="bg-blue-350 w-full">
@@ -103,7 +103,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
             <div className="col-span-8 lg:col-span-2">
               <Link href="/blogs">
-                <button className="hover:text-green-350 block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
+                <button className="block leading-5 text-accent-4 text-lg no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4 p-2 rounded-md hover:text-green-350 hover:bg-blue-550">
                   All Categories
                 </button>
               </Link>
@@ -114,7 +114,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                 >
                   <button
                     className={cn(
-                      "block text-sm leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2 hover:text-green-350",
+                      "block text-md leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2 p-2 rounded-md hover:text-green-350 hover:bg-blue-550",
                       { underline: activeCategory === category.slug?.current }
                     )}
                   >
@@ -134,10 +134,11 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                           <Link
                             key={blog.slug?.current}
                             href={`/blog/${blog.slug?.current}`}
-                          >
+                            className="text-white hover:text-blue-550 "
+                        >
                             <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
-                              <div className="bg-transparent py-3 px-3">
-                                <div className="text-white font-bold">
+                              <div className="py-3 px-3">
+                                <div className="font-bold">
                                   {blog.title}
                                 </div>
                               </div>
