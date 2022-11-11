@@ -1,7 +1,8 @@
+import { Fragment, SetStateAction, useState } from "react";
+
 import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps, NextPage } from "next";
-import { Fragment, SetStateAction, useState } from "react";
 
 import client from "../apollo-client";
 import {
