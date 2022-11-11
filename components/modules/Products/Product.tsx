@@ -48,6 +48,7 @@ function Product({ product }: ProductProps) {
               alt={`An image of ${product?.name}`}
               fill
               className="object-cover rounded-lg"
+              priority
             />
           </div>
           <div className="flex w-full flex-col mx-auto my-auto gap-4 p-6">
