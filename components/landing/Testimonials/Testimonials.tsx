@@ -11,11 +11,7 @@ interface TestimonialCardProps {
   name: string | null | undefined;
   review: string | null | undefined;
 }
-const TestimonialCard: React.FC<TestimonialCardProps> = ({
-  imageUrl,
-  name,
-  review,
-}) => {
+function TestimonialCard({ imageUrl, name, review }: TestimonialCardProps) {
   return (
     <>
       <figure className="group inline-flex p-6 mb-4 w-full relative flex-col-reverse bg-white highlight-white/5 rounded-md shadow-md shadow-slate-300">
@@ -36,17 +32,17 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       </figure>
     </>
   );
-};
+}
 
 interface TestimonialsProps {
   hasShowMore?: boolean;
   testimonials: TestimonialFragment[];
 }
 
-const Testimonials: React.FC<TestimonialsProps> = ({
+function Testimonials({
   hasShowMore = false,
   testimonials,
-}) => {
+}: TestimonialsProps) {
   const [showMore, setShowMore] = useState(!hasShowMore);
   return (
     <div className="py-28 bg-blue-550">

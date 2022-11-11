@@ -45,12 +45,12 @@ function ServiceCard({ imageUrl, name, description, href }: ServiceCardProps) {
   );
 }
 
-interface ServicesProps {
+interface OurServicesProps {
   hasShowMore?: boolean;
   services: ServiceFragment[];
 }
 
-function OurServices({ hasShowMore = false, services }: ServicesProps) {
+function OurServices({ hasShowMore = false, services }: OurServicesProps) {
   const [showMore, setShowMore] = useState(!hasShowMore);
   return (
     <>
