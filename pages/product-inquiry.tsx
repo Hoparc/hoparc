@@ -1,6 +1,7 @@
+import { Fragment, SetStateAction, useState } from "react";
+
 import Link from "next/link";
 import { GetStaticProps, NextPage } from "next";
-import { Fragment } from "react";
 
 import client from "../apollo-client";
 import {
@@ -56,11 +57,11 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
   products,
 }: ProductInquiryProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
+  const [userChoice, setUserChoice] = useState("");
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
     control,
   } = useForm({
@@ -84,11 +85,15 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
     }, 2000);
   };
 
-  const handleReset = () => reset();
+  const handleUserChoice = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
+    setUserChoice(e.target.value);
+  };
 
   return (
     <section
-      id="contact-form"
+      id="product-inquiry"
       className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 animate-fade-in-up min-h-screen"
     >
       <div className="flex pb-12 flex-col items-center justify-center">
@@ -153,9 +158,9 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 className="rounded-md border border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
                 {...register("subject", {
                   required: true,
-                  minLength: 5,
-                  maxLength: 30,
                 })}
+                value={userChoice}
+                onChange={handleUserChoice}
               >
                 {products.map((product) => (
                   <option
@@ -243,17 +248,13 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
               />
             </div>
           </div>
-          <div className="flex gap-6 mt-2">
-            <input
-              type="Submit"
-              value="Send"
-              className="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-            />
+          <div className="flex ">
             <button
-              onClick={handleReset}
-              className="rounded-md bg-red-600 px-5 py-2.5 text-sm font-roboto bold uppercase text-white hover:bg-red-700 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+              type="submit"
+              value="Send"
+              className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
             >
-              Clear Fields
+              Send
             </button>
           </div>
         </div>
