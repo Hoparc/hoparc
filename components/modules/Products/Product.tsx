@@ -32,7 +32,7 @@ function Product({ product }: ProductProps) {
         <meta name="viewport" content="width=device-width" />
       </Head>
       <section className="max-w-4xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen flex flex-col">
-        <Link href="/products" >
+        <Link href="/products">
           <span className="flex items-center mb-2 cursor-pointer text-black hover:text-green-350 ">
             <HiChevronLeft
               className="block h-4 mr-2 mt-0.5"
@@ -55,19 +55,15 @@ function Product({ product }: ProductProps) {
               {product?.name}
             </h1>
 
-            <Link
-              href="/request-appointment"
-              className="m-auto"
-            >
+            <Link href="/product-inquiry" className="m-auto">
               <button
                 className="bg-blue-550 text-base text-white font-button px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-md"
                 type="button"
               >
-                Request Appointment
+                Submit Inquiry
               </button>
             </Link>
           </div>
-
         </div>
         {product?.detailsRaw && product?.detailsRaw?.length > 0 && (
           <div className="mt-12 animate-fade-in-up">
@@ -85,9 +81,7 @@ function Product({ product }: ProductProps) {
             />
           </div>
         )}
-
       </section>
-
     </>
   );
 }
