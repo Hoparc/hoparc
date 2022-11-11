@@ -10,11 +10,13 @@ export type ServiceProps = {
   service: ServiceQuery["allService"][0] | undefined;
 };
 
+const siteTitle = "Hands on Physiotherapy and Rehab Centre";
+
 function Service({ service }: ServiceProps) {
   return (
     <>
       <Head>
-        <title>{service?.name} | Hands on Physiotherapy and Rehab Centre</title>
+        <title>{service?.name + " | " + siteTitle}</title>
         <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
         <meta name="theme-color" content="#327CDF" />
         <meta
