@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Transition } from "@headlessui/react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import GoogleMaps from "./GoogleMaps";
 
 type FormValues = {
   firstName: string;
@@ -16,8 +17,6 @@ type FormValues = {
   phone: string;
   message: string;
 };
-
-
 
 function ContactForm() {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
@@ -199,13 +198,14 @@ function ContactForm() {
         </form>
         {/*  Placeholder image for styling purposes until we get Google Maps Api working  */}
         <div className="flex-1 shrink-0">
-          <Image
+          <GoogleMaps />
+          {/* <Image
             src="/images/contact/map.png"
             className="rounded-lg shadow-2x m-auto "
             alt=""
             height={485}
             width={485}
-          />
+          /> */}
         </div>
         {/*  Placeholder image for styling purposes */}
       </div>
