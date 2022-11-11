@@ -1,10 +1,9 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 
+import { Fragment } from "react";
 
 import client from "../apollo-client";
-
 import {
   LocationFragment,
   AllLocationsQuery,
@@ -36,7 +35,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
   return (
     <div>
       {locations?.map((location) => (
-        <>
+        <Fragment key={location.__typename}>
           <Head>
             <title>Contact | Hands on Physiotherapy and Rehab Centre</title>
             <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
@@ -109,15 +108,13 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                         Store Hours
                       </h2>
                       <ul className="font-roboto text-base text-slate-200 text-left">
-                        <div>
-                          <li>Sunday: {location.sunday}</li>
-                          <li>Monday: {location.monday}</li>
-                          <li>Tuesday: {location.tuesday}</li>
-                          <li>Wednesday: {location.wednesday}</li>
-                          <li>Thursday: {location.thursday}</li>
-                          <li>Friday: {location.friday}</li>
-                          <li>Saturday: {location.saturday}</li>
-                        </div>
+                        <li>Sunday: {location.sunday}</li>
+                        <li>Monday: {location.monday}</li>
+                        <li>Tuesday: {location.tuesday}</li>
+                        <li>Wednesday: {location.wednesday}</li>
+                        <li>Thursday: {location.thursday}</li>
+                        <li>Friday: {location.friday}</li>
+                        <li>Saturday: {location.saturday}</li>
                       </ul>
                     </div>
                   </div>
@@ -133,7 +130,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
               </div>
             </div>
           </section>
-        </>
+        </Fragment>
       ))}
     </div>
   );
