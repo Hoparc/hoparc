@@ -13,12 +13,14 @@ export type BlogProps = {
   blog: AllBlogsQuery["allBlog"][0] | undefined;
 };
 
+const siteTitle = "Hands on Physiotherapy and Rehab Centre";
+
 function Blog({ blog }: BlogProps) {
   const date = parse(blog?.date, "yyyy-MM-dd", new Date());
   return (
     <>
       <Head>
-        <title>{blog?.title} | Hands on Physiotherapy and Rehab Centre</title>
+        <title>{blog?.title + " | " + siteTitle}</title>
         <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
         <meta name="theme-color" content="#327CDF" />
         <meta
