@@ -187,11 +187,13 @@ function ContactForm() {
               )}
             </div>
             <div className="flex justify-end w-44">
-              <input
+              <button
                 type="submit"
                 value="send"
                 className="rounded-lg bg-blue-500 text-sm px-6 py-4 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-850 w-full cursor-pointer "
-              />
+              >
+                Send
+              </button>
             </div>
           </div>
         </form>
