@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Fragment } from "react";
 
 import { SiFacebook, SiInstagram } from "react-icons/si";
 
@@ -13,7 +14,7 @@ function Footer({ locations }: FooterProps) {
   return (
     <div>
       {locations?.map((location) => (
-        <>
+        <Fragment key={location.__typename}>
           <footer className="bg-blue-550 w-full">
             <div className="grid grid-cols-1 px-3 md:grid-cols-2 gap-2 mobile:px-8 py-8">
               <div className="flex flex-col flex-1 items-center md:m-auto">
@@ -170,7 +171,7 @@ function Footer({ locations }: FooterProps) {
               </div>
             </div>
           </footer>
-        </>
+        </Fragment>
       ))}
     </div>
   );
