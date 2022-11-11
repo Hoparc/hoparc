@@ -246,7 +246,7 @@ function ContactForm() {
               message sent!
             </p>
             <p className="text-sm font-roboto text-blue-550 my-5 sm:text-lg">
-              We'll get back to you as soon as possible!
+              A member of our staff will get back to you as soon as possible!
             </p>
             <Link href="/">
               <button className="rounded-lg bg-blue-350 px-6 py-2 font-roboto uppercase text-white hover:bg-green-350 hover:text-blue-850">
