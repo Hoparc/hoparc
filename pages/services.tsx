@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { Fragment, useMemo } from "react";
 
 import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
@@ -133,33 +133,35 @@ const Services: NextPage<ServicesProps> = ({
                 <div className="columns-1 gap-x-4 md:columns-2 xl:columns-3">
                   {filteredServices.map((service) => {
                     return (
-                      <div className="bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
-                        <Link
-                          key={service.slug?.current}
-                          href={`/service/${service.slug?.current}`}
-                        >
-                          <div className="mb-4 relative cursor-pointer rounded-sm overflow-hidden">
-                            <div className="bg-transparent py-3 px-3">
-                              <div className="text-white font-bold">
-                                {service.name}
+                      <Fragment key={service.name}>
+                        <div className="bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
+                          <Link
+                            key={service.slug?.current}
+                            href={`/service/${service.slug?.current}`}
+                          >
+                            <div className="mb-4 relative cursor-pointer rounded-sm overflow-hidden">
+                              <div className="bg-transparent py-3 px-3">
+                                <div className="text-white font-bold">
+                                  {service.name}
+                                </div>
                               </div>
-                            </div>
-                            <div className="h-[250px] relative">
-                              {service.image?.asset?.url && (
-                                <Image
-                                  src={service.image.asset.url}
-                                  alt={`Image for ${service.name}`}
-                                  fill
-                                  className="object-cover"
-                                  sizes="(max-width: 768px) 100vw,
+                              <div className="h-[250px] relative">
+                                {service.image?.asset?.url && (
+                                  <Image
+                                    src={service.image.asset.url}
+                                    alt={`Image for ${service.name}`}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw,
                                   (max-width: 1200px) 50vw,
                                   33vw"
-                                />
-                              )}
+                                  />
+                                )}
+                              </div>
                             </div>
-                          </div>
-                        </Link>
-                      </div>
+                          </Link>
+                        </div>
+                      </Fragment>
                     );
                   })}
                 </div>
