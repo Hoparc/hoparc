@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { GetStaticProps, NextPage } from "next";
-import { Fragment } from "react";
+import { Fragment, SetStateAction, useState } from "react";
 
 import client from "../apollo-client";
 import {
@@ -63,11 +63,11 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
   services,
 }: RequestAppointmentProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
+  const [userChoice, setUserChoice] = useState("");
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
     control,
   } = useForm({
@@ -93,7 +93,11 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
     }, 2000);
   };
 
-  const handleReset = () => reset();
+  const handleUserChoice = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
+    setUserChoice(e.target.value);
+  };
 
   return (
     <section
@@ -216,9 +220,9 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 className="rounded-md border border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
                 {...register("subject", {
                   required: true,
-                  minLength: 5,
-                  maxLength: 30,
                 })}
+                value={userChoice}
+                onChange={handleUserChoice}
               >
                 {services.map((service) => (
                   <option
@@ -241,7 +245,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               Leave us a message!
             </label>
             <textarea
-              rows={4}
+              rows={5}
               placeholder="Hi, I'd like to request an appointment!"
               className="rounded-md border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
               {...register("message", {
@@ -306,17 +310,13 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               />
             </div>
           </div>
-          <div className="flex gap-6 mt-2">
-            <input
-              type="Submit"
-              value="Send"
-              className="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-            />
+          <div className="flex">
             <button
-              onClick={handleReset}
-              className="rounded-md bg-red-600 px-5 py-2.5 text-sm font-roboto bold uppercase text-white hover:bg-red-700 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+              type="submit"
+              value="Send"
+              className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
             >
-              Clear Fields
+              Send
             </button>
           </div>
         </div>
@@ -361,7 +361,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               A member of our staff will get back to you as soon as possible!
             </p>
             <Link href="/">
-              <button className="rounded-lg bg-blue-350 px-6 py-2 font-bold uppercase text-white hover:bg-green-350">
+              <button className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                 RETURN HOME
               </button>
             </Link>
