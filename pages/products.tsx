@@ -133,33 +133,35 @@ const Products: NextPage<ProductsProps> = ({
                 <div className="columns-1 gap-x-4 md:columns-2 xl:columns-3">
                   {filteredProducts.map((product) => {
                     return (
-                      <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
-                        <Link
-                          key={product.slug?.current}
-                          href={`/products/${product.slug?.current}`}
-                        >
-                          <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
-                            <div className="bg-transparent py-3 px-3">
-                              <div className="text-white font-bold">
-                                {product.name}
+                      <Fragment key={product.name}>
+                        <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
+                          <Link
+                            key={product.slug?.current}
+                            href={`/products/${product.slug?.current}`}
+                          >
+                            <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
+                              <div className="bg-transparent py-3 px-3">
+                                <div className="text-white font-bold">
+                                  {product.name}
+                                </div>
                               </div>
-                            </div>
-                            <div className="h-[250px] relative">
-                              {product.image?.asset?.url && (
-                                <Image
-                                  src={product?.image?.asset?.url}
-                                  alt={`Image for ${product.name}`}
-                                  fill
-                                  className="object-cover"
-                                  sizes="(max-width: 768px) 100vw,
+                              <div className="h-[250px] relative">
+                                {product.image?.asset?.url && (
+                                  <Image
+                                    src={product?.image?.asset?.url}
+                                    alt={`Image for ${product.name}`}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw,
                                   (max-width: 1200px) 50vw,
                                   33vw"
-                                />
-                              )}
+                                  />
+                                )}
+                              </div>
                             </div>
-                          </div>
-                        </Link>
-                      </div>
+                          </Link>
+                        </div>
+                      </Fragment>
                     );
                   })}
                 </div>
