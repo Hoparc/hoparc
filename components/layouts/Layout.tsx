@@ -10,7 +10,7 @@ type LayoutProps = {
 
 export default function Layout({ children, locations }: LayoutProps) {
   return (
-    <div className="bg-slate-150">
+    <div className="bg-blue-150">
       <Head>
         <title>Hands on Physiotherapy and Rehab Centre</title>
       </Head>

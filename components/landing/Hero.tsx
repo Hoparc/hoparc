@@ -9,7 +9,7 @@ type HeroProps = {
 function Hero({ callToAction, url }: HeroProps) {
   return (
     <>
-      <div className="max-w-screen-xl m-auto w-11/12 ">
+      <div className="max-w-screen-xl m-auto w-11/12">
         <div className="grid w-full my-32 mx-auto place-items-center bg-cover bg-center bg-base-200">
           <div className="z-0 flex items-center justify-center max-w-7xl gap-6 flex-col lg:flex-row lg:items-start">
             <div className="m-auto shrink-0">
@@ -25,11 +25,11 @@ function Hero({ callToAction, url }: HeroProps) {
             <div className="flex flex-col gap-10 self-center ">
               <div className="flex flex-col justify-center">
                 <div className="self-center lg:self-start ">
-                  <h1 className="font-merriweather font-bold text-center text-4xl mobile:text-5xl sm:text-6xl xl:text-7xl flex flex-col felx-wrap text-blue-350 capitalize lg:text-left ">
+                  <h1 className="font-merriweather font-bold text-center text-4xl mobile:text-5xl sm:text-6xl xl:text-7xl flex flex-col felx-wrap text-blue-350 capitalize drop-shadow-md lg:text-left ">
                     <span>hands on</span>
                     <span>physiotherapy</span>
                   </h1>
-                  <h2 className="font-merriweather  text-xl text-center font-regular flex-1 text-green-350 capitalize py-4 sm:text-3xl lg:text-left ">
+                  <h2 className="font-merriweather text-xl text-center font-regular flex-1 text-green-350 drop-shadow-md capitalize py-4 sm:text-3xl lg:text-left ">
                     rehab centre - pelvic health
                   </h2>
                 </div>
@@ -39,7 +39,7 @@ function Hero({ callToAction, url }: HeroProps) {
               </div>
               <Link href="/request-appointment">
                 <button
-                  className="bg-blue-350 text-base text-white font-button w-full px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-md"
+                  className="bg-blue-550 text-base text-white font-button w-full px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-md"
                   type="button"
                 >
                   Request Appointment

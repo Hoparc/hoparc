@@ -63,10 +63,10 @@ const Services: NextPage<ServicesProps> = ({
   const filteredServices = useMemo(() => {
     return activeCategory
       ? services.filter((service) =>
-          service.category?.some(
-            (category) => category?.slug?.current === activeCategory
-          )
+        service.category?.some(
+          (category) => category?.slug?.current === activeCategory
         )
+      )
       : services;
   }, [activeCategory, services]);
 
@@ -86,28 +86,28 @@ const Services: NextPage<ServicesProps> = ({
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
+
       <section className="min-h-screen">
         <Image
-          src="/images/products/banner2.webp"
+          src="/images/ourServices/serviceBanner.png"
           alt=""
-          height={10}
-          width={100000}
-          className="object-cover object-center max-h-52 w-full"
+          height={423}
+          width={2560}
+          className="object-cover object-center max-h-64 w-full"
           priority
         />
-
         <div className="bg-blue-350 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h2 className="text-3xl text-left p-3 font-bold uppercase text-white">
+            <h1 className="text-3xl text-left p-3 font-bold uppercase text-white">
               our services
-            </h2>
+            </h1>
           </div>
         </div>
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
             <div className="col-span-8 lg:col-span-2">
               <Link href="/services">
-                <button className="block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
+                <button className="block leading-5 text-accent-4 text-lg no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4 p-2 rounded-md hover:text-green-350 hover:bg-blue-550">
                   All Categories
                 </button>
               </Link>
@@ -118,7 +118,7 @@ const Services: NextPage<ServicesProps> = ({
                 >
                   <button
                     className={cn(
-                      "block text-sm leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2",
+                      "block text-md leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2 p-2 rounded-md hover:text-green-350 hover:bg-blue-550",
                       { underline: activeCategory === category.slug?.current }
                     )}
                   >
@@ -130,25 +130,26 @@ const Services: NextPage<ServicesProps> = ({
 
             <div className="col-span-12 lg:col-span-10">
               {filteredServices.length > 0 ? (
-                <div className="columns-1 gap-x-4 md:columns-2 xl:columns-3">
+                <div className="columns-1 gap-x-4 md:columns-2">
                   {filteredServices.map((service) => {
                     return (
                       <Fragment key={service.name}>
-                        <div className="bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
+                        <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
                           <Link
                             key={service.slug?.current}
                             href={`/service/${service.slug?.current}`}
+                            className="text-white hover:text-blue-550 "
                           >
-                            <div className="mb-4 relative cursor-pointer rounded-sm overflow-hidden">
-                              <div className="bg-transparent py-3 px-3">
-                                <div className="text-white font-bold">
+                            <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
+                              <div className="py-3 px-3">
+                                <div className="font-bold">
                                   {service.name}
                                 </div>
                               </div>
                               <div className="h-[250px] relative">
                                 {service.image?.asset?.url && (
                                   <Image
-                                    src={service.image.asset.url}
+                                    src={service?.image?.asset?.url}
                                     alt={`Image for ${service.name}`}
                                     fill
                                     className="object-cover"

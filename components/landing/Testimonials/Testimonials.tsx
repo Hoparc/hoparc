@@ -49,13 +49,13 @@ const Testimonials: React.FC<TestimonialsProps> = ({
 }) => {
   const [showMore, setShowMore] = useState(!hasShowMore);
   return (
-    <div className="bg-slate-150 py-28">
+    <div className="py-28 bg-blue-550">
       <div className="relative max-w-5xl mx-auto mt-10">
         <div className="flex pb-12 flex-col items-center justify-center">
-          <h2 className="text-3xl sm:text-5xl font-roboto  text-center text-blue-550 font-title">
+          <h2 className="text-3xl sm:text-5xl font-roboto  text-center text-white font-title">
             Our clients love us!
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-xl font-light sm:mt-4 text-center">
+          <p className="mx-auto mt-3 max-w-2xl text-xl font-light sm:mt-4 text-center text-green-350">
             Check out what they have to say!
           </p>
         </div>
@@ -88,7 +88,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({
                   onClick={() => {
                     setShowMore(!showMore);
                   }}
-                  className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 rounded-lg flex items-center bg-blue-350 hover:bg-green-350 pointer-events-auto w-1/2 justify-between"
+                  className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 mb-4 rounded-lg flex items-center bg-blue-550 hover:bg-green-350 hover:text-blue-550 pointer-events-auto w-1/2 justify-between"
                 >
                   More Reviews
                   <span> + </span>

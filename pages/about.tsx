@@ -74,7 +74,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
-        <title>About Us | Hands on Physiotherapy and Rehab Centre</title>
+        <title>About | Hands on Physiotherapy and Rehab Centre</title>
         <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
         <meta name="theme-color" content="#0072C6" key="theme" />
         <meta
@@ -87,18 +87,22 @@ const AboutUs: NextPage<AboutUsProps> = ({
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
+      <div className="bg-blue-350 w-full">
+        <div className="max-w-screen-xl m-auto w-11/12">
+          <h2 className="text-3xl text-center p-14 font-bold uppercase text-white">
+            about
+          </h2>
+        </div>
+      </div>
       <section
         className="mx-auto my-12 max-w-screen-xl w-11/12 pt-2"
         id="about-us"
       >
+
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid w-full my-12 mx-auto place-items-center bg-cover bg-center bg-base-200">
             <div className="z-0 flex items-center justify-center max-w-7xl gap-6 flex-col ">
-              <div className="flex flex-col gap-11 items-center lg:items-start">
-                <h1 className="flex flex-col gap-3 text-5xl text-left font-bold uppercase text-blue-350 ">
-                  About Us
-                </h1>
-              </div>
+
               <div className="m-auto">
                 <Image
                   src={url ?? ""}
@@ -186,27 +190,28 @@ const AboutUs: NextPage<AboutUsProps> = ({
 
         {staffs.map((staff, index) => (
           <div
-            className="my-2.5 flex gap-5 justify-center w-full m-auto lg:w-3/4"
+            className="my-8 flex w-full m-auto lg:w-3/4"
             key={index}
           >
-            <div className="flex flex-col shadow-md shadow-slate-400 bg-blue-150 rounded-lg w-full sm:flex-row">
-              <div className="py-0 pt-3 px-3 shrink-0 sm:py-3">
+            <div className="flex flex-col shadow-lg shadow-slate-300 bg-slate-200 rounded-lg w-full gap-4 sm:flex-row">
+              <div className="shrink-0 ">
                 <Image
-                  className="rounded-lg m-auto"
+                  className=" m-auto w-full max-w-11/12 rounded-r-lg  rounded-b-none rounded-t-lg sm:rounded-r-none sm:rounded-l-lg"
                   src={staff.image?.asset?.url ?? ""}
                   alt={`An image of ${staff.name}`}
-                  height={250}
+                  height={550}
                   width={250}
+                  quality={100}
                 />
               </div>
-              <div className="flex flex-col py-3 pr-0 items-center text-center w-full sm:pr-3">
-                <p className="text-white font-bold text-lg bg-blue-550 w-full py-1 px-2 sm:rounded-t-md">
+              <div className="flex flex-col py-3 pr-0  w-full sm:pr-3">
+                <p className="text-blue-550 text-left font-bold text-2xl py-1 px-2 sm:rounded-t-md">
                   {staff.name}
                 </p>
-                <h3 className="bg-blue-350 text-white px-2 py-1 w-full sm:rounded-b-md">
+                <h3 className="text-blue-550 text-left text-lg px-2 py-1 w-full sm:rounded-b-md">
                   {staff.position}
                 </h3>
-                <p className="py-3 px-3">{staff.description}</p>
+                <p className="py-3 px-3 text-base font-serif">{staff.description}</p>
               </div>
             </div>
           </div>
@@ -215,11 +220,11 @@ const AboutUs: NextPage<AboutUsProps> = ({
         <h4 className="uppercase my-10 font-bold tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           We Accept
         </h4>
-        <div className="grid grid-cols-1 mobileSm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">
+        <div className="grid grid-cols-1  mobileSm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">
           {insurances.map((insurance, index) => (
             <div key={index}>
               <Image
-                className="max-h-250px w-full rounded-xl"
+                className="max-h-250px w-full rounded-xl drop-shadow-md"
                 src={insurance.image?.asset?.url ?? ""}
                 alt="An image of the insurance logo"
                 height={200}
@@ -228,8 +233,8 @@ const AboutUs: NextPage<AboutUsProps> = ({
             </div>
           ))}
         </div>
-        <p className="my-10 italic">
-          We submit claims on your behalf to your insurance provider as well as
+        <p className="my-10 w-full xl:w-5/12 md:w-3/4 m-auto italic">
+          * We submit claims on your behalf to your insurance provider as well as
           participating insurers on a third party portal that are able to access
           and if the insurance plan allows for assignment of benefits.
         </p>

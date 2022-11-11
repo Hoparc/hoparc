@@ -63,10 +63,10 @@ const Products: NextPage<ProductsProps> = ({
   const filteredProducts = useMemo(() => {
     return activeCategory
       ? products.filter((product) =>
-          product.category?.some(
-            (category) => category?.slug?.current === activeCategory
-          )
+        product.category?.some(
+          (category) => category?.slug?.current === activeCategory
         )
+      )
       : products;
   }, [activeCategory, products]);
 
@@ -89,11 +89,11 @@ const Products: NextPage<ProductsProps> = ({
 
       <section className="min-h-screen">
         <Image
-          src="/images/products/banner2.webp"
+          src="/images/products/productBanner.png"
           alt=""
-          height={10}
-          width={100000}
-          className="object-cover object-center max-h-52 w-full"
+          height={423}
+          width={2560}
+          className="object-cover object-center max-h-64 w-full"
           priority
         />
         <div className="bg-blue-350 w-full">
@@ -107,7 +107,7 @@ const Products: NextPage<ProductsProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
             <div className="col-span-8 lg:col-span-2">
               <Link href="/products">
-                <button className="block leading-5 text-accent-4 text-base no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4">
+                <button className="block leading-5 text-accent-4 text-lg no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4 p-2 rounded-md hover:text-green-350 hover:bg-blue-550">
                   All Categories
                 </button>
               </Link>
@@ -118,7 +118,7 @@ const Products: NextPage<ProductsProps> = ({
                 >
                   <button
                     className={cn(
-                      "block text-sm leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2",
+                      "block text-md leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2 p-2 rounded-md hover:text-green-350 hover:bg-blue-550",
                       { underline: activeCategory === category.slug?.current }
                     )}
                   >
@@ -130,7 +130,7 @@ const Products: NextPage<ProductsProps> = ({
 
             <div className="col-span-12 lg:col-span-10">
               {filteredProducts.length > 0 ? (
-                <div className="columns-1 gap-x-4 md:columns-2 xl:columns-3">
+                <div className="columns-1 gap-x-4 md:columns-2">
                   {filteredProducts.map((product) => {
                     return (
                       <Fragment key={product.name}>
@@ -138,10 +138,11 @@ const Products: NextPage<ProductsProps> = ({
                           <Link
                             key={product.slug?.current}
                             href={`/products/${product.slug?.current}`}
-                          >
+                            className="text-white hover:text-blue-550 "
+                        >
                             <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
-                              <div className="bg-transparent py-3 px-3">
-                                <div className="text-white font-bold">
+                              <div className="py-3 px-3">
+                                <div className="font-bold">
                                   {product.name}
                                 </div>
                               </div>

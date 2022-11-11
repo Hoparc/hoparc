@@ -24,6 +24,7 @@ function Footer({ locations }: FooterProps) {
                     alt="hoparc logo"
                     width={100}
                     height={100}
+                    className="object-fit"
                   />
                   <div className="flex flex-col justify-center">
                     <h2 className="font-merriweather font-bold text-2xl	flex-1 text-white capitalize">
