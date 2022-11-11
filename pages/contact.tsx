@@ -1,6 +1,8 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
+import Image from "next/image";
+
 import { Fragment } from "react";
 
 import client from "../apollo-client";
@@ -53,7 +55,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
           <section className="min-h-screen flex flex-col bg-blue-150">
             <Image
               src="/images/contact/contactBanner.png"
-              alt="Banner image with colored striped shapes and an image of a book in the middle"
+              alt="Banner image with colored striped shapes and an image of someone holding a phone the middle"
               height={423}
               width={2560}
               className="object-cover object-center max-h-64 w-full"
