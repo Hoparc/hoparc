@@ -112,12 +112,13 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
         id="product-inquiry"
         className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 animate-fade-in-up min-h-screen"
       >
-        <div className="flex pb-12 flex-col items-center justify-center">
-          <h1 className="my-5 font-bold text-7xl tracking-tight sm:text-4xl text-center font-title uppercase px-4 bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
-            We strive to put your <strong>care</strong> first.
+        <div className="flex p-8 flex-col items-center justify-center bg-blue-550 rounded-t-xl">
+          <h1 className="my-5 font-bold text-7xl tracking-tight sm:text-4xl text-center font-title uppercase text-white px-4 bg-clip-text ">
+            We strive to put your <strong className="text-green-350">care</strong> first.
           </h1>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="bg-blue-350 py-4"></div>
+        <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-b-xl shadow-md">
           <h2 className="text-3xl">Let's get to know you</h2>
           <div className="flex flex-col space-y-6">
             <div className="grid grid-cols-1 space-y-6">
@@ -133,7 +134,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                   )}
                   <input
                     placeholder="First Name"
-                    className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
                     {...register("firstName", {
                       required: true,
                       maxLength: 30,
@@ -152,7 +153,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                   )}
                   <input
                     placeholder="Last Name"
-                    className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
                     {...register("lastName", { required: true, maxLength: 30 })}
                   />
                 </div>
@@ -171,7 +172,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 </label>
                 <select
                   placeholder="Subject"
-                  className="rounded-md border border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
+                  className="cursor-pointer rounded-md border bg-blue-150 border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
                   {...register("subject", {
                     required: true,
                   })}
@@ -201,7 +202,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
               <textarea
                 rows={4}
                 placeholder="Hi, I'd like to inquire about how I can purchase this product!"
-                className="rounded-md border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
+                className="rounded-md bg-blue-150 border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
                 {...register("message", {
                   required: true,
                   minLength: 5,
@@ -230,7 +231,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 <input
                   type="text"
                   placeholder="Email"
-                  className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                  className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
                   {...register("email", {
                     required: "Email is required",
                     pattern: {
@@ -255,7 +256,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                   }}
                   render={({ field: { onChange, value } }) => (
                     <PhoneInput
-                      className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                      className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
                       placeholder="Phone Number"
                       value={value}
                       onChange={onChange}
@@ -270,7 +271,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
               <button
                 type="submit"
                 value="Send"
-                className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                className="rounded-md bg-blue-550 px-14 py-4 mt-4 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
                 Send
               </button>

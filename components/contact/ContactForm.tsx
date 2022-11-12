@@ -54,7 +54,7 @@ function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="relative  rounded-b-lg bg-white shadow-md px-6 py-6 h-full"
+      className="relative  rounded-b-xl bg-white shadow-md px-6 py-6 h-full"
     >
       <div className="flex flex-col-reverse gap-3 xl:flex-row">
         <form
@@ -186,11 +186,11 @@ function ContactForm() {
                 </span>
               )}
             </div>
-            <div className="flex justify-end w-44">
+            <div className="flex">
               <button
                 type="submit"
                 value="send"
-                className="rounded-lg bg-blue-500 text-sm px-6 py-4 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-850 w-full cursor-pointer "
+                className="rounded-lg bg-blue-550 text-sm px-14 py-4 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550  cursor-pointer "
               >
                 Send
               </button>

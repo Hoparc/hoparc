@@ -62,6 +62,7 @@ module.exports = {
       },
       margin:{
         "8.6rem": "8.6rem",
+        "timeRequiredRem": "4.3rem"
       },
       fontFamily: {
         poppins: ["poppins"],
