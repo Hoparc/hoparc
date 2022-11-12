@@ -70,7 +70,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
             </div>
             <div className="max-w-screen-xl m-auto w-11/12">
               <div
-                className="mx-auto lg:mx-20 bg-blue-550 rounded-lg m-20 "
+                className="mx-auto lg:mx-20 bg-blue-550 rounded-xl m-20 "
                 id="contact"
               >
                 <div className="flex flex-col gap-5 py-6 px-2">
@@ -134,7 +134,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-center font-roboto text-white text-base py-4 text-center bg-blue-350">
+                <div className="py-4 bg-blue-350">
                 </div>
                 <ContactForm />
               </div>
