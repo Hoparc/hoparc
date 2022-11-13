@@ -205,7 +205,7 @@ function ContactForm() {
             id="gmap_canvas"
             src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
             scrolling="no"
-            >
+          >
           </iframe>
         </div>
       </div>
@@ -241,18 +241,19 @@ function ContactForm() {
         >
           <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white rounded-b-lg">
             <div className="flex flex-col md:flex-row"></div>
-
-            <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold uppercase">
-              message sent!
-            </p>
-            <p className="text-sm font-roboto text-blue-550 my-5 sm:text-lg">
-              A member of our staff will get back to you as soon as possible!
-            </p>
-            <Link href="/">
-              <button className="rounded-lg bg-blue-350 px-6 py-2 font-roboto uppercase text-white hover:bg-green-350 hover:text-blue-850">
-                return home
-              </button>
-            </Link>
+            <div className="flex flex-col items-center bg-slate-200 p-10 rounded-xl shadow-md text-center mx-3">
+              <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold uppercase">
+                message sent!
+              </p>
+              <p className="text-sm font-roboto text-blue-550 my-5 sm:text-lg">
+                A member of our staff will get back to you as soon as possible!
+              </p>
+              <Link href="/">
+                <button className="rounded-lg bg-blue-550 px-6 py-3 font-roboto uppercase text-white hover:bg-green-350 hover:text-blue-550">
+                  return home
+                </button>
+              </Link>
+            </div>
           </div>
         </Transition>
       )}

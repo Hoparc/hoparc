@@ -364,6 +364,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             </div>
           </div>
         </form>
+
         {formSpreeState.submitting && (
           <Transition
             as={Fragment}
@@ -375,7 +376,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white bg-opacity-90">
+            <div className="flex flex-col justify-center items-center fixed  top-0 left-0 h-full w-full  bg-blue-150 bg-opacity-90">
               <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
               <p className="mt-10 text-xl font-roboto uppercase text-accent font-bold">
                 sending...
@@ -394,20 +395,21 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white">
+            <div className="flex flex-col justify-center items-center fixed top-0 left-0 h-full w-full bg-blue-150">
               <div className="flex flex-col md:flex-row"></div>
-
-              <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold uppercase">
-                message sent!
-              </p>
-              <p className="text-sm font-roboto text-blue-350 my-5 sm:text-lg">
-                A member of our staff will get back to you as soon as possible!
-              </p>
-              <Link href="/">
-                <button className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                  RETURN HOME
-                </button>
-              </Link>
+              <div className="flex flex-col items-center bg-slate-200 p-10 rounded-xl shadow-md text-center mx-3">
+                <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold uppercase">
+                  message sent!
+                </p>
+                <p className="text-sm font-roboto text-blue-350 my-5 sm:text-lg">
+                  A member of our staff will get back to you as soon as possible!
+                </p>
+                <Link href="/">
+                  <button className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                    RETURN HOME
+                  </button>
+                </Link>
+              </div>
             </div>
           </Transition>
         )}
@@ -422,7 +424,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white bg-opacity-90">
+            <div className="flex flex-col justify-center items-center fixed   top-0 left-0 h-full w-full bg-blue-150 bg-opacity-90">
               <p className="mt-10 text-xl text-accent font-bold">
                 We apologize for the inconvenience, something went wrong.
               </p>
@@ -430,6 +432,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             </div>
           </Transition>
         )}
+
       </section>
     </>
   );
