@@ -68,7 +68,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                 </h2>
               </div>
             </div>
-            <div className="max-w-screen-xl m-auto w-11/12">
+            <div className="max-w-screen-xl m-auto w-95% sm:w-11/12">
               <div
                 className="mx-auto lg:mx-20 bg-blue-550 rounded-xl m-20 "
                 id="contact"
@@ -78,7 +78,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                     <div className="flex flex-col items-center px-6 md:px-36 sm:px-10 md:pt-0 ">
 
                       <p className="font-roboto italic text-blue-150 text-base mb-4">
-                        Feel free to contact us directly with any questions you
+                        Feel free to fill in the form below or contact us directly with any questions you
                         may have or with any scheduling inquiries. We keep your
                         information private and will not share it with third
                         parties.
@@ -92,8 +92,19 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                       </h2>
                       <div>
                         <address className="font-roboto not-italic text-base text-blue-150  flex flex-col ">
-                          <p className="">{location.address}</p>
-                          <p className="">{location.addresslinen}</p>
+                          <a
+                            className="flex flex-col underline hover:text-green-350 hover:no-underline"
+                            target={"_blank"}
+                            href="https://www.google.com/maps?ll=43.871323,-79.218709&z=13&t=m&hl=en-US&gl=US&mapclient=embed&cid=3757030601779132263"
+                            aria-label="link to google maps location of Hands On Physiotherapy And Rehab Centre/Pelvic Health"
+                          >
+                            <span>
+                              {location.address}
+                            </span>
+                            <span>
+                              {location.addresslinen}
+                            </span>
+                          </a>
                         </address>
                         <p className="font-normal text-base font-roboto text-blue-150 hover:text-green-350">
                           Phone: {""}
@@ -135,6 +146,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                   </div>
                 </div>
                 <div className="py-4 bg-blue-350">
+                  <p></p>
                 </div>
                 <ContactForm />
               </div>

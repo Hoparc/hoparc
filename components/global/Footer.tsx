@@ -43,8 +43,20 @@ function Footer({ locations }: FooterProps) {
                   </div>
                 </div>
                 <address className="font-roboto not-italic text-base text-slate-200 flex flex-col justify-center mb-4 w-full">
-                  <p>{location.address}</p>
-                  <p>{location.addresslinen}</p>
+                  <a
+                    className="flex flex-col underline hover:text-green-350 hover:no-underline"
+                    target={"_blank"}
+                    href="https://www.google.com/maps?ll=43.871323,-79.218709&z=13&t=m&hl=en-US&gl=US&mapclient=embed&cid=3757030601779132263"
+                    aria-label="link to google maps location of Hands On Physiotherapy And Rehab Centre/Pelvic Health"
+                  >
+                    <span>
+                      {location.address}
+                    </span>
+                    <span>
+                      {location.addresslinen}
+                    </span>
+                  </a>
+
                   <p>
                     Phone: {""}
                     <a
@@ -123,7 +135,7 @@ function Footer({ locations }: FooterProps) {
                     <span>&copy;</span>
                     Designed and Developed by{" "}
                     <a
-                      className="text-blue-300 hover:text-green-350"
+                      className="text-blue-300 hover:text-green-350 cursor-pointer"
                       href="https://alvinquach.me"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -133,7 +145,7 @@ function Footer({ locations }: FooterProps) {
                       {" & "}
                     </a>
                     <a
-                      className="text-blue-300 hover:text-green-350"
+                      className="text-blue-300 hover:text-green-350 cursor-pointer"
                       href="https://seansipus.com"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -150,7 +162,7 @@ function Footer({ locations }: FooterProps) {
                   </div>
                 </div>
                 <div className="flex text-slate-400 text-2xl my-2 gap-6 md:my-0">
-                  <div className="hover:text-green-350">
+                  <div className="hover:text-green-350 cursor-pointer">
                     <a
                       href=""
                       target="_blank"

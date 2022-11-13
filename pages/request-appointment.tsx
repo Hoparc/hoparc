@@ -122,13 +122,13 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
 
       <section
         id="request-appointment"
-        className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 animate-fade-in-up min-h-screen"
+        className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 animate-fade-in-up min-h-screen"
       >
         <div className="flex pb-12 flex-col items-center justify-center bg-blue-550 rounded-t-xl">
           <h1 className="my-5 font-bold text-7xl tracking-tight sm:text-4xl text-center font-title uppercase text-white px-4 bg-clip-text ">
             Your <strong className="text-green-350">care</strong> is our goal.
           </h1>
-          <p className="mt-3  text-xl text-white font-light sm:mt-4 text-left px-3">
+          <p className="mt-3 text-xl text-white font-light sm:mt-4 text-left px-5 md:px-20">
             We are a multidisciplinary clinic with experience in the assessment,
             diagnosis and treatment of orthopedic, neurological,
             musculoskeletal, pelvic health, geriatric, headache, kid's/adult's
@@ -139,7 +139,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             Pelvic Health Physiotherapist, Massage Therapists, Chiropodist,
             Podiatrist etc.
           </p>
-          <p className="mt-3  text-xl text-white font-light sm:mt-4 text-left px-3">
+          <p className="mt-3 text-xl text-white font-light sm:mt-4 text-left px-5 md:px-20">
             Our clinic believes in "your care is our goal" and we have an
             optimistic, dynamic, supervised active approach to rehabilitation.
             Our physiotherapists at Hands on Physio use manual therapy
@@ -151,7 +151,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
           </p>
         </div>
         <div className="bg-blue-350 py-4"></div>
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-b-xl shadow-md">
+        <form onSubmit={handleSubmit(onSubmit)} className="bg-white py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4">
           <h2 className="text-3xl">Let's get to know you</h2>
           <div className="flex flex-col space-y-6">
             <div className="grid grid-cols-1 space-y-6">
@@ -193,42 +193,59 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               </div>
             </div>
 
-            <h3 className="text-3xl">When would you like to come in?</h3>
-            {errors.ReactDatepicker && (
-              <span className="absolute mt-10 ml-2 text-red-500">
-                Please enter a date.
-              </span>
-            )}
-            <label htmlFor="date" className="flex-shrink-0 text-xl">
-              Preferred Date
-            </label>
-            <Controller
-              control={control}
-              name="ReactDatepicker"
-              render={({ field: { onChange, onBlur, value } }) => (
-                <ReactDatePicker
-                  className="input block w-40 cursor-pointer bg-blue-150 border border-slate-200 rounded-md hover:border-green-350 py-2 px-4"
-                  placeholderText="Select date"
-                  onChange={(e) => onChange(e)}
-                  onBlur={onBlur}
-                  selected={value}
-                />
-              )}
-            />
-            <div className="flex flex-col w-full">
-              {errors.time && (
-                <span className="absolute mt-timeRequiredRem ml-2 text-red-500">
-                  required
-                </span>
-              )}
-              <label htmlFor="time" className="flex-shrink-0 text-xl">
-                Preferred Time
-              </label>
-              <input
-                type="time"
-                className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-40"
-                {...register("time", { required: true, maxLength: 30 })}
-              />
+            <div className="flex flex-col bg-slate-200 rounded-xl lg:flex-row lg:pl-4">
+              <div className="flex flex-col flex-1 justify-around py-4 gap-4">
+                <h3 className="text-3xl mx-auto lg:mx-0">When would you like to come in?</h3>
+                {errors.ReactDatepicker && (
+                  <span className="absolute mt-10 ml-2 text-red-500">
+                    Please enter a date.
+                  </span>
+                )}
+                <div className="pl-8 lg:pl-0">
+                  <label htmlFor="date" className="flex-shrink-0 text-xl">
+                    Preferred Date
+                  </label>
+                  <Controller
+                    control={control}
+                    name="ReactDatepicker"
+                    render={({ field: { onChange, onBlur, value } }) => (
+                      <ReactDatePicker
+                        className="input block w-40 cursor-pointer bg-blue-150 border border-slate-200 rounded-md hover:border-green-350 py-2 px-4"
+                        placeholderText="Select date"
+                        onChange={(e) => onChange(e)}
+                        onBlur={onBlur}
+                        selected={value}
+                      />
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col w-full pl-8 lg:pl-0">
+                  {errors.time && (
+                    <span className="absolute mt-timeRequiredRem ml-2 text-red-500">
+                      required
+                    </span>
+                  )}
+                  <label htmlFor="time" className="flex-shrink-0 text-xl">
+                    Preferred Time
+                  </label>
+                  <input
+                    type="time"
+                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-40"
+                    {...register("time", { required: true, maxLength: 30 })}
+                  />
+                </div>
+              </div>
+              <div className="flex-1 shadow-md rounded-xl h-full lg:h-full">
+                <iframe
+                  style={{ width: "100%", borderRadius: "15px" }}
+                  width="500"
+                  height="400"
+                  id="gmap_canvas"
+                  src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  scrolling="no"
+                >
+                </iframe>
+              </div>
             </div>
             <h4 className="text-3xl">Which service would you like?</h4>
             <div className="flex-1">
@@ -347,6 +364,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             </div>
           </div>
         </form>
+
         {formSpreeState.submitting && (
           <Transition
             as={Fragment}
@@ -358,7 +376,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white bg-opacity-90">
+            <div className="flex flex-col justify-center items-center fixed  top-0 left-0 h-full w-full  bg-blue-150 bg-opacity-90">
               <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
               <p className="mt-10 text-xl font-roboto uppercase text-accent font-bold">
                 sending...
@@ -377,20 +395,21 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white">
+            <div className="flex flex-col justify-center items-center fixed top-0 left-0 h-full w-full bg-blue-150">
               <div className="flex flex-col md:flex-row"></div>
-
-              <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold uppercase">
-                message sent!
-              </p>
-              <p className="text-sm font-roboto text-blue-350 my-5 sm:text-lg">
-                A member of our staff will get back to you as soon as possible!
-              </p>
-              <Link href="/">
-                <button className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                  RETURN HOME
-                </button>
-              </Link>
+              <div className="flex flex-col items-center bg-slate-200 p-10 rounded-xl shadow-md text-center mx-3">
+                <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold uppercase">
+                  message sent!
+                </p>
+                <p className="text-sm font-roboto text-blue-350 my-5 sm:text-lg">
+                  A member of our staff will get back to you as soon as possible!
+                </p>
+                <Link href="/">
+                  <button className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                    RETURN HOME
+                  </button>
+                </Link>
+              </div>
             </div>
           </Transition>
         )}
@@ -405,7 +424,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white bg-opacity-90">
+            <div className="flex flex-col justify-center items-center fixed   top-0 left-0 h-full w-full bg-blue-150 bg-opacity-90">
               <p className="mt-10 text-xl text-accent font-bold">
                 We apologize for the inconvenience, something went wrong.
               </p>
@@ -413,6 +432,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             </div>
           </Transition>
         )}
+
       </section>
     </>
   );
