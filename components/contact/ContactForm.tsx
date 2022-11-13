@@ -60,9 +60,9 @@ function ContactForm() {
         <form
           onSubmit={handleSubmit(onSubmit)}
           id="contact-form"
-          className="flex-1 m-auto w-full"
+          className="flex-1 w-full m-auto pt-4 xl:pt-0"
         >
-          <div className="flex flex-col space-y-8 w">
+          <div className="flex flex-col space-y-11 w">
             <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
               <label htmlFor="firstName" className="sr-only">
                 First Name
@@ -197,17 +197,19 @@ function ContactForm() {
             </div>
           </div>
         </form>
-        {/*  Placeholder image for styling purposes until we get Google Maps Api working  */}
-        <div className="flex-1 shrink-0">
-          <Image
-            src="/images/contact/map.png"
-            className="rounded-lg shadow-2x m-auto "
-            alt=""
-            height={485}
-            width={485}
-          />
+        <div className="flex-1 shadow-md rounded-b-2xl">
+          <iframe
+            style={{ width: "100%", borderRadius: "15px" }}
+            width="500"
+            height="500"
+            id="gmap_canvas"
+            src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0">
+          </iframe>
         </div>
-        {/*  Placeholder image for styling purposes */}
       </div>
       {formSpreeState.submitting && (
         <Transition
