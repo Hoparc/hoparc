@@ -87,7 +87,7 @@ const Products: NextPage<ProductsProps> = ({
         <meta name="viewport" content="width=device-width" />
       </Head>
 
-      <section className="min-h-screen">
+      <section className="min-h-screen" id="products">
         <Image
           src="/images/products/productBanner.png"
           alt=""
@@ -137,14 +137,12 @@ const Products: NextPage<ProductsProps> = ({
                         <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
                           <Link
                             key={product.slug?.current}
-                            href={`/products/${product.slug?.current}`}
+                            href={`/product/${product.slug?.current}`}
                             className="text-white hover:text-blue-550 "
-                        >
+                          >
                             <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
                               <div className="py-3 px-3">
-                                <div className="font-bold">
-                                  {product.name}
-                                </div>
+                                <div className="font-bold">{product.name}</div>
                               </div>
                               <div className="h-[250px] relative">
                                 {product.image?.asset?.url && (
@@ -156,6 +154,7 @@ const Products: NextPage<ProductsProps> = ({
                                     sizes="(max-width: 768px) 100vw,
                                   (max-width: 1200px) 50vw,
                                   33vw"
+                                    priority
                                   />
                                 )}
                               </div>

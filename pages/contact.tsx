@@ -1,6 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-
 import Image from "next/image";
 
 import { Fragment } from "react";
@@ -52,7 +51,10 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
             />
             <meta name="viewport" content="width=device-width" />
           </Head>
-          <section className="min-h-screen flex flex-col bg-blue-150">
+          <section
+            className="min-h-screen flex flex-col bg-blue-150"
+            id="contact"
+          >
             <Image
               src="/images/contact/contactBanner.png"
               alt="Banner image with colored striped shapes and an image of someone holding a phone the middle"
@@ -76,12 +78,11 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                 <div className="flex flex-col gap-5 py-6 px-2">
                   <div className="flex flex-col">
                     <div className="flex flex-col items-center px-6 md:px-36 sm:px-10 md:pt-0 ">
-
                       <p className="font-roboto italic text-blue-150 text-base mb-4">
-                        Feel free to fill in the form below or contact us directly with any questions you
-                        may have or with any scheduling inquiries. We keep your
-                        information private and will not share it with third
-                        parties.
+                        Feel free to fill in the form below or contact us
+                        directly with any questions you may have or with any
+                        scheduling inquiries. We keep your information private
+                        and will not share it with third parties.
                       </p>
                     </div>
                   </div>
@@ -98,12 +99,8 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                             href="https://www.google.com/maps?ll=43.871323,-79.218709&z=13&t=m&hl=en-US&gl=US&mapclient=embed&cid=3757030601779132263"
                             aria-label="link to google maps location of Hands On Physiotherapy And Rehab Centre/Pelvic Health"
                           >
-                            <span>
-                              {location.address}
-                            </span>
-                            <span>
-                              {location.addresslinen}
-                            </span>
+                            <span>{location.address}</span>
+                            <span>{location.addresslinen}</span>
                           </a>
                         </address>
                         <p className="font-normal text-base font-roboto text-blue-150 hover:text-green-350">

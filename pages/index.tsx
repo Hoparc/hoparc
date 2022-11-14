@@ -19,8 +19,8 @@ import {
 
 import Hero from "../components/landing/Hero";
 import LetUsHelp from "../components/landing/LetUsHelp";
-import OurServices from "../components/landing/OurServices/OurServices";
-import Testimonials from "../components/landing/Testimonials/Testimonials";
+import OurServices from "../components/landing/OurServices";
+import Testimonials from "../components/landing/Testimonials";
 import WhyChooseUs from "../components/landing/WhyChooseUs";
 
 type HomeProps = {

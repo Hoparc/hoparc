@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import cn from "clsx";
 
-import { TestimonialFragment } from "../../../graphql-operations";
+import { TestimonialFragment } from "../../graphql-operations";
 
 interface TestimonialCardProps {
   imageUrl: string | null | undefined;
@@ -48,9 +48,9 @@ function Testimonials({
     <div className="py-28 bg-blue-550">
       <div className="relative max-w-5xl mx-auto mt-10">
         <div className="flex pb-12 flex-col items-center justify-center">
-          <h2 className="text-3xl sm:text-5xl font-roboto  text-center text-white font-title">
+          <h5 className="text-3xl sm:text-5xl font-roboto  text-center text-white font-title">
             Our clients love us!
-          </h2>
+          </h5>
           <p className="mx-auto mt-3 max-w-2xl text-xl font-light sm:mt-4 text-center text-green-350">
             Check out what they have to say!
           </p>
@@ -96,6 +96,6 @@ function Testimonials({
       </div>
     </div>
   );
-};
+}
 
 export default Testimonials;

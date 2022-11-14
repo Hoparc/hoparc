@@ -49,6 +49,9 @@ function Service({ service }: ServiceProps) {
               fill
               className="object-cover rounded-xl"
               priority
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
             />
           </div>
           <div className="flex w-full flex-col mx-auto my-auto gap-4 p-6">

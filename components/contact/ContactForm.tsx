@@ -1,8 +1,7 @@
 import { Fragment, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
-import Link from "next/link"
-import Image from "next/image";
+import Link from "next/link";
 
 import { Transition } from "@headlessui/react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
@@ -17,15 +16,12 @@ type FormValues = {
   message: string;
 };
 
-
-
 function ContactForm() {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
     control,
   } = useForm({
@@ -48,8 +44,6 @@ function ContactForm() {
       formSpreeState.succeeded;
     }, 2000);
   };
-
-  const handleClick = () => reset();
 
   return (
     <section
@@ -199,14 +193,14 @@ function ContactForm() {
         </form>
         <div className="flex-1 shadow-md rounded-b-2xl">
           <iframe
+            title="Google Maps"
             style={{ width: "100%", borderRadius: "15px" }}
             width="500"
             height="500"
             id="gmap_canvas"
             src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
             scrolling="no"
-          >
-          </iframe>
+          ></iframe>
         </div>
       </div>
       {formSpreeState.submitting && (

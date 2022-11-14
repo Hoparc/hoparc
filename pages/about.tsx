@@ -96,13 +96,11 @@ const AboutUs: NextPage<AboutUsProps> = ({
       </div>
       <section
         className="mx-auto my-12 max-w-screen-xl w-11/12 pt-2"
-        id="about-us"
+        id="about"
       >
-
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid w-full my-12 mx-auto place-items-center bg-cover bg-center bg-base-200">
             <div className="z-0 flex items-center justify-center max-w-7xl gap-6 flex-col ">
-
               <div className="m-auto">
                 <Image
                   src={url ?? ""}
@@ -110,6 +108,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
                   alt="image"
                   height={0}
                   width={445}
+                  priority
                 />
               </div>
             </div>
@@ -189,10 +188,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
         </h3>
 
         {staffs.map((staff, index) => (
-          <div
-            className="my-8 flex w-full m-auto lg:w-3/4"
-            key={index}
-          >
+          <div className="my-8 flex w-full m-auto lg:w-3/4" key={index}>
             <div className="flex flex-col shadow-lg shadow-slate-300 bg-slate-200 rounded-lg w-full gap-4 sm:flex-row">
               <div className="shrink-0 ">
                 <Image
@@ -211,7 +207,9 @@ const AboutUs: NextPage<AboutUsProps> = ({
                 <h3 className="text-blue-550 text-left text-lg px-2 py-1 w-full sm:rounded-b-md">
                   {staff.position}
                 </h3>
-                <p className="py-3 px-3 text-base font-serif">{staff.description}</p>
+                <p className="py-3 px-3 text-base font-serif">
+                  {staff.description}
+                </p>
               </div>
             </div>
           </div>
@@ -234,9 +232,9 @@ const AboutUs: NextPage<AboutUsProps> = ({
           ))}
         </div>
         <p className="my-10 w-full xl:w-5/12 md:w-3/4 m-auto italic">
-          * We submit claims on your behalf to your insurance provider as well as
-          participating insurers on a third party portal that are able to access
-          and if the insurance plan allows for assignment of benefits.
+          * We submit claims on your behalf to your insurance provider as well
+          as participating insurers on a third party portal that are able to
+          access and if the insurance plan allows for assignment of benefits.
         </p>
       </section>
     </div>

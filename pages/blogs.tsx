@@ -83,7 +83,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <section className="min-h-screen">
+      <section className="min-h-screen" id="blogs">
         <Image
           src="/images/blog/blogBanner.png"
           alt="Banner image with colored striped shapes and an image of a book in the middle"
@@ -135,12 +135,10 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                             key={blog.slug?.current}
                             href={`/blog/${blog.slug?.current}`}
                             className="text-white hover:text-blue-550 "
-                        >
+                          >
                             <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
                               <div className="py-3 px-3">
-                                <div className="font-bold">
-                                  {blog.title}
-                                </div>
+                                <div className="font-bold">{blog.title}</div>
                               </div>
                               <div className="h-[250px] relative">
                                 {blog.image?.asset?.url && (
@@ -152,6 +150,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                                     sizes="(max-width: 768px) 100vw,
                                   (max-width: 1200px) 50vw,
                                   33vw"
+                                    priority
                                   />
                                 )}
                               </div>

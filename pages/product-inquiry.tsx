@@ -114,11 +114,16 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
       >
         <div className="flex p-8 flex-col items-center justify-center bg-blue-550 rounded-t-xl">
           <h1 className="my-5 font-bold text-7xl tracking-tight sm:text-4xl text-center font-title uppercase text-white px-4 bg-clip-text ">
-            We strive to put your <strong className="text-green-350">care</strong> first.
+            We strive to put your
+            <strong className="text-green-350">care</strong> first.
           </h1>
         </div>
         <div className="bg-blue-350 py-4"></div>
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-b-xl shadow-md">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          id="product-inquiry"
+          className="bg-white p-8 rounded-b-xl shadow-md"
+        >
           <h2 className="text-3xl">Let's get to know you</h2>
           <div className="flex flex-col space-y-6">
             <div className="grid grid-cols-1 space-y-6">
