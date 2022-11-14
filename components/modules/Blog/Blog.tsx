@@ -35,7 +35,7 @@ function Blog({ blog }: BlogProps) {
       </Head>
       <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen flex flex-col">
         <Link href="/blogs">
-          <span className="flex items-center cursor-pointer text-black">
+          <span className="flex font-button text-xl items-center mb-2 cursor-pointer text-black dark:text-white hover:text-green-350">
             <HiChevronLeft
               className="block h-4 mr-2 mt-0.5"
               aria-hidden="true"
@@ -44,33 +44,33 @@ function Blog({ blog }: BlogProps) {
           </span>
         </Link>
 
-        <h1 className="my-6 ml-3 text-3xl text-blue-350 font-extrabold tracking-tight sm:text-4xl">
+        <h1 className="my-6 ml-3 text-5xl text-blue-350 font-roboto font-bold tracking-tight">
           {blog?.title}
         </h1>
-        <div className="mx-auto">
+        <div className="w-full">
           <Image
             src={blog?.image?.asset?.url ?? ""}
             alt={`An image of ${blog?.title}`}
-            width={300}
-            height={300}
-            className="object-cover rounded-lg shadow-2xl w-full"
+            width={400}
+            height={400}
+            className="object-cover rounded-lg shadow-2xl"
             priority
           />
         </div>
-        <div className="flex my-12">
+        <div className="flex my-12 text-gray-850 dark:text-white font-roboto text-base">
           <div className="ml-3">
             <span className="text-xl">{format(date, "MMMM dd, yyyy")}</span>
           </div>
         </div>
 
         {blog?.blogRaw && blog?.blogRaw?.length > 0 && (
-          <div className="mb-12 m-10 animate-fade-in-up">
+          <div className="mb-12 m-10 animate-fade-in-up text-gray-850 dark:text-white font-roboto text-base">
             <PortableText
               value={blog?.blogRaw}
               components={{
                 block: {
                   normal: ({ children }) => {
-                    return <p className="text-black mb-4">{children}</p>;
+                    return <p className="mb-4">{children}</p>;
                   },
                 },
               }}

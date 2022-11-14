@@ -89,9 +89,9 @@ const AboutUs: NextPage<AboutUsProps> = ({
       </Head>
       <div className="bg-blue-350 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
-          <h2 className="text-3xl text-center p-14 font-bold uppercase text-white">
+          <h1 className="text-5xl text-center p-14 font-bold uppercase text-white">
             about
-          </h2>
+          </h1>
         </div>
       </div>
       <section
@@ -106,28 +106,27 @@ const AboutUs: NextPage<AboutUsProps> = ({
                   src={url ?? ""}
                   className="rounded-lg shadow-2xl w-full"
                   alt="image"
-                  height={0}
-                  width={445}
-                  priority
+                  height={500}
+                  width={1000}
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <h2 className="my-10 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+        <h2 className="my-10 font-roboto font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           Our Story
         </h2>
-        <p className="my-10 text-xl font-light">{story}</p>
+        <p className="my-10 text-xl font-roboto text-gray-850 dark:text-white">{story}</p>
 
-        <h3 className="my-10 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+        <h3 className="my-10 font-roboto font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           Our Purpose
         </h3>
 
-        <p className="my-4 text-xl font-light">{purpose}</p>
+        <p className="my-4 text-xl font-roboto text-gray-850 dark:text-white">{purpose}</p>
         <div className="w-full bg-blue-550 flex py-10 rounded-3xl">
           <div className="max-w-screen-xl m-auto w-11/12 flex flex-col items-center gap-11">
-            <h2 className="capitalize text-white text-5xl font-roboto font-light text-center">
+            <h2 className="capitalize text-white text-5xl font-roboto font-bold text-center">
               Our Values
             </h2>
             <div className="flex flex-col gap-6 lg:flex-row ">
@@ -188,11 +187,14 @@ const AboutUs: NextPage<AboutUsProps> = ({
         </h3>
 
         {staffs.map((staff, index) => (
-          <div className="my-8 flex w-full m-auto lg:w-3/4" key={index}>
-            <div className="flex flex-col shadow-lg shadow-slate-300 bg-slate-200 rounded-lg w-full gap-4 sm:flex-row">
+          <div
+            className="my-8 flex w-full m-auto lg:w-3/4"
+            key={index}
+          >
+            <div className="flex flex-col shadow-lg shadow-slate-700 dark:shadow-none dark:border dark:border-gray-700 dark:bg-gray-800 bg-slate-200 rounded-xl w-full gap-4 sm:flex-row">
               <div className="shrink-0 ">
                 <Image
-                  className=" m-auto w-full max-w-11/12 rounded-r-lg  rounded-b-none rounded-t-lg sm:rounded-r-none sm:rounded-l-lg"
+                  className="w-full sm:w-64 m-auto rounded-r-xl rounded-b-none rounded-t-xl sm:rounded-r-none sm:rounded-l-xl"
                   src={staff.image?.asset?.url ?? ""}
                   alt={`An image of ${staff.name}`}
                   height={550}
@@ -201,15 +203,13 @@ const AboutUs: NextPage<AboutUsProps> = ({
                 />
               </div>
               <div className="flex flex-col py-3 pr-0  w-full sm:pr-3">
-                <p className="text-blue-550 text-left font-bold text-2xl py-1 px-2 sm:rounded-t-md">
+                <p className="text-blue-550 dark:text-blue-350 text-left font-roboto font-bold text-2xl py-1 px-2 sm:rounded-t-md">
                   {staff.name}
                 </p>
-                <h3 className="text-blue-550 text-left text-lg px-2 py-1 w-full sm:rounded-b-md">
+                <h3 className="text-blue-550 dark:text-blue-350 text-left font-roboto text-lg px-2 py-1 w-full sm:rounded-b-md">
                   {staff.position}
                 </h3>
-                <p className="py-3 px-3 text-base font-serif">
-                  {staff.description}
-                </p>
+                <p className="py-3 px-3 text-base font-roboto text-gray-850 dark:text-white">{staff.description}</p>
               </div>
             </div>
           </div>
@@ -231,10 +231,10 @@ const AboutUs: NextPage<AboutUsProps> = ({
             </div>
           ))}
         </div>
-        <p className="my-10 w-full xl:w-5/12 md:w-3/4 m-auto italic">
-          * We submit claims on your behalf to your insurance provider as well
-          as participating insurers on a third party portal that are able to
-          access and if the insurance plan allows for assignment of benefits.
+        <p className="my-10 w-full xl:w-5/12 md:w-3/4 m-auto font-roboto italic text-gray-850 dark:text-white">
+          * We submit claims on your behalf to your insurance provider as well as
+          participating insurers on a third party portal that are able to access
+          and if the insurance plan allows for assignment of benefits.
         </p>
       </section>
     </div>

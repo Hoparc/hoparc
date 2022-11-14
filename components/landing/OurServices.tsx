@@ -19,7 +19,7 @@ function ServiceCard({ imageUrl, name, description, href }: ServiceCardProps) {
     <>
       <Link
         href={`/service/${href}` ?? ""}
-        className="p-6 mb-4 flex flex-col items-center bg-white rounded-lg border
+        className="p-6 xl:p-6 lg:p-4 md:p-2 mb-4 flex flex-col items-center bg-white rounded-lg border
         shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700
         dark:bg-gray-800 dark:hover:bg-gray-700"
       >
@@ -33,10 +33,10 @@ function ServiceCard({ imageUrl, name, description, href }: ServiceCardProps) {
           quality={100}
         />
         <div className="flex flex-col justify-between p-4 leading-normal">
-          <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-xl font-roboto font-bold tracking-tight text-gray-900 dark:text-white">
             {name}
-          </h3>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          </h5>
+          <p className="mb-3 font-base font-roboto text-gray-850 dark:text-gray-400">
             {description}
           </p>
         </div>
@@ -53,14 +53,12 @@ interface OurServicesProps {
 function OurServices({ hasShowMore = false, services }: OurServicesProps) {
   const [showMore, setShowMore] = useState(!hasShowMore);
   return (
-    <>
-      <div className="bg-blue-150 py-28">
         <div className="relative max-w-5xl mx-auto mt-10">
           <div className="flex pb-12 flex-col items-center justify-center">
-            <h2 className="text-3xl sm:text-5xl font-roboto  text-center text-blue-550 font-title">
+            <h2 className="text-5xl font-roboto font-bold text-center text-blue-550 dark:text-white font-title">
               Our Services
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-xl font-light sm:mt-4 text-center">
+            <p className="mx-auto mt-3 max-w-2xl text-xl font-roboto sm:mt-4 text-center dark:text-gray-500">
               Check out what we have in store!
             </p>
           </div>
@@ -94,7 +92,7 @@ function OurServices({ hasShowMore = false, services }: OurServicesProps) {
                     onClick={() => {
                       setShowMore(!showMore);
                     }}
-                    className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 mb-4 rounded-lg flex items-center bg-blue-550 hover:bg-green-350 hover:text-blue-550 pointer-events-auto w-1/2 justify-between"
+                    className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 font-button text-base text-white font-semibold h-12 px-6 mb-4 rounded-lg flex items-center bg-blue-550 hover:bg-green-350 hover:text-blue-550 pointer-events-auto w-1/2 justify-between"
                   >
                     More Services
                     <span> + </span>
@@ -104,8 +102,6 @@ function OurServices({ hasShowMore = false, services }: OurServicesProps) {
             )}
           </div>
         </div>
-      </div>
-    </>
   );
 }
 

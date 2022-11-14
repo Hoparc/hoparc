@@ -4,7 +4,7 @@ function WhyChooseUs() {
   return (
     <div className="w-full bg-blue-550 py-28 ">
       <div className="max-w-screen-mobileSm m-auto w-3/4 md:w-95% md:max-w-screen-xl">
-        <h2 className="capitalize text-white text-3xl sm:text-5xl font-roboto font-light text-center mb-12">
+        <h2 className="capitalize text-white text-3xl sm:text-5xl font-roboto font-bold text-center mb-12">
           why choose us?
         </h2>
         <div
@@ -19,10 +19,10 @@ function WhyChooseUs() {
                 height={120}
                 width={120}
               />
-              <h3 className="capitalize text-white font-roboto text-xl sm:text-2xl text-center">
+              <h3 className="capitalize text-white font-roboto font-bold text-xl sm:text-2xl text-center">
                 customer satisfaction
               </h3>
-              <p className="text-white text-center font-base font-opensans">
+              <p className="text-white text-center font-base font-roboto">
                 We provide the quality of the services that will make a positive
                 difference in our customers lives.
               </p>
@@ -35,10 +35,10 @@ function WhyChooseUs() {
                 height={120}
                 width={120}
               />
-              <h3 className="capitalize text-white font-roboto text-2xl text-center">
+              <h3 className="capitalize text-white font-roboto font-bold  text-2xl text-center">
                 strong work ethic
               </h3>
-              <p className="text-white text-center font-base font-opensans">
+              <p className="text-white text-center font-base font-roboto">
                 We work together, across boundaries, to meet the needs of our
                 customers.
               </p>
@@ -54,10 +54,10 @@ function WhyChooseUs() {
                 height={120}
                 width={120}
               />
-              <h3 className="capitalize text-white font-roboto text-2xl text-center">
+              <h3 className="capitalize text-white font-roboto font-bold text-2xl text-center">
                 Integrity
               </h3>
-              <p className="text-white text-center font-base font-opensans">
+              <p className="text-white text-center font-base font-roboto">
                 We uphold the highest standards of integrity in all of our
                 actions.
               </p>
@@ -70,10 +70,10 @@ function WhyChooseUs() {
                 height={120}
                 width={120}
               />
-              <h3 className="capitalize text-white font-roboto text-2xl text-center">
+              <h3 className="capitalize text-white font-roboto font-bold text-2xl text-center">
                 skill based training
               </h3>
-              <p className="text-white text-center font-base font-opensans">
+              <p className="text-white text-center font-base font-roboto">
                 We are personally accountable for delivering on our commitments.
               </p>
             </div>

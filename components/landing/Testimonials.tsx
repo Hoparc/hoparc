@@ -14,7 +14,8 @@ interface TestimonialCardProps {
 function TestimonialCard({ imageUrl, name, review }: TestimonialCardProps) {
   return (
     <>
-      <figure className="group inline-flex p-6 mb-4 w-full relative flex-col-reverse bg-white highlight-white/5 rounded-md shadow-md shadow-slate-300">
+      <figure className="group inline-flex p-6 mb-4 w-full relative flex-col-reverse bg-white highlight-white/5 rounded-lg shadow-md shadow-slate-300 dark:shadow-none dark:border dark:border-gray-700
+        dark:bg-gray-800 dark:hover:bg-gray-700">
         <figcaption className="flex items-center space-x-4">
           <div className="flex-auto ">
             <Image
@@ -25,8 +26,8 @@ function TestimonialCard({ imageUrl, name, review }: TestimonialCardProps) {
               width={100}
               height={100}
             />
-            <div className="text-base text-black font-semibold">{name}</div>
-            <div className="mt-0.5 text-black text-xs">{review}</div>
+            <div className="text-base text-black dark:text-white font-semibold">{name}</div>
+            <div className="mt-0.5 text-black dark:text-gray-400 text-xs">{review}</div>
           </div>
         </figcaption>
       </figure>
@@ -48,10 +49,10 @@ function Testimonials({
     <div className="py-28 bg-blue-550">
       <div className="relative max-w-5xl mx-auto mt-10">
         <div className="flex pb-12 flex-col items-center justify-center">
-          <h5 className="text-3xl sm:text-5xl font-roboto  text-center text-white font-title">
+          <h2 className="text-5xl font-roboto font-bold text-center text-white">
             Our clients love us!
-          </h5>
-          <p className="mx-auto mt-3 max-w-2xl text-xl font-light sm:mt-4 text-center text-green-350">
+          </h2>
+          <p className="flex flex-col mx-auto mt-3 max-w-2xl text-xl font-roboto sm:mt-4 text-center text-green-350">
             Check out what they have to say!
           </p>
         </div>
@@ -61,7 +62,7 @@ function Testimonials({
             ["overflow-hidden"]: !showMore,
           })}
         >
-          <div className="columns-1 gap-x-4 md:columns-2 lg:columns-3">
+          <div className="columns-1 gap-x-4 md:columns-2 lg:columns-3 font-roboto">
             {testimonials?.map((testimonial) => (
               <TestimonialCard
                 imageUrl={testimonial.image?.asset?.url ?? ""}
@@ -84,7 +85,7 @@ function Testimonials({
                   onClick={() => {
                     setShowMore(!showMore);
                   }}
-                  className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-sm text-white font-semibold h-12 px-6 mb-4 rounded-lg flex items-center bg-blue-550 hover:bg-green-350 hover:text-blue-550 pointer-events-auto w-1/2 justify-between"
+                  className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-base font-button text-white font-semibold h-12 px-6 mb-4 rounded-lg flex items-center bg-blue-550 hover:bg-green-350 hover:text-blue-550 pointer-events-auto w-1/2 justify-between"
                 >
                   More Reviews
                   <span> + </span>

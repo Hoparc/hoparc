@@ -51,10 +51,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
             />
             <meta name="viewport" content="width=device-width" />
           </Head>
-          <section
-            className="min-h-screen flex flex-col bg-blue-150"
-            id="contact"
-          >
+          <section className="min-h-screen flex flex-col">
             <Image
               src="/images/contact/contactBanner.png"
               alt="Banner image with colored striped shapes and an image of someone holding a phone the middle"
@@ -65,9 +62,9 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
             />
             <div className="bg-blue-350 w-full">
               <div className="max-w-screen-xl m-auto w-11/12">
-                <h2 className="text-3xl text-left py-3 font-bold uppercase text-white">
+                <h1 className="text-5xl text-left py-3 font-bold uppercase text-white">
                   contact
-                </h2>
+                </h1>
               </div>
             </div>
             <div className="max-w-screen-xl m-auto w-95% sm:w-11/12">
@@ -78,17 +75,18 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                 <div className="flex flex-col gap-5 py-6 px-2">
                   <div className="flex flex-col">
                     <div className="flex flex-col items-center px-6 md:px-36 sm:px-10 md:pt-0 ">
-                      <p className="font-roboto italic text-blue-150 text-base mb-4">
-                        Feel free to fill in the form below or contact us
-                        directly with any questions you may have or with any
-                        scheduling inquiries. We keep your information private
-                        and will not share it with third parties.
+
+                      <p className="font-roboto italic text-center text-blue-150 text-base mb-4">
+                        Feel free to fill in the form below or contact us directly with any questions you
+                        may have or with any scheduling inquiries. We keep your
+                        information private and will not share it with third
+                        parties.
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-col flex-1 w-full m-auto gap-y-5 sm:flex-row">
                     <div className="flex flex-col flex-1 items-center md:pt-0">
-                      <h2 className="mb-6 text-2xl text-green-350 font-roboto uppercase text-center">
+                      <h2 className="mb-6 text-2xl text-green-350 font-roboto font-bold uppercase text-center">
                         Hands on physiotherapy
                       </h2>
                       <div>
@@ -127,7 +125,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                       </div>
                     </div>
                     <div className="flex flex-col flex-1 items-center md:pt-0">
-                      <h2 className="mb-6 text-2xl text-green-350 font-roboto  uppercase text-left">
+                      <h2 className="mb-6 text-2xl text-green-350 font-roboto font-bold uppercase text-left">
                         Store Hours
                       </h2>
                       <ul className="font-roboto text-base text-slate-200 text-left">

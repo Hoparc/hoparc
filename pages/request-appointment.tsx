@@ -119,50 +119,30 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-
       <section
         id="request-appointment"
         className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 animate-fade-in-up min-h-screen"
       >
         <div className="flex pb-12 flex-col items-center justify-center bg-blue-550 rounded-t-xl">
-          <h1 className="my-5 font-bold text-7xl tracking-tight sm:text-4xl text-center font-title uppercase text-white px-4 bg-clip-text ">
+          <h1 className="my-5 text-3xl sm:text-5xl tracking-tight text-center font-roboto font-bold uppercase text-white px-4 bg-clip-text ">
             Your <strong className="text-green-350">care</strong> is our goal.
           </h1>
-          <p className="mt-3 text-xl text-white font-light sm:mt-4 text-left px-5 md:px-20">
-            We are a multidisciplinary clinic with experience in the assessment,
-            diagnosis and treatment of orthopedic, neurological,
-            musculoskeletal, pelvic health, geriatric, headache, kid's/adult's
-            sports injuries, motor vehicle injuries, slip and fall, postural and
-            work-related injuries and your everyday aches and pains. We offer
-            high quality, effective care to the people of Box Grove, in the
-            heart of Markham city. Our HOPARC's team includes Physiotherapist,
-            Pelvic Health Physiotherapist, Massage Therapists, Chiropodist,
-            Podiatrist etc.
+          <p className="mt-3 text-lg font-bold font-roboto text-green-350 sm:mt-4 text-left px-5 md:px-20">
+            Consulted by an experienced Clinician
           </p>
-          <p className="mt-3 text-xl text-white font-light sm:mt-4 text-left px-5 md:px-20">
-            Our clinic believes in "your care is our goal" and we have an
-            optimistic, dynamic, supervised active approach to rehabilitation.
-            Our physiotherapists at Hands on Physio use manual therapy
-            techniques, Hot stone soft tissue release, Mobilization soft tissue
-            release technique, different modalities, exercise programs which
-            include assistive support exercising with supervised ex program and
-            personalized home ex program, taping, education and the latest in
-            modern therapy equipment in their approach to treatment.
+          <p className="mt-3 text-base font-roboto text-white font-light sm:mt-4 text-center px-5 md:px-44">
+            Our Clinic believes in "your care is our goal," we have a dynamic and supervised active approach to our patient's rehabilitation while keeping an optimistic point of view on your path to recovery.
           </p>
         </div>
         <div className="bg-blue-350 py-4"></div>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          id="request-appointment"
-          className="bg-white py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4"
-        >
-          <h2 className="text-3xl">Let's get to know you</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="bg-white dark:bg-gray-800 py-8 px-2 rounded-b-xl shadow-md border border-1 border-slate-700 lg:p-8 sm:px-4">
+          <h2 className="text-2xl text-gray-850 dark:text-white font-roboto font-bold">Let's get to know you</h2>
           <div className="flex flex-col space-y-6">
             <div className="grid grid-cols-1 space-y-6">
               <label htmlFor="firstName" className="sr-only">
                 First Name
               </label>
-              <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
+              <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.firstName && (
                     <span className="absolute mt-10 ml-2 text-red-500">
@@ -171,7 +151,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   )}
                   <input
                     placeholder="First Name"
-                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0 font-opensans"
                     {...register("firstName", {
                       required: true,
                       maxLength: 30,
@@ -190,25 +170,23 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   )}
                   <input
                     placeholder="Last Name"
-                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 mb-4 outline-none hover:border-green-350 focus:border-green-350 w-full font-opensans"
                     {...register("lastName", { required: true, maxLength: 30 })}
                   />
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col bg-slate-200 rounded-xl lg:flex-row lg:pl-4">
+            <div className="flex flex-col bg-slate-200 dark:bg-gray-600 rounded-xl lg:flex-row lg:pl-4">
               <div className="flex flex-col flex-1 justify-around py-4 gap-4">
-                <h3 className="text-3xl mx-auto lg:mx-0">
-                  When would you like to come in?
-                </h3>
+                <h3 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold mx-auto lg:mx-0">When would you like to come in?</h3>
                 {errors.ReactDatepicker && (
                   <span className="absolute mt-10 ml-2 text-red-500">
                     Please enter a date.
                   </span>
                 )}
                 <div className="pl-8 lg:pl-0">
-                  <label htmlFor="date" className="flex-shrink-0 text-xl">
+                  <label htmlFor="date" className="flex-shrink-0 text-lg dark:text-white font-roboto font-bold">
                     Preferred Date
                   </label>
                   <Controller
@@ -216,7 +194,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                     name="ReactDatepicker"
                     render={({ field: { onChange, onBlur, value } }) => (
                       <ReactDatePicker
-                        className="input block w-40 cursor-pointer bg-blue-150 border border-slate-200 rounded-md hover:border-green-350 py-2 px-4"
+                        className="input block w-40 cursor-pointer bg-blue-150 border border-slate-200 rounded-md hover:border-green-350 py-2 px-4 font-opensans"
                         placeholderText="Select date"
                         onChange={(e) => onChange(e)}
                         onBlur={onBlur}
@@ -231,13 +209,12 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                       required
                     </span>
                   )}
-                  <label htmlFor="time" className="flex-shrink-0 text-xl">
+                  <label htmlFor="time" className="flex-shrink-0 text-lg dark:text-white font-roboto font-bold">
                     Preferred Time
                   </label>
                   <input
                     type="time"
-                    id="time"
-                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-40"
+                    className="rounded-md border font-opensans bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-40 mb-3"
                     {...register("time", { required: true, maxLength: 30 })}
                   />
                 </div>
@@ -254,12 +231,12 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 ></iframe>
               </div>
             </div>
-            <h4 className="text-3xl">Which service would you like?</h4>
-            <div className="flex-1">
+            <h4 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold">Which service would you like?</h4>
+            <div className="flex-1 font-opensans">
               <div className="flex mb-2 items-center">
                 <label
                   htmlFor="subject"
-                  className="text-gray-200 font-semibold flex-shrink-0 text-xl sr-only"
+                  className="text-gray-200 flex-shrink-0 text-xl sr-only"
                 >
                   Subject
                 </label>
@@ -288,7 +265,8 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 )}
               </div>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-5 font-opensans">
+              <h4 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold">Have any questions for us?</h4>
               <label htmlFor="message" className="sr-only">
                 Leave us a message!
               </label>
@@ -303,15 +281,15 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 })}
               />
               {errors.message && (
-                <span className="absolute mt-8.6rem ml-2 text-red-500">
+                <span className="absolute mt-textareaRem ml-2 text-red-500">
                   required
                 </span>
               )}
             </div>
-            <h3 className="text-3xl mb-8">
+            <h3 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold mb-8">
               What is the best way for us to reach you?
             </h3>
-            <div className="flex flex-col justify-evenly gap-2 sm:flex-row">
+            <div className="flex flex-col justify-evenly gap-2 gap-y-5 sm:flex-row font-opensans">
               <label htmlFor="email" className="sr-only">
                 Email
               </label>
@@ -364,7 +342,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               <button
                 type="submit"
                 value="Send"
-                className="rounded-md bg-blue-550 px-14 py-4 mt-4 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                className="rounded-md bg-blue-550 px-14 py-4 mt-4 text-base font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
                 Send
               </button>

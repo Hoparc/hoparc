@@ -94,16 +94,16 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
         />
         <div className="bg-blue-350 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h2 className="text-3xl text-left py-3 font-bold uppercase text-white">
+            <h1 className="text-5xl text-left p-3 font-bold uppercase text-white">
               our blog
-            </h2>
+            </h1>
           </div>
         </div>
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
             <div className="col-span-8 lg:col-span-2">
               <Link href="/blogs">
-                <button className="block leading-5 text-accent-4 text-lg no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4 p-2 rounded-md hover:text-green-350 hover:bg-blue-550">
+                <button className="block font-roboto text-black dark:text-white leading-5 text-accent-4 text-lg no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4 p-2 rounded-md hover:text-green-350 hover:bg-blue-550">
                   All Categories
                 </button>
               </Link>
@@ -114,7 +114,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                 >
                   <button
                     className={cn(
-                      "block text-md leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 text-black mb-2 p-2 rounded-md hover:text-green-350 hover:bg-blue-550",
+                      "block font-roboto text-gray-850 dark:text-white text-md leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-2 p-2 rounded-md hover:text-green-350 hover:bg-blue-550",
                       { underline: activeCategory === category.slug?.current }
                     )}
                   >

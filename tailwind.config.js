@@ -6,8 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        "tiny": "0.6rem",
+        "smaller": "0.72rem"
+      },
       translate: {
-        "minus50": '-50%',
+        "minus50": "-50%",
       },
       screens: {
         "2lg": "1385px",
@@ -29,6 +33,9 @@ module.exports = {
         green: {
           350: "#96CA5B",
         },
+        gray: {
+          850: "#323847"
+        } 
       },
       height: {
         "5.8rem": "5.8rem",
@@ -62,12 +69,13 @@ module.exports = {
       },
       margin:{
         "8.6rem": "8.6rem",
+        "textareaRem": "11.7rem",
         "timeRequiredRem": "4.3rem"
       },
       fontFamily: {
-        poppins: ["poppins"],
+        poppins: ["Poppins", "sans-serif"],
         merriweather: ["Merriweather Sans", "sans-serif"],
-        roboto: "Roboto",
+        roboto: ["Roboto", "sans-serif"],
         button: ["DM Sans", "sans-serif"],
         opensans: ["Open Sans", "sans-serif"],
         inter: ["Inter", "sans-serif"],

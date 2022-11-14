@@ -4,6 +4,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps, NextPage } from "next";
 
+import { HiChevronLeft } from "react-icons/hi";
+
 import client from "../apollo-client";
 import {
   AllLocationsDocument,
@@ -112,19 +114,25 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
         id="product-inquiry"
         className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 animate-fade-in-up min-h-screen"
       >
+        <div className="flex p-2">
+          <Link href="/products">
+            <span className="flex font-button text-xl items-center mb-2 cursor-pointer text-black dark:text-white hover:text-green-350 ">
+              <HiChevronLeft
+                className="block h-4 mr-2 mt-0.5"
+                aria-hidden="true"
+              />
+              Back
+            </span>
+          </Link>
+        </div>
         <div className="flex p-8 flex-col items-center justify-center bg-blue-550 rounded-t-xl">
-          <h1 className="my-5 font-bold text-7xl tracking-tight sm:text-4xl text-center font-title uppercase text-white px-4 bg-clip-text ">
-            We strive to put your
-            <strong className="text-green-350">care</strong> first.
+          <h1 className="my-5 text-3xl sm:text-5xl tracking-tight text-center font-roboto font-bold uppercase text-white px-4 bg-clip-text ">
+            We strive to put your <strong className="text-green-350">care</strong> first
           </h1>
         </div>
         <div className="bg-blue-350 py-4"></div>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          id="product-inquiry"
-          className="bg-white p-8 rounded-b-xl shadow-md"
-        >
-          <h2 className="text-3xl">Let's get to know you</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="bg-white dark:bg-gray-800 border border-1 border-slate-700 py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4">
+          <h2 className="text-2xl text-gray-850 dark:text-white font-roboto font-bold">Let's get to know you</h2>
           <div className="flex flex-col space-y-6">
             <div className="grid grid-cols-1 space-y-6">
               <label htmlFor="firstName" className="sr-only">
@@ -139,7 +147,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                   )}
                   <input
                     placeholder="First Name"
-                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0 font-opensans"
                     {...register("firstName", {
                       required: true,
                       maxLength: 30,
@@ -158,16 +166,16 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                   )}
                   <input
                     placeholder="Last Name"
-                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full font-opensans"
                     {...register("lastName", { required: true, maxLength: 30 })}
                   />
                 </div>
               </div>
             </div>
-            <h2 className="text-3xl">
+            <h2 className="pt-5 text-2xl text-gray-850 dark:text-white font-roboto font-bold">
               Which product would you like to purchase?
             </h2>
-            <div className="flex-1">
+            <div className="flex-1 font-opensans">
               <div className="flex mb-2 items-center">
                 <label
                   htmlFor="subject"
@@ -194,18 +202,22 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                   ))}
                 </select>
                 {errors.subject && (
-                  <span className="absolute mt-10 ml-2 text-red-500">
+                  <span className="absolute mt-14 ml-2 text-red-500">
                     required
                   </span>
                 )}
               </div>
             </div>
-            <div className="flex flex-col">
+
+            <div className="flex flex-col font-opensans pt-5 gap-5">
+              <h3 className="text-2xl text-gray-850 dark:text-white font-roboto font-bold">
+                Do you have any questions about this product?
+              </h3>
               <label htmlFor="message" className="sr-only">
                 Leave us a message!
               </label>
               <textarea
-                rows={4}
+                rows={5}
                 placeholder="Hi, I'd like to inquire about how I can purchase this product!"
                 className="rounded-md bg-blue-150 border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
                 {...register("message", {
@@ -215,15 +227,15 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 })}
               />
               {errors.message && (
-                <span className="absolute mt-28 ml-2 text-red-500">
+                <span className="absolute mt-textareaRem ml-2 text-red-500">
                   required
                 </span>
               )}
             </div>
-            <h3 className="text-3xl mb-8">
+            <h3 className="text-2xl text-gray-850 dark:text-white font-roboto font-bold mb-8 pt-5">
               What is the best way for us to reach you?
             </h3>
-            <div className="flex flex-col justify-evenly gap-2 sm:flex-row">
+            <div className="flex flex-col justify-evenly gap-2 sm:flex-row font-opensans">
               <label htmlFor="email" className="sr-only">
                 Email
               </label>
