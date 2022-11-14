@@ -49,9 +49,9 @@ function Testimonials({
     <div className="py-28 bg-blue-550">
       <div className="relative max-w-5xl mx-auto mt-10">
         <div className="flex pb-12 flex-col items-center justify-center">
-          <h2 className="text-5xl font-roboto font-bold text-center text-white">
+          <h5 className="text-5xl font-roboto font-bold text-center text-white">
             Our clients love us!
-          </h2>
+          </h5>
           <p className="flex flex-col mx-auto mt-3 max-w-2xl text-xl font-roboto sm:mt-4 text-center text-green-350">
             Check out what they have to say!
           </p>

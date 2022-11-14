@@ -11,7 +11,7 @@ interface ServiceCardProps {
   imageUrl: string | null | undefined;
   name: string | null | undefined;
   description: string | null | undefined;
-  href?: string | undefined | null;
+  href: string | undefined | null;
 }
 
 function ServiceCard({ imageUrl, name, description, href }: ServiceCardProps) {
@@ -33,9 +33,9 @@ function ServiceCard({ imageUrl, name, description, href }: ServiceCardProps) {
           quality={100}
         />
         <div className="flex flex-col justify-between p-4 leading-normal">
-          <h5 className="mb-2 text-xl font-roboto font-bold tracking-tight text-gray-900 dark:text-white">
+          <h3 className="mb-2 text-xl font-roboto font-bold tracking-tight text-gray-900 dark:text-white">
             {name}
-          </h5>
+          </h3>
           <p className="mb-3 font-base font-roboto text-gray-850 dark:text-gray-400">
             {description}
           </p>

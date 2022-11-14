@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useForm as useFormSpree } from "@formspree/react";
 import Link from "next/link";
@@ -274,6 +274,4 @@ function ContactForm() {
   );
 }
 
-
-
-export default ContactForm
+export default ContactForm;

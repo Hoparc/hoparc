@@ -51,7 +51,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
             />
             <meta name="viewport" content="width=device-width" />
           </Head>
-          <section className="min-h-screen flex flex-col">
+          <section className="min-h-screen flex flex-col" id="contact">
             <Image
               src="/images/contact/contactBanner.png"
               alt="Banner image with colored striped shapes and an image of someone holding a phone the middle"
@@ -75,12 +75,11 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
                 <div className="flex flex-col gap-5 py-6 px-2">
                   <div className="flex flex-col">
                     <div className="flex flex-col items-center px-6 md:px-36 sm:px-10 md:pt-0 ">
-
                       <p className="font-roboto italic text-center text-blue-150 text-base mb-4">
-                        Feel free to fill in the form below or contact us directly with any questions you
-                        may have or with any scheduling inquiries. We keep your
-                        information private and will not share it with third
-                        parties.
+                        Feel free to fill in the form below or contact us
+                        directly with any questions you may have or with any
+                        scheduling inquiries. We keep your information private
+                        and will not share it with third parties.
                       </p>
                     </div>
                   </div>
