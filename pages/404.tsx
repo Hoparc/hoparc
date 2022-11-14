@@ -27,5 +27,11 @@ export const getStaticProps: GetStaticProps<Custom404Props> = async () => {
 };
 
 export default function Custom404() {
-  return <h1>404 - Page Not Found</h1>;
+  return (
+    <div className="min-h-screen flex flex-col">
+      <h1>404 - Page Not Found</h1>;
+    </div>
+  );
+  
+  
 }
