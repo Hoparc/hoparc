@@ -33,7 +33,7 @@ function Service({ service }: ServiceProps) {
       </Head>
       <section className="max-w-4xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen flex flex-col">
         <Link href="/services">
-          <span className="flex items-center mb-2 cursor-pointer text-black hover:text-green-350 ">
+          <span className="flex font-button text-xl items-center mb-2 cursor-pointer text-black dark:text-white hover:text-green-350 ">
             <HiChevronLeft
               className="block h-4 mr-2 mt-0.5"
               aria-hidden="true"
@@ -41,7 +41,7 @@ function Service({ service }: ServiceProps) {
             Back
           </span>
         </Link>
-        <div className="flex flex-col gap-6 sm:flex-row bg-slate-200 rounded-xl ">
+        <div className="flex flex-col gap-6 sm:flex-row bg-slate-200 dark:bg-slate-800 rounded-xl ">
           <div className="w-full min-h-[250px] relative self-center">
             <Image
               src={service?.image?.asset?.url ?? ""}
@@ -55,7 +55,7 @@ function Service({ service }: ServiceProps) {
             />
           </div>
           <div className="flex w-full flex-col mx-auto my-auto gap-4 p-6">
-            <h1 className="text-3xl text-center text-blue-550 font-extrabold tracking-tight">
+            <h1 className="text-3xl font-roboto text-center text-blue-550 dark:text-white font-extrabold tracking-tight">
               {service?.name}
             </h1>
 
@@ -70,14 +70,14 @@ function Service({ service }: ServiceProps) {
           </div>
         </div>
         {service?.detailsRaw && service?.detailsRaw?.length > 0 && (
-          <div className="mt-12 animate-fade-in-up">
+          <div className="mt-12 animate-fade-in-up font-roboto text-gray-850 dark:text-white">
             <PortableText
               value={service?.detailsRaw}
               components={{
                 block: {
                   normal: ({ children }) => {
                     return (
-                      <p className="font-light text-black mb-4">{children}</p>
+                      <p className="mb-4">{children}</p>
                     );
                   },
                 },

@@ -14,7 +14,7 @@ function Navbar() {
     <>
       <Disclosure
         as="nav"
-        className="bg-white shadow-lg w-full fixed top-0 z-10"
+        className="bg-white dark:bg-blue-550 shadow-lg w-full fixed top-0 z-10"
       >
         {({ open }) => (
           <>
@@ -22,7 +22,7 @@ function Navbar() {
               <div className="relative flex items-center justify-center w-full ">
                 {/* Mobile menu button */}
                 <div className="absolute inset-y-0 right-0 flex items-center lg:hidden  justify-self-start">
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-blue-350 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2 mr-4 rounded-md dark:text-white hover:text-blue-550 hover:bg-green-350 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <HiX className="block h-6 w-6" aria-hidden="true" />
@@ -40,21 +40,20 @@ function Navbar() {
                       <Image
                         src="/images/footer/logo.png"
                         alt="hoparc logo"
-                        width={85}
+                        width={100}
                         height={100}
+                        className="h-12 w-12 sm:h-16 sm:w-16 my-auto"
                       />
-
-                      <div className="flex flex-col justify-center pl-2 items-left">
-                        <h2 className="font-merriweather hidden font-bold text-xl flex-1 text-blue-350 capitalize mobile:block">
+                      {/* Logo Text */}
+                      <div className="flex flex-col justify-center pl-2 items-left my-auto">
+                        <h2 className="font-poppins hidden font-bold text-md sm:text-xl leading-4 sm:leading-5  text-blue-350 dark:text-white capitalize mobileSm:block">
                           hands on
                         </h2>
-                        <div className="">
-                          <h2 className="font-merriweather hidden font-bold text-xl	flex-1 text-blue-350 capitalize mobile:block">
-                            physiotherapy
-                          </h2>
-                        </div>
+                        <h2 className="font-poppins hidden font-bold text-md sm:text-xl leading-4 sm:leading-5  text-blue-350 dark:text-white capitalize mobileSm:block">
+                          physiotherapy
+                        </h2>
 
-                        <h3 className="font-merriweather hidden text-xs font-regular flex-1 text-green-350 uppercase mobile:block">
+                        <h3 className="font-roboto font-bold hidden text-tiny leading-3 sm:leading-4 text-green-350 uppercase mobileSm:block">
                           rehab centre - pelvic health
                         </h3>
                       </div>
@@ -67,7 +66,7 @@ function Navbar() {
                         <div key={item.id} className="flex">
                           <MenuLink
                             href={item.href}
-                            className="px-3 py-2 rounded-md font-inter text-sm text-blue-350 font-medium hover:underline hover:text-green-350"
+                            className="px-3 py-2 rounded-md font-inter text-sm text-blue-350 dark:text-white font-medium hover:underline hover:text-green-350"
                           >
                             {item.name}
                           </MenuLink>
@@ -87,14 +86,14 @@ function Navbar() {
               leaveTo="transform opacity-0 scale-95"
             >
               <Disclosure.Panel className="lg:hidden relative">
-                <div className="px-2 pt-2 pb-3 absolute bg-blue-350 text-blue-900 w-full">
+                <div className="pt-4 pb-4 absolute right-0 bg-white dark:bg-blue-550 text-blue-900 w-8/12 mobileXl:w-5/12 text-left rounded-bl-3xl   shadow-lg shadow-slate-700 dark:shadow-black">
                   {navigation.map((item) => (
                     <div key={item.id}>
                       <Disclosure.Button
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="bg-blue-350 text-white hover:bg-green-350 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                        className="text-blue-350 dark:text-white hover:bg-green-350 hover:text-blue-550 block mx-4 my-4 py-2 px-2 rounded-md text-base font-roboto font-regular"
                       >
                         {item.name}
                       </Disclosure.Button>
@@ -106,7 +105,8 @@ function Navbar() {
           </>
         )}
       </Disclosure>
-      <div className="h-5.8rem"></div>
+      {/* Nav Banner Fix */}
+      <div className="block w-full my-14 sm:my-16"></div>
     </>
   );
 }
