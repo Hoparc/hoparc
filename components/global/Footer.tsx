@@ -49,12 +49,8 @@ function Footer({ locations }: FooterProps) {
                     href="https://www.google.com/maps?ll=43.871323,-79.218709&z=13&t=m&hl=en-US&gl=US&mapclient=embed&cid=3757030601779132263"
                     aria-label="link to google maps location of Hands On Physiotherapy And Rehab Centre/Pelvic Health"
                   >
-                    <span>
-                      {location.address}
-                    </span>
-                    <span>
-                      {location.addresslinen}
-                    </span>
+                    <span>{location.address}</span>
+                    <span>{location.addresslinen}</span>
                   </a>
 
                   <p>
@@ -92,15 +88,13 @@ function Footer({ locations }: FooterProps) {
                     Store Hours
                   </h2>
                   <ul className="font-roboto text-slate-200 text-left">
-                    <div>
-                      <li>Sunday: {location.sunday}</li>
-                      <li>Monday: {location.monday}</li>
-                      <li>Tuesday: {location.tuesday}</li>
-                      <li>Wednesday: {location.wednesday}</li>
-                      <li>Thursday: {location.thursday}</li>
-                      <li>Friday: {location.friday}</li>
-                      <li>Saturday: {location.saturday}</li>
-                    </div>
+                    <li>Sunday: {location.sunday}</li>
+                    <li>Monday: {location.monday}</li>
+                    <li>Tuesday: {location.tuesday}</li>
+                    <li>Wednesday: {location.wednesday}</li>
+                    <li>Thursday: {location.thursday}</li>
+                    <li>Friday: {location.friday}</li>
+                    <li>Saturday: {location.saturday}</li>
                   </ul>
                 </div>
                 <div className="footer:flex flex-col text-left">

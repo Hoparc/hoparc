@@ -12,7 +12,7 @@ import {
   ProductQuery,
 } from "../../graphql-operations";
 
-import _Products from "../../components/modules/Products";
+import _Product from "../../components/modules/Product";
 
 export const getStaticPaths: GetStaticPaths<{
   slug: string;
@@ -69,6 +69,6 @@ export const getStaticProps: GetStaticProps<
   };
 };
 
-const Product = _Products;
+const Product = _Product;
 
 export default Product;

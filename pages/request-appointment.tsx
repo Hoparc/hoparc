@@ -151,7 +151,11 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
           </p>
         </div>
         <div className="bg-blue-350 py-4"></div>
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-white py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          id="request-appointment"
+          className="bg-white py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4"
+        >
           <h2 className="text-3xl">Let's get to know you</h2>
           <div className="flex flex-col space-y-6">
             <div className="grid grid-cols-1 space-y-6">
@@ -195,7 +199,9 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
 
             <div className="flex flex-col bg-slate-200 rounded-xl lg:flex-row lg:pl-4">
               <div className="flex flex-col flex-1 justify-around py-4 gap-4">
-                <h3 className="text-3xl mx-auto lg:mx-0">When would you like to come in?</h3>
+                <h3 className="text-3xl mx-auto lg:mx-0">
+                  When would you like to come in?
+                </h3>
                 {errors.ReactDatepicker && (
                   <span className="absolute mt-10 ml-2 text-red-500">
                     Please enter a date.
@@ -230,6 +236,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   </label>
                   <input
                     type="time"
+                    id="time"
                     className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-40"
                     {...register("time", { required: true, maxLength: 30 })}
                   />
@@ -237,14 +244,14 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               </div>
               <div className="flex-1 shadow-md rounded-xl h-full lg:h-full">
                 <iframe
+                  title="Google Maps"
                   style={{ width: "100%", borderRadius: "15px" }}
                   width="500"
                   height="400"
                   id="gmap_canvas"
                   src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   scrolling="no"
-                >
-                </iframe>
+                ></iframe>
               </div>
             </div>
             <h4 className="text-3xl">Which service would you like?</h4>
@@ -402,7 +409,8 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   message sent!
                 </p>
                 <p className="text-sm font-roboto text-blue-350 my-5 sm:text-lg">
-                  A member of our staff will get back to you as soon as possible!
+                  A member of our staff will get back to you as soon as
+                  possible!
                 </p>
                 <Link href="/">
                   <button className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
@@ -432,7 +440,6 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             </div>
           </Transition>
         )}
-
       </section>
     </>
   );
