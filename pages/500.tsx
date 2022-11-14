@@ -27,5 +27,9 @@ export const getStaticProps: GetStaticProps<Custom500Props> = async () => {
 };
 
 export default function Custom500() {
-  return <h1>500 - Server-side error occurred</h1>;
+  return (
+    <div className="min-h-screen flex flex-col">
+      <h1>500 - Server-side error occurred</h1>
+    </div>
+  );
 }
