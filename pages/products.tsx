@@ -87,7 +87,7 @@ const Products: NextPage<ProductsProps> = ({
         <meta name="viewport" content="width=device-width" />
       </Head>
 
-      <section className="min-h-screen">
+      <section className="min-h-screen" id="products">
         <Image
           src="/images/products/productBanner.png"
           alt=""

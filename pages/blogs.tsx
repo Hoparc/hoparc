@@ -83,7 +83,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <section className="min-h-screen">
+      <section className="min-h-screen" id="blogs">
         <Image
           src="/images/blog/blogBanner.png"
           alt="Banner image with colored striped shapes and an image of a book in the middle"

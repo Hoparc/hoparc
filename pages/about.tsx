@@ -96,7 +96,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
       </div>
       <section
         className="mx-auto my-12 max-w-screen-xl w-11/12 pt-2"
-        id="about-us"
+        id="about"
       >
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid w-full my-12 mx-auto place-items-center bg-cover bg-center bg-base-200">

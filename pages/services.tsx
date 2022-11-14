@@ -87,7 +87,7 @@ const Services: NextPage<ServicesProps> = ({
         <meta name="viewport" content="width=device-width" />
       </Head>
 
-      <section className="min-h-screen">
+      <section className="min-h-screen" id="services">
         <Image
           src="/images/ourServices/serviceBanner.png"
           alt=""
@@ -142,9 +142,7 @@ const Services: NextPage<ServicesProps> = ({
                           >
                             <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
                               <div className="py-3 px-3">
-                                <div className="font-bold">
-                                  {service.name}
-                                </div>
+                                <div className="font-bold">{service.name}</div>
                               </div>
                               <div className="h-[250px] relative">
                                 {service.image?.asset?.url && (
