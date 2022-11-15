@@ -62,7 +62,7 @@ const Contact: NextPage<ContactProps> = ({ locations }: ContactProps) => {
             />
             <div className="bg-blue-350 w-full">
               <div className="max-w-screen-xl m-auto w-11/12">
-                <h1 className="text-5xl text-left py-3 font-bold uppercase text-white">
+                <h1 className="text-3xl sm:text-5xl text-left py-3 font-bold uppercase text-white">
                   contact
                 </h1>
               </div>

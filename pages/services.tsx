@@ -98,7 +98,7 @@ const Services: NextPage<ServicesProps> = ({
         />
         <div className="bg-blue-350 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h1 className="text-5xl text-left p-3 font-bold uppercase text-white">
+            <h1 className="text-3xl sm:text-5xl text-left p-3 font-bold uppercase text-white">
               our services
             </h1>
           </div>
@@ -134,7 +134,7 @@ const Services: NextPage<ServicesProps> = ({
                   {filteredServices.map((service) => {
                     return (
                       <Fragment key={service.name}>
-                        <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
+                        <div className=" bg-blue-550 rounded-xl shadow-md  hover:bg-green-350 hover:shadow-lg">
                           <Link
                             key={service.slug?.current}
                             href={`/service/${service.slug?.current}`}

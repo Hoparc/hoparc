@@ -20,7 +20,7 @@ function Footer({ locations }: FooterProps) {
               {/* Logo */}
               <div className="flex flex-col flex-1 my-auto md:my-0 md:mx-auto">
                 <Link href="/">
-                  <div className="flex flex-row items-left justify-start my-1">
+                  <div className="flex flex-col md:flex-row items-left justify-start my-1">
                     <Image
                       src="/images/footer/logo.png"
                       alt="hoparc logo"
@@ -29,7 +29,7 @@ function Footer({ locations }: FooterProps) {
                       className=" h-20 w-20 my-auto"
                     />
                     {/* Logo Text */}
-                    <div className="flex flex-col justify-center pl-2 items-left my-auto">
+                    <div className="flex flex-col justify-center pl-0 md:pl-2 items-left my-auto">
                       <h2 className="font-poppins font-bold text-md text-2xl  leading-7  text-white capitalize ">
                         hands on
                       </h2>

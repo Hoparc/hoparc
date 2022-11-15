@@ -89,7 +89,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
       </Head>
       <div className="bg-blue-350 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
-          <h1 className="text-5xl text-center p-14 font-bold uppercase text-white">
+          <h1 className="text-4xl sm:text-7xl text-center p-14 font-bold uppercase text-white">
             about
           </h1>
         </div>
@@ -115,14 +115,14 @@ const AboutUs: NextPage<AboutUsProps> = ({
           </div>
         </div>
 
-        <h2 className="my-10 font-roboto font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+        <h2 className="my-10 font-roboto font-bold uppercase tracking-wide text-2xl sm:text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           Our Story
         </h2>
         <p className="my-10 text-xl font-roboto text-gray-850 dark:text-white">
           {story}
         </p>
 
-        <h3 className="my-10 font-roboto font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+        <h3 className="my-10 font-roboto font-bold uppercase tracking-wide text-2xl sm:text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           Our Purpose
         </h3>
 
@@ -131,7 +131,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
         </p>
         <div className="w-full bg-blue-550 flex py-10 rounded-3xl">
           <div className="max-w-screen-xl m-auto w-11/12 flex flex-col items-center gap-11">
-            <h2 className="capitalize text-white text-5xl font-roboto font-bold text-center">
+            <h2 className="capitalize text-white text-4xl sm:text-5xl font-roboto font-bold text-center">
               Our Values
             </h2>
             <div className="flex flex-col gap-6 lg:flex-row ">
@@ -187,13 +187,14 @@ const AboutUs: NextPage<AboutUsProps> = ({
           </div>
         </div>
 
-        <h3 className="my-10 font-bold uppercase tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+        <h3 className="my-10 font-bold uppercase tracking-wide text-2xl sm:text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           meet the staff
         </h3>
 
         {staffs.map((staff, index) => (
           <div className="my-8 flex w-full m-auto lg:w-3/4" key={index}>
-            <div className="flex flex-col shadow-lg shadow-slate-700 dark:shadow-none dark:border dark:border-gray-700 dark:bg-gray-800 bg-slate-200 rounded-xl w-full gap-4 sm:flex-row">
+            <div className="flex flex-col border
+        shadow-md dark:border dark:border-gray-700 dark:bg-gray-800 bg-slate-200 rounded-xl w-full gap-4 sm:flex-row">
               <div className="shrink-0 ">
                 <Image
                   className="w-full sm:w-64 m-auto rounded-r-xl rounded-b-none rounded-t-xl sm:rounded-r-none sm:rounded-l-xl"
@@ -219,7 +220,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
           </div>
         ))}
 
-        <h4 className="uppercase my-10 font-bold tracking-wide text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
+        <h4 className="uppercase my-10 font-bold tracking-wide text-2xl sm:text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
           We Accept
         </h4>
         <div className="grid grid-cols-1  mobileSm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">

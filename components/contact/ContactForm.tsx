@@ -48,7 +48,7 @@ function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="relative  rounded-b-xl bg-white dark:bg-gray-800 shadow-md px-6 py-6 h-full border border-1 border-slate-700"
+      className="relative  rounded-b-lg bg-white dark:bg-gray-800 shadow-md px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
     >
       <div className="flex flex-col-reverse gap-3 xl:flex-row">
         <form

@@ -53,55 +53,55 @@ interface OurServicesProps {
 function OurServices({ hasShowMore = false, services }: OurServicesProps) {
   const [showMore, setShowMore] = useState(!hasShowMore);
   return (
-        <div className="relative max-w-5xl mx-auto mt-10">
-          <div className="flex pb-12 flex-col items-center justify-center">
-            <h2 className="text-5xl font-roboto font-bold text-center text-blue-550 dark:text-white font-title">
-              Our Services
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-xl font-roboto sm:mt-4 text-center dark:text-gray-500">
-              Check out what we have in store!
-            </p>
-          </div>
+    <div className="relative max-w-5xl mx-auto mt-10">
+      <div className="flex pb-12 flex-col items-center justify-center">
+        <h2 className="text-3xl sm:text-5xl font-roboto font-bold text-center text-blue-550 dark:text-white font-title">
+          Our Services
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-md sm:text-xl font-roboto sm:mt-4 text-center dark:text-gray-500">
+          Check out what we have in store!
+        </p>
+      </div>
+      <div
+        className={cn({
+          ["max-h-[26.5rem]"]: !showMore,
+          ["overflow-hidden"]: !showMore,
+        })}
+      >
+        <div className="columns-1 md:columns-2">
+          {services?.map((service) => (
+            <ServiceCard
+              imageUrl={service.image?.asset?.url ?? ""}
+              name={service.name}
+              description={service.description}
+              href={service.slug?.current}
+              key={service.name}
+            />
+          ))}
+        </div>
+        {hasShowMore && (
           <div
-            className={cn({
-              ["max-h-[26.5rem]"]: !showMore,
-              ["overflow-hidden"]: !showMore,
+            className={cn("inset-x-0 flex justify-center absolute", {
+              ["bg-gradient-to-t bottom-0 pb-0 pointer-events-none from-slate-150"]:
+                !showMore,
             })}
           >
-            <div className="columns-1 md:columns-2">
-              {services?.map((service) => (
-                <ServiceCard
-                  imageUrl={service.image?.asset?.url ?? ""}
-                  name={service.name}
-                  description={service.description}
-                  href={service.slug?.current}
-                  key={service.name}
-                />
-              ))}
-            </div>
-            {hasShowMore && (
-              <div
-                className={cn("inset-x-0 flex justify-center absolute", {
-                  ["bg-gradient-to-t bottom-0 pb-0 pointer-events-none from-slate-150"]:
-                    !showMore,
-                })}
+            {!showMore && (
+              <button
+                type="button"
+                onClick={() => {
+                  setShowMore(!showMore);
+                }}
+                className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 font-button text-base text-white font-semibold h-12 px-6 mb-4 rounded-lg flex items-center bg-blue-550 hover:bg-green-350 hover:text-blue-550 pointer-events-auto w-1/2 justify-between"
               >
-                {!showMore && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowMore(!showMore);
-                    }}
-                    className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 font-button text-base text-white font-semibold h-12 px-6 mb-4 rounded-lg flex items-center bg-blue-550 hover:bg-green-350 hover:text-blue-550 pointer-events-auto w-1/2 justify-between"
-                  >
-                    More Services
-                    <span> + </span>
-                  </button>
-                )}
-              </div>
+                More Services
+                <span> + </span>
+              </button>
             )}
           </div>
-        </div>
+        )}
+      </div>
+    </div>
   );
 }
 
