@@ -177,15 +177,15 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               </div>
             </div>
 
-            <div className="flex flex-col bg-slate-200 dark:bg-gray-600 rounded-xl lg:flex-row lg:pl-4">
+            <div className="flex flex-col bg-gray-100 dark:bg-gray-600 rounded-xl lg:flex-row shadow-md">
               <div className="flex flex-col flex-1 justify-around py-4 gap-4">
-                <h3 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold mx-auto lg:mx-0">When would you like to come in?</h3>
+                <h3 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold mx-4">When would you like to come in?</h3>
                 {errors.ReactDatepicker && (
                   <span className="absolute mt-10 ml-2 text-red-500">
                     Please enter a date.
                   </span>
                 )}
-                <div className="pl-8 lg:pl-0">
+                <div className="pl-8 lg:pl-4">
                   <label htmlFor="date" className="flex-shrink-0 text-lg dark:text-white font-roboto font-bold">
                     Preferred Date
                   </label>
@@ -203,7 +203,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                     )}
                   />
                 </div>
-                <div className="flex flex-col w-full pl-8 lg:pl-0">
+                <div className="flex flex-col w-full pl-8 lg:pl-4">
                   {errors.time && (
                     <span className="absolute mt-timeRequiredRem ml-2 text-red-500">
                       required
@@ -219,15 +219,16 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   />
                 </div>
               </div>
-              <div className="flex-1 shadow-md rounded-xl h-full lg:h-full">
+              <div className="flex-none lg:flex-1 h-64 lg:h-96">
                 <iframe
                   title="Google Maps"
-                  style={{ width: "100%", borderRadius: "15px" }}
+                  style={{ width: "100%", height: "100%" }}
                   width="500"
-                  height="400"
+                  height="500"
                   id="gmap_canvas"
                   src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   scrolling="no"
+                  className=" rounded-bl-xl rounded-br-xl lg:rounded-r-xl lg:rounded-l-none shadow-md dark:shadow-none"
                 ></iframe>
               </div>
             </div>

@@ -70,7 +70,8 @@ module.exports = {
       margin:{
         "8.6rem": "8.6rem",
         "textareaRem": "11.7rem",
-        "timeRequiredRem": "4.3rem"
+        "timeRequiredRem": "4.3rem",
+        "subjectRem": "6.5rem"
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

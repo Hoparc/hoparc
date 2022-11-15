@@ -48,16 +48,18 @@ function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="relative  rounded-b-lg bg-white dark:bg-gray-800 shadow-md px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
+      className="relative  rounded-b-lg bg-white dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
     >
       <div className="flex flex-col-reverse gap-3 xl:flex-row">
         <form
           onSubmit={handleSubmit(onSubmit)}
           id="contact-form"
-          className="flex-1 w-full m-auto pt-4 xl:pt-0"
+          className="w-full flex-1 m-auto pt-4 xl:pt-0"
         >
-          <div className="flex flex-col space-y-11 w">
-            <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
+          <div className="flex flex-col space-y-8">
+            <h2 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold">Let's get to know you </h2>
+            <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
+
               <label htmlFor="firstName" className="sr-only">
                 First Name
               </label>
@@ -89,7 +91,7 @@ function ContactForm() {
                 />
               </div>
             </div>
-            <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
+            <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
               <div className="flex flex-col w-full">
                 <label htmlFor="email" className="sr-only">
                   Email
@@ -140,7 +142,8 @@ function ContactForm() {
               </div>
             </div>
 
-            <div className="flex">
+            <div className="flex flex-col gap-8">
+              <h2 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold">What can we help you with?</h2>
               <label htmlFor="subject" className="sr-only">
                 Subject
               </label>
@@ -155,12 +158,13 @@ function ContactForm() {
                 })}
               />
               {errors.subject && (
-                <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                <span className="absolute mt-subjectRem ml-2 text-red-500 uppercase">
                   required
                 </span>
               )}
             </div>
             <div className="flex flex-col">
+
               <label htmlFor="message" className="sr-only">
                 Leave us a message!
               </label>
@@ -191,16 +195,18 @@ function ContactForm() {
             </div>
           </div>
         </form>
-        <div className="flex-1 shadow-md rounded-b-2xl">
+        <div className="flex-none xl:flex-1 h-64 xl:h-auto ">
           <iframe
             title="Google Maps"
-            style={{ width: "100%", borderRadius: "15px" }}
+            style={{ width: "100%", height: "100%" }}
             width="500"
             height="500"
             id="gmap_canvas"
             src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
             scrolling="no"
-          ></iframe>
+            className="rounded-xl shadow-md dark:shadow-none"
+          >
+          </iframe>
         </div>
       </div>
       {formSpreeState.submitting && (
