@@ -53,7 +53,7 @@ interface OurServicesProps {
 function OurServices({ hasShowMore = false, services }: OurServicesProps) {
   const [showMore, setShowMore] = useState(!hasShowMore);
   return (
-    <div className="relative max-w-5xl mx-auto mt-10">
+    <div className="relative max-w-5xl mx-auto my-28">
       <div className="flex pb-12 flex-col items-center justify-center">
         <h2 className="text-3xl sm:text-5xl font-roboto font-bold text-center text-blue-550 dark:text-white font-title">
           Our Services

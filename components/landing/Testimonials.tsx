@@ -15,7 +15,7 @@ function TestimonialCard({ imageUrl, name, review }: TestimonialCardProps) {
   return (
     <>
       <figure className="group inline-flex p-6 mb-4 w-full relative flex-col-reverse bg-white highlight-white/5 rounded-lg shadow-md shadow-slate-300 dark:shadow-none dark:border dark:border-gray-700
-        dark:bg-gray-800 dark:hover:bg-gray-700">
+        dark:bg-gray-800">
         <figcaption className="flex items-center space-x-4">
           <div className="flex-auto ">
             <Image
