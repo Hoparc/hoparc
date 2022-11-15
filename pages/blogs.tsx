@@ -94,7 +94,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
         />
         <div className="bg-blue-350 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h1 className="text-5xl text-left p-3 font-bold uppercase text-white">
+            <h1 className="text-3xl sm:text-5xl text-left p-3 font-bold uppercase text-white">
               our blog
             </h1>
           </div>
@@ -130,7 +130,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                   {filteredBlogs.map((blog) => {
                     return (
                       <Fragment key={blog.title}>
-                        <div className=" bg-blue-550 rounded-lg shadow-md shadow-slate-400 hover:bg-green-350">
+                        <div className=" bg-blue-550 rounded-xl shadow-md  hover:bg-green-350 hover:shadow-lg">
                           <Link
                             key={blog.slug?.current}
                             href={`/blog/${blog.slug?.current}`}

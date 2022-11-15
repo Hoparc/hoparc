@@ -131,7 +131,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
           </h1>
         </div>
         <div className="bg-blue-350 py-4"></div>
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-white dark:bg-gray-800 border border-1 border-slate-700 py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="bg-white dark:bg-gray-800 dark:border dark:border-1 dark:border-slate-700 py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4">
           <h2 className="text-2xl text-gray-850 dark:text-white font-roboto font-bold">Let's get to know you</h2>
           <div className="flex flex-col space-y-6">
             <div className="grid grid-cols-1 space-y-6">

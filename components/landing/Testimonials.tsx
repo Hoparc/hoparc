@@ -21,7 +21,7 @@ function TestimonialCard({ imageUrl, name, review }: TestimonialCardProps) {
             <Image
               src={imageUrl ?? ""}
               alt={`Image of ${name}`}
-              className="flex-none rounded-full object-cover drop-shadow-md"
+              className="flex-none rounded-full object-cover drop-shadow-md h-24"
               loading="lazy"
               width={100}
               height={100}
@@ -49,10 +49,10 @@ function Testimonials({
     <div className="py-28 bg-blue-550">
       <div className="relative max-w-5xl mx-auto mt-10">
         <div className="flex pb-12 flex-col items-center justify-center">
-          <h5 className="text-5xl font-roboto font-bold text-center text-white">
+          <h5 className="text-3xl sm:text-5xl font-roboto font-bold text-center text-white">
             Our clients love us!
           </h5>
-          <p className="flex flex-col mx-auto mt-3 max-w-2xl text-xl font-roboto sm:mt-4 text-center text-green-350">
+          <p className="flex flex-col mx-auto mt-3 max-w-2xl text-md sm:text-xl font-roboto sm:mt-4 text-center text-green-350">
             Check out what they have to say!
           </p>
         </div>
