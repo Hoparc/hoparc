@@ -2,12 +2,15 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-import { AllBlogsQuery } from "../../../graphql-operations";
+import {
+  AllBlogCategoriesQuery,
+  AllBlogsQuery,
+} from "../../../graphql-operations";
 import { PortableText } from "@portabletext/react";
 
 import { format, parse } from "date-fns";
 
-import { HiChevronLeft } from "react-icons/hi";
+import { HiChevronRight } from "react-icons/hi";
 
 export type BlogProps = {
   blog: AllBlogsQuery["allBlog"][0] | undefined;
@@ -33,18 +36,33 @@ function Blog({ blog }: BlogProps) {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 min-h-screen flex flex-col">
-        <Link href="/blogs">
-          <span className="flex font-button text-xl items-center mb-2 cursor-pointer text-black dark:text-white hover:text-green-350">
-            <HiChevronLeft
-              className="block h-4 mr-2 mt-0.5"
-              aria-hidden="true"
-            />
-            Back
-          </span>
-        </Link>
-
-        <h1 className="my-6 ml-3 text-5xl text-blue-350 font-roboto font-bold tracking-tight">
+      <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-40 lg:px-40 py-20 sm:py-28 lg:py-28 min-h-screen flex flex-col">
+        <div className="flex flex-row items-center gap-8 flex-none self-stretch max-w-6xl h-6">
+          <Link href="/">
+            <span className="flex font-button text-xl mb-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550">
+              Home
+              <HiChevronRight
+                className="block h-4 mr-2 mt-0.5"
+                aria-hidden="true"
+              />
+            </span>
+          </Link>
+          <Link href="/blogs">
+            <span className="flex font-button text-xl mb-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
+              Our Blog
+              <HiChevronRight
+                className="block h-4 mr-2 mt-0.5"
+                aria-hidden="true"
+              />
+            </span>
+          </Link>
+          <Link href={blog?.slug?.current ?? ""}>
+            <span className="flex font-button text-xl self-stretch mb-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
+              {blog?.title}
+            </span>
+          </Link>
+        </div>
+        <h1 className="my-12 ml-3 font-monsterrat font-semibold text-4xl tracking-tight">
           {blog?.title}
         </h1>
         <div className="w-full">
@@ -53,18 +71,18 @@ function Blog({ blog }: BlogProps) {
             alt={`An image of ${blog?.title}`}
             width={400}
             height={400}
-            className="object-cover rounded-lg shadow-2xl"
+            className="object-cover rounded-lg shadow-2xl w-full h-56"
             priority
           />
         </div>
-        <div className="flex my-12 text-gray-850 dark:text-white font-roboto text-base">
-          <div className="ml-3">
-            <span className="text-xl">{format(date, "MMMM dd, yyyy")}</span>
-          </div>
+        <div className="flex flex-row items-center gap-6 w-11/12 my-12 text-gray-850 dark:text-white font-roboto text-base">
+          <span className="text-lg font-semibold">
+            {format(date, "MMMM dd, yyyy")}
+          </span>
         </div>
 
         {blog?.blogRaw && blog?.blogRaw?.length > 0 && (
-          <div className="mb-12 m-10 animate-fade-in-up text-gray-850 dark:text-white font-roboto text-base">
+          <div className="mb-12 animate-fade-in-up text-gray-850 dark:text-white font-roboto text-base">
             <PortableText
               value={blog?.blogRaw}
               components={{
