@@ -2,10 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-import {
-  AllBlogCategoriesQuery,
-  AllBlogsQuery,
-} from "../../../graphql-operations";
+import { AllBlogsQuery } from "../../../graphql-operations";
 import { PortableText } from "@portabletext/react";
 
 import { format, parse } from "date-fns";
@@ -62,7 +59,7 @@ function Blog({ blog }: BlogProps) {
             </span>
           </Link>
         </div>
-        <h1 className="my-12 ml-3 font-monsterrat font-semibold text-4xl tracking-tight">
+        <h1 className="my-12 font-monsterrat font-semibold text-4xl tracking-tight">
           {blog?.title}
         </h1>
         <div className="w-full">
