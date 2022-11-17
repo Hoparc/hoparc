@@ -2,11 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-import {
-  AllBlogCategoriesQuery,
-  AllBlogsQuery,
-  AllServicesQuery,
-} from "../../../graphql-operations";
+import { AllServicesQuery } from "../../../graphql-operations";
 import { PortableText } from "@portabletext/react";
 
 import { format, parse } from "date-fns";
@@ -32,7 +28,7 @@ function Blog({ service }: BlogProps) {
         />
         <meta
           name="keywords"
-          content="blogs, hands on physio therapy and rehab centre"
+          content="services, hands on physio therapy and rehab centre"
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
@@ -62,8 +58,8 @@ function Blog({ service }: BlogProps) {
             </span>
           </Link>
         </div>
-        <div className="flex justify-between my-12 ml-3 ">
-          <h1 className="font-monsterrat font-semibold text-4xl tracking-tight">
+        <div className="flex justify-between my-12">
+          <h1 className=" font-monsterrat font-semibold text-4xl tracking-tight">
             {service?.name}
           </h1>
           <Link
