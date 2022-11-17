@@ -38,7 +38,7 @@ function Blog({ blog }: BlogProps) {
       </Head>
       <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-40 lg:px-40 py-20 sm:py-28 lg:py-28 min-h-screen flex flex-col">
         <div className="flex flex-row items-center gap-8 flex-none self-stretch max-w-6xl h-6">
-          <Link href="/blogs">
+          <Link href="/">
             <span className="flex font-button text-xl mb-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550">
               Home
               <HiChevronRight
