@@ -107,10 +107,10 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
             <div className="col-span-12 lg:col-span-10">
-              <div className="flex flex-row justify-center">
+              <div className="flex flex-row md:flex-col justify-center">
                 <Link href="/blogs">
-                  <button className="hover:border-b-green-450 hover:border-b-4 block bg-white rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4 p-4 hover:text-white hover:bg-blue-550">
-                    All Categories
+                  <button className=" hover:border-b-green-450 hover:border-b-4 block bg-white rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-md tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-1 hover:text-white hover:bg-blue-550">
+                    All
                   </button>
                 </Link>
                 {categories?.map((category) => (
@@ -120,7 +120,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                   >
                     <button
                       className={cn(
-                        "hover:border-b-green-450 hover:border-b-4 block font-roboto bg-white rounded-t-xl text-gray-650 dark:text-white text-md leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-4 hover:text-white hover:bg-blue-550",
+                        "hover:border-b-green-450 hover:border-b-4 block font-roboto bg-white rounded-t-xl text-gray-650 dark:text-white text-md leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-1 hover:text-white hover:bg-blue-550",
                         { underline: activeCategory === category.slug?.current }
                       )}
                     >
