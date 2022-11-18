@@ -109,18 +109,18 @@ const Products: NextPage<ProductsProps> = ({
             <div className="col-span-12 lg:col-span-10">
               <div className="flex flex-row justify-center">
                 <Link href="/blogs">
-                  <button className="hover:border-b-green-450 hover:border-b-4 block bg-white rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4 p-4 hover:text-white hover:bg-blue-550">
-                    All Categories
+                  <button className="hover:border-b-green-450 hover:border-b-4 block bg-white rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-base md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4 p-4 hover:text-white hover:bg-blue-550">
+                    All
                   </button>
                 </Link>
                 {categories?.map((category) => (
                   <Link
                     key={category.slug?.current}
-                    href={`/blogs?category=${category?.slug?.current}`}
+                    href={`/products?category=${category?.slug?.current}`}
                   >
                     <button
                       className={cn(
-                        "hover:border-b-green-450 hover:border-b-4 block font-roboto bg-white rounded-t-xl text-gray-650 dark:text-white text-md leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-4 hover:text-white hover:bg-blue-550",
+                        "hover:border-b-green-450 hover:border-b-4 block font-roboto bg-white rounded-t-xl text-gray-650 dark:text-white text-base md:text-lg leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-4 hover:text-white hover:bg-blue-550",
                         { underline: activeCategory === category.slug?.current }
                       )}
                     >
@@ -156,7 +156,7 @@ const Products: NextPage<ProductsProps> = ({
                               </h2>
                               <Link
                                 key={product.slug?.current}
-                                href={`/blog/${product.slug?.current}`}
+                                href={`/product/${product.slug?.current}`}
                                 className="text-md font-semibold text-blue-450 hover:text-blue-550 inline-flex items-center space-x-1 md:space-x-3"
                               >
                                 Learn More
