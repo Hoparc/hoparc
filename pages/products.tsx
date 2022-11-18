@@ -18,6 +18,7 @@ import {
 } from ".././graphql-operations";
 
 import cn from "clsx";
+import { HiArrowRight } from "react-icons/hi";
 
 type ProductsProps = {
   products: AllProductsQuery["allProduct"];
@@ -63,10 +64,10 @@ const Products: NextPage<ProductsProps> = ({
   const filteredProducts = useMemo(() => {
     return activeCategory
       ? products.filter((product) =>
-        product.category?.some(
-          (category) => category?.slug?.current === activeCategory
+          product.category?.some(
+            (category) => category?.slug?.current === activeCategory
+          )
         )
-      )
       : products;
   }, [activeCategory, products]);
 
@@ -89,8 +90,8 @@ const Products: NextPage<ProductsProps> = ({
 
       <section className="min-h-screen" id="products">
         <Image
-          src="/images/products/productBanner.png"
-          alt=""
+          src="/images/blog/blogBanner.png"
+          alt="Banner image with colored striped shapes and an image of a book in the middle"
           height={423}
           width={2560}
           className="object-cover object-center max-h-64 w-full"
@@ -98,75 +99,78 @@ const Products: NextPage<ProductsProps> = ({
         />
         <div className="bg-blue-350 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h1 className="text-3xl sm:text-5xl text-left p-3 font-bold uppercase text-white">
-              our products
+            <h1 className="text-3xl sm:text-5xl text-center p-3 font-bold uppercase text-white">
+              Our Products
             </h1>
           </div>
         </div>
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
-            <div className="col-span-8 lg:col-span-2">
-              <Link href="/products">
-                <button className="block font-roboto text-black dark:text-white leading-5 text-accent-4 text-lg no-underline font-bold tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4 p-2 rounded-md hover:text-green-350 hover:bg-blue-550">
-                  All Categories
-                </button>
-              </Link>
-              {categories?.map((category) => (
-                <Link
-                  key={category.slug?.current}
-                  href={`/products?category=${category?.slug?.current}`}
-                >
-                  <button
-                    className={cn(
-                      "block font-roboto text-gray-850 dark:text-white text-md leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-2 p-2 rounded-md hover:text-green-350 hover:bg-blue-550",
-                      { underline: activeCategory === category.slug?.current }
-                    )}
-                  >
-                    {category.name}
+            <div className="col-span-12 lg:col-span-10">
+              <div className="flex flex-row justify-center">
+                <Link href="/blogs">
+                  <button className="hover:border-b-green-450 hover:border-b-4 block bg-white rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-4 p-4 hover:text-white hover:bg-blue-550">
+                    All Categories
                   </button>
                 </Link>
-              ))}
-            </div>
-
-            <div className="col-span-12 lg:col-span-10">
+                {categories?.map((category) => (
+                  <Link
+                    key={category.slug?.current}
+                    href={`/blogs?category=${category?.slug?.current}`}
+                  >
+                    <button
+                      className={cn(
+                        "hover:border-b-green-450 hover:border-b-4 block font-roboto bg-white rounded-t-xl text-gray-650 dark:text-white text-md leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-4 hover:text-white hover:bg-blue-550",
+                        { underline: activeCategory === category.slug?.current }
+                      )}
+                    >
+                      {category.name}
+                    </button>
+                  </Link>
+                ))}
+              </div>
               {filteredProducts.length > 0 ? (
-                <div className="columns-1 gap-x-4 md:columns-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 columns-1 gap-8 md:columns-2 xl:columns-2">
                   {filteredProducts.map((product) => {
                     return (
                       <Fragment key={product.name}>
-                        <div className=" bg-blue-550 rounded-xl shadow-md  hover:bg-green-350 hover:shadow-lg">
-                          <Link
-                            key={product.slug?.current}
-                            href={`/product/${product.slug?.current}`}
-                            className="text-white hover:text-blue-550 "
-                          >
-                            <div className="mb-4 relative cursor-pointer rounded-lg overflow-hidden">
-                              <div className="py-3 px-3">
-                                <div className="font-bold">{product.name}</div>
-                              </div>
-                              <div className="h-[250px] relative">
-                                {product.image?.asset?.url && (
-                                  <Image
-                                    src={product?.image?.asset?.url}
-                                    alt={`Image for ${product.name}`}
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 768px) 100vw,
+                        <div className=" bg-white rounded-xl shadow-md  hover:shadow-lg">
+                          <div className="mb-1 relative rounded-lg overflow-hidden">
+                            <div className="h-[250px] relative">
+                              {product.image?.asset?.url && (
+                                <Image
+                                  src={product.image.asset.url}
+                                  alt={`Image for ${product.name}`}
+                                  fill
+                                  className="object-cover"
+                                  sizes="(max-width: 768px) 100vw,
                                   (max-width: 1200px) 50vw,
                                   33vw"
-                                    priority
-                                  />
-                                )}
-                              </div>
+                                  priority
+                                />
+                              )}
                             </div>
-                          </Link>
+                            <div className="py-4 px-4 gap-y-4 flex flex-col items-start justify-between">
+                              <h2 className="font-bold text-xl">
+                                {product.name}
+                              </h2>
+                              <Link
+                                key={product.slug?.current}
+                                href={`/blog/${product.slug?.current}`}
+                                className="text-md font-semibold text-blue-450 hover:text-blue-550 inline-flex items-center space-x-1 md:space-x-3"
+                              >
+                                Learn More
+                                <HiArrowRight className="inline w-4 h-4 ml-2 text-blue-450" />
+                              </Link>
+                            </div>
+                          </div>
                         </div>
                       </Fragment>
                     );
                   })}
                 </div>
               ) : (
-                <div className="text-sm">No products found.</div>
+                <div className="text-sm">No blogs found.</div>
               )}
             </div>
           </div>
