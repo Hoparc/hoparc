@@ -63,7 +63,8 @@ module.exports = {
         "90vh": "90vh",
         "34rem": "44rem",
         "200px": "200px",
-        "850px": "850px",
+        "550px": "34.375 rem",
+        "850px": "850px"
       },
       minHeight: {
         "25vh": "25vh",
@@ -83,6 +84,7 @@ module.exports = {
       },
       width: {
         "95%": "95%",
+        "550px": "34.375 rem"
       },
       margin: {
         "8.6rem": "8.6rem",
