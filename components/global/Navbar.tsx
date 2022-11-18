@@ -33,7 +33,7 @@ function Navbar() {
                 </div>
 
                 {/* Main */}
-                <div className=" flex items-center flex-grow w-full mx-8 xl:mx-28 my-3 lg:my-5 lg:justify-evenly">
+                <div className=" flex items-center flex-grow w-full mx-8 xl:mx-28 my-2 sm:my-3 lg:my-5 lg:justify-evenly">
                   {/* Logo */}
                   <Link href="/">
                     <div className="flex flex-row items-left justify-start lg:self-start">
@@ -42,7 +42,7 @@ function Navbar() {
                         alt="hoparc logo"
                         width={100}
                         height={100}
-                        className="h-16 w-16 lg:h-20 lg:w-20 my-auto"
+                        className="h-12 w-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20 my-auto"
                       />
                       {/* Logo Text */}
                       <div className="flex flex-col justify-center pl-2 items-left my-auto">
@@ -108,7 +108,7 @@ function Navbar() {
         )}
       </Disclosure>
       {/* Nav Banner Fix */}
-      <div className="block w-full py-11 lg:py-navRem"></div>
+      <div className="block w-full py-8 sm:py-11 lg:py-navRem"></div>
     </>
   );
 }
