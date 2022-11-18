@@ -7,8 +7,6 @@ import { PortableText } from "@portabletext/react";
 
 import { format, parse } from "date-fns";
 
-import { HiChevronRight } from "react-icons/hi";
-
 export type BlogProps = {
   service: AllServicesQuery["allService"][0] | undefined;
 };
@@ -33,38 +31,74 @@ function Blog({ service }: BlogProps) {
         <meta name="viewport" content="width=device-width" />
       </Head>
       <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-40 lg:px-40 py-20 sm:py-28 lg:py-28 min-h-screen flex flex-col">
-        <div className="flex flex-row items-center gap-8 flex-none self-stretch max-w-6xl h-6">
-          <Link href="/">
-            <span className="flex font-button text-xl mb-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550">
-              Home
-              <HiChevronRight
-                className="block h-4 mr-2 mt-0.5"
-                aria-hidden="true"
-              />
-            </span>
-          </Link>
-          <Link href="/services">
-            <span className="flex font-button text-xl mb-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
-              Services
-              <HiChevronRight
-                className="block h-4 mr-2 mt-0.5"
-                aria-hidden="true"
-              />
-            </span>
-          </Link>
-          <Link href={service?.slug?.current ?? ""}>
-            <span className="flex font-button text-xl self-stretch mb-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
-              {service?.name}
-            </span>
-          </Link>
-        </div>
-        <div className="flex justify-between my-12">
-          <h1 className=" font-monsterrat font-semibold text-4xl tracking-tight">
+        <nav className="flex" aria-label="Breadcrumb">
+          <ol className="inline-flex items-center space-x-1 md:space-x-3">
+            <li className="inline-flex items-center">
+              <Link
+                href="/"
+                className="inline-flex items-center text-lg font-medium md:ml-2 dark:hover:text-white  cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+              >
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                </svg>
+                Home
+              </Link>
+            </li>
+            <li>
+              <div className="flex items-center">
+                <svg
+                  className="w-6 h-6 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <Link
+                  href="/services"
+                  className="ml-1 text-lg font-medium md:ml-2 dark:hover:text-white cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                >
+                  Services
+                </Link>
+              </div>
+            </li>
+            <li aria-current="page">
+              <div className="flex items-center">
+                <svg
+                  className="w-6 h-6 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <span className="ml-1 text-lg font-medium md:ml-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
+                  {service?.name}
+                </span>
+              </div>
+            </li>
+          </ol>
+        </nav>
+        <div className="flex flex-col md:flex-row items-start justify-between my-12 gap-y-4">
+          <h1 className="font-monsterrat font-semibold text-4xl tracking-tight">
             {service?.name}
           </h1>
           <Link
             href="/request-appointment"
-            className="px-6 py-2 bg-blue-750 text-white rounded-lg hover:bg-blue-450"
+            className="px-5 py-3 bg-blue-750 text-white rounded-lg hover:bg-blue-450"
           >
             Request Appointment
           </Link>
