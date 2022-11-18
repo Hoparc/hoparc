@@ -57,18 +57,22 @@ function ContactForm() {
           className="w-full flex-1 m-auto pt-4 xl:pt-0"
         >
           <div className="flex flex-col space-y-8">
-            <h2 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold">Let's get to know you </h2>
+            <h2 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+              Let's get to know you{" "}
+            </h2>
             <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
-
-              <label htmlFor="firstName" className="sr-only">
-                First Name
-              </label>
               <div className="flex flex-col w-full">
                 {errors.firstName && (
                   <span className="absolute mt-10 ml-2 text-red-500 uppercase">
                     required
                   </span>
                 )}
+                <label
+                  htmlFor="firstName"
+                  className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                >
+                  First Name
+                </label>
                 <input
                   placeholder="First Name"
                   className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
@@ -76,14 +80,17 @@ function ContactForm() {
                 />
               </div>
               <div className="flex flex-col w-full">
-                <label htmlFor="lastName" className="sr-only">
-                  Last Name
-                </label>
                 {errors.lastName && (
                   <span className="absolute mt-10 ml-2 text-red-500 uppercase">
                     required
                   </span>
                 )}
+                <label
+                  htmlFor="lastName"
+                  className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                >
+                  Last Name
+                </label>
                 <input
                   placeholder="Last Name"
                   className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
@@ -93,14 +100,17 @@ function ContactForm() {
             </div>
             <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
               <div className="flex flex-col w-full">
-                <label htmlFor="email" className="sr-only">
-                  Email
-                </label>
                 {errors.email && (
                   <span className="absolute mt-10 ml-2 text-red-500 uppercase">
                     required
                   </span>
                 )}
+                <label
+                  htmlFor="email"
+                  className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                >
+                  Email
+                </label>
                 <input
                   type="text"
                   placeholder="Email"
@@ -116,12 +126,17 @@ function ContactForm() {
               </div>
 
               <div className="flex flex-col w-full text-left">
-                <label htmlFor="phone"></label>
                 {errors.phone && (
                   <span className="absolute mt-10 ml-2 text-red-500 uppercase">
                     Provide valid number
                   </span>
                 )}
+                <label
+                  htmlFor="phone"
+                  className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                >
+                  Phone Number
+                </label>
                 <Controller
                   name="phone"
                   control={control}
@@ -143,8 +158,13 @@ function ContactForm() {
             </div>
 
             <div className="flex flex-col gap-8">
-              <h2 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold">What can we help you with?</h2>
-              <label htmlFor="subject" className="sr-only">
+              <h3 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+                What can we help you with?
+              </h3>
+              <label
+                htmlFor="subject"
+                className="block text-sm text-gray-900 dark:text-white"
+              >
                 Subject
               </label>
               <input
@@ -164,13 +184,15 @@ function ContactForm() {
               )}
             </div>
             <div className="flex flex-col">
-
-              <label htmlFor="message" className="sr-only">
-                Leave us a message!
+              <label
+                htmlFor="message"
+                className="mb-4 block text-sm text-gray-900 dark:text-white"
+              >
+                Message
               </label>
               <textarea
                 rows={5}
-                placeholder="Hi, I'd like to make an inquiry!"
+                placeholder="Message"
                 className="rounded-md bg-blue-150 border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350  resize-none"
                 {...register("message", {
                   required: true,
@@ -187,10 +209,10 @@ function ContactForm() {
             <div className="flex">
               <button
                 type="submit"
-                value="send"
-                className="rounded-lg bg-blue-550 text-sm px-14 py-4 font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550  cursor-pointer "
+                value="Send"
+                className="w-full rounded-md bg-blue-650 px-14 py-4 mt-4 text-sm font-roboto bold uppercase text-white hover:bg-blue-750 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
-                Send
+                Submit
               </button>
             </div>
           </div>
@@ -205,8 +227,7 @@ function ContactForm() {
             src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
             scrolling="no"
             className="rounded-xl shadow-md dark:shadow-none"
-          >
-          </iframe>
+          ></iframe>
         </div>
       </div>
       {formSpreeState.submitting && (
