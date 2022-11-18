@@ -61,6 +61,8 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
 }: ProductInquiryProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
   const [userChoice, setUserChoice] = useState("");
+  const [checkedPhone, setCheckedPhone] = useState(false);
+  const [checkedEmail, setCheckedEmail] = useState(false);
 
   const {
     register,
@@ -92,6 +94,14 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
     target: { value: SetStateAction<string> };
   }) => {
     setUserChoice(e.target.value);
+  };
+
+  const handleUserPreferredPhone = () => {
+    setCheckedPhone(!checkedPhone);
+  };
+
+  const handleUserPreferredEmail = () => {
+    setCheckedEmail(!checkedEmail);
   };
 
   return (
@@ -127,17 +137,20 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
         </div>
         <div className="flex p-8 flex-col items-center justify-center bg-blue-550 rounded-t-xl">
           <h1 className="my-5 text-3xl sm:text-5xl tracking-tight text-center font-roboto font-bold uppercase text-white px-4 bg-clip-text ">
-            We strive to put your <strong className="text-green-350">care</strong> first
+            We strive to put your{" "}
+            <strong className="text-green-350">care</strong> first
           </h1>
         </div>
         <div className="bg-blue-350 py-4"></div>
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-white dark:bg-gray-800 dark:border dark:border-1 dark:border-slate-700 py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4">
-          <h2 className="text-2xl text-gray-850 dark:text-white font-roboto font-bold">Let's get to know you</h2>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-white dark:bg-gray-800 dark:border dark:border-1 dark:border-slate-700 py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4"
+        >
+          <h2 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+            Let's get to know you
+          </h2>
           <div className="flex flex-col space-y-6">
-            <div className="grid grid-cols-1 space-y-6">
-              <label htmlFor="firstName" className="sr-only">
-                First Name
-              </label>
+            <div className="grid grid-cols-1 space-y-3">
               <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.firstName && (
@@ -145,6 +158,12 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                       required
                     </span>
                   )}
+                  <label
+                    htmlFor="firstName"
+                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  >
+                    Legal First Name
+                  </label>
                   <input
                     placeholder="First Name"
                     className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0 font-opensans"
@@ -155,33 +174,121 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                   />
                 </div>
 
-                <label htmlFor="lastName" className="sr-only">
-                  Last Name
-                </label>
                 <div className="flex flex-col w-full">
                   {errors.lastName && (
                     <span className="absolute mt-10 ml-2 text-red-500">
                       required
                     </span>
                   )}
+                  <label
+                    htmlFor="lastName"
+                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  >
+                    Legal Last Name
+                  </label>
                   <input
                     placeholder="Last Name"
-                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full font-opensans"
+                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0 font-opensans"
                     {...register("lastName", { required: true, maxLength: 30 })}
                   />
                 </div>
               </div>
             </div>
-            <h2 className="pt-5 text-2xl text-gray-850 dark:text-white font-roboto font-bold">
+
+            <div className="flex flex-col justify-evenly gap-2 sm:flex-row font-opensans">
+              <div className="flex flex-col w-full">
+                {errors.email && (
+                  <span className="absolute mt-10 ml-2 text-red-500">
+                    required
+                  </span>
+                )}
+                <label
+                  htmlFor="email"
+                  className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                >
+                  Email
+                </label>
+                <input
+                  type="text"
+                  placeholder="Email"
+                  className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                      message: "Please enter a valid email",
+                    },
+                  })}
+                />
+              </div>
+              <div className="flex flex-col w-full text-left">
+                {errors.phone && (
+                  <span className="absolute mt-10 ml-2 text-red-500">
+                    Provide valid number
+                  </span>
+                )}
+                <label
+                  htmlFor="phone"
+                  className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                >
+                  Phone
+                </label>
+                <Controller
+                  name="phone"
+                  control={control}
+                  rules={{
+                    validate: (value) => isValidPhoneNumber(value),
+                  }}
+                  render={({ field: { onChange, value } }) => (
+                    <PhoneInput
+                      className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                      placeholder="Phone Number"
+                      value={value}
+                      onChange={onChange}
+                      defaultCountry="CA"
+                      id="phone-input"
+                    />
+                  )}
+                />
+              </div>
+            </div>
+            <p className="text-xl">What is your preferred method of contact?</p>
+            <div className="flex flex-col gap-4">
+              <label
+                htmlFor="phone"
+                className="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300"
+              >
+                <input
+                  className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  type="checkbox"
+                  checked={checkedPhone}
+                  onChange={handleUserPreferredPhone}
+                />{" "}
+                Phone
+              </label>
+              <label
+                htmlFor="email"
+                className="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300"
+              >
+                <input
+                  className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  type="checkbox"
+                  checked={checkedEmail}
+                  onChange={handleUserPreferredEmail}
+                />{" "}
+                Email
+              </label>
+            </div>
+            <h3 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
               Which product would you like to purchase?
-            </h2>
+            </h3>
             <div className="flex-1 font-opensans">
-              <div className="flex mb-2 items-center">
+              <div className="flex flex-col mb-2 items-start">
                 <label
                   htmlFor="subject"
-                  className="text-gray-200 font-semibold flex-shrink-0 text-xl sr-only"
+                  className="text-black font-semibold flex-shrink-0 text-md mb-2"
                 >
-                  Subject
+                  Select Product
                 </label>
                 <select
                   placeholder="Subject"
@@ -210,15 +317,13 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
             </div>
 
             <div className="flex flex-col font-opensans pt-5 gap-5">
-              <h3 className="text-2xl text-gray-850 dark:text-white font-roboto font-bold">
-                Do you have any questions about this product?
+              <h3 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+                Have any questions for us?
               </h3>
-              <label htmlFor="message" className="sr-only">
-                Leave us a message!
-              </label>
+              <label htmlFor="message">Message</label>
               <textarea
                 rows={5}
-                placeholder="Hi, I'd like to inquire about how I can purchase this product!"
+                placeholder="Message"
                 className="rounded-md bg-blue-150 border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
                 {...register("message", {
                   required: true,
@@ -232,65 +337,14 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 </span>
               )}
             </div>
-            <h3 className="text-2xl text-gray-850 dark:text-white font-roboto font-bold mb-8 pt-5">
-              What is the best way for us to reach you?
-            </h3>
-            <div className="flex flex-col justify-evenly gap-2 sm:flex-row font-opensans">
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
-              <div className="flex flex-col w-full">
-                {errors.email && (
-                  <span className="absolute mt-10 ml-2 text-red-500">
-                    required
-                  </span>
-                )}
-                <input
-                  type="text"
-                  placeholder="Email"
-                  className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
-                  {...register("email", {
-                    required: "Email is required",
-                    pattern: {
-                      value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                      message: "Please enter a valid email",
-                    },
-                  })}
-                />
-              </div>
-              <label htmlFor="phone"></label>
-              <div className="flex flex-col w-full text-left">
-                {errors.phone && (
-                  <span className="absolute mt-10 ml-2 text-red-500">
-                    Provide valid number
-                  </span>
-                )}
-                <Controller
-                  name="phone"
-                  control={control}
-                  rules={{
-                    validate: (value) => isValidPhoneNumber(value),
-                  }}
-                  render={({ field: { onChange, value } }) => (
-                    <PhoneInput
-                      className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
-                      placeholder="Phone Number"
-                      value={value}
-                      onChange={onChange}
-                      defaultCountry="CA"
-                      id="phone-input"
-                    />
-                  )}
-                />
-              </div>
-            </div>
+
             <div className="flex ">
               <button
                 type="submit"
                 value="Send"
-                className="rounded-md bg-blue-550 px-14 py-4 mt-4 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                className="w-full rounded-md bg-blue-650 px-14 py-4 mt-4 text-sm font-roboto bold uppercase text-white hover:bg-blue-750 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
-                Send
+                Submit
               </button>
             </div>
           </div>
