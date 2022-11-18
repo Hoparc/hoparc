@@ -6,22 +6,22 @@ module.exports = {
   ],
   theme: {
     letterSpacing: {
-      "tightestSm": "-0.006em"
+      tightestSm: "-0.006em",
     },
     dropShadow: {
-    "navShadow": "0px 4px 4px rgba(0, 0, 0, 0.25)"
+      navShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
     },
     extend: {
       fontSize: {
-        "tiny": "0.6rem",
-        "smaller": "0.67rem",
-        "4.5xl": "2.48rem"
+        tiny: "0.6rem",
+        smaller: "0.67rem",
+        "4.5xl": "2.48rem",
       },
       translate: {
         minus50: "-50%",
       },
       screens: {
-        "hero": "1600px",
+        hero: "1600px",
         "2lg": "1385px",
         footer: "948px",
         mobileXl: "600px",
@@ -42,8 +42,10 @@ module.exports = {
         },
         green: {
           350: "#96CA5B",
+          450: "#96CA5B",
         },
         gray: {
+          650: "#616D92",
           750: "#616D92",
           850: "#323847",
         },
@@ -80,12 +82,12 @@ module.exports = {
       },
       margin: {
         "8.6rem": "8.6rem",
-        "textareaRem": "11.7rem",
-        "timeRequiredRem": "4.3rem",
-        "subjectRem": "6.5rem",
+        textareaRem: "11.7rem",
+        timeRequiredRem: "4.3rem",
+        subjectRem: "6.5rem",
       },
-      padding:{
-        "navRem": "3.75rem"
+      padding: {
+        navRem: "3.75rem",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
@@ -98,5 +100,5 @@ module.exports = {
       },
     },
   },
-  plugins: []
+  plugins: [],
 };
