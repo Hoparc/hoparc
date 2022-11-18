@@ -87,21 +87,40 @@ const AboutUs: NextPage<AboutUsProps> = ({
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
-      <div className="bg-blue-350 w-full">
+      <Image
+        src="/images/about/aboutBanner.png"
+        alt=""
+        height={423}
+        width={2560}
+        className="object-cover object-center max-h-64 w-full"
+        priority
+      />
+      <div className="bg-blue-550 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
-          <h1 className="text-4xl sm:text-7xl text-center p-14 font-bold uppercase text-white">
+          <h1 className="text-3xl sm:text-5xl text-center p-3 font-bold uppercase text-white">
             about
           </h1>
         </div>
       </div>
       <section
-        className="mx-auto my-12 max-w-screen-xl w-11/12 pt-2"
         id="about"
       >
-        <div className="max-w-screen-xl m-auto w-11/12 ">
-          <div className="grid w-full my-12 mx-auto place-items-center bg-cover bg-center bg-base-200">
-            <div className="z-0 flex items-center justify-center max-w-7xl gap-6 flex-col ">
-              <div className="m-auto">
+        {/* Start of Wrapper Div */}
+        <div className="max-w-screen-xl w-11/12 mx-auto">
+
+          {/* Purpose & Story Container */}
+          <div className="flex gap-8 py-32 flex-col md:flex-row">
+
+            {/* Our Story Container */}
+            <div className="flex flex-col flex-1 justify-evenly">
+
+              <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-gray-850 dark:text-blue-350">
+                Our Story
+              </h2>
+              <p className="mt-4 text-xl font-roboto text-gray-850 dark:text-white">
+                {story}
+              </p>
+              <div className="w-full mt-10">
                 <Image
                   src={url ?? ""}
                   className="rounded-lg shadow-2xl w-full"
@@ -112,137 +131,176 @@ const AboutUs: NextPage<AboutUsProps> = ({
                 />
               </div>
             </div>
+            {/* End of Our Story Container */}
+
+            {/* Our Purpose Container */}
+            <div className="flex flex-col flex-1 justify-evenly">
+
+              <div className="flex flex-col-reverse md:flex-col">
+                <div className="w-full mt-10 md:mb-10">
+                  <Image
+                    src="/images/about/greg-rakozy-oMpAz-DN-9I-unsplash.jpg"
+                    className="rounded-lg shadow-2xl w-full"
+                    alt="image"
+                    height={500}
+                    width={1000}
+                    priority
+                  />
+                </div>
+
+                <div>
+                  <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-gray-850 dark:text-blue-350">
+                    Our Purpose
+                  </h2>
+                  <p className="mt-4 text-xl font-roboto text-gray-850 dark:text-white">
+                    {purpose}
+                  </p>
+                </div>
+              </div>
+
+            </div>
+            {/* End of Our Story Container */}
+
           </div>
+          {/* End of Story & Purpose Container */}
+
+          {/* End of Wrapper Div */}
         </div>
 
-        <h2 className="my-10 font-roboto font-bold uppercase tracking-wide text-2xl sm:text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
-          Our Story
-        </h2>
-        <p className="my-10 text-xl font-roboto text-gray-850 dark:text-white">
-          {story}
-        </p>
-
-        <h3 className="my-10 font-roboto font-bold uppercase tracking-wide text-2xl sm:text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
-          Our Purpose
-        </h3>
-
-        <p className="my-4 text-xl font-roboto text-gray-850 dark:text-white">
-          {purpose}
-        </p>
-        <div className="w-full bg-blue-550 flex py-10 rounded-3xl">
-          <div className="max-w-screen-xl m-auto w-11/12 flex flex-col items-center gap-11">
+        {/* Start of Our Values Container */}
+        <div className="w-full bg-blue-550 flex py-36 ">
+          <div className="max-w-screen-xl m-auto w-10/12 flex flex-col items-center gap-20">
             <h2 className="capitalize text-white text-4xl sm:text-5xl font-roboto font-bold text-center">
               Our Values
             </h2>
-            <div className="flex flex-col gap-6 lg:flex-row ">
+            <div className="flex flex-col w-full justify-evenly md:flex-row ">
               <div className="flex flex-col items-center gap-4">
                 <Image
                   src="/images/about/customerServiceIcon.webp"
-                  className="max-w-xl bg-white rounded-3xl"
+                  className="max-w-xl bg-white rounded-xl"
                   alt="Icon for customer service with a headset"
-                  height={120}
-                  width={120}
+                  height={60}
+                  width={60}
                 />
-                <h3 className="capitalize text-white font-roboto text-2xl text-center">
+                <h3 className="capitalize text-white font-roboto text-xl text-center">
                   Service
                 </h3>
               </div>
               <div className="flex flex-col items-center gap-4">
                 <Image
                   src="/images/about/developmentIcon.webp"
-                  className="max-w-xl bg-white rounded-3xl"
+                  className="max-w-xl bg-white rounded-xl"
                   alt="Icon for development representing a book"
-                  height={120}
-                  width={120}
+                  height={60}
+                  width={60}
                 />
-                <h3 className="capitalize text-white font-roboto text-2xl text-center">
+                <h3 className="capitalize text-white font-roboto text-xl text-center">
                   Development
                 </h3>
               </div>
               <div className="flex flex-col items-center gap-4">
                 <Image
                   src="/images/about/respectIcon.webp"
-                  className="max-w-xl bg-white rounded-3xl"
+                  className="max-w-xl bg-white rounded-xl"
                   alt="Icon for respect representing a handshake"
-                  height={120}
-                  width={120}
+                  height={60}
+                  width={60}
                 />
-                <h3 className="capitalize text-white font-roboto text-2xl text-center">
+                <h3 className="capitalize text-white font-roboto text-xl text-center">
                   Respect
                 </h3>
               </div>
               <div className="flex flex-col items-center gap-4">
                 <Image
                   src="/images/about/careIcon.webp"
-                  className="max-w-xl bg-white rounded-3xl"
+                  className="max-w-xl bg-white rounded-xl"
                   alt="Icon for respect representing two hands with a heart above both hands"
-                  height={120}
-                  width={120}
+                  height={60}
+                  width={60}
                 />
-                <h3 className="capitalize text-white font-roboto text-2xl text-center">
+                <h3 className="capitalize text-white font-roboto text-xl text-center">
                   Care
                 </h3>
               </div>
             </div>
           </div>
         </div>
+        {/* End of Our Values Container */}
 
-        <h3 className="my-10 font-bold uppercase tracking-wide text-2xl sm:text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-550 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
-          meet the staff
-        </h3>
-
+        {/* Start of Meet The Staff Container */}
         {staffs.map((staff, index) => (
-          <div className="my-8 flex w-full m-auto lg:w-3/4" key={index}>
-            <div className="flex flex-col border
-        shadow-md dark:border dark:border-gray-700 dark:bg-gray-800 bg-slate-200 rounded-xl w-full gap-4 sm:flex-row">
-              <div className="shrink-0 ">
-                <Image
-                  className="w-full sm:w-64 m-auto rounded-r-xl rounded-b-none rounded-t-xl sm:rounded-r-none sm:rounded-l-xl"
-                  src={staff.image?.asset?.url ?? ""}
-                  alt={`An image of ${staff.name}`}
-                  height={550}
-                  width={250}
-                  quality={100}
-                />
-              </div>
-              <div className="flex flex-col py-3 pr-0  w-full sm:pr-3">
-                <p className="text-blue-550 dark:text-blue-350 text-left font-roboto font-bold text-2xl py-1 px-2 sm:rounded-t-md">
-                  {staff.name}
-                </p>
-                <h3 className="text-blue-550 dark:text-blue-350 text-left font-roboto text-lg px-2 py-1 w-full sm:rounded-b-md">
-                  {staff.position}
-                </h3>
-                <p className="py-3 px-3 text-base font-roboto text-gray-850 dark:text-white">
-                  {staff.description}
-                </p>
+
+          <div className="max-w-screen-xl w-95% mx-auto my-24">
+            <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-center text-gray-850 dark:text-blue-350">
+              meet our staff
+            </h2>
+            <div className="my-8 flex w-full mx-auto" key={index}>
+              {/* Staff Image and Description Container*/}
+              <div className="flex flex-col w-full gap-16 md:flex-row items-center justify-center">
+                {/* Image Container */}
+                <div className="shrink-0 h-48 w-48 mobileSm:h-64 mobileSm:w-64 md:w-60 md:h-60 lg:h-96 lg:w-96">
+                  <Image
+                    style={{ objectPosition: "center", objectFit: "cover", width: "550px", height: "550px", maxHeight: "100%", maxWidth: "100%", borderRadius: "100%" }}
+                    src={staff.image?.asset?.url ?? ""}
+                    alt={`An image of ${staff.name}`}
+                    height={500}
+                    width={500}
+                    quality={100}
+                  />
+                </div>
+                {/* Staff Description Container */}
+                <div className="flex flex-col py-3 pr-0 w-11/12">
+                  {/* Name & Title Container */}
+                  <div className="flex justify-start items-center w-full gap-2 flex-wrap">
+                    <h3 className="text-blue-550 dark:text-blue-350 font-roboto font-bold text-2xl">
+                      {staff.name}
+                    </h3>
+                    <span className="text-roboto text-bold text-gray-850 dark:text-white"> - </span>
+                    <h4 className="text-blue-550 dark:text-blue-350 text-left font-roboto text-lg italic ">
+                      {staff.position}
+                    </h4>
+                  </div>
+                  <p className="py-3 text-base font-roboto text-gray-850 dark:text-white">
+                    {staff.description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         ))}
+        {/* End of Meet The Staff Container */}
 
-        <h4 className="uppercase my-10 font-bold tracking-wide text-2xl sm:text-3xl bg-gradient-to-r from-blue-350 via-green-350 to-blue-350 bg-clip-text fill-transparent [-webkit-text-fill-color:transparent]">
-          We Accept
-        </h4>
-        <div className="grid grid-cols-1  mobileSm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3">
-          {insurances.map((insurance, index) => (
-            <div key={index}>
-              <Image
-                className="max-h-250px w-full rounded-xl drop-shadow-md"
-                src={insurance.image?.asset?.url ?? ""}
-                alt="An image of the insurance logo"
-                height={200}
-                width={250}
-              />
+
+        {/* Start of Insurance Section */}
+
+        {/* Start of Insruance Section Wrapper */}
+        <div className="w-full bg-white dark:bg-gray-800 py-28">
+          <div className="max-w-screen-xl w-11/12 mx-auto">
+
+            <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-center text-gray-850 dark:text-white pb-20">
+              We Accept
+            </h2>
+            <div className="grid grid-cols-1 mobileSm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
+              {insurances.map((insurance, index) => (
+                <div key={index}>
+                  <Image
+                    className="max-h-250px w-full dark:rounded-lg"
+                    src={insurance.image?.asset?.url ?? ""}
+                    alt="An image of the insurance logo"
+                    height={200}
+                    width={250}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          {/* End of Insurance Wrapper */}
         </div>
-        <p className="my-10 w-full xl:w-5/12 md:w-3/4 m-auto font-roboto italic text-gray-850 dark:text-white">
-          * We submit claims on your behalf to your insurance provider as well
-          as participating insurers on a third party portal that are able to
-          access and if the insurance plan allows for assignment of benefits.
-        </p>
-      </section>
-    </div>
+
+        {/* End of Insurance Section */}
+
+      </section >
+    </div >
   );
 };
 
