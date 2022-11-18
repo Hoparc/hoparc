@@ -5,15 +5,13 @@ import Link from "next/link";
 import { AllServicesQuery } from "../../../graphql-operations";
 import { PortableText } from "@portabletext/react";
 
-import { format, parse } from "date-fns";
-
-export type BlogProps = {
+export type ServiceProps = {
   service: AllServicesQuery["allService"][0] | undefined;
 };
 
 const siteTitle = "Hands on Physiotherapy and Rehab Centre";
 
-function Blog({ service }: BlogProps) {
+function Service({ service }: ServiceProps) {
   return (
     <>
       <Head>
@@ -136,4 +134,4 @@ function Blog({ service }: BlogProps) {
     </>
   );
 }
-export default Blog;
+export default Service;
