@@ -105,7 +105,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
             <div className="col-span-12 lg:col-span-10">
               <div className="flex flex-row justify-center">
                 <Link href="/blogs">
-                  <button className=" hover:border-b-green-450 hover:border-b-4 block bg-white rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-base md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-2 hover:text-white hover:bg-blue-550">
+                  <button className=" hover:border-b-green-450 hover:border-b-4 block bg-white rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-xs md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-2 hover:text-white hover:bg-blue-550">
                     All
                   </button>
                 </Link>
@@ -116,7 +116,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                   >
                     <button
                       className={cn(
-                        "hover:border-b-green-450 hover:border-b-4 block font-roboto bg-white rounded-t-xl text-gray-650 dark:text-white text-base md:text-lg leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-2 hover:text-white hover:bg-blue-550",
+                        "hover:border-b-green-450 hover:border-b-4 block font-roboto bg-white rounded-t-xl text-gray-650 dark:text-white text-xs md:text-lg leading-5 text-accent-4 hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-2 hover:text-white hover:bg-blue-550",
                         { underline: activeCategory === category.slug?.current }
                       )}
                     >
