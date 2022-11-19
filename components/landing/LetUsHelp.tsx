@@ -18,28 +18,27 @@ function LetUsHelp() {
 
         <Link href="/request-appointment">
           <button
-            className="bg-blue-550 dark:bg-blue-350 text-base text-white font-button w-full px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-md"
+            className="bg-blue-550 dark:bg-blue-350 text-base text-white dark:text-blue-850 font-button w-full px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-sm"
             type="button"
           >
             Request Appointment
           </button>
         </Link>
       </div>
-      <div className=" flex px-3 w-full lg:w-1/2 ">
+      <div className=" flex px-3 w-11/12 lg:w-1/2 ">
         <p className="font-roboto text-lg text-gray-850 dark:text-white">
-          <span className="flex justify-start text-5xl text-blue-350 font-roboto italic">
+          <span className="flex justify-start text-5xl text-blue-550 dark:text-white font-roboto italic">
             "
           </span>
-          <span className="text-4xl italic text-blue-350 font-roboto">O</span> ur Clinic
-          believe in "your care is our goal" and we have an optimistic, dynamic,
-          supervised active approach to rehabilitation. The physiotherapists at
-          Hands on Physio use manual therapy techniques, Hot stone soft tissue
-          release, Mobilization soft tissue release technique, different
-          modalities, exercise programs which include assistive support
-          exercising with supervised ex program and personalized home ex
-          program, taping, education and the latest in modern therapy equipment
-          in their approach to treatment.
-          <span className="flex justify-end text-5xl text-blue-350 italic font-roboto">
+          <span className="text-2xl sm:text-3xl text-blue-550 dark:text-green-350 font-roboto">
+            Our Clinic Believes: "Your care is our goal."  </span>
+          We offer an optimistic, dynamic,
+          a supervised active approach to rehabilitation. The physiotherapists at
+          Hands On Physio use manual therapy techniques, Hot stone soft tissue
+          release, Mobilization soft-tissue release technique, different
+          modalities, exercise programs that include assistive support
+          exercising with supervised ex program and personalized home ex program, taping, education, and the latest in modern therapy equipment in their approach to treatment.
+          <span className="flex justify-end text-5xl text-blue-550 dark:text-white italic font-roboto">
             "
           </span>
         </p>

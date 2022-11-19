@@ -173,50 +173,51 @@ const AboutUs: NextPage<AboutUsProps> = ({
             <h2 className="capitalize text-white text-4xl sm:text-5xl font-roboto font-bold text-center">
               Our Values
             </h2>
-            <div className="flex flex-col w-full justify-evenly md:flex-row ">
-              <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col w-full justify-between md:flex-row md:max-w-3xl max-w-xs gap-6">
+              
+              <div className="flex flex-col self-start gap-4">
                 <Image
                   src="/images/about/customerServiceIcon.webp"
-                  className="max-w-xl bg-white rounded-xl"
+                  className="max-w-xl"
                   alt="Icon for customer service with a headset"
-                  height={60}
-                  width={60}
+                  height={120}
+                  width={120}
                 />
                 <h3 className="capitalize text-white font-roboto text-xl text-center">
                   Service
                 </h3>
               </div>
-              <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-col self-end gap-4">
                 <Image
                   src="/images/about/developmentIcon.webp"
-                  className="max-w-xl bg-white rounded-xl"
+                  className="max-w-xl"
                   alt="Icon for development representing a book"
-                  height={60}
-                  width={60}
+                  height={120}
+                  width={120}
                 />
                 <h3 className="capitalize text-white font-roboto text-xl text-center">
                   Development
                 </h3>
               </div>
-              <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-col self-start gap-4">
                 <Image
                   src="/images/about/respectIcon.webp"
-                  className="max-w-xl bg-white rounded-xl"
+                  className="max-w-xl"
                   alt="Icon for respect representing a handshake"
-                  height={60}
-                  width={60}
+                  height={120}
+                  width={120}
                 />
                 <h3 className="capitalize text-white font-roboto text-xl text-center">
                   Respect
                 </h3>
               </div>
-              <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-col self-end gap-4">
                 <Image
                   src="/images/about/careIcon.webp"
-                  className="max-w-xl bg-white rounded-xl"
+                  className="max-w-xl"
                   alt="Icon for respect representing two hands with a heart above both hands"
-                  height={60}
-                  width={60}
+                  height={120}
+                  width={120}
                 />
                 <h3 className="capitalize text-white font-roboto text-xl text-center">
                   Care

@@ -147,14 +147,14 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
       </div>
       <section
         id="request-appointment"
-        className="flex flex-col relative rounded-lg bg-blue-150 dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
+        className="flex flex-col relative dark:bg-gray-900 py-6 h-full max-w-screen-xl m-auto w-95% sm:w-11/12"
       >
         <nav className="flex my-10" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
               <Link
                 href="/"
-                className="inline-flex items-center text-lg font-medium md:ml-2 dark:hover:text-white  cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                className="inline-flex items-center text-lg font-medium md:ml-2 dark:hover:text-blue-450  cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
               >
                 <svg
                   className="w-4 h-4 mr-2"
@@ -183,7 +183,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 </svg>
                 <Link
                   href="/services"
-                  className="ml-1 text-lg font-medium md:ml-2 dark:hover:text-white cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                  className="ml-1 text-lg font-medium md:ml-2 dark:hover:text-blue-450 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
                 >
                   Services
                 </Link>
@@ -210,11 +210,11 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             </li>
           </ol>
         </nav>
-        <h2 className="my-5 text-xl text-blue-550 font-semibold">
+        <h2 className="my-5 text-xl text-blue-550 dark:text-blue-350 font-semibold">
           Consulted by an experienced Clinician
         </h2>
 
-        <p className="font-roboto text-left text-black text-lg mb-10">
+        <p className="font-roboto text-left text-black dark:text-white text-lg mb-10">
           Ouc Clinic believes in "your care is our goal", we have a dynamic and
           supervised active approach to our patient's rehabilitation while
           keeping an optimistic point of view on your path to recovery.
@@ -224,7 +224,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
           <form
             onSubmit={handleSubmit(onSubmit)}
             id="contact-form"
-            className="w-full flex-1 m-auto pt-4 xl:pt-0 bg-white"
+            className="w-full flex-1 m-auto pt-4 xl:pt-0 bg-white dark:bg-gray-800"
           >
             <div className="flex flex-col space-y-8">
               <h2 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
@@ -239,7 +239,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   )}
                   <label
                     htmlFor="firstName"
-                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                    className="block mb-2 mt-5 text-sm text-gray-850 dark:text-white"
                   >
                     Legal First Name
                   </label>
@@ -330,7 +330,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   />
                 </div>
               </div>
-              <p className="text-xl">
+              <p className="text-xl dark:text-white">
                 What is your preferred method of contact?
               </p>
               <div className="flex flex-col gap-64 gap-y-8 sm:flex-row">
@@ -470,7 +470,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 <button
                   type="submit"
                   value="Send"
-                  className="w-full rounded-md bg-blue-650 px-14 py-4 mt-4 text-sm font-roboto bold uppercase text-white hover:bg-blue-750 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                  className="w-full rounded-md bg-blue-650 px-14 py-4 mt-4 text-sm font-button bold uppercase text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                 >
                   Submit
                 </button>
@@ -486,7 +486,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               id="gmap_canvas"
               src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
               scrolling="no"
-              className="rounded-xl shadow-md dark:shadow-none"
+              className="rounded-md shadow-md dark:shadow-none"
             ></iframe>
           </div>
         </div>

@@ -64,10 +64,10 @@ const Products: NextPage<ProductsProps> = ({
   const filteredProducts = useMemo(() => {
     return activeCategory
       ? products.filter((product) =>
-          product.category?.some(
-            (category) => category?.slug?.current === activeCategory
-          )
+        product.category?.some(
+          (category) => category?.slug?.current === activeCategory
         )
+      )
       : products;
   }, [activeCategory, products]);
 
@@ -106,10 +106,10 @@ const Products: NextPage<ProductsProps> = ({
         </div>
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
-            <div className="col-span-12 lg:col-span-10">
+            <div className="col-span-12 lg:col-span-12">
               <div className="flex flex-row justify-center">
                 <Link href="/products">
-                  <button className="dark:bg-blue-550  border-b-gray-450 border-b-4 hover:border-b-green-450 hover:border-b-4 block bg-white rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-xs md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-2 hover:text-white hover:bg-blue-550">
+                  <button className="dark:bg-blue-550 border-b-gray-450 border-b-4 hover:border-b-green-450 hover:border-b-4 block bg-white dark:hover:text-blue-850 rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-xs md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-2 hover:text-white hover:bg-blue-550 dark:hover:bg-blue-350">
                     All
                   </button>
                 </Link>
@@ -120,7 +120,7 @@ const Products: NextPage<ProductsProps> = ({
                   >
                     <button
                       className={cn(
-                        "dark:bg-blue-550 border-b-gray-450 border-b-4 hover:border-b-green-450 hover:border-b-4 block bg-white rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-xs md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-2 hover:text-white hover:bg-blue-550",
+                        "dark:bg-blue-550 border-b-gray-450 border-b-4 hover:border-b-green-450 hover:border-b-4 block bg-white dark:hover:text-blue-850 rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-xs md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-2 hover:text-white hover:bg-blue-550 dark:hover:bg-blue-350",
                         { underline: activeCategory === category.slug?.current }
                       )}
                     >
