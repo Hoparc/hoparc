@@ -2,8 +2,6 @@ import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 
-import { Fragment } from "react";
-
 import client from "../apollo-client";
 import {
   LocationFragment,
@@ -55,10 +53,10 @@ const Contact: NextPage = () => {
           className="object-cover object-center max-h-64 w-full"
           priority
         />
-        <div className="bg-blue-350 w-full">
+        <div className="bg-blue-550 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h1 className="text-3xl sm:text-5xl text-center py-3 font-bold uppercase text-white">
-              contact
+            <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold  text-white">
+              Contact Us
             </h1>
           </div>
         </div>

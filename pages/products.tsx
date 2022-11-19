@@ -90,16 +90,16 @@ const Products: NextPage<ProductsProps> = ({
 
       <section className="min-h-screen" id="products">
         <Image
-          src="/images/blog/blogBanner.png"
+          src="/images/products/productBanner.png"
           alt="Banner image with colored striped shapes and an image of a book in the middle"
           height={423}
           width={2560}
           className="object-cover object-center max-h-64 w-full"
           priority
         />
-        <div className="bg-blue-350 w-full">
+        <div className="bg-blue-550 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h1 className="text-3xl sm:text-5xl text-center p-3 font-bold uppercase text-white">
+            <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
               Our Products
             </h1>
           </div>
@@ -170,7 +170,7 @@ const Products: NextPage<ProductsProps> = ({
                   })}
                 </div>
               ) : (
-                <div className="text-sm">No blogs found.</div>
+                <div className="text-sm">No products found.</div>
               )}
             </div>
           </div>

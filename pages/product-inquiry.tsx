@@ -2,6 +2,7 @@ import { Fragment, SetStateAction, useState } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { GetStaticProps, NextPage } from "next";
 
 import { HiChevronLeft } from "react-icons/hi";
@@ -120,13 +121,29 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
+      <Image
+        src="/images/contact/contactBanner.png"
+        alt="Banner image with colored striped shapes and an image of someone holding a phone the middle"
+        height={423}
+        width={2560}
+        className="object-cover object-center max-h-64 w-full"
+        priority
+      />
+      <div className="bg-blue-550 w-full">
+        <div className="max-w-screen-xl m-auto w-11/12">
+          <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
+            We strive to put your <span className="text-green-450">care</span>{" "}
+            first
+          </h1>
+        </div>
+      </div>
       <section
         id="product-inquiry"
         className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 animate-fade-in-up min-h-screen"
       >
         <div className="flex p-2">
           <Link href="/products">
-            <span className="flex font-button text-xl items-center mb-2 cursor-pointer text-black dark:text-white hover:text-green-350 ">
+            <span className="flex font-button text-xl items-center mb-2 cursor-pointer text-black dark:text-white hover:text-blue-550 ">
               <HiChevronLeft
                 className="block h-4 mr-2 mt-0.5"
                 aria-hidden="true"
@@ -135,13 +152,6 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
             </span>
           </Link>
         </div>
-        <div className="flex p-8 flex-col items-center justify-center bg-blue-550 rounded-t-xl">
-          <h1 className="my-5 text-3xl sm:text-5xl tracking-tight text-center font-roboto font-bold uppercase text-white px-4 bg-clip-text ">
-            We strive to put your{" "}
-            <strong className="text-green-350">care</strong> first
-          </h1>
-        </div>
-        <div className="bg-blue-350 py-4"></div>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="bg-white dark:bg-gray-800 dark:border dark:border-1 dark:border-slate-700 py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4"

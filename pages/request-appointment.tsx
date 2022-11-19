@@ -2,6 +2,7 @@ import { Fragment, SetStateAction, useState } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { GetStaticProps, NextPage } from "next";
 
 import client from "../apollo-client";
@@ -23,6 +24,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { HiChevronLeft } from "react-icons/hi";
 
 type FormValues = {
   firstName: string;
@@ -66,6 +68,8 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
 }: RequestAppointmentProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
   const [userChoice, setUserChoice] = useState("");
+  const [checkedPhone, setCheckedPhone] = useState(false);
+  const [checkedEmail, setCheckedEmail] = useState(false);
 
   const {
     register,
@@ -101,6 +105,14 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
     setUserChoice(e.target.value);
   };
 
+  const handleUserPreferredPhone = () => {
+    setCheckedPhone(!checkedPhone);
+  };
+
+  const handleUserPreferredEmail = () => {
+    setCheckedEmail(!checkedEmail);
+  };
+
   return (
     <>
       <Head>
@@ -119,74 +131,199 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
+      <Image
+        src="/images/contact/contactBanner.png"
+        alt="Banner image with colored striped shapes and an image of someone holding a phone the middle"
+        height={423}
+        width={2560}
+        className="object-cover object-center max-h-64 w-full"
+        priority
+      />
+      <div className="bg-blue-550 w-full">
+        <div className="max-w-screen-xl m-auto w-11/12">
+          <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
+            Your <span className="text-green-450">care</span> is our goal
+          </h1>
+        </div>
+      </div>
       <section
         id="request-appointment"
-        className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24 animate-fade-in-up min-h-screen"
+        className="flex flex-col relative rounded-b-lg bg-white dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
       >
-        <div className="flex pb-12 flex-col items-center justify-center bg-blue-550 rounded-t-xl">
-          <h1 className="my-5 text-3xl sm:text-5xl tracking-tight text-center font-roboto font-bold uppercase text-white px-4 bg-clip-text ">
-            Your <strong className="text-green-350">care</strong> is our goal.
-          </h1>
-          <p className="mt-3 text-lg font-bold font-roboto text-green-350 sm:mt-4 text-left px-5 md:px-20">
-            Consulted by an experienced Clinician
-          </p>
-          <p className="mt-3 text-base font-roboto text-white font-light sm:mt-4 text-center px-5 md:px-44">
-            Our Clinic believes in "your care is our goal," we have a dynamic and supervised active approach to our patient's rehabilitation while keeping an optimistic point of view on your path to recovery.
+        <div className="flex p-2">
+          <Link href="/services">
+            <span className="flex font-button text-xl items-center mb-2 cursor-pointer text-black dark:text-white hover:text-blue-550 ">
+              <HiChevronLeft
+                className="block h-4 mr-2 mt-0.5"
+                aria-hidden="true"
+              />
+              Back
+            </span>
+          </Link>
+        </div>
+        <h2 className="my-5 text-xl text-blue-550 font-semibold">
+          Consulted by an experienced Clinician
+        </h2>
+        <div className="my-5">
+          <p className="font-roboto text-left text-black text-lg mb-4">
+            Ouc Clinic believes in "your care is our goal", we have a dynamic
+            and supervised active approach to our patient's rehabilitation while
+            keeping an optimistic point of view on your path to recovery.
           </p>
         </div>
-        <div className="bg-blue-350 py-4"></div>
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-white dark:bg-gray-800 py-8 px-2 rounded-b-xl shadow-md dark:border dark:border-1 dark:border-slate-700 lg:p-8 sm:px-4">
-          <h2 className="text-2xl text-gray-850 dark:text-white font-roboto font-bold">Let's get to know you</h2>
-          <div className="flex flex-col space-y-6">
-            <div className="grid grid-cols-1 space-y-6">
-              <label htmlFor="firstName" className="sr-only">
-                First Name
-              </label>
+        <div className="flex flex-col-reverse gap-3 xl:flex-row relative rounded-b-lg bg-white dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            id="contact-form"
+            className="w-full flex-1 m-auto pt-4 xl:pt-0"
+          >
+            <div className="flex flex-col space-y-8">
+              <h2 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+                Let's get to know you{" "}
+              </h2>
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.firstName && (
-                    <span className="absolute mt-10 ml-2 text-red-500">
+                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
                       required
                     </span>
                   )}
+                  <label
+                    htmlFor="firstName"
+                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  >
+                    Legal First Name
+                  </label>
                   <input
                     placeholder="First Name"
-                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0 font-opensans"
+                    className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
                     {...register("firstName", {
                       required: true,
                       maxLength: 30,
                     })}
                   />
                 </div>
-
-                <label htmlFor="lastName" className="sr-only">
-                  Last Name
-                </label>
                 <div className="flex flex-col w-full">
                   {errors.lastName && (
-                    <span className="absolute mt-10 ml-2 text-red-500">
+                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
                       required
                     </span>
                   )}
+                  <label
+                    htmlFor="lastName"
+                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  >
+                    Legal Last Name
+                  </label>
                   <input
                     placeholder="Last Name"
-                    className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 mb-4 outline-none hover:border-green-350 focus:border-green-350 w-full font-opensans"
+                    className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
                     {...register("lastName", { required: true, maxLength: 30 })}
                   />
                 </div>
               </div>
-            </div>
+              <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
+                <div className="flex flex-col w-full">
+                  {errors.email && (
+                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                      required
+                    </span>
+                  )}
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value:
+                          /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                        message: "Please enter a valid email",
+                      },
+                    })}
+                  />
+                </div>
 
-            <div className="flex flex-col bg-gray-100 dark:bg-gray-600 rounded-xl lg:flex-row shadow-md">
-              <div className="flex flex-col flex-1 justify-around py-4 gap-4">
-                <h3 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold mx-4">When would you like to come in?</h3>
-                {errors.ReactDatepicker && (
-                  <span className="absolute mt-10 ml-2 text-red-500">
-                    Please enter a date.
-                  </span>
-                )}
-                <div className="pl-8 lg:pl-4">
-                  <label htmlFor="date" className="flex-shrink-0 text-lg dark:text-white font-roboto font-bold">
+                <div className="flex flex-col w-full text-left">
+                  {errors.phone && (
+                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                      Provide valid number
+                    </span>
+                  )}
+                  <label
+                    htmlFor="phone"
+                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  >
+                    Phone
+                  </label>
+                  <Controller
+                    name="phone"
+                    control={control}
+                    rules={{
+                      validate: (value) => isValidPhoneNumber(value),
+                    }}
+                    render={({ field: { onChange, value } }) => (
+                      <PhoneInput
+                        className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                        placeholder="Phone Number"
+                        value={value}
+                        onChange={onChange}
+                        defaultCountry="CA"
+                        id="phone-input"
+                      />
+                    )}
+                  />
+                </div>
+              </div>
+              <p className="text-xl">
+                What is your preferred method of contact?
+              </p>
+              <div className="flex flex-col gap-64 gap-y-8 sm:flex-row">
+                <label
+                  htmlFor="phone"
+                  className="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300"
+                >
+                  <input
+                    className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    type="checkbox"
+                    checked={checkedPhone}
+                    onChange={handleUserPreferredPhone}
+                  />{" "}
+                  Phone
+                </label>
+                <label
+                  htmlFor="email"
+                  className="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300"
+                >
+                  <input
+                    className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    type="checkbox"
+                    checked={checkedEmail}
+                    onChange={handleUserPreferredEmail}
+                  />{" "}
+                  Email
+                </label>
+              </div>
+              <h3 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+                When would you like to come in?
+              </h3>
+              <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
+                <div className="flex flex-col w-full">
+                  {errors.ReactDatepicker && (
+                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                      required
+                    </span>
+                  )}
+                  <label
+                    htmlFor="date"
+                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  >
                     Preferred Date
                   </label>
                   <Controller
@@ -194,7 +331,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                     name="ReactDatepicker"
                     render={({ field: { onChange, onBlur, value } }) => (
                       <ReactDatePicker
-                        className="input block w-40 cursor-pointer bg-blue-150 border border-slate-200 rounded-md hover:border-green-350 py-2 px-4 font-opensans"
+                        className="input block w-full cursor-pointer bg-blue-150 border border-slate-200 rounded-md hover:border-green-350 py-2 px-4 font-opensans"
                         placeholderText="Select date"
                         onChange={(e) => onChange(e)}
                         onBlur={onBlur}
@@ -203,47 +340,39 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                     )}
                   />
                 </div>
-                <div className="flex flex-col w-full pl-8 lg:pl-4">
+                <div className="flex flex-col w-full">
                   {errors.time && (
-                    <span className="absolute mt-timeRequiredRem ml-2 text-red-500">
+                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
                       required
                     </span>
                   )}
-                  <label htmlFor="time" className="flex-shrink-0 text-lg dark:text-white font-roboto font-bold">
+                  <label
+                    htmlFor="time"
+                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  >
                     Preferred Time
                   </label>
                   <input
                     type="time"
-                    className="rounded-md border font-opensans bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-40 mb-3"
+                    className="rounded-md border font-opensans bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-3"
                     {...register("time", { required: true, maxLength: 30 })}
                   />
                 </div>
               </div>
-              <div className="flex-none lg:flex-1 h-64 lg:h-96">
-                <iframe
-                  title="Google Maps"
-                  style={{ width: "100%", height: "100%" }}
-                  width="500"
-                  height="500"
-                  id="gmap_canvas"
-                  src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                  scrolling="no"
-                  className=" rounded-bl-xl rounded-br-xl lg:rounded-r-xl lg:rounded-l-none shadow-md dark:shadow-none"
-                ></iframe>
-              </div>
-            </div>
-            <h4 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold">Which service would you like?</h4>
-            <div className="flex-1 font-opensans">
-              <div className="flex mb-2 items-center">
+
+              <div className="flex flex-col gap-y-8">
+                <h3 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+                  What service would you like?
+                </h3>
                 <label
                   htmlFor="subject"
-                  className="text-gray-200 flex-shrink-0 text-xl sr-only"
+                  className="block mt-4 text-sm text-gray-900 dark:text-white"
                 >
-                  Subject
+                  Service
                 </label>
                 <select
                   placeholder="Subject"
-                  className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350 cursor-pointer"
+                  className="cursor-pointer rounded-md border bg-blue-150 border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
                   {...register("subject", {
                     required: true,
                   })}
@@ -265,91 +394,53 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   </span>
                 )}
               </div>
-            </div>
-            <div className="flex flex-col gap-5 font-opensans">
-              <h4 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold">Have any questions for us?</h4>
-              <label htmlFor="message" className="sr-only">
-                Leave us a message!
-              </label>
-              <textarea
-                rows={5}
-                placeholder="Hi, I'd like to request an appointment!"
-                className="rounded-md border bg-blue-150 border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
-                {...register("message", {
-                  required: true,
-                  minLength: 5,
-                  maxLength: 500,
-                })}
-              />
-              {errors.message && (
-                <span className="absolute mt-textareaRem ml-2 text-red-500">
-                  required
-                </span>
-              )}
-            </div>
-            <h3 className="text-2xl dark:text-white text-gray-850 font-roboto font-bold mb-8">
-              What is the best way for us to reach you?
-            </h3>
-            <div className="flex flex-col justify-evenly gap-2 gap-y-5 sm:flex-row font-opensans">
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
-              <div className="flex flex-col w-full">
-                {errors.email && (
-                  <span className="absolute mt-10 ml-2 text-red-500">
-                    required
-                  </span>
-                )}
-                <input
-                  type="text"
-                  placeholder="Email"
-                  className="rounded-md border bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
-                  {...register("email", {
-                    required: "Email is required",
-                    pattern: {
-                      value: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                      message: "Please enter a valid email",
-                    },
+              <div className="flex flex-col">
+                <label
+                  htmlFor="message"
+                  className="mb-4 block text-sm text-gray-900 dark:text-white"
+                >
+                  Message
+                </label>
+                <textarea
+                  rows={5}
+                  placeholder="Message"
+                  className="rounded-md bg-blue-150 border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350  resize-none"
+                  {...register("message", {
+                    required: true,
+                    minLength: 5,
+                    maxLength: 1200,
                   })}
                 />
-              </div>
-              <label htmlFor="phone"></label>
-              <div className="flex flex-col w-full text-left">
-                {errors.phone && (
-                  <span className="absolute mt-10 ml-2 text-red-500">
-                    Provide valid number
+                {errors.message && (
+                  <span className="absolute mt-8.6rem ml-2 text-red-500 uppercase">
+                    required (max 1200 Chars)
                   </span>
                 )}
-                <Controller
-                  name="phone"
-                  control={control}
-                  rules={{
-                    validate: (value) => isValidPhoneNumber(value),
-                  }}
-                  render={({ field: { onChange, value } }) => (
-                    <PhoneInput
-                      className="rounded-md border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full bg-blue-150"
-                      placeholder="Phone Number"
-                      value={value}
-                      onChange={onChange}
-                      defaultCountry="CA"
-                      id="phone-input"
-                    />
-                  )}
-                />
+              </div>
+              <div className="flex">
+                <button
+                  type="submit"
+                  value="Send"
+                  className="w-full rounded-md bg-blue-650 px-14 py-4 mt-4 text-sm font-roboto bold uppercase text-white hover:bg-blue-750 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                >
+                  Submit
+                </button>
               </div>
             </div>
-            <div className="flex">
-              <button
-                type="submit"
-                value="Send"
-                className="rounded-md bg-blue-550 px-14 py-4 mt-4 text-base font-roboto font-bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-              >
-                Send
-              </button>
-            </div>
+          </form>
+          <div className="flex-none xl:flex-1 h-64 xl:h-auto ">
+            <iframe
+              title="Google Maps"
+              style={{ width: "100%", height: "100%" }}
+              width="500"
+              height="500"
+              id="gmap_canvas"
+              src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              scrolling="no"
+              className="rounded-xl shadow-md dark:shadow-none"
+            ></iframe>
           </div>
-        </form>
+        </div>
 
         {formSpreeState.submitting && (
           <Transition

@@ -18,11 +18,7 @@ import {
 } from ".././graphql-operations";
 
 import cn from "clsx";
-import {
-  HiArrowCircleRight,
-  HiArrowRight,
-  HiChevronRight,
-} from "react-icons/hi";
+import { HiArrowRight } from "react-icons/hi";
 
 type BlogsProps = {
   blogs: AllBlogsQuery["allBlog"];
@@ -97,10 +93,10 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
           className="object-cover object-center max-h-64 w-full"
           priority
         />
-        <div className="bg-blue-350 w-full">
+        <div className="bg-blue-550 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h1 className="text-3xl sm:text-5xl text-center p-3 font-bold uppercase text-white">
-              our blog
+            <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
+              Our Blog
             </h1>
           </div>
         </div>

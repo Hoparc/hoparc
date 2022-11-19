@@ -48,7 +48,7 @@ function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="relative  rounded-b-lg bg-white dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
+      className="relative rounded-b-lg bg-white dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
     >
       <div className="flex flex-col-reverse gap-3 xl:flex-row">
         <form
@@ -58,7 +58,7 @@ function ContactForm() {
         >
           <div className="flex flex-col space-y-8">
             <h2 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
-              Let's get to know you{" "}
+              Let's get to know you
             </h2>
             <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
               <div className="flex flex-col w-full">
