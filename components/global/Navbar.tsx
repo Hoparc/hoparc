@@ -87,14 +87,14 @@ function Navbar() {
             >
               <Disclosure.Panel className="lg:hidden relative">
                 <div className="pt-4 pb-6 absolute right-0 bg-white dark:bg-blue-550 text-blue-900 w-8/12 mobileXl:w-5/12 text-left rounded-bl-3xl shadow-navShadow shadow-slate-700 dark:shadow-black">
-                  <div className="flex flex-col space-y-10 pl-4">
+                  <div className="flex flex-col space-y-4 pl-4">
                     {navigation.map((item) => (
                       <div key={item.id} className="flex relative w-fit">
                         <Disclosure.Button
                           key={item.name}
                           as="a"
                           href={item.href}
-                          className="text-blue-350 dark:text-white hover:text-blue-550 block rounded-md text-base font-roboto font-regular hover:font-bold hover:after:content-[''] hover:after:flex hover:after:absolute hover:after:w-full hover:after:mx-auto hover:after:h-1 hover:after:bg-green-350 hover:after:mt-1"
+                          className="text-blue-350 dark:text-white py-4 hover:text-blue-550 dark:hover:text-white block rounded-md text-base font-roboto font-regular hover:font-bold hover:after:content-[''] hover:after:flex hover:after:absolute hover:after:w-full hover:after:mx-auto hover:after:h-1 hover:after:bg-green-350 hover:after:mt-1 "
                         >
                           {item.name}
                         </Disclosure.Button>

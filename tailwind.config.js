@@ -21,6 +21,7 @@ module.exports = {
         minus50: "-50%",
       },
       screens: {
+        "3xl": "1850px",
         hero: "1600px",
         "2lg": "1385px",
         footer: "948px",
@@ -86,6 +87,10 @@ module.exports = {
       width: {
         "95%": "95%",
         "550px": "34.375 rem",
+      },
+      maxWidth: {
+        "xxs": "11rem",
+        "2.5xl": "37rem"
       },
       margin: {
         "8.6rem": "8.6rem",

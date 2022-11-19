@@ -67,7 +67,7 @@ const Contact: NextPage = () => {
               <li className="inline-flex items-center">
                 <Link
                   href="/"
-                  className="inline-flex items-center text-lg font-medium md:ml-2 dark:hover:text-white  cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                  className="inline-flex items-center text-lg font-medium md:ml-2 dark:hover:text-blue-450  cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
                 >
                   <svg
                     className="w-4 h-4 mr-2"
@@ -94,7 +94,7 @@ const Contact: NextPage = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                  <span className="ml-1 text-lg font-medium md:ml-2 dark:hover:text-white cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
+                  <span className="ml-1 text-lg font-medium md:ml-2 dark:hover:text-blue-450 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
                     Contact Us
                   </span>
                 </div>
@@ -102,7 +102,7 @@ const Contact: NextPage = () => {
             </ol>
           </nav>
           <div className="my-5">
-            <p className="font-roboto text-left text-black text-lg mb-4">
+            <p className="font-roboto text-left text-gray-850 dark:text-white text-base mb-4">
               Feel free to fill in the form below or contact us directly with
               any questions you may have or with any scheduling inquiries. We
               keep your information private and will not share it with third

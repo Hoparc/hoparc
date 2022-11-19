@@ -210,7 +210,7 @@ function ContactForm() {
               <button
                 type="submit"
                 value="Send"
-                className="w-full rounded-md bg-blue-650 px-14 py-4 mt-4 text-sm font-roboto bold uppercase text-white hover:bg-blue-750 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                className="w-full rounded-md bg-blue-650 px-14 py-4 mt-4 text-sm font-button bold uppercase text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
                 Submit
               </button>
@@ -226,7 +226,7 @@ function ContactForm() {
             id="gmap_canvas"
             src="https://maps.google.com/maps?q=Hands%20on%20physioptherapy%20Markham&t=&z=13&ie=UTF8&iwloc=&output=embed"
             scrolling="no"
-            className="rounded-xl shadow-md dark:shadow-none"
+            className="rounded-md shadow-md dark:shadow-none"
           ></iframe>
         </div>
       </div>
