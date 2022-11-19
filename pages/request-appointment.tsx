@@ -147,7 +147,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
       </div>
       <section
         id="request-appointment"
-        className="flex flex-col relative rounded-b-lg bg-white dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
+        className="flex flex-col relative rounded-lg bg-blue-150 dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
       >
         <nav className="flex my-10" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
@@ -213,18 +213,18 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
         <h2 className="my-5 text-xl text-blue-550 font-semibold">
           Consulted by an experienced Clinician
         </h2>
-        <div className="my-5">
-          <p className="font-roboto text-left text-black text-lg mb-4">
-            Ouc Clinic believes in "your care is our goal", we have a dynamic
-            and supervised active approach to our patient's rehabilitation while
-            keeping an optimistic point of view on your path to recovery.
-          </p>
-        </div>
-        <div className="flex flex-col-reverse gap-3 xl:flex-row relative rounded-b-lg bg-white dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700">
+
+        <p className="font-roboto text-left text-black text-lg mb-10">
+          Ouc Clinic believes in "your care is our goal", we have a dynamic and
+          supervised active approach to our patient's rehabilitation while
+          keeping an optimistic point of view on your path to recovery.
+        </p>
+
+        <div className="flex flex-col-reverse gap-3 mb-20 md:gap-12 xl:flex-row relative rounded-lg bg-white dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700">
           <form
             onSubmit={handleSubmit(onSubmit)}
             id="contact-form"
-            className="w-full flex-1 m-auto pt-4 xl:pt-0"
+            className="w-full flex-1 m-auto pt-4 xl:pt-0 bg-white"
           >
             <div className="flex flex-col space-y-8">
               <h2 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
