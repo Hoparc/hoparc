@@ -47,6 +47,7 @@ module.exports = {
           450: "#96CA5B",
         },
         gray: {
+          450: "#D7DAE8",
           550: "#31364A",
           650: "#616D92",
           750: "#616D92",
@@ -64,7 +65,7 @@ module.exports = {
         "34rem": "44rem",
         "200px": "200px",
         "550px": "34.375 rem",
-        "850px": "850px"
+        "850px": "850px",
       },
       minHeight: {
         "25vh": "25vh",
@@ -84,7 +85,7 @@ module.exports = {
       },
       width: {
         "95%": "95%",
-        "550px": "34.375 rem"
+        "550px": "34.375 rem",
       },
       margin: {
         "8.6rem": "8.6rem",
