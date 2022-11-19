@@ -48,9 +48,9 @@ function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="relative rounded-b-lg bg-white dark:bg-gray-800 shadow-md px-2 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
+      className="relative rounded-lg bg-white dark:bg-gray-800 shadow-md px-2 my-20 mobileSm:px-6 py-6 h-full dark:border dark:border-1 dark:border-slate-700"
     >
-      <div className="flex flex-col-reverse gap-3 xl:flex-row">
+      <div className="flex flex-col-reverse gap-3 md:gap-12 xl:flex-row">
         <form
           onSubmit={handleSubmit(onSubmit)}
           id="contact-form"
