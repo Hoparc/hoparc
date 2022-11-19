@@ -28,6 +28,21 @@ function Service({ service }: ServiceProps) {
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
+      <Image
+        src="/images/ourServices/serviceBanner.png"
+        alt="Banner image with colored striped shapes and an image of a book in the middle"
+        height={423}
+        width={2560}
+        className="object-cover object-center max-h-64 w-full"
+        priority
+      />
+      <div className="bg-blue-550 w-full">
+        <div className="max-w-screen-xl m-auto w-11/12">
+          <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
+            Our Services
+          </h1>
+        </div>
+      </div>
       <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-40 lg:px-40 py-20 sm:py-28 lg:py-28 min-h-screen flex flex-col">
         <nav className="flex" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
