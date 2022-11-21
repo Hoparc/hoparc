@@ -174,7 +174,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
               Our Values
             </h2>
             <div className="flex flex-col w-full justify-between md:flex-row md:max-w-3xl max-w-xs gap-6">
-              
+
               <div className="flex flex-col self-start gap-4">
                 <Image
                   src="/images/about/customerServiceIcon.webp"
@@ -231,11 +231,11 @@ const AboutUs: NextPage<AboutUsProps> = ({
         {/* Start of Meet The Staff Container */}
         {staffs.map((staff, index) => (
 
-          <div className="max-w-screen-xl w-95% mx-auto my-24">
+          <div className="max-w-screen-xl w-95% mx-auto my-24" key={index}>
             <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-center text-gray-850 dark:text-blue-350">
               meet our staff
             </h2>
-            <div className="my-8 flex w-full mx-auto" key={index}>
+            <div className="my-8 flex w-full mx-auto" >
               {/* Staff Image and Description Container*/}
               <div className="flex flex-col w-full gap-16 md:flex-row items-center justify-center">
                 {/* Image Container */}
