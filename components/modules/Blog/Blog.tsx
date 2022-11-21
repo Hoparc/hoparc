@@ -48,7 +48,7 @@ function Blog({ blog }: BlogProps) {
       </div>
       <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-40 lg:px-40 py-20 sm:py-28 lg:py-28 min-h-screen flex flex-col">
         <nav className="flex" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-3">
+          <ol className="inline-flex flex-wrap items-center gap-y-3 md:space-x-3">
             <li className="inline-flex items-center">
               <Link
                 href="/"
@@ -108,7 +108,7 @@ function Blog({ blog }: BlogProps) {
             </li>
           </ol>
         </nav>
-        <h1 className="my-12 font-monsterrat font-semibold text-4xl tracking-tight">
+        <h1 className="my-12 font-monsterrat font-semibold text-4xl tracking-tight dark:text-white text-gray-850">
           {blog?.title}
         </h1>
         <div className="w-full">

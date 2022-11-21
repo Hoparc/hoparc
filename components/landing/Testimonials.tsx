@@ -14,7 +14,7 @@ interface TestimonialCardProps {
 function TestimonialCard({ imageUrl, name, review }: TestimonialCardProps) {
   return (
     <>
-      <figure className="group inline-flex p-6 mb-4 w-full relative flex-col-reverse bg-white highlight-white/5 rounded-lg shadow-md shadow-slate-300 dark:shadow-none dark:border dark:border-gray-700
+      <figure className="group inline-flex p-6 mb-4 w-full relative flex-col-reverse bg-white highlight-white/5 rounded-md  dark:border dark:border-gray-700
         dark:bg-gray-800">
         <figcaption className="flex items-center space-x-4">
           <div className="flex-auto ">
@@ -47,7 +47,7 @@ function Testimonials({
   const [showMore, setShowMore] = useState(!hasShowMore);
   return (
     <div className="py-28 bg-blue-550">
-      <div className="relative max-w-5xl mx-auto mt-10">
+      <div className="relative max-w-5xl w-95% mx-auto mt-10">
         <div className="flex pb-12 flex-col items-center justify-center">
           <h5 className="text-3xl sm:text-5xl font-roboto font-bold text-center text-white">
             Our clients love us!

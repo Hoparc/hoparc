@@ -42,6 +42,7 @@ module.exports = {
           750: "#003d8f",
           850: "#00193C",
           150: "#F4F9FF",
+          250: "#F5F8FF"
         },
         green: {
           350: "#96CA5B",
@@ -93,10 +94,11 @@ module.exports = {
         "2.5xl": "37rem"
       },
       margin: {
-        "8.6rem": "8.6rem",
+        messageRem: "11.2rem",
         textareaRem: "11.7rem",
         timeRequiredRem: "4.3rem",
-        subjectRem: "6.5rem",
+        subjectRem: "10.2rem",
+        subjectRemAppointment: "10.8rem"
       },
       padding: {
         navRem: "3.75rem",
