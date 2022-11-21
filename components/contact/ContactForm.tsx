@@ -56,11 +56,11 @@ function ContactForm() {
           id="contact-form"
           className="w-full flex-1 m-auto pt-4 xl:pt-0"
         >
-          <div className="flex flex-col space-y-8">
+          <div className="flex flex-col space-y-4">
             <h2 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
               Let's get to know you
             </h2>
-            <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
+            <div className="flex flex-col justify-evenly md:gap-4 sm:flex-row">
               <div className="flex flex-col w-full">
                 {errors.firstName && (
                   <span className="absolute mt-24 ml-2 text-red-500 uppercase">
@@ -98,7 +98,7 @@ function ContactForm() {
                 />
               </div>
             </div>
-            <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
+            <div className="flex flex-col justify-evenly md:gap-4 sm:flex-row">
               <div className="flex flex-col w-full">
                 {errors.email && (
                   <span className="absolute mt-24 ml-2 text-red-500 uppercase">

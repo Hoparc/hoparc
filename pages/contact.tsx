@@ -51,7 +51,10 @@ const Contact: NextPage = () => {
           height={423}
           width={2560}
           className="object-cover object-center max-h-64 w-full"
-          priority
+          priority={true}
+          sizes="(max-width: 768px) 100vw,
+          (max-width: 1200px) 50vw,
+          33vw"
         />
         <div className="bg-blue-550 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
