@@ -99,7 +99,7 @@ const Products: NextPage<ProductsProps> = ({
         />
         <div className="bg-blue-550 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
+            <h1 className="text-3xl sm:text-5xl text-center py-6 font-roboto font-bold text-white">
               Our Products
             </h1>
           </div>
@@ -134,7 +134,7 @@ const Products: NextPage<ProductsProps> = ({
                   {filteredProducts.map((product) => {
                     return (
                       <Fragment key={product.name}>
-                        <div className=" bg-white rounded-xl shadow-md">
+                        <div className="bg-white dark:bg-gray-800 dark:border dark:border-1 dark:border-slate-700 rounded-xl shadow-md">
                           <div className="mb-1 relative rounded-lg overflow-hidden">
                             <div className="h-[250px] relative">
                               {product.image?.asset?.url && (
@@ -151,13 +151,13 @@ const Products: NextPage<ProductsProps> = ({
                               )}
                             </div>
                             <div className="py-4 px-4 gap-y-4 flex flex-col items-start justify-between">
-                              <h2 className="font-bold text-xl">
+                              <h2 className="font-bold font-roboto text-xl text-gray-850 dark:text-white">
                                 {product.name}
                               </h2>
                               <Link
                                 key={product.slug?.current}
                                 href={`/product/${product.slug?.current}`}
-                                className="text-md text-center rounded-lg w-full font-semibold bg-blue-250 p-3 hover:bg-green-350 text-blue-350 hover:text-blue-550"
+                                className="text-md text-center rounded-lg w-full font-button bg-blue-250 dark:bg-blue-550 p-3 hover:bg-green-350 text-blue-350 dark:text-white hover:text-blue-550"
                               >
                                 Learn More
 

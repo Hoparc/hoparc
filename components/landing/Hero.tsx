@@ -53,7 +53,7 @@ function Hero({ callToAction, url }: HeroProps) {
                 <span>hands on</span>
                 <span>physiotherapy</span>
               </h1>
-              <h2 className="text-xl 395Break:text-2xl mobile:text-3xl sm:text-4.5xl text-center font-roboto font-bold text-green-350 drop-shadow-sm capitalize py-4 lg:text-left ">
+              <h2 className="text-xl 395Break:text-2xl mobile:text-3xl sm:text-4.5xl text-center font-roboto font-bold text-blue-550 dark:text-green-350 drop-shadow-sm capitalize py-4 lg:text-left ">
                 rehab centre & pelvic health
               </h2>
               <p className="font-roboto self-start text-center lg:text-left dark:text-white text-gray-850 text-base px-4 mobileXl:px-2">

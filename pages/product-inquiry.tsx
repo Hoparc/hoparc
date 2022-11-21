@@ -131,7 +131,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
       />
       <div className="bg-blue-550 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
-          <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
+          <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold font-roboto text-white">
             We strive to put your <span className="text-green-450">care</span>{" "}
             first
           </h1>
@@ -146,7 +146,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
             <li className="inline-flex items-center">
               <Link
                 href="/"
-                className="inline-flex items-center text-lg font-medium md:ml-2 dark:hover:text-white  cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                className="inline-flex items-center text-lg font-bold font-roboto md:ml-2 dark:hover:text-blue-350 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550"
               >
                 <svg
                   className="w-4 h-4 mr-2"
@@ -175,7 +175,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 </svg>
                 <Link
                   href="/products"
-                  className="ml-1 text-lg font-medium md:ml-2 dark:hover:text-white cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                  className="ml-1 text-lg font-regular font-roboto md:ml-2 dark:hover:text-blue-350 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550"
                 >
                   Products
                 </Link>
@@ -195,7 +195,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                <span className="ml-1 text-lg font-medium md:ml-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
+                <span className="ml-1 text-lg font-regular font-roboto md:ml-2 cursor-pointer text-gray-750 dark:text-white dark:hover:text-blue-350 hover:text-blue-550">
                   Product Inquiry
                 </span>
               </div>
@@ -203,7 +203,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
           </ol>
         </nav>
         <div className="my-10">
-          <p className="font-roboto text-left text-black text-base mb-4">
+          <p className="font-roboto text-left text-gray-850 dark:text-white text-base mb-4">
             Feel free to fill in the form below or contact us directly with any
             questions you may have or with any product inquiries. We keep your
             information private and will not share it with third parties.
@@ -211,9 +211,9 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-white dark:bg-gray-800 dark:border dark:border-1 dark:border-slate-700 py-8 px-2 rounded-b-xl shadow-md lg:p-8 sm:px-4"
+          className="bg-white dark:bg-gray-800 dark:border dark:border-1 dark:border-slate-700 py-8 px-2 rounded-lg shadow-md lg:p-8 sm:px-4"
         >
-          <h2 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+          <h2 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold">
             Let's get to know you
           </h2>
           <div className="flex flex-col space-y-6">
@@ -221,13 +221,13 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
               <div className="flex flex-col justify-evenly gap-4 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.firstName && (
-                    <span className="absolute mt-10 ml-2 text-red-500">
+                    <span className="absolute mt-24 ml-2 text-red-500 font-roboto uppercase ">
                       required
                     </span>
                   )}
                   <label
                     htmlFor="firstName"
-                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                    className="block mb-2 mt-5 text-sm font-roboto font-regular text-gray-900 dark:text-white"
                   >
                     Legal First Name
                   </label>
@@ -243,13 +243,13 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
 
                 <div className="flex flex-col w-full">
                   {errors.lastName && (
-                    <span className="absolute mt-10 ml-2 text-red-500">
+                    <span className="absolute mt-24 ml-2 text-red-500 font-roboto uppercase">
                       required
                     </span>
                   )}
                   <label
                     htmlFor="lastName"
-                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                    className="block mb-2 mt-5 text-sm font-roboto font-regular text-gray-900 dark:text-white"
                   >
                     Legal Last Name
                   </label>
@@ -262,10 +262,10 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
               </div>
             </div>
 
-            <div className="flex flex-col justify-evenly gap-2 sm:flex-row font-opensans">
+            <div className="flex flex-col justify-evenly gap-2 sm:flex-row font-roboto">
               <div className="flex flex-col w-full">
                 {errors.email && (
-                  <span className="absolute mt-10 ml-2 text-red-500">
+                  <span className="absolute mt-24 ml-2 text-red-500 font-roboto uppercase">
                     required
                   </span>
                 )}
@@ -278,7 +278,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 <input
                   type="text"
                   placeholder="Email"
-                  className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
+                  className="rounded-md font-opensans bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
                   {...register("email", {
                     required: "Email is required",
                     pattern: {
@@ -290,7 +290,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
               </div>
               <div className="flex flex-col w-full text-left">
                 {errors.phone && (
-                  <span className="absolute mt-10 ml-2 text-red-500">
+                  <span className="absolute mt-24 ml-2 text-red-500 font-roboto uppercase">
                     Provide valid number
                   </span>
                 )}
@@ -308,7 +308,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                   }}
                   render={({ field: { onChange, value } }) => (
                     <PhoneInput
-                      className="rounded-md bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
+                      className="rounded-md font-opensans bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full"
                       placeholder="Phone Number"
                       value={value}
                       onChange={onChange}
@@ -319,11 +319,11 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 />
               </div>
             </div>
-            <p className="text-xl">What is your preferred method of contact?</p>
-            <div className="flex flex-col gap-4">
+            <p className="pt-6 text-xl font-roboto text-gray-550 dark:text-white">What is your preferred method of contact?</p>
+            <div className="flex flex-col gap-4 font-roboto font-regular">
               <label
                 htmlFor="phone"
-                className="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300"
+                className="ml-2 text-lg text-gray-900 dark:text-gray-300"
               >
                 <input
                   className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
@@ -335,7 +335,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
               </label>
               <label
                 htmlFor="email"
-                className="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300"
+                className="ml-2 text-lg text-gray-900 dark:text-gray-300"
               >
                 <input
                   className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
@@ -346,14 +346,14 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 Email
               </label>
             </div>
-            <h3 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+            <h3 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold">
               Which product would you like to purchase?
             </h3>
             <div className="flex-1 font-opensans">
               <div className="flex flex-col mb-2 items-start">
                 <label
                   htmlFor="subject"
-                  className="text-black font-semibold flex-shrink-0 text-md mb-2"
+                  className="text-black dark:text-white font-bold font-roboto flex-shrink-0 text-md mb-2"
                 >
                   Select Product
                 </label>
@@ -376,22 +376,22 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                   ))}
                 </select>
                 {errors.subject && (
-                  <span className="absolute mt-14 ml-2 text-red-500">
+                  <span className="absolute mt-20 ml-2 text-red-500 font-roboto uppercase">
                     required
                   </span>
                 )}
               </div>
             </div>
 
-            <div className="flex flex-col font-opensans pt-5 gap-5">
-              <h3 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+            <div className="flex flex-col font-roboto pt-5 gap-5">
+              <h3 className="text-2xl text-gray-550 dark:text-white font-bold">
                 Have any questions for us?
               </h3>
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message" className="dark:text-white">Message</label>
               <textarea
                 rows={5}
                 placeholder="Message"
-                className="rounded-md bg-blue-150 border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
+                className="rounded-md font-opensans bg-blue-150 border border-gray-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 md:col-span-2 resize-none"
                 {...register("message", {
                   required: true,
                   minLength: 5,
@@ -399,7 +399,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 })}
               />
               {errors.message && (
-                <span className="absolute mt-textareaRem ml-2 text-red-500">
+                <span className="absolute mt-textareaRem ml-2 text-red-500 font-roboto uppercase">
                   required
                 </span>
               )}
@@ -409,7 +409,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
               <button
                 type="submit"
                 value="Send"
-                className="w-full rounded-md bg-blue-650 px-14 py-4 mt-4 text-sm font-roboto bold uppercase text-white hover:bg-blue-750 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                className="w-full rounded-md dark:bg-blue-650 bg-blue-550 px-14 py-4 mt-4 text-sm font-button uppercase text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
                 Submit
               </button>

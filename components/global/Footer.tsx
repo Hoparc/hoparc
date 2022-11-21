@@ -38,7 +38,7 @@ function Footer({ locations }: FooterProps) {
                       </h2>
 
                       <h3 className="font-roboto font-bold text-smaller  text-green-350 uppercase">
-                        rehab centre - pelvic health
+                        rehab centre & pelvic health
                       </h3>
                     </div>
                   </div>

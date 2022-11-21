@@ -264,7 +264,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
                       {" "}
                       -{" "}
                     </span>
-                    <h4 className="text-blue-550 dark:text-blue-350 text-left font-roboto text-lg italic ">
+                    <h4 className="text-blue-550 dark:text-green-350 text-left font-roboto text-lg italic ">
                       {staff.position}
                     </h4>
                   </div>

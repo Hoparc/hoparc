@@ -58,7 +58,7 @@ const Contact: NextPage = () => {
         />
         <div className="bg-blue-550 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold  text-white">
+            <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold font-roboto  text-white">
               Contact Us
             </h1>
           </div>
@@ -70,7 +70,7 @@ const Contact: NextPage = () => {
               <li className="inline-flex items-center">
                 <Link
                   href="/"
-                  className="inline-flex items-center text-lg font-medium md:ml-2 dark:hover:text-blue-450  cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                  className="inline-flex items-center text-lg font-roboto font-bold md:ml-2 dark:hover:text-blue-450  cursor-pointer text-gray-750 dark:text-white hover:text-blue-550"
                 >
                   <svg
                     className="w-4 h-4 mr-2"
@@ -97,7 +97,7 @@ const Contact: NextPage = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                  <span className="ml-1 text-lg font-medium md:ml-2 dark:hover:text-blue-450 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
+                  <span className="ml-1 text-lg font-regular font-roboto md:ml-2 dark:hover:text-blue-450 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550">
                     Contact Us
                   </span>
                 </div>

@@ -38,7 +38,7 @@ function Service({ service }: ServiceProps) {
       />
       <div className="bg-blue-550 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
-          <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
+          <h1 className="text-3xl sm:text-5xl text-center py-6 font-roboto font-bold text-white">
             Our Services
           </h1>
         </div>
@@ -49,7 +49,7 @@ function Service({ service }: ServiceProps) {
             <li className="inline-flex items-center">
               <Link
                 href="/"
-                className="inline-flex items-center text-lg font-medium md:ml-2 dark:hover:text-white  cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                className="inline-flex items-center text-lg font-bold font-roboto md:ml-2  cursor-pointer text-gray-750 dark:text-white hover:text-blue-550 dark:hover:text-blue-350"
               >
                 <svg
                   className="w-4 h-4 mr-2"
@@ -78,7 +78,7 @@ function Service({ service }: ServiceProps) {
                 </svg>
                 <Link
                   href="/services"
-                  className="ml-1 text-lg font-medium md:ml-2 dark:hover:text-white cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                  className="ml-1 text-lg font-regular font-roboto md:ml-2 dark:hover:text-blue-350 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550"
                 >
                   Services
                 </Link>
@@ -98,7 +98,7 @@ function Service({ service }: ServiceProps) {
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                <span className="ml-1 text-lg font-medium md:ml-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
+                <span className="ml-1 text-lg font-roboto font-regular md:ml-2 cursor-pointer text-gray-750 dark:text-white dark:hover:text-blue-350 hover:text-blue-550">
                   {service?.name}
                 </span>
               </div>
@@ -106,7 +106,7 @@ function Service({ service }: ServiceProps) {
           </ol>
         </nav>
         <div className="flex flex-col md:flex-row items-start justify-between my-12 gap-y-4">
-          <h1 className="font-monsterrat font-semibold text-4xl tracking-tight dark:text-white text-gray-850">
+          <h1 className="font-roboto font-bold text-4xl tracking-tight dark:text-white text-gray-850">
             {service?.name}
           </h1>
           <Link
@@ -130,7 +130,7 @@ function Service({ service }: ServiceProps) {
 
         {service?.detailsRaw && service?.detailsRaw?.length > 0 && (
           <div className="my-12 animate-fade-in-up text-gray-850 dark:text-white font-roboto text-base">
-            <h2 className="text-lg font-semibold font-monsterrat my-4">
+            <h2 className="text-lg font-bold font-roboto my-4">
               Everything you need to know about {service.name}
             </h2>
             <PortableText
