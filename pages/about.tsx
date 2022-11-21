@@ -93,7 +93,10 @@ const AboutUs: NextPage<AboutUsProps> = ({
         height={423}
         width={2560}
         className="object-cover object-center max-h-64 w-full"
-        priority
+        priority={true}
+        sizes="(max-width: 768px) 100vw,
+        (max-width: 1200px) 50vw,
+        33vw"
       />
       <div className="bg-blue-550 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
@@ -102,18 +105,13 @@ const AboutUs: NextPage<AboutUsProps> = ({
           </h1>
         </div>
       </div>
-      <section
-        id="about"
-      >
+      <section id="about">
         {/* Start of Wrapper Div */}
         <div className="max-w-screen-xl w-11/12 mx-auto">
-
           {/* Purpose & Story Container */}
           <div className="flex gap-8 py-32 flex-col md:flex-row">
-
             {/* Our Story Container */}
             <div className="flex flex-col flex-1 justify-evenly">
-
               <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-gray-850 dark:text-blue-350">
                 Our Story
               </h2>
@@ -127,7 +125,10 @@ const AboutUs: NextPage<AboutUsProps> = ({
                   alt="image"
                   height={500}
                   width={1000}
-                  priority
+                  priority={true}
+                  sizes="(max-width: 768px) 100vw,
+                  (max-width: 1200px) 50vw,
+                  33vw"
                 />
               </div>
             </div>
@@ -135,7 +136,6 @@ const AboutUs: NextPage<AboutUsProps> = ({
 
             {/* Our Purpose Container */}
             <div className="flex flex-col flex-1 justify-evenly">
-
               <div className="flex flex-col-reverse md:flex-col">
                 <div className="w-full mt-10 md:mb-10">
                   <Image
@@ -157,10 +157,8 @@ const AboutUs: NextPage<AboutUsProps> = ({
                   </p>
                 </div>
               </div>
-
             </div>
             {/* End of Our Story Container */}
-
           </div>
           {/* End of Story & Purpose Container */}
 
@@ -174,7 +172,6 @@ const AboutUs: NextPage<AboutUsProps> = ({
               Our Values
             </h2>
             <div className="flex flex-col w-full justify-between md:flex-row md:max-w-3xl max-w-xs gap-6">
-
               <div className="flex flex-col self-start gap-4">
                 <Image
                   src="/images/about/customerServiceIcon.webp"
@@ -230,18 +227,25 @@ const AboutUs: NextPage<AboutUsProps> = ({
 
         {/* Start of Meet The Staff Container */}
         {staffs.map((staff, index) => (
-
           <div className="max-w-screen-xl w-95% mx-auto my-24" key={index}>
             <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-center text-gray-850 dark:text-blue-350">
               meet our staff
             </h2>
-            <div className="my-8 flex w-full mx-auto" >
+            <div className="my-8 flex w-full mx-auto">
               {/* Staff Image and Description Container*/}
               <div className="flex flex-col w-full gap-16 md:flex-row items-center justify-center">
                 {/* Image Container */}
                 <div className="shrink-0 h-48 w-48 mobileSm:h-64 mobileSm:w-64 md:w-60 md:h-60 lg:h-96 lg:w-96">
                   <Image
-                    style={{ objectPosition: "center", objectFit: "cover", width: "550px", height: "550px", maxHeight: "100%", maxWidth: "100%", borderRadius: "100%" }}
+                    style={{
+                      objectPosition: "center",
+                      objectFit: "cover",
+                      width: "550px",
+                      height: "550px",
+                      maxHeight: "100%",
+                      maxWidth: "100%",
+                      borderRadius: "100%",
+                    }}
                     src={staff.image?.asset?.url ?? ""}
                     alt={`An image of ${staff.name}`}
                     height={500}
@@ -256,7 +260,10 @@ const AboutUs: NextPage<AboutUsProps> = ({
                     <h3 className="text-blue-550 dark:text-blue-350 font-roboto font-bold text-2xl">
                       {staff.name}
                     </h3>
-                    <span className="text-roboto text-bold text-gray-850 dark:text-white"> - </span>
+                    <span className="text-roboto text-bold text-gray-850 dark:text-white">
+                      {" "}
+                      -{" "}
+                    </span>
                     <h4 className="text-blue-550 dark:text-blue-350 text-left font-roboto text-lg italic ">
                       {staff.position}
                     </h4>
@@ -271,13 +278,11 @@ const AboutUs: NextPage<AboutUsProps> = ({
         ))}
         {/* End of Meet The Staff Container */}
 
-
         {/* Start of Insurance Section */}
 
         {/* Start of Insruance Section Wrapper */}
         <div className="w-full bg-white dark:bg-gray-800 py-28">
           <div className="max-w-screen-xl w-11/12 mx-auto">
-
             <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-center text-gray-850 dark:text-white pb-20">
               We Accept
             </h2>
@@ -299,9 +304,8 @@ const AboutUs: NextPage<AboutUsProps> = ({
         </div>
 
         {/* End of Insurance Section */}
-
-      </section >
-    </div >
+      </section>
+    </div>
   );
 };
 
