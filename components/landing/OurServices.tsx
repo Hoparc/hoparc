@@ -38,6 +38,7 @@ function ServiceCard({ imageUrl, name, description, href }: ServiceCardProps) {
           </div>
           <Link
             href={`/service/${href}` ?? ""}
+            aria-label={`Open link to ${name} page` ?? ""}
             className="my-3 text-md text-center rounded-lg w-full font-semibold bg-blue-250 p-3 hover:bg-green-350 text-blue-350 hover:text-blue-550 capitalize"
           >
             learn more
@@ -58,9 +59,9 @@ function OurServices({ hasShowMore = false, services }: OurServicesProps) {
   return (
     <div className="relative max-w-5xl mx-auto my-28 w-95%">
       <div className="flex pb-12 flex-col items-center justify-center">
-        <h2 className="text-3xl sm:text-5xl font-roboto font-bold text-center text-blue-550 dark:text-white font-title">
+        <h3 className="text-3xl sm:text-5xl font-roboto font-bold text-center text-blue-550 dark:text-white font-title">
           Our Services
-        </h2>
+        </h3>
         <p className="mx-auto mt-3 max-w-2xl text-md sm:text-xl font-roboto sm:mt-4 text-center dark:text-gray-500">
           Check out what we have in store!
         </p>
