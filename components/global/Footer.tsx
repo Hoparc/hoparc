@@ -159,7 +159,7 @@ function Footer({ locations }: FooterProps) {
                 <div className="flex text-slate-400 text-2xl my-2 gap-6 md:my-0">
                   <div className="hover:text-green-350 cursor-pointer">
                     <a
-                      href=""
+                      href="https://www.facebook.com/Hands-On-Physiotherapy-And-Rehab-Centre-111547350359396/"
                       target="_blank"
                       aria-label="open link to hands on physiotherapy facebook page"
                     >
@@ -168,7 +168,7 @@ function Footer({ locations }: FooterProps) {
                   </div>
                   <div className="hover:text-green-350">
                     <a
-                      href=""
+                      href="https://www.instagram.com/hoparc339/"
                       target="_blank"
                       aria-label="open link to hands on physiotherapy instagram page"
                     >

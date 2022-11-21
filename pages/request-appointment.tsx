@@ -150,7 +150,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
         className="flex flex-col relative dark:bg-gray-900 py-6 h-full max-w-screen-xl m-auto w-95% sm:w-11/12"
       >
         <nav className="flex my-10" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-3">
+          <ol className="inline-flex flex-wrap items-center gap-y-3 space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
               <Link
                 href="/"
@@ -233,7 +233,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.firstName && (
-                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
                       required
                     </span>
                   )}
@@ -254,7 +254,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 </div>
                 <div className="flex flex-col w-full">
                   {errors.lastName && (
-                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
                       required
                     </span>
                   )}
@@ -274,7 +274,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.email && (
-                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
                       required
                     </span>
                   )}
@@ -301,7 +301,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
 
                 <div className="flex flex-col w-full text-left">
                   {errors.phone && (
-                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
                       Provide valid number
                     </span>
                   )}
@@ -365,7 +365,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.ReactDatepicker && (
-                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
                       required
                     </span>
                   )}
@@ -391,7 +391,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 </div>
                 <div className="flex flex-col w-full">
                   {errors.time && (
-                    <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
                       required
                     </span>
                   )}
@@ -438,7 +438,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   ))}
                 </select>
                 {errors.subject && (
-                  <span className="absolute mt-14 ml-2 text-red-500">
+                  <span className="absolute mt-subjectRemAppointment ml-2 text-red-500 uppercase">
                     required
                   </span>
                 )}
@@ -461,7 +461,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   })}
                 />
                 {errors.message && (
-                  <span className="absolute mt-8.6rem ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-44 ml-2 text-red-500 uppercase">
                     required (max 1200 Chars)
                   </span>
                 )}

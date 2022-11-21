@@ -45,7 +45,7 @@ function Product({ product }: BlogProps) {
       </div>
       <section className="max-w-7xl mx-auto mt-5 px-5 sm:px-40 lg:px-40 py-20 sm:py-28 lg:py-28 min-h-screen flex flex-col">
         <nav className="flex" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-3">
+          <ol className="inline-flex flex-wrap items-center gap-y-3 md:space-x-3">
             <li className="inline-flex items-center">
               <Link
                 href="/"
@@ -106,12 +106,12 @@ function Product({ product }: BlogProps) {
           </ol>
         </nav>
         <div className="flex flex-col lg:flex-row items-start justify-between my-12 gap-y-4">
-          <h1 className="font-monsterrat font-semibold text-4xl tracking-tight">
+          <h1 className="font-monsterrat font-semibold text-4xl tracking-tight dark:text-white text-gray-850">
             {product?.name}
           </h1>
           <Link
             href="/product-inquiry"
-            className="px-5 py-3 bg-blue-750 text-white rounded-lg hover:bg-blue-450"
+            className="px-5 py-3 bg-blue-550 text-white rounded-lg hover:bg-green-350 hover:text-blue-550 font-button"
           >
             Submit Inquiry
           </Link>

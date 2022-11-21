@@ -63,7 +63,7 @@ function ContactForm() {
             <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
               <div className="flex flex-col w-full">
                 {errors.firstName && (
-                  <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-24 ml-2 text-red-500 uppercase">
                     required
                   </span>
                 )}
@@ -81,7 +81,7 @@ function ContactForm() {
               </div>
               <div className="flex flex-col w-full">
                 {errors.lastName && (
-                  <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-24 ml-2 text-red-500 uppercase">
                     required
                   </span>
                 )}
@@ -101,7 +101,7 @@ function ContactForm() {
             <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
               <div className="flex flex-col w-full">
                 {errors.email && (
-                  <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-24 ml-2 text-red-500 uppercase">
                     required
                   </span>
                 )}
@@ -127,7 +127,7 @@ function ContactForm() {
 
               <div className="flex flex-col w-full text-left">
                 {errors.phone && (
-                  <span className="absolute mt-10 ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-24 ml-2 text-red-500 uppercase">
                     Provide valid number
                   </span>
                 )}
@@ -201,7 +201,7 @@ function ContactForm() {
                 })}
               />
               {errors.message && (
-                <span className="absolute mt-8.6rem ml-2 text-red-500 uppercase">
+                <span className="absolute mt-messageRem ml-2 text-red-500 uppercase">
                   required (max 1200 Chars)
                 </span>
               )}

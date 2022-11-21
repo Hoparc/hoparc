@@ -103,9 +103,9 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
         <div className="max-w-screen-xl m-auto w-11/12 ">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-12 mb-20">
             <div className="col-span-12 lg:col-span-12">
-              <div className="flex flex-row justify-center">
+              <div className="flex flex-row flex-wrap justify-center gap-y-3">
                 <Link href="/blogs">
-                  <button className="dark:bg-blue-550 border-b-gray-450 border-b-4 hover:border-b-green-450 hover:border-b-4 block bg-white dark:hover:text-blue-850 rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-xs md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-2 hover:text-white hover:bg-blue-550 dark:hover:bg-blue-350">
+                  <button className="dark:bg-blue-550 border-b-gray-450 border-b-4 hover:border-b-green-450 hover:border-b-4 block bg-white dark:hover:text-blue-850 rounded-t-lg font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-xs md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 p-2 hover:text-white hover:bg-blue-550 dark:hover:bg-blue-350">
                     All
                   </button>
                 </Link>
@@ -116,7 +116,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                   >
                     <button
                       className={cn(
-                        "dark:bg-blue-550 border-b-gray-450 border-b-4 hover:border-b-green-450 hover:border-b-4 block bg-white dark:hover:text-blue-850 rounded-t-xl font-roboto text-gray-650 dark:text-white leading-5 text-accent-4 text-xs md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 mb-8 p-2 hover:text-white hover:bg-blue-550 dark:hover:bg-blue-350",
+                        "dark:bg-blue-550 border-b-gray-450 border-b-4 hover:border-b-green-450 hover:border-b-4 bg-white rounded-t-lg font-roboto text-gray-650 dark:text-white dark:hover:text-blue-850 leading-5 text-accent-4 text-xs md:text-lg tracking-wide hover:bg-accent-1 hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8 p-2 hover:text-white hover:bg-blue-550 dark:hover:bg-blue-350",
                         { underline: activeCategory === category.slug?.current }
                       )}
                     >
@@ -126,11 +126,11 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                 ))}
               </div>
               {filteredBlogs.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 columns-1 gap-8 md:columns-2 xl:columns-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 columns-1 gap-8 md:columns-2 xl:columns-2 mt-8">
                   {filteredBlogs.map((blog) => {
                     return (
                       <Fragment key={blog.title}>
-                        <div className=" bg-white rounded-xl shadow-md  hover:shadow-lg">
+                        <div className=" bg-white rounded-xl shadow-md">
                           <div className="mb-1 relative rounded-lg overflow-hidden">
                             <div className="h-[250px] relative">
                               {blog.image?.asset?.url && (
