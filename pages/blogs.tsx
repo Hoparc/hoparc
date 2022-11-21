@@ -95,7 +95,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
         />
         <div className="bg-blue-550 w-full">
           <div className="max-w-screen-xl m-auto w-11/12">
-            <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
+            <h1 className="text-3xl sm:text-5xl text-center py-6 font-roboto font-bold text-white">
               Our Blog
             </h1>
           </div>
@@ -130,7 +130,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                   {filteredBlogs.map((blog) => {
                     return (
                       <Fragment key={blog.title}>
-                        <div className=" bg-white rounded-xl shadow-md">
+                        <div className="bg-white dark:bg-gray-800 dark:border dark:border-1 dark:border-slate-700 rounded-xl shadow-md">
                           <div className="mb-1 relative rounded-lg overflow-hidden">
                             <div className="h-[250px] relative">
                               {blog.image?.asset?.url && (
@@ -147,16 +147,16 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                               )}
                             </div>
                             <div className="py-4 px-4 gap-y-4 flex flex-col items-start justify-between">
-                              <h2 className="font-bold text-xl">
+                              <h2 className="font-bold font-roboto text-xl text-gray-850 dark:text-white">
                                 {blog.title}
                               </h2>
                               <Link
                                 key={blog.slug?.current}
                                 href={`/blog/${blog.slug?.current}`}
-                                className="text-md font-semibold text-blue-450 hover:text-blue-550 inline-flex items-center space-x-1 md:space-x-3"
+                                className="text-md font-button text-blue-550 dark:text-white dark:hover:text-blue-550 inline-flex items-center space-x-1 md:space-x-3 bg-blue-250 dark:bg-blue-550 py-1 px-2 rounded-md hover:bg-green-350"
                               >
                                 Learn More
-                                <HiArrowRight className="inline w-4 h-4 ml-2 text-blue-450" />
+                                <HiArrowRight className="inline w-4 h-4 ml-2 text-blue-550 dark:text-white dark:text-inherit" />
                               </Link>
                             </div>
                           </div>

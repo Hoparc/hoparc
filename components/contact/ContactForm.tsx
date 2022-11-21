@@ -57,19 +57,19 @@ function ContactForm() {
           className="w-full flex-1 m-auto pt-4 xl:pt-0"
         >
           <div className="flex flex-col space-y-4">
-            <h2 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+            <h2 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold">
               Let's get to know you
             </h2>
             <div className="flex flex-col justify-evenly md:gap-4 sm:flex-row">
               <div className="flex flex-col w-full">
                 {errors.firstName && (
-                  <span className="absolute mt-24 ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
                     required
                   </span>
                 )}
                 <label
                   htmlFor="firstName"
-                  className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  className="block mb-2 mt-5 text-sm font-roboto text-gray-900 dark:text-white"
                 >
                   First Name
                 </label>
@@ -81,13 +81,13 @@ function ContactForm() {
               </div>
               <div className="flex flex-col w-full">
                 {errors.lastName && (
-                  <span className="absolute mt-24 ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
                     required
                   </span>
                 )}
                 <label
                   htmlFor="lastName"
-                  className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  className="block mb-2 mt-5 text-sm font-roboto text-gray-900 dark:text-white"
                 >
                   Last Name
                 </label>
@@ -101,13 +101,13 @@ function ContactForm() {
             <div className="flex flex-col justify-evenly md:gap-4 sm:flex-row">
               <div className="flex flex-col w-full">
                 {errors.email && (
-                  <span className="absolute mt-24 ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
                     required
                   </span>
                 )}
                 <label
                   htmlFor="email"
-                  className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  className="block mb-2 mt-5 text-sm font-roboto text-gray-900 dark:text-white"
                 >
                   Email
                 </label>
@@ -127,13 +127,13 @@ function ContactForm() {
 
               <div className="flex flex-col w-full text-left">
                 {errors.phone && (
-                  <span className="absolute mt-24 ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
                     Provide valid number
                   </span>
                 )}
                 <label
                   htmlFor="phone"
-                  className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
+                  className="block mb-2 mt-5 text-sm font-roboto text-gray-900 dark:text-white"
                 >
                   Phone Number
                 </label>
@@ -158,12 +158,12 @@ function ContactForm() {
             </div>
 
             <div className="flex flex-col gap-8">
-              <h3 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+              <h3 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold mt-7">
                 What can we help you with?
               </h3>
               <label
                 htmlFor="subject"
-                className="block text-sm text-gray-900 dark:text-white"
+                className="block text-sm font-roboto text-gray-900 dark:text-white"
               >
                 Subject
               </label>
@@ -178,7 +178,7 @@ function ContactForm() {
                 })}
               />
               {errors.subject && (
-                <span className="absolute mt-subjectRem ml-2 text-red-500 uppercase">
+                <span className="absolute mt-subjectRem ml-2 text-red-500 uppercase font-roboto">
                   required
                 </span>
               )}
@@ -186,7 +186,7 @@ function ContactForm() {
             <div className="flex flex-col">
               <label
                 htmlFor="message"
-                className="mb-4 block text-sm text-gray-900 dark:text-white"
+                className="mt-6 mb-4 block text-sm font-roboto text-gray-900 dark:text-white"
               >
                 Message
               </label>
@@ -201,7 +201,7 @@ function ContactForm() {
                 })}
               />
               {errors.message && (
-                <span className="absolute mt-messageRem ml-2 text-red-500 uppercase">
+                <span className="absolute mt-messageRem ml-2 text-red-500 uppercase font-roboto">
                   required (max 1200 Chars)
                 </span>
               )}
@@ -210,7 +210,7 @@ function ContactForm() {
               <button
                 type="submit"
                 value="Send"
-                className="w-full rounded-md bg-blue-650 px-14 py-4 mt-4 text-sm font-button bold uppercase text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                className="w-full rounded-md dark:bg-blue-650 bg-blue-550 px-14 py-4 mt-4 text-sm font-button bold uppercase text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
                 Submit
               </button>
@@ -290,7 +290,7 @@ function ContactForm() {
           leaveTo="transform opacity-0 scale-95"
         >
           <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white bg-opacity-90">
-            <p className="mt-10 text-xl text-accent font-bold">
+            <p className="mt-10 text-xl text-accent font-bold font-roboto">
               We apologize for the inconvenience, something went wrong.
             </p>
             <p className="text-lg">Please try again in a few minutes.</p>

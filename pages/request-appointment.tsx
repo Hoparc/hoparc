@@ -140,7 +140,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
       />
       <div className="bg-blue-550 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
-          <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
+          <h1 className="text-3xl sm:text-5xl text-center py-6 font-roboto font-bold text-white">
             Your <span className="text-green-450">care</span> is our goal
           </h1>
         </div>
@@ -154,7 +154,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             <li className="inline-flex items-center">
               <Link
                 href="/"
-                className="inline-flex items-center text-lg font-medium md:ml-2 dark:hover:text-blue-450  cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                className="inline-flex items-center text-lg font-bold font-roboto md:ml-2 dark:hover:text-blue-350 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550"
               >
                 <svg
                   className="w-4 h-4 mr-2"
@@ -183,7 +183,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 </svg>
                 <Link
                   href="/services"
-                  className="ml-1 text-lg font-medium md:ml-2 dark:hover:text-blue-450 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                  className="ml-1 text-lg font-regular font-roboto md:ml-2 dark:hover:text-blue-350 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550"
                 >
                   Services
                 </Link>
@@ -203,14 +203,14 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                <span className="ml-1 text-lg font-medium md:ml-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
+                <span className="ml-1 text-lg font-regular font-roboto md:ml-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550 dark:hover:text-blue-350">
                   Request Appointment
                 </span>
               </div>
             </li>
           </ol>
         </nav>
-        <h2 className="my-5 text-xl text-blue-550 dark:text-blue-350 font-semibold">
+        <h2 className="my-5 text-xl text-blue-550 dark:text-green-350 font-bold font-roboto">
           Consulted by an experienced Clinician
         </h2>
 
@@ -227,13 +227,13 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             className="w-full flex-1 m-auto pt-4 xl:pt-0 bg-white dark:bg-gray-800"
           >
             <div className="flex flex-col space-y-8">
-              <h2 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+              <h2 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold">
                 Let's get to know you{" "}
               </h2>
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.firstName && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
                       required
                     </span>
                   )}
@@ -254,7 +254,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 </div>
                 <div className="flex flex-col w-full">
                   {errors.lastName && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
                       required
                     </span>
                   )}
@@ -274,7 +274,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.email && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
                       required
                     </span>
                   )}
@@ -301,7 +301,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
 
                 <div className="flex flex-col w-full text-left">
                   {errors.phone && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
                       Provide valid number
                     </span>
                   )}
@@ -336,7 +336,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               <div className="flex flex-col gap-64 gap-y-8 sm:flex-row">
                 <label
                   htmlFor="phone"
-                  className="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300"
+                  className="ml-2 text-lg font-regular font-roboto text-gray-900 dark:text-gray-300"
                 >
                   <input
                     className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
@@ -348,7 +348,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 </label>
                 <label
                   htmlFor="email"
-                  className="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300"
+                  className="ml-2 text-lg font-regular font-roboto text-gray-900 dark:text-gray-300"
                 >
                   <input
                     className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
@@ -359,13 +359,13 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   Email
                 </label>
               </div>
-              <h3 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+              <h3 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold">
                 When would you like to come in?
               </h3>
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.ReactDatepicker && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
                       required
                     </span>
                   )}
@@ -391,7 +391,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 </div>
                 <div className="flex flex-col w-full">
                   {errors.time && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase">
+                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
                       required
                     </span>
                   )}
@@ -403,6 +403,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   </label>
                   <input
                     type="time"
+                    aria-label="Button for select time"
                     className="rounded-md border font-opensans bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-3"
                     {...register("time", { required: true, maxLength: 30 })}
                   />
@@ -410,7 +411,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               </div>
 
               <div className="flex flex-col gap-y-8">
-                <h3 className="text-2xl text-gray-550 dark:text-white font-monsterrat font-semibold">
+                <h3 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold">
                   What service would you like?
                 </h3>
                 <label
@@ -438,7 +439,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   ))}
                 </select>
                 {errors.subject && (
-                  <span className="absolute mt-subjectRemAppointment ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-subjectRemAppointment ml-2 text-red-500 uppercase font-roboto">
                     required
                   </span>
                 )}
@@ -461,7 +462,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   })}
                 />
                 {errors.message && (
-                  <span className="absolute mt-44 ml-2 text-red-500 uppercase">
+                  <span className="absolute mt-44 ml-2 text-red-500 uppercase font-roboto">
                     required (max 1200 Chars)
                   </span>
                 )}
@@ -470,7 +471,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 <button
                   type="submit"
                   value="Send"
-                  className="w-full rounded-md bg-blue-650 px-14 py-4 mt-4 text-sm font-button bold uppercase text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                  className="w-full rounded-md dark:bg-blue-650 bg-blue-550 px-14 py-4 mt-4 text-sm font-button uppercase text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                 >
                   Submit
                 </button>
@@ -552,7 +553,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             leaveTo="transform opacity-0 scale-95"
           >
             <div className="flex flex-col justify-center items-center fixed   top-0 left-0 h-full w-full bg-blue-150 bg-opacity-90">
-              <p className="mt-10 text-xl text-accent font-bold">
+              <p className="mt-10 text-xl text-accent font-roboto font-bold">
                 We apologize for the inconvenience, something went wrong.
               </p>
               <p className="text-lg">Please try again in a few minutes.</p>

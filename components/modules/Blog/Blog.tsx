@@ -41,7 +41,7 @@ function Blog({ blog }: BlogProps) {
       />
       <div className="bg-blue-550 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
-          <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold text-white">
+          <h1 className="text-3xl sm:text-5xl text-center py-6 font-roboto font-bold text-white">
             Our Blog
           </h1>
         </div>
@@ -52,7 +52,7 @@ function Blog({ blog }: BlogProps) {
             <li className="inline-flex items-center">
               <Link
                 href="/"
-                className="inline-flex items-center text-lg font-medium md:ml-2 dark:hover:text-white  cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                className="inline-flex items-center text-lg font-bold font-roboto md:ml-2 dark:hover:text-blue-350  cursor-pointer text-gray-750 dark:text-white hover:text-blue-550"
               >
                 <svg
                   className="w-4 h-4 mr-2"
@@ -81,7 +81,7 @@ function Blog({ blog }: BlogProps) {
                 </svg>
                 <Link
                   href="/blogs"
-                  className="ml-1 text-lg font-medium md:ml-2 dark:hover:text-white cursor-pointer text-gray-750 dark:text-white hover:text-blue-450"
+                  className="ml-1 text-lg font-regular font-roboto md:ml-2 dark:hover:text-blue-350 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550"
                 >
                   Our Blogs
                 </Link>
@@ -101,14 +101,14 @@ function Blog({ blog }: BlogProps) {
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                <span className="ml-1 text-lg font-medium md:ml-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-450">
+                <span className="ml-1 text-lg font-regular font-roboto md:ml-2 cursor-pointer text-gray-750 dark:text-white dark:hover:text-blue-350 hover:text-blue-550">
                   {blog?.title}
                 </span>
               </div>
             </li>
           </ol>
         </nav>
-        <h1 className="my-12 font-monsterrat font-semibold text-4xl tracking-tight dark:text-white text-gray-850">
+        <h1 className="my-12 font-roboto font-bold text-4xl tracking-tight dark:text-white text-gray-850">
           {blog?.title}
         </h1>
         <div className="w-full">
@@ -122,7 +122,7 @@ function Blog({ blog }: BlogProps) {
           />
         </div>
         <div className="flex flex-row items-center gap-6 w-11/12 my-12 text-gray-850 dark:text-white font-roboto text-base">
-          <span className="text-lg font-semibold">
+          <span className="text-lg font-roboto font-bold">
             {format(date, "MMMM dd, yyyy")}
           </span>
         </div>

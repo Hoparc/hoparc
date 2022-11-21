@@ -94,10 +94,10 @@ module.exports = {
         "2.5xl": "37rem"
       },
       margin: {
-        messageRem: "11.2rem",
-        textareaRem: "11.7rem",
+        messageRem: "12.7rem",
+        textareaRem: "14.9rem",
         timeRequiredRem: "4.3rem",
-        subjectRem: "10.2rem",
+        subjectRem: "11.9rem",
         subjectRemAppointment: "10.8rem"
       },
       padding: {
