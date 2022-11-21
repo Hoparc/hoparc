@@ -18,7 +18,7 @@ function Hero({ callToAction, url }: HeroProps) {
           width={1000}
           quality={100}
           className="absolute bottom-0 left-0 w-0 mobileSm:w-20 mobile:w-24 sm:w-36 md:w-48 lg:w-60 xl:w-60 2xl:w-0"
-          priority
+          priority={true}
         />
 
         <Image
@@ -28,7 +28,7 @@ function Hero({ callToAction, url }: HeroProps) {
           width={1000}
           quality={100}
           className="absolute bottom-0 left-0 h-full w-0 xl:w-3/12 2xl:w-4/12 "
-          priority
+          priority={true}
         />
 
         <div className="hidden lg:block lg:max-w-xxs xl:max-w-xs 2xl:max-w-sm 3xl:max-w-2.5xl w-full h-full absolute right-0 bottom-0">
@@ -40,14 +40,11 @@ function Hero({ callToAction, url }: HeroProps) {
             height={1}
             width={864}
             quality={100}
-            priority
+            priority={true}
           />
         </div>
 
         <div className="max-w-screen-hero m-auto w-full h-full">
-
-
-
           <div className="flex justify-center h-full">
             {/* Hero Text */}
             <div className="flex flex-col 395Break:m-0 xl:ml-0 lg:mr-0 lg:ml-0 max-w-xl z-10 self-center">
@@ -74,15 +71,10 @@ function Hero({ callToAction, url }: HeroProps) {
                 </Link>
               </div>
             </div>
-
-
-
           </div>
-
         </div>
       </div>
     </>
-
   );
 };
 
