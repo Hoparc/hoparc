@@ -157,7 +157,7 @@ const Products: NextPage<ProductsProps> = ({
                               <Link
                                 key={product.slug?.current}
                                 href={`/product/${product.slug?.current}`}
-                                className="text-md text-center rounded-lg w-full font-button bg-blue-250 dark:bg-blue-550 p-3 hover:bg-green-350 text-blue-350 dark:text-white hover:text-blue-550"
+                                className="text-md text-center rounded-lg w-full font-button bg-blue-250 dark:bg-blue-550 p-3 hover:bg-green-350 text-blue-550 dark:text-white hover:text-blue-550"
                               >
                                 Learn More
 
