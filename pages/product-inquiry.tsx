@@ -5,8 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { GetStaticProps, NextPage } from "next";
 
-import { HiChevronLeft } from "react-icons/hi";
-
 import client from "../apollo-client";
 import {
   AllLocationsDocument,
@@ -30,6 +28,7 @@ type FormValues = {
   subject: string;
   email: string;
   phone: string;
+  preferredContact: string[];
   message: string;
 };
 
@@ -62,8 +61,6 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
 }: ProductInquiryProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
   const [userChoice, setUserChoice] = useState("");
-  const [checkedPhone, setCheckedPhone] = useState(false);
-  const [checkedEmail, setCheckedEmail] = useState(false);
 
   const {
     register,
@@ -77,6 +74,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
       subject: "",
       email: "",
       phone: "",
+      preferredContact: ["email", "phone"],
       message: "",
     },
   });
@@ -95,14 +93,6 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
     target: { value: SetStateAction<string> };
   }) => {
     setUserChoice(e.target.value);
-  };
-
-  const handleUserPreferredPhone = () => {
-    setCheckedPhone(!checkedPhone);
-  };
-
-  const handleUserPreferredEmail = () => {
-    setCheckedEmail(!checkedEmail);
   };
 
   return (
@@ -132,8 +122,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
       <div className="bg-blue-550 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
           <h1 className="text-3xl sm:text-5xl text-center py-6 font-bold font-roboto text-white capitalize">
-            products that you <span className="text-green-450">care</span>{" "}
-            for
+            products that you <span className="text-green-450">care</span> for
           </h1>
         </div>
       </div>
@@ -319,33 +308,37 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 />
               </div>
             </div>
-            <p className="pt-6 text-xl font-roboto text-gray-550 dark:text-white">What is your preferred method of contact?</p>
-            <div className="flex flex-col gap-4 font-roboto font-regular">
+            <p className="pt-6 text-xl font-roboto text-gray-550 dark:text-white">
+              What is your preferred method of contact?
+            </p>
+
+            <div className="flex flex-col gap-56 gap-y-8 sm:flex-row">
               <label
                 htmlFor="phone"
-                className="ml-2 text-lg text-gray-900 dark:text-gray-300"
+                className="ml-2 text-lg font-regular font-roboto text-gray-900 dark:text-gray-300"
               >
                 <input
                   className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   type="checkbox"
-                  checked={checkedPhone}
-                  onChange={handleUserPreferredPhone}
+                  value="phone"
+                  {...register("preferredContact")}
                 />{" "}
                 Phone
               </label>
               <label
                 htmlFor="email"
-                className="ml-2 text-lg text-gray-900 dark:text-gray-300"
+                className="ml-2 text-lg font-regular font-roboto text-gray-900 dark:text-gray-300"
               >
                 <input
                   className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   type="checkbox"
-                  checked={checkedEmail}
-                  onChange={handleUserPreferredEmail}
+                  value="email"
+                  {...register("preferredContact")}
                 />{" "}
                 Email
               </label>
             </div>
+
             <h3 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold">
               Which product would you like to purchase?
             </h3>
@@ -387,7 +380,9 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
               <h3 className="text-2xl text-gray-550 dark:text-white font-bold">
                 Have any questions for us?
               </h3>
-              <label htmlFor="message" className="dark:text-white">Message</label>
+              <label htmlFor="message" className="dark:text-white">
+                Message
+              </label>
               <textarea
                 rows={5}
                 placeholder="Message"

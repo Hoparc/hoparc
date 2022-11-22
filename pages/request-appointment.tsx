@@ -29,10 +29,10 @@ type FormValues = {
   firstName: string;
   lastName: string;
   time: string;
-  ReactDatepicker: Date;
   subject: string;
   email: string;
   phone: string;
+  preferredContact: string[];
   message: string;
 };
 
@@ -67,8 +67,6 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
 }: RequestAppointmentProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
   const [userChoice, setUserChoice] = useState("");
-  const [checkedPhone, setCheckedPhone] = useState(false);
-  const [checkedEmail, setCheckedEmail] = useState(false);
 
   const {
     register,
@@ -84,6 +82,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
       subject: "",
       email: "",
       phone: "",
+      preferredContact: ["email", "phone"],
       message: "",
     },
   });
@@ -102,14 +101,6 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
     target: { value: SetStateAction<string> };
   }) => {
     setUserChoice(e.target.value);
-  };
-
-  const handleUserPreferredPhone = () => {
-    setCheckedPhone(!checkedPhone);
-  };
-
-  const handleUserPreferredEmail = () => {
-    setCheckedEmail(!checkedEmail);
   };
 
   return (
@@ -333,19 +324,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               <p className="text-xl dark:text-white">
                 What is your preferred method of contact?
               </p>
-              <div className="flex flex-col gap-64 gap-y-8 sm:flex-row">
-                <label
-                  htmlFor="phone"
-                  className="ml-2 text-lg font-regular font-roboto text-gray-900 dark:text-gray-300"
-                >
-                  <input
-                    className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    type="checkbox"
-                    checked={checkedPhone}
-                    onChange={handleUserPreferredPhone}
-                  />{" "}
-                  Phone
-                </label>
+              <div className="flex flex-col gap-56 gap-y-8 sm:flex-row">
                 <label
                   htmlFor="email"
                   className="ml-2 text-lg font-regular font-roboto text-gray-900 dark:text-gray-300"
@@ -353,10 +332,22 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   <input
                     className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     type="checkbox"
-                    checked={checkedEmail}
-                    onChange={handleUserPreferredEmail}
+                    value="email"
+                    {...register("preferredContact")}
                   />{" "}
                   Email
+                </label>
+                <label
+                  htmlFor="phone"
+                  className="ml-2 text-lg font-regular font-roboto text-gray-900 dark:text-gray-300"
+                >
+                  <input
+                    className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    type="checkbox"
+                    value="phone"
+                    {...register("preferredContact")}
+                  />{" "}
+                  Phone
                 </label>
               </div>
               <h3 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold">
