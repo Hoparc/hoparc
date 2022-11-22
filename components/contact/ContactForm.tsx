@@ -63,7 +63,7 @@ function ContactForm() {
             <div className="flex flex-col justify-evenly md:gap-4 sm:flex-row">
               <div className="flex flex-col w-full">
                 {errors.firstName && (
-                  <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
+                  <span className="absolute mt-24 ml-2 text-red-500  font-roboto">
                     required
                   </span>
                 )}
@@ -81,7 +81,7 @@ function ContactForm() {
               </div>
               <div className="flex flex-col w-full">
                 {errors.lastName && (
-                  <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
+                  <span className="absolute mt-24 ml-2 text-red-500  font-roboto">
                     required
                   </span>
                 )}
@@ -101,7 +101,7 @@ function ContactForm() {
             <div className="flex flex-col justify-evenly md:gap-4 sm:flex-row">
               <div className="flex flex-col w-full">
                 {errors.email && (
-                  <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
+                  <span className="absolute mt-24 ml-2 text-red-500  font-roboto">
                     required
                   </span>
                 )}
@@ -127,7 +127,7 @@ function ContactForm() {
 
               <div className="flex flex-col w-full text-left">
                 {errors.phone && (
-                  <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
+                  <span className="absolute mt-24 ml-2 text-red-500  font-roboto">
                     Provide valid number
                   </span>
                 )}
@@ -178,7 +178,7 @@ function ContactForm() {
                 })}
               />
               {errors.subject && (
-                <span className="absolute mt-subjectRem ml-2 text-red-500 uppercase font-roboto">
+                <span className="absolute mt-subjectRem ml-2 text-red-500  font-roboto">
                   required
                 </span>
               )}
@@ -201,7 +201,7 @@ function ContactForm() {
                 })}
               />
               {errors.message && (
-                <span className="absolute mt-messageRem ml-2 text-red-500 uppercase font-roboto">
+                <span className="absolute mt-messageRem ml-2 text-red-500  font-roboto">
                   required (max 1200 Chars)
                 </span>
               )}
@@ -210,7 +210,7 @@ function ContactForm() {
               <button
                 type="submit"
                 value="Send"
-                className="w-full rounded-md dark:bg-blue-650 bg-blue-550 px-14 py-4 mt-4 text-sm font-button bold uppercase text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                className="w-full rounded-md dark:bg-blue-650 bg-blue-550 px-14 py-4 mt-4 text-sm font-button bold text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
                 Submit
               </button>
@@ -243,7 +243,7 @@ function ContactForm() {
         >
           <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white bg-opacity-90">
             <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-            <p className="mt-10 text-xl font-roboto uppercase text-accent font-bold">
+            <p className="mt-10 text-xl font-roboto text-accent font-bold">
               sending...
             </p>
           </div>
@@ -263,14 +263,14 @@ function ContactForm() {
           <div className="flex flex-col justify-center items-center absolute top-0 left-0 h-full w-full bg-white rounded-b-lg">
             <div className="flex flex-col md:flex-row"></div>
             <div className="flex flex-col items-center bg-slate-200 p-10 rounded-xl shadow-md text-center mx-3">
-              <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold uppercase">
+              <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold ">
                 message sent!
               </p>
               <p className="text-sm font-roboto text-blue-550 my-5 sm:text-lg">
                 A member of our staff will get back to you as soon as possible!
               </p>
               <Link href="/">
-                <button className="rounded-lg bg-blue-550 px-6 py-3 font-roboto uppercase text-white hover:bg-green-350 hover:text-blue-550">
+                <button className="rounded-lg bg-blue-550 px-6 py-3 font-roboto text-white hover:bg-green-350 hover:text-blue-550">
                   return home
                 </button>
               </Link>

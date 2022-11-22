@@ -53,7 +53,7 @@ function Navbar() {
                           physiotherapy
                         </h2>
 
-                        <h3 className="font-merriweather font-bold hidden text-tiny xl: leading-3 sm:leading-4 text-blue-850 dark:text-green-350 uppercase xl:block">
+                        <h3 className="font-merriweather font-bold hidden text-smaller xl: leading-3 sm:leading-4 text-blue-850 dark:text-green-350 capitalize xl:block">
                           rehab centre & pelvic health
                         </h3>
                       </div>

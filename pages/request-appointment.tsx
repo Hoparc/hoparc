@@ -140,7 +140,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
       />
       <div className="bg-blue-550 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
-          <h1 className="text-3xl sm:text-5xl text-center py-6 font-roboto font-bold text-white">
+          <h1 className="text-3xl sm:text-5xl text-center py-6 font-roboto font-bold text-white capitalize">
             Your <span className="text-green-450">care</span> is our goal
           </h1>
         </div>
@@ -233,7 +233,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.firstName && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
+                    <span className="absolute mt-24 ml-2 text-red-500 font-roboto">
                       required
                     </span>
                   )}
@@ -254,7 +254,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 </div>
                 <div className="flex flex-col w-full">
                   {errors.lastName && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
+                    <span className="absolute mt-24 ml-2 text-red-500 font-roboto">
                       required
                     </span>
                   )}
@@ -274,7 +274,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.email && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
+                    <span className="absolute mt-24 ml-2 text-red-500 font-roboto">
                       required
                     </span>
                   )}
@@ -301,7 +301,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
 
                 <div className="flex flex-col w-full text-left">
                   {errors.phone && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
+                    <span className="absolute mt-24 ml-2 text-red-500 font-roboto">
                       Provide valid number
                     </span>
                   )}
@@ -365,7 +365,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.ReactDatepicker && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
+                    <span className="absolute mt-24 ml-2 text-red-500 font-roboto">
                       required
                     </span>
                   )}
@@ -391,7 +391,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 </div>
                 <div className="flex flex-col w-full">
                   {errors.time && (
-                    <span className="absolute mt-24 ml-2 text-red-500 uppercase font-roboto">
+                    <span className="absolute mt-24 ml-2 text-red-500 font-roboto">
                       required
                     </span>
                   )}
@@ -439,7 +439,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   ))}
                 </select>
                 {errors.subject && (
-                  <span className="absolute mt-subjectRemAppointment ml-2 text-red-500 uppercase font-roboto">
+                  <span className="absolute mt-subjectRemAppointment ml-2 text-red-500 font-roboto">
                     required
                   </span>
                 )}
@@ -462,7 +462,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   })}
                 />
                 {errors.message && (
-                  <span className="absolute mt-44 ml-2 text-red-500 uppercase font-roboto">
+                  <span className="absolute mt-44 ml-2 text-red-500 font-roboto">
                     required (max 1200 Chars)
                   </span>
                 )}
@@ -471,7 +471,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                 <button
                   type="submit"
                   value="Send"
-                  className="w-full rounded-md dark:bg-blue-650 bg-blue-550 px-14 py-4 mt-4 text-sm font-button uppercase text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                  className="w-full rounded-md dark:bg-blue-650 bg-blue-550 px-14 py-4 mt-4 text-sm font-button  text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                 >
                   Submit
                 </button>
@@ -505,7 +505,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
           >
             <div className="flex flex-col justify-center items-center fixed  top-0 left-0 h-full w-full  bg-blue-150 bg-opacity-90">
               <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-              <p className="mt-10 text-xl font-roboto uppercase text-accent font-bold">
+              <p className="mt-10 text-xl font-roboto text-accent font-bold">
                 sending...
               </p>
             </div>
@@ -525,7 +525,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
             <div className="flex flex-col justify-center items-center fixed top-0 left-0 h-full w-full bg-blue-150">
               <div className="flex flex-col md:flex-row"></div>
               <div className="flex flex-col items-center bg-slate-200 p-10 rounded-xl shadow-md text-center mx-3">
-                <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold uppercase">
+                <p className="mt-10 text-xl text-blue-550 font-roboto text-accent font-bold">
                   message sent!
                 </p>
                 <p className="text-sm font-roboto text-blue-350 my-5 sm:text-lg">
@@ -533,7 +533,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   possible!
                 </p>
                 <Link href="/">
-                  <button className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold uppercase text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                  <button className="rounded-md bg-blue-550 px-10 py-5 text-sm font-roboto bold text-white hover:bg-green-350 hover:text-blue-550 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                     RETURN HOME
                   </button>
                 </Link>

@@ -100,7 +100,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
       />
       <div className="bg-blue-550 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
-          <h1 className="text-3xl sm:text-5xl text-center p-3 font-bold uppercase text-white">
+          <h1 className="text-3xl sm:text-5xl text-center p-3 font-bold text-white capitalize">
             about
           </h1>
         </div>
