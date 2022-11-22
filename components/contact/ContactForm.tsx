@@ -32,7 +32,7 @@ function ContactForm() {
       subject: "",
       email: "",
       phone: "",
-      preferredContact: ["email", "phone"],
+      preferredContact: ["", ""],
       message: "",
     },
   });
