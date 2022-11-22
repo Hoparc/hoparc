@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 
 import Image from "next/image";
 
@@ -47,11 +48,11 @@ function Testimonials({
   const [showMore, setShowMore] = useState(!hasShowMore);
   return (
     <div className="py-28 bg-blue-550">
-      <div className="relative max-w-5xl w-95% mx-auto mt-10">
-        <div className="flex pb-12 flex-col items-center justify-center">
-          <h4 className="text-3xl sm:text-5xl font-roboto font-bold text-center text-white">
+      <div className="relative">
+        <div className="flex pb-12 flex-col items-center justify-center max-w-5xl w-95% mx-auto mt-10">
+          <h2 className="text-3xl sm:text-5xl font-roboto font-bold text-center text-white">
             Our clients love us!
-          </h4>
+          </h2>
           <p className="flex flex-col mx-auto mt-3 max-w-2xl text-md sm:text-xl font-roboto sm:mt-4 text-center text-green-350">
             Check out what they have to say!
           </p>
@@ -62,7 +63,7 @@ function Testimonials({
             ["overflow-hidden"]: !showMore,
           })}
         >
-          <div className="columns-1 gap-x-4 md:columns-2 lg:columns-3 font-roboto">
+          <div className="columns-1 gap-x-4 md:columns-2 lg:columns-3 font-roboto max-w-5xl w-95% mx-auto">
             {testimonials?.map((testimonial) => (
               <TestimonialCard
                 imageUrl={testimonial.image?.asset?.url ?? ""}
@@ -71,10 +72,30 @@ function Testimonials({
                 key={testimonial.name}
               />
             ))}
+            <div className="flex items-center justify-center bg-white highlight-white/5 rounded-md  dark:border dark:border-gray-700
+        dark:bg-gray-800 w-full py-6 px-2 font-bold font-roboto text-xl text-gray-850 dark:text-white gap-3">
+              <h3>
+                See more reviews on:
+              </h3>
+              <Link
+                className="text-2xl bg-blue-550 dark:bg-blue-250 p-2 hover:bg-blue-850 hover:text-blue-550 rounded-md focus:outline focus:outline-2 focus:outline-green-350 hover:outline hover:outline-2 hover:outline-green-350 focus:bg-blue-850"
+                href="https://g.page/HOPARC?share"
+                role="button"
+                target="_blank"
+                aria-label="Google"
+              >
+                <span aria-hidden className="text-blue-400 dark:text-blue-650">G</span>
+                <span aria-hidden className="text-red-500">o</span>
+                <span aria-hidden className="text-yellow-500">o</span>
+                <span aria-hidden className="text-blue-400 dark:text-blue-650">g</span>
+                <span aria-hidden className="text-green-350">l</span>
+                <span aria-hidden className="text-red-500">e</span>
+              </Link>
+            </div>
           </div>
           {hasShowMore && (
             <div
-              className={cn("inset-x-0 flex justify-center absolute", {
+              className={cn("inset-x-0 flex justify-center absolute max-w-5xl w-95% mx-auto", {
                 ["bg-gradient-to-t bottom-0 pb-0 pointer-events-none from-slate-150"]:
                   !showMore,
               })}

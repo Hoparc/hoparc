@@ -37,7 +37,7 @@ function Footer({ locations }: FooterProps) {
                         physiotherapy
                       </h2>
 
-                      <h3 className="font-roboto font-bold text-smaller  text-green-350 uppercase">
+                      <h3 className="font-roboto font-bold text-sm text-green-350 capitalize">
                         rehab centre & pelvic health
                       </h3>
                     </div>
@@ -85,7 +85,7 @@ function Footer({ locations }: FooterProps) {
               </div>
               <div className="flex flex-col flex-1 justify-evenly gap-y-2 gap-x-12 footer:flex-row my-auto md:my-0 md:mx-auto">
                 <div className="footer:flex flex-col text-left">
-                  <h2 className="mb-4 text-2xl font-roboto font-bold text-green-350 uppercase text-left">
+                  <h2 className="mb-4 text-2xl font-roboto font-bold text-green-350 capitalize text-left">
                     Store Hours
                   </h2>
                   <ul className="flex flex-col gap-1 font-roboto text-slate-200 text-left">
@@ -99,7 +99,7 @@ function Footer({ locations }: FooterProps) {
                   </ul>
                 </div>
                 <div className="flex flex-col text-left">
-                  <h2 className="mb-4 text-2xl font-roboto font-bold text-green-350 uppercase text-left">
+                  <h2 className="mb-4 text-2xl font-roboto font-bold text-green-350 capitalize text-left">
                     Information
                   </h2>
                   <ul className="flex flex-col font-roboto text-slate-200 gap-3">
