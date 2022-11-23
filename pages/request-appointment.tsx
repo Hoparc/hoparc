@@ -82,7 +82,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
       subject: "",
       email: "",
       phone: "",
-      preferredContact: ["email", "phone"],
+      preferredContact: ["", ""],
       message: "",
     },
   });

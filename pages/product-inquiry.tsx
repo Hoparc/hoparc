@@ -74,7 +74,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
       subject: "",
       email: "",
       phone: "",
-      preferredContact: ["email", "phone"],
+      preferredContact: ["", ""],
       message: "",
     },
   });
