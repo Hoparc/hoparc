@@ -127,8 +127,7 @@ function Footer({ locations }: FooterProps) {
               <div className="flex flex-col w-full justify-around gap-3 md:flex-row">
                 <div className="flex flex-col gap-1">
                   <p className="text-slate-400 font-opensans text-tiny mobileXl:text-smaller">
-                    <span>&copy;</span>
-                    Designed and Developed by{" "}
+                    <span>&copy;</span> Designed and Developed by{" "}
                     <a
                       className="text-blue-300 hover:text-green-350 cursor-pointer"
                       href="https://alvinquach.me"
@@ -151,8 +150,8 @@ function Footer({ locations }: FooterProps) {
                   </p>
                   <div className="text-slate-400 text-tiny mobileXl:text-smaller font-opensans">
                     <p>
-                      <span>&copy;</span>Copyright 2022 Hands On Physiotherapy &
-                      Rehab Centre, All Rights Reserved
+                      <span>&copy;</span> Copyright {new Date().getFullYear()}{" "}
+                      Hands On Physiotherapy & Rehab Centre, All Rights Reserved
                     </p>
                   </div>
                 </div>
