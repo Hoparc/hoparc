@@ -35,11 +35,11 @@ export default [
     href: "/contact",
     current: "false",
   },
- 
+
   {
     id: 7,
-    name: "Request Appointment",
-    href: "/request-appointment",
+    name: "Book Appointment",
+    href: "/book-appointment",
     current: "false",
   },
 ];

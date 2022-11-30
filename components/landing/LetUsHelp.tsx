@@ -16,12 +16,12 @@ function LetUsHelp() {
           width={50}
         />
 
-        <Link href="/request-appointment">
+        <Link href="/book-appointment">
           <button
             className="bg-blue-550 dark:bg-blue-350 text-base text-white dark:text-blue-850 font-button w-full px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-sm"
             type="button"
           >
-            Request Appointment
+            Book Appointment
           </button>
         </Link>
       </div>
@@ -31,20 +31,21 @@ function LetUsHelp() {
             "
           </span>
           <span className="text-2xl sm:text-3xl text-blue-550 dark:text-green-350 font-roboto">
-            Our Clinic Believes: "Your care is our goal."  </span>
-          We offer an optimistic, dynamic,
-          a supervised active approach to rehabilitation. The physiotherapists at
-          Hands On Physio use manual therapy techniques, Hot stone soft tissue
-          release, Mobilization soft-tissue release technique, different
-          modalities, exercise programs that include assistive support
-          exercising with supervised ex program and personalized home ex program, taping, education, and the latest in modern therapy equipment in their approach to treatment.
+            Our Clinic Believes: "Your care is our goal."{" "}
+          </span>
+          We offer an optimistic, dynamic, a supervised active approach to
+          rehabilitation. The physiotherapists at Hands On Physio use manual
+          therapy techniques, Hot stone soft tissue release, Mobilization
+          soft-tissue release technique, different modalities, exercise programs
+          that include assistive support exercising with supervised ex program
+          and personalized home ex program, taping, education, and the latest in
+          modern therapy equipment in their approach to treatment.
           <span className="flex justify-end text-5xl text-blue-550 dark:text-white italic font-roboto">
             "
           </span>
         </p>
       </div>
     </div>
-
   );
 }
 

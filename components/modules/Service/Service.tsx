@@ -110,10 +110,10 @@ function Service({ service }: ServiceProps) {
             {service?.name}
           </h1>
           <Link
-            href="/request-appointment"
+            href="/book-appointment"
             className="font-button px-5 py-3 bg-blue-750 text-white rounded-lg hover:bg-green-350 hover:text-blue-550"
           >
-            Request Appointment
+            Book Appointment
           </Link>
         </div>
 
