@@ -36,13 +36,13 @@ type FormValues = {
   message: string;
 };
 
-type RequestAppointmentProps = {
+type BookAppointmentProps = {
   services: AllServicesQuery["allService"];
   locations: LocationFragment[];
 };
 
 export const getStaticProps: GetStaticProps<
-  RequestAppointmentProps
+  BookAppointmentProps
 > = async () => {
   const [{ data: serviceData }, { data: locationData }] = await Promise.all([
     client.query<AllServicesQuery>({
@@ -62,9 +62,9 @@ export const getStaticProps: GetStaticProps<
   };
 };
 
-const RequestAppointment: NextPage<RequestAppointmentProps> = ({
+const RequestAppointment: NextPage<BookAppointmentProps> = ({
   services,
-}: RequestAppointmentProps) => {
+}: BookAppointmentProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
   const [userChoice, setUserChoice] = useState("");
 
@@ -107,17 +107,17 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
     <>
       <Head>
         <title>
-          Request Appointment | Hands on Physiotherapy and Rehab Centre
+          Book Appointment | Hands on Physiotherapy and Rehab Centre
         </title>
         <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
         <meta name="theme-color" content="#327CDF" />
         <meta
           name="description"
-          content="request appointment at Hands on Physiotherapy and Rehab Centre"
+          content="book appointment at Hands on Physiotherapy and Rehab Centre"
         />
         <meta
           name="keywords"
-          content="request appointment, hands on physio therapy and rehab centre"
+          content="book appointment, hands on physio therapy and rehab centre"
         />
         <meta name="viewport" content="width=device-width" />
       </Head>
@@ -137,7 +137,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
         </div>
       </div>
       <section
-        id="request-appointment"
+        id="book-appointment"
         className="flex flex-col relative dark:bg-gray-900 py-6 h-full max-w-screen-xl m-auto w-95% sm:w-11/12"
       >
         <nav className="flex my-10" aria-label="Breadcrumb">
@@ -195,7 +195,7 @@ const RequestAppointment: NextPage<RequestAppointmentProps> = ({
                   ></path>
                 </svg>
                 <span className="ml-1 text-lg font-regular font-roboto md:ml-2 cursor-pointer text-gray-750 dark:text-white hover:text-blue-550 dark:hover:text-blue-350">
-                  Request Appointment
+                  Book Appointment
                 </span>
               </div>
             </li>

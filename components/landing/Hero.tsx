@@ -61,12 +61,12 @@ function Hero({ callToAction, url }: HeroProps) {
               </p>
               {/* button */}
               <div className="lg:w-full w-3/4 m-auto">
-                <Link href="/request-appointment">
+                <Link href="/book-appointment">
                   <button
                     className="bg-blue-550 text-base w-full text-white font-button mt-6 px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-sm"
                     type="button"
                   >
-                    Request Appointment
+                    Book Appointment
                   </button>
                 </Link>
               </div>
