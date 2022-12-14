@@ -95,8 +95,8 @@ function Testimonials({
           </div>
           {hasShowMore && (
             <div
-              className={cn("inset-x-0 flex justify-center absolute max-w-5xl w-95% mx-auto", {
-                ["bg-gradient-to-t bottom-0 pb-0 pointer-events-none from-slate-150"]:
+              className={cn("inset-x-0 flex justify-center absolute max-w-5xl w-95% mx-auto pt-40", {
+                ["bg-gradient-to-t bottom-0 pb-0 pointer-events-none from-blue-550"]:
                   !showMore,
               })}
             >
@@ -106,7 +106,7 @@ function Testimonials({
                   onClick={() => {
                     setShowMore(!showMore);
                   }}
-                  className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-base font-button text-white font-semibold h-12 px-6 mb-4 rounded-lg flex items-center bg-blue-550 hover:bg-green-350 hover:text-blue-550 pointer-events-auto w-1/2 justify-between"
+                  className="relative focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 text-base font-button text-white font-semibold h-14 px-6 mb-0 mt-24 rounded-sm flex items-center bg-blue-650 hover:bg-green-350 hover:text-blue-550 pointer-events-auto w-full justify-center gap-4 border-t-8 border-blue-550"
                 >
                   More Reviews
                   <span> + </span>

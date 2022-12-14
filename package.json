@@ -28,6 +28,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.38.0",
     "react-icons": "^4.6.0",
+    "react-merge-refs": "^2.0.1",
     "react-phone-number-input": "^3.2.12"
   },
   "devDependencies": {

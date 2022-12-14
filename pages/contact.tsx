@@ -47,7 +47,7 @@ const Contact: NextPage = () => {
       <section className="min-h-screen flex flex-col" id="contact">
         <Image
           src="/images/contact/contactBanner.png"
-          alt="Banner image with colored striped shapes and an image of someone holding a phone the middle"
+          alt="Banner image with colored striped shapes and an image of someone holding a phone in the middle"
           height={423}
           width={2560}
           className="object-cover object-center max-h-64 w-full"
