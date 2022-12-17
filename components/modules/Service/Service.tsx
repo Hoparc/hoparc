@@ -111,7 +111,7 @@ function Service({ service }: ServiceProps) {
           </h1>
           <Link
             href="/book-appointment"
-            className="font-button px-5 py-3 bg-blue-750 text-white rounded-lg hover:bg-green-350 hover:text-blue-550"
+            className="font-button px-5 py-3 bg-blue-650 dark:bg-blue-950 text-white rounded-lg hover:bg-green-350 hover:text-blue-550"
           >
             Book Appointment
           </Link>

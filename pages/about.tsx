@@ -89,12 +89,12 @@ const AboutUs: NextPage<AboutUsProps> = ({
       </Head>
       <Image
         src="/images/about/aboutBanner.png"
-        alt=""
+        alt="Banner image with colored striped shapes and an image of two text chat bubbles being made out of paper in the middle"
         height={423}
         width={2560}
         className="object-cover object-center max-h-64 w-full"
         priority={true}
-        sizes="(max-width: 768px) 100vw,
+        sizes="(max-width: 1600px) 100vw,
         (max-width: 1200px) 50vw,
         33vw"
       />
@@ -112,7 +112,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
           <div className="flex gap-8 py-32 flex-col md:flex-row">
             {/* Our Story Container */}
             <div className="flex flex-col flex-1 justify-evenly">
-              <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-gray-850 dark:text-blue-350">
+              <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-blue-550 dark:text-white">
                 Our Story
               </h2>
               <p className="mt-4 text-xl font-roboto text-gray-850 dark:text-white">
@@ -149,7 +149,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
                 </div>
 
                 <div>
-                  <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-gray-850 dark:text-blue-350">
+                  <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-blue-550 dark:text-white">
                     Our Purpose
                   </h2>
                   <p className="mt-4 text-xl font-roboto text-gray-850 dark:text-white">
@@ -228,7 +228,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
         {/* Start of Meet The Staff Container */}
         {staffs.map((staff, index) => (
           <div className="max-w-screen-xl w-95% mx-auto my-24" key={index}>
-            <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-center text-gray-850 dark:text-blue-350">
+            <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-center text-blue-550 dark:text-white">
               meet our staff
             </h2>
             <div className="my-8 flex w-full mx-auto">

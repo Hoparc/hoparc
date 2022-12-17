@@ -240,7 +240,7 @@ function ContactForm() {
               <button
                 type="submit"
                 value="Send"
-                className="w-full rounded-md dark:bg-blue-650 bg-blue-550 px-14 py-4 mt-4 text-sm font-button bold text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                className="w-full rounded-md dark:bg-blue-950 bg-blue-650 px-14 py-4 mt-4 text-sm font-button bold text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
                 Submit
               </button>

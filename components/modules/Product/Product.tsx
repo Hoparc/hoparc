@@ -111,7 +111,7 @@ function Product({ product }: BlogProps) {
           </h1>
           <Link
             href="/product-inquiry"
-            className="px-5 py-3 bg-blue-550 text-white rounded-lg hover:bg-green-350 hover:text-blue-550 font-button"
+            className="px-5 py-3 dark:bg-blue-950 bg-blue-650 text-white rounded-lg hover:bg-green-350 hover:text-blue-550 font-button"
           >
             Submit Inquiry
           </Link>

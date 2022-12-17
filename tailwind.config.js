@@ -10,6 +10,7 @@ module.exports = {
     },
     dropShadow: {
       navShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+      navShadowDark: "0px 4px 4px rgba(0, 0, 0, 0.75)"
     },
     extend: {
       fontSize: {
@@ -35,6 +36,7 @@ module.exports = {
           150: "#eee",
         },
         blue: {
+          50:"#4166f5",
           350: "#327CDF",
           450: "#317CE0",
           550: "#003D8F",
@@ -42,7 +44,11 @@ module.exports = {
           750: "#003d8f",
           850: "#00193C",
           150: "#F4F9FF",
-          250: "#F5F8FF"
+          250: "#F5F8FF",
+          950: "#5469D6"
+        },
+        purple: {
+        950: "#180f40"
         },
         green: {
           350: "#96CA5B",

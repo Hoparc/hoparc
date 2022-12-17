@@ -123,7 +123,7 @@ const RequestAppointment: NextPage<BookAppointmentProps> = ({
       </Head>
       <Image
         src="/images/contact/contactBanner.png"
-        alt="Banner image with colored striped shapes and an image of someone holding a phone the middle"
+        alt="Banner image with colored striped shapes and an image of someone holding a phone in the middle"
         height={423}
         width={2560}
         className="object-cover object-center max-h-64 w-full"
@@ -132,13 +132,13 @@ const RequestAppointment: NextPage<BookAppointmentProps> = ({
       <div className="bg-blue-550 w-full">
         <div className="max-w-screen-xl m-auto w-11/12">
           <h1 className="text-3xl sm:text-5xl text-center py-6 font-roboto font-bold text-white capitalize">
-            Your <span className="text-green-450">care</span> is our goal
+            book appointment
           </h1>
         </div>
       </div>
       <section
         id="book-appointment"
-        className="flex flex-col relative dark:bg-gray-900 py-6 h-full max-w-screen-xl m-auto w-95% sm:w-11/12"
+        className="flex flex-col relative py-6 h-full max-w-screen-xl m-auto w-95% sm:w-11/12"
       >
         <nav className="flex my-10" aria-label="Breadcrumb">
           <ol className="inline-flex flex-wrap items-center gap-y-3 space-x-1 md:space-x-3">
@@ -462,7 +462,7 @@ const RequestAppointment: NextPage<BookAppointmentProps> = ({
                 <button
                   type="submit"
                   value="Send"
-                  className="w-full rounded-md dark:bg-blue-650 bg-blue-550 px-14 py-4 mt-4 text-sm font-button  text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                  className="w-full rounded-md dark:bg-blue-950 bg-blue-650 px-14 py-4 mt-4 text-sm font-button  text-white hover:text-blue-550 hover:bg-green-350 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                 >
                   Submit
                 </button>

@@ -48,7 +48,7 @@ function Hero({ callToAction, url }: HeroProps) {
           <div className="flex justify-center h-full">
             {/* Hero Text */}
             <div className="flex flex-col 395Break:m-0 xl:ml-0 lg:mr-0 lg:ml-0 max-w-xl z-10 self-center">
-              <h1 className="font-poppins font-bold text-center text-4xl mobile:text-5xl sm:text-7xl flex flex-col felx-wrap text-blue-350 capitalize drop-shadow-md lg:text-left">
+              <h1 className="font-poppins font-bold text-center text-4xl mobile:text-5xl sm:text-7xl flex flex-col felx-wrap text-blue-350 dark:text-white capitalize drop-shadow-md lg:text-left">
                 {/* Hero text */}
                 <span>hands on</span>
                 <span>physiotherapy</span>
@@ -63,7 +63,7 @@ function Hero({ callToAction, url }: HeroProps) {
               <div className="lg:w-full w-3/4 m-auto">
                 <Link href="/book-appointment">
                   <button
-                    className="bg-blue-550 text-base w-full text-white font-button mt-6 px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-sm"
+                    className="bg-blue-650 dark:bg-blue-950 text-base w-full text-white font-button mt-6 px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-sm"
                     type="button"
                   >
                     Book Appointment
