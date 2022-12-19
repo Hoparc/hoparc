@@ -5,6 +5,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "netlify:deploy-prod": "netlify deploy --build --prod",
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
