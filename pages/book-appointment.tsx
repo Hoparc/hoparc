@@ -351,7 +351,7 @@ const RequestAppointment: NextPage<BookAppointmentProps> = ({
               <h3 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold">
                 When would you like to come in?
               </h3>
-              <p>
+              <p className="text-gray-550 dark:text-white font-roboto">
                 We will contact you as soon as possible with a time based on
                 availability.
               </p>
