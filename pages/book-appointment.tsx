@@ -28,7 +28,6 @@ import "react-phone-number-input/style.css";
 type FormValues = {
   firstName: string;
   lastName: string;
-  time: string;
   subject: string;
   email: string;
   phone: string;
@@ -78,7 +77,6 @@ const RequestAppointment: NextPage<BookAppointmentProps> = ({
       firstName: "",
       lastName: "",
       ReactDatepicker: new Date(),
-      time: "",
       subject: "",
       email: "",
       phone: "",
@@ -353,6 +351,10 @@ const RequestAppointment: NextPage<BookAppointmentProps> = ({
               <h3 className="text-2xl text-gray-550 dark:text-white font-roboto font-bold">
                 When would you like to come in?
               </h3>
+              <p>
+                We will contact you as soon as possible with a time based on
+                availability.
+              </p>
               <div className="flex flex-col justify-evenly gap-4 gap-y-8 sm:flex-row">
                 <div className="flex flex-col w-full">
                   {errors.ReactDatepicker && (
@@ -378,25 +380,6 @@ const RequestAppointment: NextPage<BookAppointmentProps> = ({
                         selected={value}
                       />
                     )}
-                  />
-                </div>
-                <div className="flex flex-col w-full">
-                  {errors.time && (
-                    <span className="absolute mt-24 ml-2 text-red-500 font-roboto">
-                      required
-                    </span>
-                  )}
-                  <label
-                    htmlFor="time"
-                    className="block mb-2 mt-5 text-sm text-gray-900 dark:text-white"
-                  >
-                    Preferred Time
-                  </label>
-                  <input
-                    type="time"
-                    aria-label="Button for select time"
-                    className="rounded-md border font-opensans bg-blue-150 border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-3"
-                    {...register("time", { required: true, maxLength: 30 })}
                   />
                 </div>
               </div>
