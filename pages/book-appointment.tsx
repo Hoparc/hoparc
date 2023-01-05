@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps<
   };
 };
 
-const RequestAppointment: NextPage<BookAppointmentProps> = ({
+const BookAppointment: NextPage<BookAppointmentProps> = ({
   services,
 }: BookAppointmentProps) => {
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
@@ -539,4 +539,4 @@ const RequestAppointment: NextPage<BookAppointmentProps> = ({
   );
 };
 
-export default RequestAppointment;
+export default BookAppointment;
