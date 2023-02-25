@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { GetStaticProps, NextPage } from "next";
+import { useRouter } from "next/router";
 
 import client from "../apollo-client";
 import {
@@ -28,7 +29,7 @@ import "react-phone-number-input/style.css";
 type FormValues = {
   firstName: string;
   lastName: string;
-  subject: string;
+  subject: string | string[];
   email: string;
   phone: string;
   preferredContact: string[];
@@ -64,8 +65,10 @@ export const getStaticProps: GetStaticProps<
 const BookAppointment: NextPage<BookAppointmentProps> = ({
   services,
 }: BookAppointmentProps) => {
+  const router = useRouter();
+  const { serviceName } = router.query;
+
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
-  const [userChoice, setUserChoice] = useState("");
 
   const {
     register,
@@ -77,13 +80,15 @@ const BookAppointment: NextPage<BookAppointmentProps> = ({
       firstName: "",
       lastName: "",
       ReactDatepicker: new Date(),
-      subject: "",
+      subject: serviceName ?? "",
       email: "",
       phone: "",
       preferredContact: ["", ""],
       message: "",
     },
   });
+
+  const [userChoice, setUserChoice] = useState(serviceName ?? "");
 
   const onSubmit = (data: FormValues) => {
     sendToFormSpree(data);
@@ -95,9 +100,7 @@ const BookAppointment: NextPage<BookAppointmentProps> = ({
     }, 2000);
   };
 
-  const handleUserChoice = (e: {
-    target: { value: SetStateAction<string> };
-  }) => {
+  const handleUserChoice = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setUserChoice(e.target.value);
   };
 
@@ -396,19 +399,19 @@ const BookAppointment: NextPage<BookAppointmentProps> = ({
                 </label>
                 <select
                   placeholder="Subject"
-                  className="cursor-pointer rounded-md border bg-blue-150 border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
+                  className="cursor-pointer rounded-md border bg-blue-100 border-slate-200 px-4 py-2 w-full outline-none hover:border-green-300 focus:border-green-400"
                   {...register("subject", {
                     required: true,
                   })}
-                  value={userChoice}
                   onChange={handleUserChoice}
+                  value={userChoice}
                 >
                   {services.map((service) => (
                     <option
-                      key={service.name ?? "Service name"}
-                      value={service.name ?? "Service name"}
+                      key={service.name ?? "Service Name"}
+                      value={service.name ?? ""}
                     >
-                      {service.name}
+                      {service.name ?? "Service Name"}
                     </option>
                   ))}
                 </select>

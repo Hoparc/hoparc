@@ -110,7 +110,10 @@ function Product({ product }: BlogProps) {
             {product?.name}
           </h1>
           <Link
-            href="/product-inquiry"
+            href={{
+              pathname: "/product-inquiry",
+              query: { productName: product?.name },
+            }}
             className="px-5 py-3 dark:bg-blue-950 bg-blue-650 text-white rounded-lg hover:bg-green-350 hover:text-blue-550 font-button"
           >
             Submit Inquiry
