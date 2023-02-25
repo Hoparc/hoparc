@@ -5,6 +5,15 @@ import Link from "next/link";
 import { AllServicesQuery } from "../../../graphql-operations";
 import { PortableText } from "@portabletext/react";
 
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  TwitterIcon,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "react-share";
+
 export type ServiceProps = {
   service: AllServicesQuery["allService"][0] | undefined;
 };
@@ -12,6 +21,8 @@ export type ServiceProps = {
 const siteTitle = "Hands on Physiotherapy and Rehab Centre";
 
 function Service({ service }: ServiceProps) {
+  const serviceUrl = `www.hoparc.com/service/${service?.slug?.current}`;
+
   return (
     <>
       <Head>
@@ -148,6 +159,17 @@ function Service({ service }: ServiceProps) {
             />
           </div>
         )}
+        <div className="flex space-x-8">
+          <FacebookShareButton url={serviceUrl} className="hover:scale-105">
+            <FacebookIcon size={36} round={true} />
+          </FacebookShareButton>
+          <TwitterShareButton url={serviceUrl}>
+            <TwitterIcon size={36} round={true} className="hover:scale-105" />
+          </TwitterShareButton>
+          <LinkedinShareButton url={serviceUrl}>
+            <LinkedinIcon size={36} round={true} className="hover:scale-105" />
+          </LinkedinShareButton>
+        </div>
       </section>
     </>
   );
