@@ -5,6 +5,15 @@ import Link from "next/link";
 import { AllProductsQuery } from "../../../graphql-operations";
 import { PortableText } from "@portabletext/react";
 
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  TwitterIcon,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "react-share";
+
 export type BlogProps = {
   product: AllProductsQuery["allProduct"][0] | undefined;
 };
@@ -12,6 +21,8 @@ export type BlogProps = {
 const siteTitle = "Hands on Physiotherapy and Rehab Centre";
 
 function Product({ product }: BlogProps) {
+  const productUrl = `www.hoparc.com/product/${product?.slug?.current}`;
+
   return (
     <>
       <Head>
@@ -148,6 +159,17 @@ function Product({ product }: BlogProps) {
             />
           </div>
         )}
+        <div className="flex space-x-8">
+          <FacebookShareButton url={productUrl} className="hover:scale-105">
+            <FacebookIcon size={36} round={true} />
+          </FacebookShareButton>
+          <TwitterShareButton url={productUrl}>
+            <TwitterIcon size={36} round={true} className="hover:scale-105" />
+          </TwitterShareButton>
+          <LinkedinShareButton url={productUrl}>
+            <LinkedinIcon size={36} round={true} className="hover:scale-105" />
+          </LinkedinShareButton>
+        </div>
       </section>
     </>
   );

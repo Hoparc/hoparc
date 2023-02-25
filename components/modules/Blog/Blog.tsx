@@ -7,6 +7,15 @@ import { PortableText } from "@portabletext/react";
 
 import { format, parse } from "date-fns";
 
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  TwitterIcon,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "react-share";
+
 export type BlogProps = {
   blog: AllBlogsQuery["allBlog"][0] | undefined;
 };
@@ -14,6 +23,8 @@ export type BlogProps = {
 const siteTitle = "Hands on Physiotherapy and Rehab Centre";
 
 function Blog({ blog }: BlogProps) {
+  const blogUrl = `www.hoparc.com/blog/${blog?.slug?.current}`;
+
   const date = parse(blog?.date, "yyyy-MM-dd", new Date());
   return (
     <>
@@ -141,6 +152,17 @@ function Blog({ blog }: BlogProps) {
             />
           </div>
         )}
+        <div className="flex space-x-8">
+          <FacebookShareButton url={blogUrl} className="hover:scale-105">
+            <FacebookIcon size={36} round={true} />
+          </FacebookShareButton>
+          <TwitterShareButton url={blogUrl}>
+            <TwitterIcon size={36} round={true} className="hover:scale-105" />
+          </TwitterShareButton>
+          <LinkedinShareButton url={blogUrl}>
+            <LinkedinIcon size={36} round={true} className="hover:scale-105" />
+          </LinkedinShareButton>
+        </div>
       </section>
     </>
   );
