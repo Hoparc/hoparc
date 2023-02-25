@@ -1,5 +1,4 @@
-import { Fragment, useMemo } from "react";
-
+import { Fragment, useMemo, useState } from "react";
 import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -19,6 +18,7 @@ import {
 
 import cn from "clsx";
 import { HiArrowRight } from "react-icons/hi";
+import { Listbox } from "@headlessui/react";
 
 type ProductsProps = {
   products: AllProductsQuery["allProduct"];
@@ -59,15 +59,25 @@ const Products: NextPage<ProductsProps> = ({
   products,
   categories,
 }: ProductsProps) => {
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleSelectedCategory = (selectedCategory: string) => {
+    setSelectedCategory(selectedCategory);
+    router.push({
+      pathname: "/products",
+      query: { category: selectedCategory.toLowerCase() },
+    });
+  };
+
   const router = useRouter();
   const { category: activeCategory } = router.query;
   const filteredProducts = useMemo(() => {
     return activeCategory
       ? products.filter((product) =>
-        product.category?.some(
-          (category) => category?.slug?.current === activeCategory
+          product.category?.some(
+            (category) => category?.slug?.current === activeCategory
+          )
         )
-      )
       : products;
   }, [activeCategory, products]);
 
@@ -102,34 +112,85 @@ const Products: NextPage<ProductsProps> = ({
             <h1 className="text-3xl sm:text-5xl text-center py-6 font-roboto font-bold text-white">
               Our Products
             </h1>
-            <div className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 mt-10">
-              <div className="mr-6 relative">
-                <Link
-                  href="/products"
-                  className=
-                  "after:content-[''] after:flex after:bottom-0 after:left-0 after:w-full after:mx-auto after:h-1 after:bg-gray-450 after:absolute hover:after:bg-green-350 inline-block p-4 text-blue-600 hover:text-blue-550 dark:hover:text-green-350 bg-blue-150 rounded-t-lg active dark:bg-purple-950 dark:text-white focus:after:bg-green-350 focus:bg-blue-950 focus:text-green-350"
-                >
-                  all
-                </Link>
-              </div>
-              {categories?.map((category) => (
-                <div className="mr-6 relative">
-                  <Link
-                    key={category.slug?.current}
-                    href={`/products?category=${category?.slug?.current}`}
-                    className={cn(
-                      "after:content-[''] after:flex after:bottom-0 after:left-0 after:w-full after:mx-auto after:h-1 after:bg-gray-450 after:absolute hover:after:bg-green-350 inline-block p-4 text-blue-600 hover:text-blue-550 dark:hover:text-green-350 bg-blue-150 rounded-t-lg active dark:bg-purple-950 dark:text-white",
-                      { ["focus:after:bg-green-350 focus:bg-blue-950 focus:text-green-350"]: activeCategory }
-                    )}
-                  >
-                    {category.name}
-                  </Link>
-                </div>
-              ))}
-            </div>
+            <div className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 mt-10"></div>
           </div>
         </div>
         <div className="max-w-screen-xl m-auto w-11/12 ">
+          <div className="w-1/2 mx-auto mt-5">
+            <Listbox value={selectedCategory} onChange={handleSelectedCategory}>
+              <div className="relative">
+                <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-md shadow-sm cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                  <span className="block truncate">
+                    {selectedCategory || "All Categories"}
+                  </span>
+                  <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                    <svg
+                      className="w-5 h-5 text-gray-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M6.293 7.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 11-1.414 1.414L11 6.414V16a1 1 0 11-2 0V6.414L7.707 8.121a1 1 0 01-1.414-1.414z"
+                      />
+                    </svg>
+                  </span>
+                </Listbox.Button>
+                <Listbox.Options className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                  <Listbox.Option
+                    key="all-categories"
+                    value=""
+                    className={({ active }) =>
+                      cn(
+                        active ? "text-white bg-blue-600" : "text-gray-900",
+                        "cursor-default select-none relative py-2 pl-10 pr-4"
+                      )
+                    }
+                  >
+                    {({ selected, active }) => (
+                      <>
+                        <span
+                          className={cn(
+                            selected ? "font-semibold" : "font-normal",
+                            "block truncate"
+                          )}
+                        >
+                          All Categories
+                        </span>
+                      </>
+                    )}
+                  </Listbox.Option>
+
+                  {categories?.map((category) => (
+                    <Listbox.Option
+                      key={category.slug?.current}
+                      value={category.name}
+                      className={({ active }) =>
+                        cn(
+                          active ? "text-white bg-blue-600" : "text-gray-900",
+                          "cursor-default select-none relative py-2 pl-10 pr-4"
+                        )
+                      }
+                    >
+                      {({ selected, active }) => (
+                        <>
+                          <span
+                            className={cn(
+                              selected ? "font-semibold" : "font-normal",
+                              "block truncate"
+                            )}
+                          >
+                            {category.name}
+                          </span>
+                        </>
+                      )}
+                    </Listbox.Option>
+                  ))}
+                </Listbox.Options>
+              </div>
+            </Listbox>
+          </div>
           {filteredProducts.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 columns-1 gap-8 md:columns-2 xl:columns-2 my-20">
               {filteredProducts.map((product) => {
@@ -152,25 +213,21 @@ const Products: NextPage<ProductsProps> = ({
                         )}
 
                         <div className="h-full w-full flex flex-col bg-blue-550 rounded-b-lg">
-
                           <div className="flex flex-col px-4 h-full justify-between">
                             <div className="flex flex-col md:pt-0 pt-4 leading-normal">
                               <h2 className="py-4 text-xl font-roboto font-bold tracking-tight text-white dark:text-white">
-                                {product.name} 
+                                {product.name}
                               </h2>
-                              <p className="font-base font-roboto text-gray-300 dark:text-gray-300">
-                                { }
-                              </p>
                             </div>
                             <Link
                               key={product.slug?.current}
                               href={`/product/${product.slug?.current}`}
-                              className="my-4 text-md text-center rounded-lg w-full font-semibold bg-blue-250 dark:bg-blue-950 dark:text-white p-3 hover:bg-green-350 text-blue-550 hover:text-blue-550 capitalize"
+                              className="text-md font-button text-blue-550 dark:text-white dark:hover:text-blue-550 inline-flex items-center bg-blue-250 dark:bg-blue-950 p-2 mb-4 rounded-md hover:bg-green-350 w-fit"
                             >
-                              learn more
+                              Learn More
+                              <HiArrowRight className="inline w-4 h-4 ml-2 text-blue-550 dark:text-white dark:text-inherit" />
                             </Link>
                           </div>
-
                         </div>
                       </div>
                     </div>
@@ -181,8 +238,6 @@ const Products: NextPage<ProductsProps> = ({
           ) : (
             <div className="text-sm">No products found.</div>
           )}
-
-
         </div>
       </section>
     </>

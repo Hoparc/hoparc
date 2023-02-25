@@ -165,7 +165,7 @@ function Footer({ locations }: FooterProps) {
                       <SiFacebook />
                     </a>
                   </div>
-                  <div className="hover:text-green-350">
+                  {/* <div className="hover:text-green-350">
                     <a
                       href="https://www.instagram.com/hoparc339/"
                       target="_blank"
@@ -173,7 +173,7 @@ function Footer({ locations }: FooterProps) {
                     >
                       <SiInstagram />
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
