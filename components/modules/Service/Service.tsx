@@ -110,7 +110,10 @@ function Service({ service }: ServiceProps) {
             {service?.name}
           </h1>
           <Link
-            href="/book-appointment"
+            href={{
+              pathname: "/book-appointment",
+              query: { serviceName: service?.name },
+            }}
             className="font-button px-5 py-3 bg-blue-650 dark:bg-blue-950 text-white rounded-lg hover:bg-green-350 hover:text-blue-550"
           >
             Book Appointment

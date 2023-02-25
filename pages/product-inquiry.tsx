@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { GetStaticProps, NextPage } from "next";
+import { useRouter } from "next/router";
 
 import client from "../apollo-client";
 import {
@@ -25,7 +26,7 @@ import "react-phone-number-input/style.css";
 type FormValues = {
   firstName: string;
   lastName: string;
-  subject: string;
+  subject: string | string[];
   email: string;
   phone: string;
   preferredContact: string[];
@@ -59,8 +60,10 @@ export const getStaticProps: GetStaticProps<ProductInquiryProps> = async () => {
 const ProductInquiry: NextPage<ProductInquiryProps> = ({
   products,
 }: ProductInquiryProps) => {
+  const router = useRouter();
+  const { productName } = router.query;
+
   const [formSpreeState, sendToFormSpree] = useFormSpree("xvoywvlv");
-  const [userChoice, setUserChoice] = useState("");
 
   const {
     register,
@@ -71,13 +74,15 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
     defaultValues: {
       firstName: "",
       lastName: "",
-      subject: "",
+      subject: productName ?? "",
       email: "",
       phone: "",
       preferredContact: ["", ""],
       message: "",
     },
   });
+
+  const [userChoice, setUserChoice] = useState(productName ?? "");
 
   const onSubmit = (data: FormValues) => {
     sendToFormSpree(data);
@@ -89,9 +94,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
     }, 2000);
   };
 
-  const handleUserChoice = (e: {
-    target: { value: SetStateAction<string> };
-  }) => {
+  const handleUserChoice = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setUserChoice(e.target.value);
   };
 
@@ -352,19 +355,19 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                 </label>
                 <select
                   placeholder="Subject"
-                  className="cursor-pointer rounded-md border bg-blue-150 border-slate-200 px-4 py-2 w-full outline-none hover:border-green-350 focus:border-green-350"
+                  className="cursor-pointer rounded-md border bg-blue-100 border-slate-200 px-4 py-2 w-full outline-none hover:border-green-300 focus:border-green-400"
                   {...register("subject", {
                     required: true,
                   })}
-                  value={userChoice}
                   onChange={handleUserChoice}
+                  value={userChoice}
                 >
                   {products.map((product) => (
                     <option
-                      key={product.name ?? "Product name"}
-                      value={product.name ?? "Product name"}
+                      key={product.name ?? "Product Name"}
+                      value={product.name ?? ""}
                     >
-                      {product.name}
+                      {product.name ?? "Product Name"}
                     </option>
                   ))}
                 </select>
