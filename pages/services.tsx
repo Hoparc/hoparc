@@ -74,10 +74,10 @@ const Services: NextPage<ServicesProps> = ({
   const filteredServices = useMemo(() => {
     return activeCategory
       ? services.filter((service) =>
-          service.category?.some(
-            (category) => category?.slug?.current === activeCategory
-          )
+        service.category?.some(
+          (category) => category?.slug?.current === activeCategory
         )
+      )
       : services;
   }, [activeCategory, services]);
 
@@ -115,14 +115,13 @@ const Services: NextPage<ServicesProps> = ({
             <h1 className="text-3xl sm:text-5xl text-center py-6 font-roboto font-bold text-white">
               Our Services
             </h1>
-            <div className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 mt-10"></div>
           </div>
         </div>
         <div className="max-w-screen-xl m-auto w-11/12 ">
-          <div className="w-1/2 mx-auto mt-5">
+          <div className="w-full sm:w-1/2 mx-auto mt-5">
             <Listbox value={selectedCategory} onChange={handleSelectedCategory}>
               <div className="relative">
-                <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-md shadow-sm cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                <Listbox.Button className="relative w-full py-2 pl-3 pr-10 mt-10 text-left bg-white rounded-md shadow-sm cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                   <span className="block truncate">
                     {selectedCategory || "All Categories"}
                   </span>
@@ -140,7 +139,7 @@ const Services: NextPage<ServicesProps> = ({
                     </svg>
                   </span>
                 </Listbox.Button>
-                <Listbox.Options className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                <Listbox.Options className="absolute z-10 w-full py-1 mt-1 overflow-hidden text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                   <Listbox.Option
                     key="all-categories"
                     value=""
@@ -155,8 +154,7 @@ const Services: NextPage<ServicesProps> = ({
                       <>
                         <span
                           className={cn(
-                            selected ? "font-semibold" : "font-normal",
-                            "block truncate"
+                            selected ? "font-semibold after:content-[''] after:block  after:w-full after:mx-auto  after:h-1  after:bg-green-350  " : "font-normal", "block truncate w-fit"
                           )}
                         >
                           All Categories
@@ -180,8 +178,7 @@ const Services: NextPage<ServicesProps> = ({
                         <>
                           <span
                             className={cn(
-                              selected ? "font-semibold" : "font-normal",
-                              "block truncate"
+                              selected ? "font-semibold after:content-[''] after:block  after:w-full after:mx-auto  after:h-1  after:bg-green-350  " : "font-normal", "block truncate w-fit"
                             )}
                           >
                             {category.name}
