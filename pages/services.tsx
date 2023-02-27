@@ -74,10 +74,10 @@ const Services: NextPage<ServicesProps> = ({
   const filteredServices = useMemo(() => {
     return activeCategory
       ? services.filter((service) =>
-        service.category?.some(
-          (category) => category?.slug?.current === activeCategory
+          service.category?.some(
+            (category) => category?.slug?.current === activeCategory
+          )
         )
-      )
       : services;
   }, [activeCategory, services]);
 
@@ -130,6 +130,7 @@ const Services: NextPage<ServicesProps> = ({
                       className="w-5 h-5 text-gray-400"
                       viewBox="0 0 20 20"
                       fill="currentColor"
+                      style={{ transform: "rotate(180deg)" }}
                     >
                       <path
                         fillRule="evenodd"
@@ -154,7 +155,10 @@ const Services: NextPage<ServicesProps> = ({
                       <>
                         <span
                           className={cn(
-                            selected ? "font-semibold after:content-[''] after:block  after:w-full after:mx-auto  after:h-1  after:bg-green-350  " : "font-normal", "block truncate w-fit"
+                            selected
+                              ? "font-semibold after:content-[''] after:block  after:w-full after:mx-auto  after:h-1  after:bg-green-350  "
+                              : "font-normal",
+                            "block truncate w-fit"
                           )}
                         >
                           All Categories
@@ -178,7 +182,10 @@ const Services: NextPage<ServicesProps> = ({
                         <>
                           <span
                             className={cn(
-                              selected ? "font-semibold after:content-[''] after:block  after:w-full after:mx-auto  after:h-1  after:bg-green-350  " : "font-normal", "block truncate w-fit"
+                              selected
+                                ? "font-semibold after:content-[''] after:block  after:w-full after:mx-auto  after:h-1  after:bg-green-350  "
+                                : "font-normal",
+                              "block truncate w-fit"
                             )}
                           >
                             {category.name}

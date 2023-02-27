@@ -123,6 +123,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                       className="w-5 h-5 text-gray-400"
                       viewBox="0 0 20 20"
                       fill="currentColor"
+                      style={{ transform: "rotate(180deg)" }}
                     >
                       <path
                         fillRule="evenodd"
@@ -147,7 +148,10 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                       <>
                         <span
                           className={cn(
-                            selected ? "font-semibold after:content-[''] after:block  after:w-full after:mx-auto  after:h-1  after:bg-green-350  " : "font-normal", "block truncate w-fit"
+                            selected
+                              ? "font-semibold after:content-[''] after:block  after:w-full after:mx-auto  after:h-1  after:bg-green-350  "
+                              : "font-normal",
+                            "block truncate w-fit"
                           )}
                         >
                           All Categories
@@ -171,7 +175,10 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
                         <>
                           <span
                             className={cn(
-                              selected ? "font-semibold after:content-[''] after:block  after:w-full after:mx-auto  after:h-1  after:bg-green-350 " : "font-normal", "block truncate w-fit"
+                              selected
+                                ? "font-semibold after:content-[''] after:block  after:w-full after:mx-auto  after:h-1  after:bg-green-350 "
+                                : "font-normal",
+                              "block truncate w-fit"
                             )}
                           >
                             {category.name}
