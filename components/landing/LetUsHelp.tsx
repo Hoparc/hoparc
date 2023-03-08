@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,12 +18,24 @@ function LetUsHelp() {
         />
 
         <Link href="/book-appointment">
-          <button
+          <motion.button
             className="bg-blue-650 dark:bg-blue-950 text-base text-white font-button w-full px-4 py-2 hover:bg-green-350 hover:text-blue-550 rounded-sm"
+            whileHover={{
+              boxShadow: "0 4px 4px rgba(30, 109, 235, 0.4)",
+              y: -5,
+            }}
+            whileTap={{
+              boxShadow: "0 2px 2px rgba(30, 109, 235, 0.4)",
+              y: 0,
+            }}
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 30, opacity: 0 }}
+            transition={{ duration: 0.2 }}
             type="button"
           >
             Book Appointment
-          </button>
+          </motion.button>
         </Link>
       </div>
       <div className=" flex px-3 w-11/12 lg:w-1/2 ">
