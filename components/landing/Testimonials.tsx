@@ -1,38 +1,68 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-
 import Image from "next/image";
-
 import cn from "clsx";
-
 import { TestimonialFragment } from "../../graphql-operations";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 interface TestimonialCardProps {
   imageUrl: string | null | undefined;
   name: string | null | undefined;
   review: string | null | undefined;
 }
+
 function TestimonialCard({ imageUrl, name, review }: TestimonialCardProps) {
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
   return (
-    <>
-      <figure className="group inline-flex p-6 mb-4 w-full relative flex-col-reverse bg-white highlight-white/5 rounded-md  dark:border dark:border-gray-700
-        dark:bg-gray-800">
-        <figcaption className="flex items-center space-x-4">
-          <div className="flex-auto ">
-            <Image
-              src={imageUrl ?? ""}
-              alt={`Image of ${name}`}
-              className="flex-none rounded-full object-cover drop-shadow-md h-24"
-              loading="lazy"
-              width={100}
-              height={100}
-            />
-            <div className="text-base text-black dark:text-white font-semibold">{name}</div>
-            <div className="mt-0.5 text-black dark:text-gray-400 text-xs">{review}</div>
+    <motion.figure
+      className="group inline-flex p-6 mb-4 w-full relative flex-col-reverse bg-white highlight-white/5 rounded-md  dark:border dark:border-gray-700
+        dark:bg-gray-800"
+      variants={{
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.5,
+            delay: 0.2,
+          },
+        },
+        hidden: {
+          opacity: 0,
+          y: 50,
+        },
+      }}
+      initial="hidden"
+      animate={controls}
+      ref={ref}
+    >
+      <figcaption className="flex items-center space-x-4">
+        <div className="flex-auto ">
+          <Image
+            src={imageUrl ?? ""}
+            alt={`Image of ${name}`}
+            className="flex-none rounded-full object-cover drop-shadow-md h-24"
+            loading="lazy"
+            width={100}
+            height={100}
+          />
+          <div className="text-base text-black dark:text-white font-semibold">
+            {name}
           </div>
-        </figcaption>
-      </figure>
-    </>
+          <div className="mt-0.5 text-black dark:text-gray-400 text-xs">
+            {review}
+          </div>
+        </div>
+      </figcaption>
+    </motion.figure>
   );
 }
 
@@ -72,11 +102,11 @@ function Testimonials({
                 key={testimonial.name}
               />
             ))}
-            <div className="flex items-center justify-center bg-white highlight-white/5 rounded-md  dark:border dark:border-gray-700
-        dark:bg-gray-800 w-full py-6 px-2 font-bold font-roboto text-xl text-gray-850 dark:text-white gap-3">
-              <h3>
-                See more reviews on:
-              </h3>
+            <div
+              className="flex items-center justify-center bg-white highlight-white/5 rounded-md  dark:border dark:border-gray-700
+        dark:bg-gray-800 w-full py-6 px-2 font-bold font-roboto text-xl text-gray-850 dark:text-white gap-3"
+            >
+              <h3>See more reviews on:</h3>
               <Link
                 className="text-2xl bg-blue-550 dark:bg-blue-250 p-2 hover:bg-blue-850 hover:text-blue-550 rounded-md focus:outline focus:outline-2 focus:outline-green-350 hover:outline hover:outline-2 hover:outline-green-350 focus:bg-blue-850"
                 href="https://g.page/HOPARC?share"
@@ -84,21 +114,36 @@ function Testimonials({
                 target="_blank"
                 aria-label="Google"
               >
-                <span aria-hidden className="text-blue-400 dark:text-blue-650">G</span>
-                <span aria-hidden className="text-red-500">o</span>
-                <span aria-hidden className="text-yellow-500">o</span>
-                <span aria-hidden className="text-blue-400 dark:text-blue-650">g</span>
-                <span aria-hidden className="text-green-350">l</span>
-                <span aria-hidden className="text-red-500">e</span>
+                <span aria-hidden className="text-blue-400 dark:text-blue-650">
+                  G
+                </span>
+                <span aria-hidden className="text-red-500">
+                  o
+                </span>
+                <span aria-hidden className="text-yellow-500">
+                  o
+                </span>
+                <span aria-hidden className="text-blue-400 dark:text-blue-650">
+                  g
+                </span>
+                <span aria-hidden className="text-green-350">
+                  l
+                </span>
+                <span aria-hidden className="text-red-500">
+                  e
+                </span>
               </Link>
             </div>
           </div>
           {hasShowMore && (
             <div
-              className={cn("inset-x-0 flex justify-center absolute max-w-5xl w-95% mx-auto pt-40", {
-                ["bg-gradient-to-t bottom-0 pb-0 pointer-events-none from-blue-550"]:
-                  !showMore,
-              })}
+              className={cn(
+                "inset-x-0 flex justify-center absolute max-w-5xl w-95% mx-auto pt-40",
+                {
+                  ["bg-gradient-to-t bottom-0 pb-0 pointer-events-none from-blue-550"]:
+                    !showMore,
+                }
+              )}
             >
               {!showMore && (
                 <button
