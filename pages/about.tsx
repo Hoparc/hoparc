@@ -1,6 +1,8 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import client from "../apollo-client";
 import {
@@ -71,6 +73,28 @@ const AboutUs: NextPage<AboutUsProps> = ({
   story,
   purpose,
 }: AboutUsProps) => {
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const variants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut",
+        delayChildren: 0.5,
+        staggerChildren: 0.3,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
@@ -119,17 +143,23 @@ const AboutUs: NextPage<AboutUsProps> = ({
                 {story}
               </p>
               <div className="w-full mt-10">
-                <Image
-                  src={url ?? ""}
-                  className="rounded-lg shadow-2xl w-full"
-                  alt="image"
-                  height={500}
-                  width={1000}
-                  priority={true}
-                  sizes="(max-width: 768px) 100vw,
+                <motion.div
+                  initial={{ x: -1000 }}
+                  animate={{ x: 0 }}
+                  transition={{ duration: 1 }}
+                >
+                  <Image
+                    src={url ?? ""}
+                    className="rounded-lg shadow-2xl w-full"
+                    alt="image"
+                    height={500}
+                    width={1000}
+                    priority={true}
+                    sizes="(max-width: 768px) 100vw,
                   (max-width: 1200px) 50vw,
                   33vw"
-                />
+                  />
+                </motion.div>
               </div>
             </div>
             {/* End of Our Story Container */}
@@ -138,14 +168,20 @@ const AboutUs: NextPage<AboutUsProps> = ({
             <div className="flex flex-col flex-1 justify-evenly">
               <div className="flex flex-col-reverse md:flex-col">
                 <div className="w-full mt-10 md:mb-10">
-                  <Image
-                    src="/images/about/greg-rakozy-oMpAz-DN-9I-unsplash.jpg"
-                    className="rounded-lg shadow-2xl w-full"
-                    alt="image"
-                    height={500}
-                    width={1000}
-                    priority
-                  />
+                  <motion.div
+                    initial={{ x: 1000 }}
+                    animate={{ x: 0 }}
+                    transition={{ duration: 1 }}
+                  >
+                    <Image
+                      src="/images/about/greg-rakozy-oMpAz-DN-9I-unsplash.jpg"
+                      className="rounded-lg shadow-2xl w-full"
+                      alt="image"
+                      height={500}
+                      width={1000}
+                      priority
+                    />
+                  </motion.div>
                 </div>
 
                 <div>
@@ -166,61 +202,69 @@ const AboutUs: NextPage<AboutUsProps> = ({
         </div>
 
         {/* Start of Our Values Container */}
-        <div className="w-full bg-blue-550 flex py-36 ">
-          <div className="max-w-screen-xl m-auto w-10/12 flex flex-col items-center gap-20">
-            <h2 className="capitalize text-white text-4xl sm:text-5xl font-roboto font-bold text-center">
-              Our Values
-            </h2>
-            <div className="flex flex-col w-full justify-between md:flex-row md:max-w-3xl max-w-xs gap-6">
-              <div className="flex flex-col self-start gap-4">
-                <Image
-                  src="/images/about/customerServiceIcon.webp"
-                  className="max-w-xl"
-                  alt="Icon for customer service with a headset"
-                  height={120}
-                  width={120}
-                />
-                <h3 className="capitalize text-white font-roboto text-xl text-center">
-                  Service
-                </h3>
+        <div ref={ref}>
+          <div className="w-full bg-blue-550 flex py-36 ">
+            <motion.div
+              className="max-w-screen-xl m-auto w-10/12 flex flex-col items-center gap-20"
+              variants={variants}
+              initial={inView ? "visible" : "hidden"}
+              animate={inView ? "visible" : "hidden"}
+              exit="hidden"
+            >
+              <h2 className="capitalize text-white text-4xl sm:text-5xl font-roboto font-bold text-center">
+                Our Values
+              </h2>
+              <div className="flex flex-col w-full justify-between md:flex-row md:max-w-3xl max-w-xs gap-6">
+                <div className="flex flex-col self-start gap-4">
+                  <Image
+                    src="/images/about/customerServiceIcon.webp"
+                    className="max-w-xl"
+                    alt="Icon for customer service with a headset"
+                    height={120}
+                    width={120}
+                  />
+                  <h3 className="capitalize text-white font-roboto text-xl text-center">
+                    Service
+                  </h3>
+                </div>
+                <div className="flex flex-col self-end gap-4">
+                  <Image
+                    src="/images/about/developmentIcon.webp"
+                    className="max-w-xl"
+                    alt="Icon for development representing a book"
+                    height={120}
+                    width={120}
+                  />
+                  <h3 className="capitalize text-white font-roboto text-xl text-center">
+                    Development
+                  </h3>
+                </div>
+                <div className="flex flex-col self-start gap-4">
+                  <Image
+                    src="/images/about/respectIcon.webp"
+                    className="max-w-xl"
+                    alt="Icon for respect representing a handshake"
+                    height={120}
+                    width={120}
+                  />
+                  <h3 className="capitalize text-white font-roboto text-xl text-center">
+                    Respect
+                  </h3>
+                </div>
+                <div className="flex flex-col self-end gap-4">
+                  <Image
+                    src="/images/about/careIcon.webp"
+                    className="max-w-xl"
+                    alt="Icon for respect representing two hands with a heart above both hands"
+                    height={120}
+                    width={120}
+                  />
+                  <h3 className="capitalize text-white font-roboto text-xl text-center">
+                    Care
+                  </h3>
+                </div>
               </div>
-              <div className="flex flex-col self-end gap-4">
-                <Image
-                  src="/images/about/developmentIcon.webp"
-                  className="max-w-xl"
-                  alt="Icon for development representing a book"
-                  height={120}
-                  width={120}
-                />
-                <h3 className="capitalize text-white font-roboto text-xl text-center">
-                  Development
-                </h3>
-              </div>
-              <div className="flex flex-col self-start gap-4">
-                <Image
-                  src="/images/about/respectIcon.webp"
-                  className="max-w-xl"
-                  alt="Icon for respect representing a handshake"
-                  height={120}
-                  width={120}
-                />
-                <h3 className="capitalize text-white font-roboto text-xl text-center">
-                  Respect
-                </h3>
-              </div>
-              <div className="flex flex-col self-end gap-4">
-                <Image
-                  src="/images/about/careIcon.webp"
-                  className="max-w-xl"
-                  alt="Icon for respect representing two hands with a heart above both hands"
-                  height={120}
-                  width={120}
-                />
-                <h3 className="capitalize text-white font-roboto text-xl text-center">
-                  Care
-                </h3>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
         {/* End of Our Values Container */}
@@ -280,7 +324,7 @@ const AboutUs: NextPage<AboutUsProps> = ({
 
         {/* Start of Insurance Section */}
 
-        {/* Start of Insruance Section Wrapper */}
+        {/* Start of Insurance Section Wrapper */}
         <div className="w-full bg-white dark:bg-gray-800 py-28">
           <div className="max-w-screen-xl w-11/12 mx-auto">
             <h2 className="font-roboto font-bold capitalize text-4xl sm:text-5xl text-center text-gray-850 dark:text-white pb-20">
