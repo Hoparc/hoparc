@@ -1,8 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion, useInView } from "framer-motion";
 
 import client from "../apollo-client";
 import {
@@ -17,6 +16,7 @@ import {
   AllAboutsDocument,
   AboutFragment,
 } from "../graphql-operations";
+import { useRef } from "react";
 
 type AboutUsProps = {
   insurances: AllInsurancesQuery["allInsurance"];
@@ -73,10 +73,8 @@ const AboutUs: NextPage<AboutUsProps> = ({
   story,
   purpose,
 }: AboutUsProps) => {
-  const [ref, inView] = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   const variants = {
     visible: {
@@ -144,8 +142,8 @@ const AboutUs: NextPage<AboutUsProps> = ({
               </p>
               <div className="w-full mt-10">
                 <motion.div
-                  initial={{ x: -1000 }}
-                  animate={{ x: 0 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ duration: 1 }}
                 >
                   <Image
@@ -156,8 +154,8 @@ const AboutUs: NextPage<AboutUsProps> = ({
                     width={1000}
                     priority={true}
                     sizes="(max-width: 768px) 100vw,
-                  (max-width: 1200px) 50vw,
-                  33vw"
+              (max-width: 1200px) 50vw,
+              33vw"
                   />
                 </motion.div>
               </div>
@@ -169,8 +167,8 @@ const AboutUs: NextPage<AboutUsProps> = ({
               <div className="flex flex-col-reverse md:flex-col">
                 <div className="w-full mt-10 md:mb-10">
                   <motion.div
-                    initial={{ x: 1000 }}
-                    animate={{ x: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 1 }}
                   >
                     <Image
@@ -207,8 +205,8 @@ const AboutUs: NextPage<AboutUsProps> = ({
             <motion.div
               className="max-w-screen-xl m-auto w-10/12 flex flex-col items-center gap-20"
               variants={variants}
-              initial={inView ? "visible" : "hidden"}
-              animate={inView ? "visible" : "hidden"}
+              initial={isInView ? "visible" : "hidden"}
+              animate={isInView ? "visible" : "hidden"}
               exit="hidden"
             >
               <h2 className="capitalize text-white text-4xl sm:text-5xl font-roboto font-bold text-center">
