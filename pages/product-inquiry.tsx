@@ -268,7 +268,7 @@ const ProductInquiry: NextPage<ProductInquiryProps> = ({
                   Email
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   placeholder="Email"
                   className="rounded-md font-opensans bg-blue-150 border border-slate-200 px-4 py-2 outline-none hover:border-green-350 focus:border-green-350 w-full mb-2 sm:mb-0"
                   {...register("email", {
