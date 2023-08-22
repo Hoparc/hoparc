@@ -1,7 +1,6 @@
 import { Fragment, useMemo, useState } from "react";
 import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,6 +18,8 @@ import {
 import cn from "clsx";
 import { HiArrowRight } from "react-icons/hi";
 import { Listbox } from "@headlessui/react";
+
+import { NextSeo } from "next-seo";
 
 type BlogsProps = {
   blogs: AllBlogsQuery["allBlog"];
@@ -71,29 +72,52 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, categories }: BlogsProps) => {
   const filteredBlogs = useMemo(() => {
     return activeCategory
       ? blogs.filter((blog) =>
-        blog.category?.some(
-          (category) => category?.slug?.current === activeCategory
+          blog.category?.some(
+            (category) => category?.slug?.current === activeCategory
+          )
         )
-      )
       : blogs;
   }, [activeCategory, blogs]);
 
   return (
     <>
-      <Head>
-        <title>Blogs | Hands on Physiotherapy and Rehab Centre</title>
-        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-        <meta name="theme-color" content="#327CDF" />
-        <meta
-          name="description"
-          content="Blogs at Hands on Physiotherapy and Rehab Centre"
-        />
-        <meta
-          name="keywords"
-          content="blogs, hands on physio therapy and rehab centre"
-        />
-        <meta name="viewport" content="width=device-width" />
-      </Head>
+      <NextSeo
+        title="Physiotherapy Blogs - Hands on Physiotherapy and Rehab Centre"
+        description="Read our informative physiotherapy blogs."
+        canonical="https://hoparc.com/blogs"
+        openGraph={{
+          url: "https://hoparc.com/blogs",
+          title:
+            "Physiotherapy Blogs - Hands on Physiotherapy and Rehab Centre",
+          description: "Read our informative physiotherapy blogs.",
+          site_name: "Hands on Physiotherapy and Rehab Centre",
+          type: "website",
+          locale: "en_CA",
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content:
+              "physiotherapy blogs, core, therapy, pregnancy, exercise, physiotherapy, rehab centre, rehab",
+          },
+          {
+            name: "author",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+          {
+            property: "og:type",
+            content: "website",
+          },
+          {
+            property: "og:locale",
+            content: "en_CA",
+          },
+          {
+            property: "og:site_name",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+        ]}
+      />
       <section className="min-h-screen" id="blogs">
         <Image
           src="/images/blog/blogBanner.png"

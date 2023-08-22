@@ -13,32 +13,26 @@ import {
   LinkedinShareButton,
   LinkedinIcon,
 } from "react-share";
+import { NextSeo } from "next-seo";
 
 export type BlogProps = {
   product: AllProductsQuery["allProduct"][0] | undefined;
 };
 
-const siteTitle = "Hands on Physiotherapy and Rehab Centre";
-
 function Product({ product }: BlogProps) {
   const productUrl = `www.hoparc.com/product/${product?.slug?.current}`;
+  const siteTitle = "Hands on Physiotherapy and Rehab Centre";
 
   return (
     <>
-      <Head>
-        <title>{product?.name + " | " + siteTitle}</title>
-        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-        <meta name="theme-color" content="#327CDF" />
-        <meta
-          name="description"
-          content={`${product?.name} Hands on Physiotherapy and Rehab Centre`}
-        />
-        <meta
-          name="keywords"
-          content="products, hands on physio therapy and rehab centre"
-        />
-        <meta name="viewport" content="width=device-width" />
-      </Head>
+      <NextSeo
+        title={`${product?.name + " | " + siteTitle}`}
+        canonical={productUrl}
+        openGraph={{
+          url: `${productUrl}`,
+          title: `${product?.name + " | " + siteTitle}`,
+        }}
+      />
       <Image
         src="/images/products/productBanner.png"
         alt="Banner image with colored striped shapes and an image of a book in the middle"

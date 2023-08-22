@@ -17,6 +17,7 @@ import {
   AboutFragment,
 } from "../graphql-operations";
 import { useRef } from "react";
+import { NextSeo } from "next-seo";
 
 type AboutUsProps = {
   insurances: AllInsurancesQuery["allInsurance"];
@@ -95,20 +96,43 @@ const AboutUs: NextPage<AboutUsProps> = ({
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Head>
-        <title>About | Hands on Physiotherapy and Rehab Centre</title>
-        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-        <meta name="theme-color" content="#0072C6" key="theme" />
-        <meta
-          name="description"
-          content="About us page for Hands on Physiotherapy and Rehab Centre"
-        />
-        <meta
-          name="keywords"
-          content="hands on physiotherapy and rehab centre about us"
-        />
-        <meta name="viewport" content="width=device-width" />
-      </Head>
+      <NextSeo
+        title="About - Hands on Physiotherapy and Rehab Centre"
+        description="Learn more about Hands On Physiotherapy
+        Rehab Centre & Pelvic Health."
+        canonical="https://hoparc.com/about"
+        openGraph={{
+          url: "https://hoparc.com/about",
+          title: "About - Hands on Physiotherapy and Rehab Centre",
+          description: `Learn more about Hands On Physiotherapy
+          Rehab Centre & Pelvic Health.`,
+          site_name: "Hands on Physiotherapy and Rehab Centre",
+          type: "website",
+          locale: "en_CA",
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: "physiotherapy, rehab centre, rehab",
+          },
+          {
+            name: "author",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+          {
+            property: "og:type",
+            content: "website",
+          },
+          {
+            property: "og:locale",
+            content: "en_CA",
+          },
+          {
+            property: "og:site_name",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+        ]}
+      />
       <Image
         src="/images/about/aboutBanner.png"
         alt="Banner image with colored striped shapes and an image of two text chat bubbles being made out of paper in the middle"

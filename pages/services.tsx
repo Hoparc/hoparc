@@ -19,6 +19,7 @@ import {
 import cn from "clsx";
 import { HiArrowRight } from "react-icons/hi";
 import { Listbox } from "@headlessui/react";
+import { NextSeo } from "next-seo";
 
 type ServicesProps = {
   services: AllServicesQuery["allService"];
@@ -83,21 +84,43 @@ const Services: NextPage<ServicesProps> = ({
 
   return (
     <>
-      <Head>
-        <title>Services | Hands on Physiotherapy and Rehab Centre</title>
-        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-        <meta name="theme-color" content="#327CDF" />
-        <meta
-          name="description"
-          content="Services at Hands on Physiotherapy and Rehab Centre"
-        />
-        <meta
-          name="keywords"
-          content="services, hands on physio therapy and rehab centre"
-        />
-        <meta name="viewport" content="width=device-width" />
-      </Head>
-
+      <NextSeo
+        title="Physiotherapy Services - Hands on Physiotherapy and Rehab Centre"
+        description="We offer a range of services such as acupuncture, chiropractor, hot stone physiotherapy, massage therapy, pelvic health physiotherapy, physiotherapy, and thai massage."
+        canonical="https://hoparc.com/services"
+        openGraph={{
+          url: "https://hoparc.com/services",
+          title:
+            "Physiotherapy Services - Hands on Physiotherapy and Rehab Centre",
+          description: `"We offer a range of services such as acupuncture, chiropractor, hot stone physiotherapy, massage therapy, pelvic health physiotherapy, physiotherapy, and thai massage."`,
+          site_name: "Hands on Physiotherapy and Rehab Centre",
+          type: "website",
+          locale: "en_CA",
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content:
+              "physiotherapy services, acupuncture, chiropractor, hot stone physiotherapy, massage therapy, pelvic health physiotherapy, physiotherapy, thai massage rehab centre, rehab,",
+          },
+          {
+            name: "author",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+          {
+            property: "og:type",
+            content: "website",
+          },
+          {
+            property: "og:locale",
+            content: "en_CA",
+          },
+          {
+            property: "og:site_name",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+        ]}
+      />
       <section className="min-h-screen" id="services">
         <Image
           src="/images/ourServices/serviceBanner.png"
