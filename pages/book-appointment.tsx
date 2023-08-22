@@ -1,6 +1,5 @@
-import { Fragment, SetStateAction, useState } from "react";
+import { Fragment, useState } from "react";
 
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { GetStaticProps, NextPage } from "next";
@@ -25,6 +24,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { NextSeo } from "next-seo";
 
 type FormValues = {
   firstName: string;
@@ -106,22 +106,41 @@ const BookAppointment: NextPage<BookAppointmentProps> = ({
 
   return (
     <>
-      <Head>
-        <title>
-          Book Appointment | Hands on Physiotherapy and Rehab Centre
-        </title>
-        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-        <meta name="theme-color" content="#327CDF" />
-        <meta
-          name="description"
-          content="book appointment at Hands on Physiotherapy and Rehab Centre"
-        />
-        <meta
-          name="keywords"
-          content="book appointment, hands on physio therapy and rehab centre"
-        />
-        <meta name="viewport" content="width=device-width" />
-      </Head>
+      <NextSeo
+        title="Book Appointment - Hands on Physiotherapy and Rehab Centre"
+        description="Book an appointment with Hands on Physiotherapy and Rehab Centre today!"
+        canonical="https://hoparc.com/book-appointment"
+        openGraph={{
+          url: "https://hoparc.com/book-appointment",
+          description:
+            "Book an appointment with Hands on Physiotherapy and Rehab Centre today!",
+          site_name: "Hands on Physiotherapy and Rehab Centre",
+          type: "website",
+          locale: "en_CA",
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: "physiotherapy, rehab centre, rehab,",
+          },
+          {
+            name: "author",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+          {
+            property: "og:type",
+            content: "website",
+          },
+          {
+            property: "og:locale",
+            content: "en_CA",
+          },
+          {
+            property: "og:site_name",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+        ]}
+      />
       <Image
         src="/images/contact/contactBanner.png"
         alt="Banner image with colored striped shapes and an image of someone holding a phone in the middle"

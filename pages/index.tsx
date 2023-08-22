@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
-import Head from "next/head";
+;import { NextSeo } from "next-seo";
+
 
 import client from "../apollo-client";
 import {
@@ -98,24 +99,42 @@ const Home: NextPage<HomeProps> = ({
 }: HomeProps) => {
   return (
     <>
-      <Head>
-        <title>Hands on Physiotherapy and Rehab Centre</title>
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff"></meta>
-        <meta name="theme-color" content="#0072C6" key="theme" />
-        <meta
-          name="description"
-          content="physiotherapy and rehab centre located in Markham, Ontario"
-        />
-        <meta name="keywords" content="physiotherapy" />
-        <meta name="viewport" content="width=device-width" />
-      </Head>
+      <NextSeo
+        title="Hands on Physiotherapy and Rehab Centre - Markham, ON"
+        description="We are a physiotherapy and rehab centre located in Markham, Ontario."
+        canonical="https://hoparc.com/"
+        openGraph={{
+          url: "https://hoparc.com/",
+          title: "Hands on Physiotherapy and Rehab Centre",
+          description:
+            "We are a physiotherapy and rehab centre located in Markham, Ontario.",
+          site_name: "Hands on Physiotherapy and Rehab Centre",
+          type: "website",
+          locale: "en_CA",
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: "physiotherapy, rehab centre, rehab,",
+          },
+          {
+            name: "author",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+          {
+            property: "og:type",
+            content: "website",
+          },
+          {
+            property: "og:locale",
+            content: "en_CA",
+          },
+          {
+            property: "og:site_name",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+        ]}
+      />
       <section className="min-h-screen flex flex-col">
         <Hero callToAction={callToAction} url={url} />
         <WhyChooseUs />

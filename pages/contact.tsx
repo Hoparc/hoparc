@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
-import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 import client from "../apollo-client";
 import {
@@ -10,7 +10,8 @@ import {
 } from "../graphql-operations";
 
 import ContactForm from "../components/contact/ContactForm";
-import Link from "next/link";
+
+import { NextSeo } from "next-seo";
 
 export const getStaticProps: GetStaticProps = async () => {
   const { data: locationData } = await client.query<AllLocationsQuery>({
@@ -30,20 +31,42 @@ export const getStaticProps: GetStaticProps = async () => {
 const Contact: NextPage = () => {
   return (
     <div>
-      <Head>
-        <title>Contact | Hands on Physiotherapy and Rehab Centre</title>
-        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-        <meta name="theme-color" content="#327CDF" key="theme" />
-        <meta
-          name="description"
-          content="Contact page for Hands on Physiotherapy and Rehab Centre"
-        />
-        <meta
-          name="keywords"
-          content="hands on physiotherapy and rehab centre contact"
-        />
-        <meta name="viewport" content="width=device-width" />
-      </Head>
+      <NextSeo
+        title="Contact - Hands on Physiotherapy and Rehab Centre"
+        description="Get in contact with us via email or form."
+        canonical="https://hoparc.com/contact"
+        openGraph={{
+          url: "https://hoparc.com/contact",
+          title: "Contact - Hands on Physiotherapy and Rehab Centre",
+          description: "Get in contact with us via email or form.",
+          site_name: "Hands on Physiotherapy and Rehab Centre",
+          type: "website",
+          locale: "en_CA",
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: "physiotherapy, rehab centre, rehab,",
+          },
+          {
+            name: "author",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+          {
+            property: "og:type",
+            content: "website",
+          },
+          {
+            property: "og:locale",
+            content: "en_CA",
+          },
+          {
+            property: "og:site_name",
+            content: "Hands on Physiotherapy and Rehab Centre",
+          },
+        ]}
+      />
+
       <section className="min-h-screen flex flex-col" id="contact">
         <Image
           src="/images/contact/contactBanner.png"

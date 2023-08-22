@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,33 +14,27 @@ import {
   LinkedinShareButton,
   LinkedinIcon,
 } from "react-share";
+import { NextSeo } from "next-seo";
 
 export type BlogProps = {
   blog: AllBlogsQuery["allBlog"][0] | undefined;
 };
 
-const siteTitle = "Hands on Physiotherapy and Rehab Centre";
-
 function Blog({ blog }: BlogProps) {
+  const siteTitle = "Hands on Physiotherapy and Rehab Centre";
   const blogUrl = `www.hoparc.com/blog/${blog?.slug?.current}`;
 
   const date = parse(blog?.date, "yyyy-MM-dd", new Date());
   return (
     <>
-      <Head>
-        <title>{blog?.title + " | " + siteTitle}</title>
-        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-        <meta name="theme-color" content="#327CDF" />
-        <meta
-          name="description"
-          content={`${blog?.title} Hands on Physiotherapy and Rehab Centre`}
-        />
-        <meta
-          name="keywords"
-          content="blogs, hands on physio therapy and rehab centre"
-        />
-        <meta name="viewport" content="width=device-width" />
-      </Head>
+      <NextSeo
+        title={`${blog?.title + " | " + siteTitle}`}
+        canonical={blogUrl}
+        openGraph={{
+          url: `${blogUrl}`,
+          title: `${blog?.title + " | " + siteTitle}`,
+        }}
+      />
       <Image
         src="/images/blog/blogBanner.png"
         alt="Banner image with colored striped shapes and an image of a book in the middle"

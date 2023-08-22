@@ -13,32 +13,25 @@ import {
   LinkedinShareButton,
   LinkedinIcon,
 } from "react-share";
+import { NextSeo } from "next-seo";
 
 export type ServiceProps = {
   service: AllServicesQuery["allService"][0] | undefined;
 };
 
-const siteTitle = "Hands on Physiotherapy and Rehab Centre";
-
 function Service({ service }: ServiceProps) {
   const serviceUrl = `www.hoparc.com/service/${service?.slug?.current}`;
-
+  const siteTitle = "Hands on Physiotherapy and Rehab Centre";
   return (
     <>
-      <Head>
-        <title>{service?.name + " | " + siteTitle}</title>
-        <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png" />
-        <meta name="theme-color" content="#327CDF" />
-        <meta
-          name="description"
-          content={`${service?.name} Hands on Physiotherapy and Rehab Centre`}
-        />
-        <meta
-          name="keywords"
-          content="services, hands on physio therapy and rehab centre"
-        />
-        <meta name="viewport" content="width=device-width" />
-      </Head>
+      <NextSeo
+        title={`${service?.name + " | " + siteTitle}`}
+        canonical={serviceUrl}
+        openGraph={{
+          url: `${serviceUrl}`,
+          title: `${service?.name + " | " + siteTitle}`,
+        }}
+      />
       <Image
         src="/images/ourServices/serviceBanner.png"
         alt="Banner image with colored striped shapes and an image of a book in the middle"
